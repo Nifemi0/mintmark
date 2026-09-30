@@ -6,9 +6,11 @@ For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo N
 
 ![Mintmark comparing three NVIDIA token products](docs/registry-nvda.png)
 
-**Live site:** [mintmark-ecru.vercel.app](https://mintmark-ecru.vercel.app). The public deployment serves the checked catalog, exact records, evidence, history, live Ondo and bStocks company reports, and the limited wallet lookup. Binance credentials stay encrypted in the server environment and are never sent to the browser. The repository is still local. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
+**Live product:** [mintmark.nuvixes.studio](https://mintmark.nuvixes.studio) · **Source:** [github.com/Nifemi0/mintmark](https://github.com/Nifemi0/mintmark)
 
-**Data storage:** The launch catalog and public record history are versioned JSON snapshots loaded by the server. The live app will read the same checked snapshot; it will not write corrections at runtime. [Data storage and the PostgreSQL migration path](docs/DATA_STORAGE.md) explains how updates are reviewed and when persistent storage is needed.
+The production deployment serves the 1,565-record checked catalog, exact contract records, evidence, version history, live Binance-backed Ondo and bStocks company reports, and the supported wallet lookup. Binance credentials stay encrypted in Vercel and are never sent to the browser. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
+
+**Data storage:** The catalog and public record history are versioned JSON snapshots loaded by the server. Production reads the same checked snapshot and does not write corrections at runtime. [Data storage and the PostgreSQL migration path](docs/DATA_STORAGE.md) explains how updates are reviewed and when persistent storage is needed.
 
 ## Run locally
 
@@ -26,7 +28,7 @@ To refresh bStocks or enable live Binance checks, company reports, and wallet lo
 
 Run focused checks with `npm test`.
 
-## Hosting plan
+## Hosting
 
 The app is deployed on Vercel. Vercel serves `public/` as the front end and routes `/api/*` to the Node handler in Cape Town (`cpt1`). The included JSON snapshot is bundled with that handler. The public site shows the catalog, exact records, evidence, and history without a database account. Company reports, live Binance cross-checks, and wallet lookup use `OC_API_KEY` and `OC_SECRET_KEY` stored as encrypted production variables. The earlier Washington, D.C. deployment and the tested US VPS returned Binance code `40304`; Cape Town returns successful live data. Local `.env.local` is excluded from the deployed bundle, and the production build was checked for private-key matches before upload.
 
@@ -43,7 +45,7 @@ Wallet lookup is read-only. It sends the entered address to the server and Binan
 
 Each record includes expandable claim evidence and a public version history saved in `data/registry-history.json`. A version is added only when a tracked identity field changes during `npm run sync`, or the token leaves or returns to the curated catalog. The current first versions are an initial baseline, not a claim of historical issuer changes. A catalog removal does not prove issuer retirement. Unresolved Binance identity conflicts remain visible.
 
-For the submission demo, NVIDIA and TSLA each have three separate provider records. AAPL currently has two: Ondo and xStocks; the checked bStocks BSC list has no AAPL row. The legal-document links lead to each provider's documentation hub; individual final terms may need to be opened there. The pre-deadline submission scope and post-deadline backlog are in [BUILD_PLAN.md](./BUILD_PLAN.md).
+For the submission demo, NVIDIA and TSLA each have three separate provider records. AAPL currently has two: Ondo and xStocks; the checked bStocks BSC list has no AAPL row. The legal-document links lead to each provider's documentation hub; individual final terms may need to be opened there. The current submission scope and later backlog are in [BUILD_PLAN.md](./BUILD_PLAN.md).
 
 ## Sources
 
