@@ -1,0 +1,21 @@
+# Mintmark testing status
+
+Checked 30 September 2026. This file describes the local build; it is not evidence of a public deployment.
+
+| Check | Status | Evidence and limit |
+| --- | --- | --- |
+| Automated tests | Pass | `npm test`: 20 passing, 0 failing. Identity, catalog coverage, Binance signing/retry, reports, wallet matching, and history are covered. |
+| Clean copy without credentials | Pass | Copied distributable files to a new directory, ran `npm test` and `npm run check:release`, then started the app without `.env.local` on port 4174. NVDA returned Ondo, bStocks, and xStocks records; xStocks returned an explicit identity-only report. |
+| BSC contract identity | Pass at snapshot time | `npm run sync` checked bytecode and ERC-20 name/symbol for the 1,565 contracts in `data/catalog.json`. This does not verify offchain backing or legal rights. |
+| Priority searches | Pass | NVIDIA and TSLA each show three provider contracts; AAPL shows Ondo and xStocks. Each visible row links its exact contract and provider legal-document hub. |
+| Live Binance RWA reports | Pass with configured credentials | Exact-contract reports returned company and market data for sampled Ondo and bStocks records. A temporary HTTP 429 was observed and bounded retry added. These reports are not exchange quotes or independent custody checks. |
+| xStocks detailed reports | Unavailable by design | Mintmark has not verified a matching company/market/price source for exact xStocks contracts. The UI states this instead of borrowing another provider's data. |
+| Wallet lookup | Limited | Read-only lookup checks 24 enabled Ondo BSC contracts. It does not scan every wallet token or every registry contract. |
+| Desktop and mobile browser flow | Pass | Headless Chromium verified NVDA (3 rows), TSLA (3), and AAPL (2), legal links and record dialogs at 1440px and 390px. No page errors or horizontal overflow were observed. |
+| Private credentials in distributable text | Pass | `.env.example` contains placeholders; `npm run check:release` found no configured private credential values in distributable text files. `.env.local` is ignored. |
+| Public repository | Pending | A local standalone repository is being prepared; no public URL is claimed here. |
+| Public demo | Pending | The app currently runs at `http://localhost:4173/` in the builder's workspace. |
+| Demo video | On hold | The user asked to finish and confirm the features before video work. The event lists video as strongly recommended but optional. |
+| Developer experience report | Builder action pending | Factual engineering notes are in `DEV_EXPERIENCE_NOTES.md`. The final report must be written by the builder in their own words. |
+
+The [official BNB Hack brief](https://www.bnbchain.org/en/hackathons/tokenized-stocks) requires a public repository and a deployed link or reproducible judge instructions. The submission window closes 11 October 2026 at 12:00 UTC.

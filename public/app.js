@@ -1,0 +1,437 @@
+const grid = document.querySelector('#record-grid');
+const directoryQuery = document.querySelector('#directory-query');
+const heroQuery = document.querySelector('#hero-query');
+const searchMessage = document.querySelector('#search-message');
+const apiStatus = document.querySelector('#api-status');
+const snapshotStatus = document.querySelector('#snapshot-status');
+const recordPlaceholder = document.querySelector('#record-placeholder');
+const recordContent = document.querySelector('#record-content');
+const recordDialog = document.querySelector('#record');
+const categoryGrid = document.querySelector('#category-grid');
+const providerComparison = document.querySelector('#provider-comparison');
+const loadMore = document.querySelector('#load-more');
+const walletForm = document.querySelector('#wallet-form');
+const walletAddress = document.querySelector('#wallet-address');
+const walletResult = document.querySelector('#wallet-result');
+let allRecords = [];
+let selectedKey = null;
+let selectedCategory = 'All';
+let visibleLimit = 9;
+let currentResults = [];
+let lastQuery = '';
+let requestId = 0;
+let walletRequestId = 0;
+let recordRequestId = 0;
+const categoryOrder = ['ondo', 'bstock', 'xstock'];
+const providerLabels = { ondo: 'Ondo', bstock: 'bStocks', xstock: 'xStocks' };
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+}
+
+function shortAddress(value) {
+  return `${value.slice(0, 8)}…${value.slice(-6)}`;
+}
+
+function logoContent(ticker, logoUrl = '') {
+  const fallback = safeLogo(logoUrl);
+  return `<span class="stock-logo-fallback">${escapeHtml(ticker[0] || '?')}</span><img class="stock-logo" src="/logos/${encodeURIComponent(ticker)}" data-fallback-src="${escapeHtml(fallback || '')}" alt="" loading="lazy">`;
+}
+
+function logoHtml(ticker, className = '', logoUrl = '') {
+  return `<span class="stock-badge ${className}" aria-hidden="true">${logoContent(ticker, logoUrl)}</span>`;
+}
+
+function safeLogo(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && ['cdn.ondo.finance', 'onchainos.bnbstatic.com', 'xstocks-metadata.backed.fi'].includes(url.hostname) ? url.href : null;
+  } catch { return null; }
+}
+
+document.addEventListener('error', (event) => {
+  if (event.target instanceof HTMLImageElement && event.target.classList.contains('stock-logo')) {
+    const fallback = event.target.dataset.fallbackSrc;
+    if (fallback) {
+      event.target.dataset.fallbackSrc = '';
+      event.target.src = fallback;
+    } else event.target.remove();
+  }
+}, true);
+
+function dateLabel(value) {
+  const date = new Date(value);
+  return Number.isNaN(date.valueOf()) ? 'date unavailable' : date.toLocaleString(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+
+function safeLink(url) {
+  try { return new URL(url).protocol === 'https:' ? url : null; } catch { return null; }
+}
+
+function kindLabel(kind) {
+  return ({ onchain_observed: 'Onchain observed', issuer_published: 'Issuer published', third_party_reported: 'Third-party report', unverified: 'Unverified' })[kind] || 'Unknown';
+}
+
+function money(value, compact = false) {
+  const number = Number(value);
+  if (value == null || !Number.isFinite(number)) return 'Not available';
+  return new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: compact ? 2 : 2, notation: compact ? 'compact' : 'standard' }).format(number);
+}
+
+function quantity(value) {
+  const number = Number(value);
+  return value == null || !Number.isFinite(number) ? 'Not available' : new Intl.NumberFormat(undefined, { notation: 'compact', maximumFractionDigits: 1 }).format(number);
+}
+
+function tokenBalance(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return String(value);
+  return new Intl.NumberFormat(undefined, { maximumFractionDigits: 6 }).format(number);
+}
+
+function renderWallet(wallet) {
+  const holdings = wallet.supported ?? [];
+  const source = safeLink(wallet.sourceUrl);
+  const cards = holdings.map((holding) => `<button type="button" class="wallet-holding" data-wallet-key="${escapeHtml(holding.key)}" aria-label="Open ${escapeHtml(holding.companyName)} record">${logoHtml(holding.underlyingTicker, 'wallet-holding-mark')}<span><strong>${escapeHtml(holding.companyName)}</strong><small>${escapeHtml(holding.tokenSymbol)} · ${escapeHtml(shortAddress(holding.contractAddress))}</small></span><span class="wallet-holding-balance">${escapeHtml(tokenBalance(holding.balance))}<small>tokens held</small></span><span aria-hidden="true">↗</span></button>`).join('');
+  return `<div class="wallet-result-head"><div><strong>${holdings.length ? `${holdings.length} supported holding${holdings.length === 1 ? '' : 's'} found` : 'No supported holdings found'}</strong><p>${escapeHtml(shortAddress(wallet.address))} · checked ${escapeHtml(dateLabel(wallet.observedAt))}</p></div><span>BNB Smart Chain</span></div>
+    ${cards || '<p class="wallet-empty">This address has no positive balance in the 24 contracts Mintmark currently checks. It may hold other assets; this lookup does not scan them.</p>'}
+    <p class="wallet-note">Matched by exact BSC contract address, not symbol. Balances are third-party reported and may change. Other wallet tokens are not scanned or identified.${source ? ` <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Wallet API source ↗</a>` : ''}</p>`;
+}
+
+async function lookupWallet(address) {
+  const current = ++walletRequestId;
+  if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+    walletResult.innerHTML = '<div class="wallet-error">Enter a complete 0x BSC wallet address.</div>';
+    return;
+  }
+  walletResult.innerHTML = '<div class="report-loading">Checking supported BSC contracts…</div>';
+  try {
+    const response = await fetch(`/api/wallet?address=${encodeURIComponent(address)}`);
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || 'Wallet lookup failed');
+    if (current === walletRequestId) walletResult.innerHTML = renderWallet(payload.wallet);
+  } catch (error) {
+    if (current === walletRequestId) walletResult.innerHTML = `<div class="wallet-error">Wallet lookup unavailable: ${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function reportSource(source) {
+  const link = safeLink(source.sourceUrl);
+  return `<span class="report-source">${escapeHtml(kindLabel(source.sourceKind))} · retrieved ${escapeHtml(dateLabel(source.retrievedAt))}${link ? ` · <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Data source ↗</a>` : ''}</span>`;
+}
+
+function tokenChart(movement) {
+  const points = movement.points ?? [];
+  if (points.length < 2) return '<p class="report-unavailable">Token price history is not available yet.</p>';
+  const prices = points.map((point) => point.close);
+  const min = Math.min(...prices), max = Math.max(...prices);
+  const padding = Math.max((max - min) * .12, min * .005);
+  const low = min - padding, high = max + padding;
+  const coordinates = points.map((point, index) => `${(index / (points.length - 1) * 640).toFixed(1)},${(160 - (point.close - low) / (high - low) * 150).toFixed(1)}`).join(' ');
+  const change = movement.changePct;
+  const changeLabel = change == null ? 'Movement unavailable' : `${change >= 0 ? '+' : ''}${change.toFixed(2)}% across ${points.length} daily closes`;
+  return `<div class="chart-head"><strong>${escapeHtml(money(movement.lastClose))}</strong><span class="${change >= 0 ? 'positive' : 'negative'}">${escapeHtml(changeLabel)}</span></div><svg class="price-chart" viewBox="0 0 640 170" role="img" aria-label="BSC token daily closing prices from ${escapeHtml(dateLabel(movement.firstAt))} to ${escapeHtml(dateLabel(movement.lastAt))}"><line x1="0" y1="160" x2="640" y2="160"/><line x1="0" y1="85" x2="640" y2="85"/><line x1="0" y1="10" x2="640" y2="10"/><polyline points="${coordinates}"/></svg><div class="chart-dates"><span>${escapeHtml(dateLabel(movement.firstAt))}</span><span>${escapeHtml(dateLabel(movement.lastAt))}</span></div>`;
+}
+
+function renderCompanyReport(report) {
+  const company = report.company, market = report.underlyingMarket, movement = report.tokenMovement;
+  if (report.availability === 'identity_only') {
+    return `<div class="report-title"><div><p class="eyebrow">Public company data</p><h4>Detailed report unavailable</h4><p>${escapeHtml(company.name)} is identified by its xStocks listing and exact BSC contract. Mintmark has not verified a matching company profile, market feed, or token price history for this product.</p></div></div><div class="report-unavailable">Company and market figures are unavailable for this exact xStocks contract. The provider asset listing and legal documents remain linked in the record above.${reportSource(company)}</div>`;
+  }
+  const website = safeLink(company.website);
+  return `<div class="report-title"><div><p class="eyebrow">Public company data</p><h4>Company report</h4><p>Learn about the underlying business, then compare market data with the token record above.</p></div><span class="report-industry">${escapeHtml(company.industry || 'Industry unavailable')}</span></div>
+    <div class="report-company"><div><span class="report-label">The business</span><div class="report-company-name">${logoHtml(company.ticker, 'report-company-mark')}<h5>${escapeHtml(company.name)}</h5></div><p>${escapeHtml(company.description || 'A sourced company description is not available.')}</p>${website ? `<a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">Company website ↗</a>` : ''}</div>${reportSource(company)}</div>
+    <div class="report-market"><div class="report-subhead"><div><span class="report-label">Underlying share data</span><h5>Market snapshot</h5></div><p>Reference price is derived by the provider from the token price. It is not an official exchange quote.</p></div><div class="metric-grid">
+      <div class="metric"><span>Reference price</span><strong>${escapeHtml(money(market.referencePrice))}</strong></div>
+      <div class="metric"><span>Market cap</span><strong>${escapeHtml(money(market.marketCap, true))}</strong></div>
+      <div class="metric"><span>52-week range</span><strong>${escapeHtml(money(market.low52W))} – ${escapeHtml(money(market.high52W))}</strong></div>
+      <div class="metric"><span>Share volume, 24h</span><strong>${escapeHtml(quantity(market.volumeShares24H))}</strong></div>
+      <div class="metric"><span>P/E, trailing 12 months</span><strong>${escapeHtml(market.peRatioTTM || 'Not available')}</strong></div>
+      <div class="metric"><span>Price / book</span><strong>${escapeHtml(market.pbRatio || 'Not available')}</strong></div>
+      <div class="metric"><span>Dividend yield</span><strong>${escapeHtml(market.dividendYield != null ? `${market.dividendYield}%` : 'Not available')}</strong></div>
+      <div class="metric"><span>Latest dividend</span><strong>${escapeHtml(money(market.latestDividend))}</strong></div>
+    </div>${reportSource(market)}</div>
+    <div class="report-token"><div class="report-subhead"><div><span class="report-label">BSC token price</span><h5>30-day movement</h5></div><p>${escapeHtml(movement.description)}</p></div>${tokenChart(movement)}${reportSource(movement)}</div>`;
+}
+
+async function loadCompanyReport(key) {
+  const target = document.querySelector('#company-report');
+  try {
+    const response = await fetch(`/api/report?key=${encodeURIComponent(key)}`);
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || 'Company report is unavailable');
+    if (selectedKey === key) target.innerHTML = renderCompanyReport(payload.report);
+  } catch (error) {
+    if (selectedKey === key) target.innerHTML = `<div class="report-error">Company report unavailable: ${escapeHtml(error.message)}</div>`;
+  }
+}
+
+function renderFeatured() {
+  const record = allRecords.find((item) => item.underlyingTicker === 'AAPL' && item.platformId === 'ondo') || allRecords[0];
+  if (!record) return;
+  document.querySelector('#featured-contract').textContent = shortAddress(record.contractAddress);
+  document.querySelector('#featured-company').textContent = record.companyName;
+  document.querySelector('#featured-ticker').textContent = `UNDERLYING · ${record.underlyingTicker}`;
+  document.querySelector('#featured-symbol').textContent = record.symbol;
+  document.querySelector('#featured-issuer').textContent = `BNB CHAIN · ${record.issuer}`;
+  document.querySelector('#featured-mark').innerHTML = logoContent(record.underlyingTicker, record.logoUrl);
+}
+
+function renderStatus(payload) {
+  snapshotStatus.textContent = `${payload.total} BSC records · 3 providers · checked ${dateLabel(payload.snapshotAt)}`;
+  const binance = payload.binance;
+  apiStatus.className = 'api-status';
+  if (binance.state === 'checked') {
+    apiStatus.textContent = `Ondo, bStocks and xStocks contracts checked on BSC. Ondo identities cross-checked with Binance ${dateLabel(binance.observedAt)}. Open a record for its source.`;
+  } else if (binance.state === 'not_configured') {
+    apiStatus.classList.add('warning');
+    apiStatus.textContent = 'Ondo, bStocks and xStocks contracts checked on BSC. Live Binance cross-check is pending developer credentials.';
+  } else {
+    apiStatus.classList.add('error');
+    apiStatus.textContent = `Provider and BSC records are available. Live Binance cross-check failed: ${binance.detail}`;
+  }
+}
+
+function renderCategories() {
+  categoryGrid.innerHTML = categoryOrder.map((category) => {
+    const matches = allRecords.filter((record) => record.platformId === category);
+    if (!matches.length) return '';
+    const examples = ['NVDA', 'TSLA', 'AAPL'].map((ticker) => matches.find((record) => record.underlyingTicker === ticker)).filter(Boolean).slice(0, 2).map((record) => record.companyName).join(' · ');
+    return `<button type="button" class="category-card${selectedCategory === category ? ' active' : ''}" data-category="${escapeHtml(category)}" aria-pressed="${selectedCategory === category}"><span class="category-top"><strong>${escapeHtml(providerLabels[category])}</strong><span aria-hidden="true">↗</span></span><span class="category-examples">${escapeHtml(examples)}</span><small>${matches.length} checked contracts</small></button>`;
+  }).join('');
+}
+
+function renderComparison(records, query) {
+  const tickers = new Set(records.map((record) => record.underlyingTicker));
+  if (!query || selectedCategory !== 'All' || records.length < 2 || tickers.size !== 1) {
+    providerComparison.hidden = true;
+    providerComparison.innerHTML = '';
+    return;
+  }
+  const ticker = records[0].underlyingTicker;
+  const providers = new Set(records.map((record) => record.platformId));
+  providerComparison.hidden = false;
+  providerComparison.innerHTML = `<div class="comparison-heading"><div><p class="eyebrow">Provider comparison</p><h3>${escapeHtml(ticker)} has ${records.length} BSC token product${records.length === 1 ? '' : 's'}</h3><p>Each row is a separate token. Compare its issuer, exact contract, and legal documents before opening the full record.</p></div><span>${providers.size} provider${providers.size === 1 ? '' : 's'}</span></div>
+    <div class="comparison-list">${records.map((record) => {
+      const terms = safeLink(record.issuerTermsUrl);
+      const explorer = `https://bscscan.com/token/${record.contractAddress}`;
+      return `<div class="comparison-row"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><div class="comparison-token"><strong>${escapeHtml(record.symbol)}</strong><small>Token symbol</small></div><div class="comparison-contract"><span>Exact BSC contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer">${escapeHtml(record.contractAddress)} ↗</a></div><div class="comparison-actions">${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents ↗</a>` : '<span>Documents unavailable</span>'}<button type="button" data-compare-key="${escapeHtml(record.key)}">Open record ↗</button></div></div>`;
+    }).join('')}</div>`;
+}
+
+function renderCards(records, query) {
+  if (!query && selectedCategory === 'All') {
+    const examples = [
+      records.find((record) => record.platformId === 'ondo' && record.underlyingTicker === 'AAPL'),
+      records.find((record) => record.platformId === 'bstock' && record.underlyingTicker === 'NVDA'),
+      records.find((record) => record.platformId === 'xstock' && record.underlyingTicker === 'NVDA'),
+    ].filter(Boolean);
+    const featuredKeys = new Set(examples.map((record) => record.key));
+    records = [...examples, ...records.filter((record) => !featuredKeys.has(record.key))];
+  }
+  currentResults = records;
+  lastQuery = query;
+  renderComparison(records, query);
+  const scope = selectedCategory === 'All' ? 'the full catalog' : providerLabels[selectedCategory];
+  searchMessage.textContent = query
+    ? `${records.length} record${records.length === 1 ? '' : 's'} for “${query}” in ${scope}`
+    : `Showing ${Math.min(records.length, visibleLimit)} of ${records.length} checked records in ${scope}`;
+  if (!records.length) {
+    const contract = query.trim().toLowerCase().startsWith('0x');
+    grid.innerHTML = `<div class="empty-card"><strong>${contract ? 'No exact contract match.' : 'No matching record.'}</strong><p>${contract ? 'This BSC contract is not in Mintmark’s checked catalog. Browse companies above or try another exact address.' : 'Try a company or fund name, ticker, or another browse category.'}</p></div>`;
+    loadMore.hidden = true;
+    return;
+  }
+  grid.innerHTML = records.slice(0, visibleLimit).map((record) => `<button class="record-card${record.key === selectedKey ? ' active' : ''}" type="button" data-key="${escapeHtml(record.key)}" aria-label="Open ${escapeHtml(record.symbol)} record for ${escapeHtml(record.companyName)}">
+    <span class="card-top">${logoHtml(record.underlyingTicker, 'ticker-mark', record.logoUrl)}<span class="card-arrow">↗</span></span>
+    <span class="card-company">${escapeHtml(record.companyName)}</span><span class="card-symbol">${escapeHtml(record.symbol)} · ${escapeHtml(record.underlyingTicker)}</span>
+    <span class="card-foot"><span>${escapeHtml(record.providerName)} · ${escapeHtml(record.category)}</span><span>${escapeHtml(shortAddress(record.contractAddress))}</span></span>
+  </button>`).join('');
+  loadMore.hidden = records.length <= visibleLimit;
+  loadMore.textContent = `Show ${Math.min(9, records.length - visibleLimit)} more stocks ↓`;
+}
+
+async function loadRecords(query = '') {
+  const current = ++requestId;
+  try {
+    const response = await fetch(`/api/records?q=${encodeURIComponent(query)}`);
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || 'Registry request failed');
+    if (current !== requestId) return;
+    if (!query) {
+      allRecords = payload.records;
+      renderCategories();
+    }
+    renderStatus(payload);
+    visibleLimit = 9;
+    renderCards(payload.records.filter((record) => selectedCategory === 'All' || record.platformId === selectedCategory), query);
+    if (!query) renderFeatured();
+  } catch (error) {
+    if (current !== requestId) return;
+    providerComparison.hidden = true;
+    grid.innerHTML = `<div class="empty-card"><strong>Registry unavailable.</strong><p>${escapeHtml(error.message)}</p></div>`;
+    searchMessage.textContent = '';
+  }
+}
+
+function evidenceHtml(item) {
+  const source = safeLink(item.sourceUrl);
+  const link = source ? `<a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Open ${escapeHtml(item.sourceLabel)} ↗</a>` : `<span>${escapeHtml(item.sourceLabel)}</span>`;
+  const explanation = {
+    onchain_observed: 'Read from the BSC contract at check time. This does not establish share backing or legal rights.',
+    issuer_published: 'Published by the issuer. Mintmark links the statement but does not independently verify offchain backing.',
+    third_party_reported: 'Reported by an external data provider and shown with its source and retrieval time.',
+    unverified: 'Mintmark has not verified this claim with an external source.',
+  }[item.kind] ?? 'Evidence details are unavailable.';
+  return `<details class="evidence-row"><summary><span class="evidence-kind ${escapeHtml(item.kind)}">${escapeHtml(kindLabel(item.kind))}</span><span class="evidence-claim"><strong>${escapeHtml(item.value)}</strong><small>${escapeHtml(item.field)} · checked ${escapeHtml(dateLabel(item.observedAt))}</small></span><span class="evidence-expand" aria-hidden="true">+</span></summary><div class="evidence-detail"><p>${escapeHtml(explanation)}</p>${link}</div></details>`;
+}
+
+function renderRecordHistory(payload) {
+  const latest = payload.entries.at(-1);
+  const items = [...payload.entries].reverse().map((entry) => {
+    const source = safeLink(entry.sourceUrl);
+    const changes = entry.kind === 'added'
+      ? '<p>First checked registry snapshot for this exact contract.</p>'
+      : entry.kind === 'removed_from_catalog'
+        ? '<p>Removed from the current curated catalog. This does not prove the issuer retired the token.</p>'
+        : entry.changes.length
+          ? `<ul>${entry.changes.map((change) => `<li><strong>${escapeHtml(change.field)}</strong>: ${escapeHtml(change.from ?? 'not listed')} → ${escapeHtml(change.to ?? 'not listed')}</li>`).join('')}</ul>`
+          : '<p>Returned to the curated catalog.</p>';
+    return `<div class="history-entry"><div><strong>Version ${escapeHtml(entry.version)} · ${escapeHtml(entry.kind.replaceAll('_', ' '))}</strong><span>${escapeHtml(dateLabel(entry.observedAt))}</span></div>${changes}<small>${escapeHtml(entry.reviewMethod)}${source ? ` · <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Source ↗</a>` : ''}</small></div>`;
+  }).join('');
+  return `<div class="history-title"><div><p class="eyebrow">Public record history</p><h4>What changed in this record</h4></div><span>Current version ${escapeHtml(latest?.version ?? '—')}</span></div>${payload.unresolved.map((item) => `<div class="history-unresolved">Unresolved ${escapeHtml(item.source)} difference: ${escapeHtml(item.detail)}</div>`).join('')}<div class="history-entries">${items}</div>`;
+}
+
+async function loadRecordHistory(key) {
+  const target = document.querySelector('#record-history');
+  try {
+    const response = await fetch(`/api/history?key=${encodeURIComponent(key)}`);
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || 'Record history is unavailable');
+    if (selectedKey === key) target.innerHTML = renderRecordHistory(payload);
+  } catch (error) {
+    if (selectedKey === key) target.innerHTML = `<div class="report-error">Record history unavailable: ${escapeHtml(error.message)}</div>`;
+  }
+}
+
+async function openRecord(key) {
+  const current = ++recordRequestId;
+  recordPlaceholder.querySelector('p').textContent = 'Loading the exact token record…';
+  recordPlaceholder.hidden = false;
+  recordContent.hidden = true;
+  if (!recordDialog.open) recordDialog.showModal();
+  recordDialog.scrollTop = 0;
+  try {
+    const response = await fetch(`/api/record?key=${encodeURIComponent(key)}`);
+    const payload = await response.json();
+    if (current !== recordRequestId || !recordDialog.open) return;
+    if (!response.ok) throw new Error(payload.error || 'Could not open record');
+    const record = payload.record;
+    selectedKey = record.key;
+    const sourceUrl = safeLink(record.issuerAssetUrl);
+    const explorerUrl = safeLink(record.explorerUrl);
+    recordContent.innerHTML = `<div class="detail-head"><div><p class="eyebrow">${escapeHtml(providerLabels[record.platformId] || record.platformId)} · ${escapeHtml(record.symbol)} · BNB Smart Chain · version ${escapeHtml(record.recordVersion ?? 1)}</p><h3>${escapeHtml(record.companyName)}</h3><p>Exact identity: ${escapeHtml(record.key)}</p></div>${logoHtml(record.underlyingTicker, 'detail-mark', record.logoUrl)}</div>
+      <div class="detail-body"><div class="identity-facts">
+        <div class="fact"><label>Token symbol</label><strong>${escapeHtml(record.symbol)}</strong></div>
+        <div class="fact"><label>Underlying ticker</label><strong>${escapeHtml(record.underlyingTicker)}</strong></div>
+        ${record.platformId === 'xstock' ? `<div class="fact"><label>xStocks catalog status</label><strong>${record.tradingHalted ? 'Marked trading halted' : 'Not marked halted'}</strong></div>` : ''}
+        <div class="fact"><label>Provider</label><strong>${escapeHtml(providerLabels[record.platformId] || record.platformId)}</strong></div>
+        <div class="fact"><label>Issuer</label><strong>${escapeHtml(record.issuer)}</strong>${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Asset page ↗</a>` : ''}${safeLink(record.issuerTermsUrl) ? `<a href="${escapeHtml(record.issuerTermsUrl)}" target="_blank" rel="noopener noreferrer">Legal documents ↗</a>` : ''}</div>
+        <div class="fact"><label>Chain</label><strong>BNB Smart Chain · 56</strong></div>
+        <div class="fact"><label>Exact contract</label><code>${escapeHtml(record.contractAddress)}</code>${explorerUrl ? `<a href="${escapeHtml(explorerUrl)}" target="_blank" rel="noopener noreferrer">Open BscScan ↗</a>` : ''}</div>
+        <div class="fact"><label>Last checked</label><strong>${escapeHtml(dateLabel(record.observedAt))}</strong></div>
+      </div><div class="evidence-panel"><h4>Evidence for this record</h4><p>Open a claim to see its source and limits. An issuer publication and an onchain observation answer different questions.</p>${record.evidence.map(evidenceHtml).join('')}</div></div>
+      ${record.sourceConflict ? `<div class="cross-check conflict"><strong>Provider listing and onchain name differ</strong><p>${escapeHtml(record.sourceConflict)}</p><small>Compare the provider listing and BSC contract evidence above.</small></div>` : ''}
+      ${record.binanceCheck ? `<div class="cross-check ${escapeHtml(record.binanceCheck.state)}"><strong>Binance RWA cross-check · ${escapeHtml(record.binanceCheck.state.replace('_', ' '))}</strong><p>${escapeHtml(record.binanceCheck.detail)}</p><small>Third-party reported · checked ${escapeHtml(dateLabel(record.binanceCheck.observedAt))} · <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data" target="_blank" rel="noopener noreferrer">API source and field definitions ↗</a></small></div>` : ''}
+      <section id="record-history" class="record-history" aria-label="Record history"><div class="report-loading">Loading record history…</div></section>
+      <section id="company-report" class="company-report" aria-label="Company report"><div class="report-loading">Loading sourced company and market data…</div></section>`;
+    recordPlaceholder.hidden = true;
+    recordContent.hidden = false;
+    document.querySelectorAll('.record-card').forEach((card) => card.classList.toggle('active', card.dataset.key === key));
+    history.replaceState(null, '', `?record=${encodeURIComponent(record.key)}#record`);
+    loadRecordHistory(record.key);
+    loadCompanyReport(record.key);
+  } catch (error) {
+    if (current !== recordRequestId || !recordDialog.open) return;
+    recordPlaceholder.hidden = false;
+    recordContent.hidden = true;
+    recordPlaceholder.querySelector('p').textContent = error.message;
+  }
+}
+
+document.querySelector('#record-close').addEventListener('click', () => recordDialog.close());
+recordDialog.addEventListener('close', () => {
+  recordRequestId++;
+  selectedKey = null;
+  document.querySelectorAll('.record-card').forEach((card) => card.classList.remove('active'));
+  const url = new URL(location.href);
+  url.searchParams.delete('record');
+  url.hash = '';
+  history.replaceState(null, '', `${url.pathname}${url.search}`);
+});
+
+grid.addEventListener('click', (event) => {
+  const card = event.target.closest('[data-key]');
+  if (card) openRecord(card.dataset.key);
+});
+
+providerComparison.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-compare-key]');
+  if (button) openRecord(button.dataset.compareKey);
+});
+
+walletForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  lookupWallet(walletAddress.value.trim());
+});
+
+document.querySelector('#wallet-example').addEventListener('click', () => {
+  walletAddress.value = '0x73d8bd54f7cf5fab43fe4ef40a62d390644946db';
+  lookupWallet(walletAddress.value);
+});
+
+walletResult.addEventListener('click', (event) => {
+  const holding = event.target.closest('[data-wallet-key]');
+  if (holding) openRecord(holding.dataset.walletKey);
+});
+
+categoryGrid.addEventListener('click', async (event) => {
+  const card = event.target.closest('[data-category]');
+  if (!card) return;
+  selectedCategory = card.dataset.category;
+  renderCategories();
+  await loadRecords(directoryQuery.value.trim());
+  document.querySelector('#record-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.querySelector('#browse-all').addEventListener('click', async () => {
+  selectedCategory = 'All';
+  directoryQuery.value = '';
+  heroQuery.value = '';
+  await loadRecords();
+  document.querySelector('#record-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+loadMore.addEventListener('click', () => {
+  visibleLimit += 9;
+  renderCards(currentResults, lastQuery);
+});
+
+document.querySelector('#hero-search').addEventListener('submit', (event) => {
+  event.preventDefault();
+  selectedCategory = 'All';
+  renderCategories();
+  directoryQuery.value = heroQuery.value.trim();
+  loadRecords(directoryQuery.value);
+  document.querySelector('#registry').scrollIntoView({ behavior: 'smooth' });
+});
+
+let searchTimer;
+directoryQuery.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => loadRecords(directoryQuery.value.trim()), 180);
+});
+
+await loadRecords();
+const directKey = new URLSearchParams(location.search).get('record');
+if (directKey) await openRecord(directKey);

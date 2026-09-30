@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111a18">
+  <meta name="description" content="Mintmark shows the sources behind exact tokenized-stock identities on BNB Smart Chain.">
+  <title>Mintmark — Every token has a paper trail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="dark-shell">
+    <header class="site-header wrap">
+      <a class="brand" href="/" aria-label="Mintmark home"><span class="brand-icon"><i></i></span><span>mintmark</span></a>
+      <nav aria-label="Main navigation"><a href="#registry">Registry</a><a href="#wallet">Wallet lookup</a><a href="#how-it-works">Method</a></nav>
+      <a class="header-action" href="#registry">Explore records <span aria-hidden="true">↗</span></a>
+    </header>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="overline"><span></span>THE IDENTITY LAYER FOR TOKENIZED STOCKS</p>
+        <h1>Every token has a <em>paper trail.</em></h1>
+        <p class="hero-description">Start with a company, fund, or ticker. Mintmark finds the token, then shows its exact BSC contract and the source behind each claim.</p>
+        <form id="hero-search" class="hero-search" role="search">
+          <label class="visually-hidden" for="hero-query">Search a company, fund, ticker, or BSC contract</label>
+          <span aria-hidden="true">⌕</span><input id="hero-query" type="search" autocomplete="off" placeholder="Company, fund, ticker, or 0x contract" maxlength="120"><button type="submit">Search ↗</button>
+        </form>
+        <p class="hero-note">No ticker in mind? <a href="#browse">Browse the catalog ↓</a></p>
+      </div>
+      <div class="hero-product" aria-label="Preview of a real Mintmark asset record">
+        <div class="product-back"><span>EXACT TOKEN IDENTITY</span><strong id="featured-contract">Loading contract…</strong><small>BNB SMART CHAIN · CHAIN 56</small></div>
+        <div class="product-sheet">
+          <div class="sheet-top"><span><i></i> mintmark / asset record</span><span>LIVE REGISTRY</span></div>
+          <div class="sheet-company"><div class="company-mark stock-badge" id="featured-mark">A</div><div><strong id="featured-company">Loading asset…</strong><small id="featured-ticker">BSC TOKENIZED STOCK</small></div></div>
+          <div class="sheet-record"><span>ISSUER RECORD</span><strong id="featured-symbol">—</strong><small id="featured-issuer">—</small></div>
+          <div class="sheet-bottom"><span>EXACT CONTRACT · SOURCE-LINKED CLAIMS</span><a href="#registry">OPEN REGISTRY ↗</a></div>
+        </div>
+      </div>
+    </section>
+    <div class="dark-foot wrap"><span>THE SOURCE MATTERS AS MUCH AS THE SYMBOL</span><a href="#registry">SCROLL TO THE REGISTRY ↓</a></div>
+  </div>
+
+  <main>
+    <section id="registry" class="registry-section wrap" aria-labelledby="registry-title">
+      <div class="section-heading"><div><p class="eyebrow">The registry</p><h2 id="registry-title">Discover the stock. Verify the token.</h2><p>One place to compare Ondo, bStocks, and xStocks on BNB Chain. Search a company or ticker to see each provider's distinct token and contract.</p></div><div id="snapshot-status" class="snapshot-status" role="status">Loading checked records…</div></div>
+      <div id="api-status" class="api-status" role="status"></div>
+      <div id="browse" class="browse-heading"><div><span>Browse providers</span><p>Explore separate products from three tokenized-stock providers.</p></div><button id="browse-all" type="button">View full catalog ↗</button></div>
+      <div id="category-grid" class="category-grid" aria-label="Browse token providers"></div>
+      <div class="search-toolbar"><div class="search-field"><span aria-hidden="true">⌕</span><label class="visually-hidden" for="directory-query">Search companies, funds, tickers, or exact contracts</label><input id="directory-query" type="search" autocomplete="off" placeholder="Try “NVIDIA”, “Airbnb”, “SPY”, or a contract" maxlength="120"></div><span class="chain-tag">● BNB Smart Chain</span></div>
+      <div id="search-message" class="search-message" aria-live="polite"></div>
+      <section id="provider-comparison" class="provider-comparison" aria-label="Compare token products" hidden></section>
+      <div id="record-grid" class="record-grid" aria-live="polite"><div class="loading-card">Loading records…</div></div>
+      <button id="load-more" class="load-more" type="button" hidden>Show more stocks ↓</button>
+    </section>
+
+    <section id="wallet" class="wallet-section wrap" aria-labelledby="wallet-title">
+      <div class="section-heading compact"><div><p class="eyebrow">Read-only wallet lookup</p><h2 id="wallet-title">Find the records behind your holdings.</h2><p>Enter a BSC address to check it against Mintmark’s 24 supported stock-token contracts. No wallet connection or signature is needed.</p></div></div>
+      <form id="wallet-form" class="wallet-form">
+        <label for="wallet-address">BSC wallet address</label>
+        <div><input id="wallet-address" name="address" type="text" inputmode="text" spellcheck="false" autocomplete="off" placeholder="0x…" maxlength="42" aria-describedby="wallet-privacy"><button type="submit">Check holdings ↗</button></div>
+      </form>
+      <p id="wallet-privacy" class="wallet-note">Your address is sent to Mintmark’s server and Binance’s Wallet API for this lookup. We check supported contracts only; other wallet tokens are not scanned.</p>
+      <button id="wallet-example" type="button" class="wallet-example">Try a public example address ↗</button>
+      <div id="wallet-result" class="wallet-result" role="status" aria-live="polite"></div>
+    </section>
+
+    <dialog id="record" class="record-section wrap" aria-labelledby="record-heading">
+      <div class="section-heading compact"><div><p class="eyebrow">The record</p><h2 id="record-heading">Look past the ticker.</h2><p class="record-intro">Every visible fact points to where it came from. Unknowns stay visible.</p></div><button id="record-close" class="record-close" type="button" aria-label="Close record">Close ✕</button></div>
+      <div id="record-placeholder" class="record-placeholder"><span class="placeholder-icon">↗</span><p>Choose a token above to inspect its exact identity and evidence.</p></div>
+      <article id="record-content" class="record-content" hidden></article>
+    </dialog>
+
+    <section id="how-it-works" class="method-section" aria-labelledby="method-title"><div class="wrap"><div class="section-heading compact"><div><p class="eyebrow">How to read Mintmark</p><h2 id="method-title">Different claims. Different proof.</h2></div></div><div class="method-grid"><div class="method-card"><span class="method-symbol">⌁</span><h3>Observed onchain</h3><p>The BSC contract exists and reports its token name and symbol. Open the explorer to inspect it.</p></div><div class="method-card"><span class="method-symbol">↗</span><h3>Published by issuer</h3><p>The issuer lists the contract, underlying company, or terms. The source link shows the publisher.</p></div><div class="method-card"><span class="method-symbol">?</span><h3>Still unverified</h3><p>Mintmark does not infer share custody, legal rights, or token equivalence from a ticker or contract alone.</p></div></div></div></section>
+  </main>
+  <footer class="footer"><div class="wrap"><div class="footer-top"><div class="brand"><span class="brand-icon"><i></i></span><span>mintmark</span></div><p>Every token has a paper trail.</p></div><div class="footer-bottom"><span>Mintmark · BSC identity registry</span><span>Information only. No trading or custody verification.</span></div></div></footer>
+</body>
+</html>

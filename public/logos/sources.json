@@ -1,0 +1,2257 @@
+{
+  "description": "Ondo-published token images for visual recognition. Chain and exact contract remain the identity evidence.",
+  "generatedAt": "2026-09-30T10:55:21.149Z",
+  "images": [
+    {
+      "ticker": "AAPL",
+      "url": "https://cdn.ondo.finance/tokens/logos/aaplon_160x160.png",
+      "bytes": 4128
+    },
+    {
+      "ticker": "NVDA",
+      "url": "https://cdn.ondo.finance/tokens/logos/nvdaon_160x160.png",
+      "bytes": 5398
+    },
+    {
+      "ticker": "MSFT",
+      "url": "https://cdn.ondo.finance/tokens/logos/msfton_160x160.png",
+      "bytes": 3347
+    },
+    {
+      "ticker": "GOOGL",
+      "url": "https://cdn.ondo.finance/tokens/logos/googlon_160x160.png",
+      "bytes": 5260
+    },
+    {
+      "ticker": "META",
+      "url": "https://cdn.ondo.finance/tokens/logos/metaon_160x160.png",
+      "bytes": 5267
+    },
+    {
+      "ticker": "AMD",
+      "url": "https://cdn.ondo.finance/tokens/logos/amdon_160x160.png",
+      "bytes": 4488
+    },
+    {
+      "ticker": "PLTR",
+      "url": "https://cdn.ondo.finance/tokens/logos/pltron_160x160.png",
+      "bytes": 4901
+    },
+    {
+      "ticker": "JPM",
+      "url": "https://cdn.ondo.finance/tokens/logos/jpmon_160x160.png",
+      "bytes": 4323
+    },
+    {
+      "ticker": "V",
+      "url": "https://cdn.ondo.finance/tokens/logos/von_160x160.png",
+      "bytes": 4980
+    },
+    {
+      "ticker": "COIN",
+      "url": "https://cdn.ondo.finance/tokens/logos/coinon_160x160.png",
+      "bytes": 4725
+    },
+    {
+      "ticker": "AMZN",
+      "url": "https://cdn.ondo.finance/tokens/logos/amznon_160x160.png",
+      "bytes": 4958
+    },
+    {
+      "ticker": "TSLA",
+      "url": "https://cdn.ondo.finance/tokens/logos/tslaon_160x160.png",
+      "bytes": 4823
+    },
+    {
+      "ticker": "WMT",
+      "url": "https://cdn.ondo.finance/tokens/logos/wmton_160x160.png",
+      "bytes": 5193
+    },
+    {
+      "ticker": "COST",
+      "url": "https://cdn.ondo.finance/tokens/logos/coston_160x160.png",
+      "bytes": 5459
+    },
+    {
+      "ticker": "DIS",
+      "url": "https://cdn.ondo.finance/tokens/logos/dison_160x160.png",
+      "bytes": 4841
+    },
+    {
+      "ticker": "NFLX",
+      "url": "https://cdn.ondo.finance/tokens/logos/nflxon_160x160.png",
+      "bytes": 4280
+    },
+    {
+      "ticker": "LLY",
+      "url": "https://cdn.ondo.finance/tokens/logos/llyon_160x160.png",
+      "bytes": 5724
+    },
+    {
+      "ticker": "JNJ",
+      "url": "https://cdn.ondo.finance/tokens/logos/jnjon_160x160.png",
+      "bytes": 4980
+    },
+    {
+      "ticker": "XOM",
+      "url": "https://cdn.ondo.finance/tokens/logos/xomon_160x160.png",
+      "bytes": 4507
+    },
+    {
+      "ticker": "CVX",
+      "url": "https://cdn.ondo.finance/tokens/logos/cvxon_160x160.png",
+      "bytes": 4235
+    },
+    {
+      "ticker": "SPY",
+      "url": "https://cdn.ondo.finance/tokens/logos/spyon_160x160.png",
+      "bytes": 5121
+    },
+    {
+      "ticker": "QQQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/qqqon_160x160.png",
+      "bytes": 6312
+    },
+    {
+      "ticker": "IWM",
+      "url": "https://cdn.ondo.finance/tokens/logos/iwmon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "GLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/gldon_160x160.png",
+      "bytes": 4699
+    },
+    {
+      "ticker": "AAL",
+      "url": "https://cdn.ondo.finance/tokens/logos/aalon_160x160.png",
+      "bytes": 4252
+    },
+    {
+      "ticker": "AAOI",
+      "url": "https://cdn.ondo.finance/tokens/logos/aaoion_160x160.png",
+      "bytes": 5870
+    },
+    {
+      "ticker": "AAON",
+      "url": "https://cdn.ondo.finance/tokens/logos/aaonon_160x160.png",
+      "bytes": 6287
+    },
+    {
+      "ticker": "ABBV",
+      "url": "https://cdn.ondo.finance/tokens/logos/abbvon_160x160.png",
+      "bytes": 5083
+    },
+    {
+      "ticker": "ABNB",
+      "url": "https://cdn.ondo.finance/tokens/logos/abnbon_160x160.png",
+      "bytes": 4937
+    },
+    {
+      "ticker": "ABT",
+      "url": "https://cdn.ondo.finance/tokens/logos/abton_160x160.png",
+      "bytes": 4129
+    },
+    {
+      "ticker": "ACHR",
+      "url": "https://cdn.ondo.finance/tokens/logos/achron_160x160.png",
+      "bytes": 4172
+    },
+    {
+      "ticker": "ACLS",
+      "url": "https://cdn.ondo.finance/tokens/logos/aclson_160x160.png",
+      "bytes": 5935
+    },
+    {
+      "ticker": "ACMR",
+      "url": "https://cdn.ondo.finance/tokens/logos/acmron_160x160.png",
+      "bytes": 6257
+    },
+    {
+      "ticker": "ACN",
+      "url": "https://cdn.ondo.finance/tokens/logos/acnon_160x160.png",
+      "bytes": 4076
+    },
+    {
+      "ticker": "ADBE",
+      "url": "https://cdn.ondo.finance/tokens/logos/adbeon_160x160.png",
+      "bytes": 3996
+    },
+    {
+      "ticker": "ADI",
+      "url": "https://cdn.ondo.finance/tokens/logos/adion_160x160.png",
+      "bytes": 3998
+    },
+    {
+      "ticker": "AEHR",
+      "url": "https://cdn.ondo.finance/tokens/logos/aehron_160x160.png",
+      "bytes": 5220
+    },
+    {
+      "ticker": "AG",
+      "url": "https://cdn.ondo.finance/tokens/logos/agon_160x160.png",
+      "bytes": 6085
+    },
+    {
+      "ticker": "AGG",
+      "url": "https://cdn.ondo.finance/tokens/logos/aggon_160x160.png",
+      "bytes": 4853
+    },
+    {
+      "ticker": "AI",
+      "url": "https://cdn.ondo.finance/tokens/logos/aion_160x160.png",
+      "bytes": 5149
+    },
+    {
+      "ticker": "AIP",
+      "url": "https://cdn.ondo.finance/tokens/logos/aipon_160x160.png",
+      "bytes": 5512
+    },
+    {
+      "ticker": "AIQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/aiqon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "ALAB",
+      "url": "https://cdn.ondo.finance/tokens/logos/alabon_160x160.png",
+      "bytes": 6188
+    },
+    {
+      "ticker": "ALB",
+      "url": "https://cdn.ondo.finance/tokens/logos/albon_160x160.png",
+      "bytes": 6093
+    },
+    {
+      "ticker": "ALOY",
+      "url": "https://cdn.ondo.finance/tokens/logos/aloyon_160x160.png",
+      "bytes": 5892
+    },
+    {
+      "ticker": "AMAT",
+      "url": "https://cdn.ondo.finance/tokens/logos/amaton_160x160.png",
+      "bytes": 5154
+    },
+    {
+      "ticker": "AMC",
+      "url": "https://cdn.ondo.finance/tokens/logos/amcon_160x160.png",
+      "bytes": 4599
+    },
+    {
+      "ticker": "AME",
+      "url": "https://cdn.ondo.finance/tokens/logos/ameon_160x160.png",
+      "bytes": 5773
+    },
+    {
+      "ticker": "AMGN",
+      "url": "https://cdn.ondo.finance/tokens/logos/amgnon_160x160.png",
+      "bytes": 4579
+    },
+    {
+      "ticker": "AMKR",
+      "url": "https://cdn.ondo.finance/tokens/logos/amkron_160x160.png",
+      "bytes": 6207
+    },
+    {
+      "ticker": "ANET",
+      "url": "https://cdn.ondo.finance/tokens/logos/aneton_160x160.png",
+      "bytes": 4628
+    },
+    {
+      "ticker": "AOSL",
+      "url": "https://cdn.ondo.finance/tokens/logos/aoslon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "APH",
+      "url": "https://cdn.ondo.finance/tokens/logos/aphon_160x160.png",
+      "bytes": 5802
+    },
+    {
+      "ticker": "APLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/apldon_160x160.png",
+      "bytes": 5435
+    },
+    {
+      "ticker": "APO",
+      "url": "https://cdn.ondo.finance/tokens/logos/apoon_160x160.png",
+      "bytes": 4381
+    },
+    {
+      "ticker": "APP",
+      "url": "https://cdn.ondo.finance/tokens/logos/appon_160x160.png",
+      "bytes": 4905
+    },
+    {
+      "ticker": "ARGT",
+      "url": "https://cdn.ondo.finance/tokens/logos/argton_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "ARM",
+      "url": "https://cdn.ondo.finance/tokens/logos/armon_160x160.png",
+      "bytes": 4593
+    },
+    {
+      "ticker": "ARQQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/arqqon_160x160.png",
+      "bytes": 6208
+    },
+    {
+      "ticker": "ASML",
+      "url": "https://cdn.ondo.finance/tokens/logos/asmlon_160x160.png",
+      "bytes": 4668
+    },
+    {
+      "ticker": "ASTS",
+      "url": "https://cdn.ondo.finance/tokens/logos/astson_160x160.png",
+      "bytes": 5396
+    },
+    {
+      "ticker": "ATKR",
+      "url": "https://cdn.ondo.finance/tokens/logos/atkron_160x160.png",
+      "bytes": 6008
+    },
+    {
+      "ticker": "AUR",
+      "url": "https://cdn.ondo.finance/tokens/logos/auron_160x160.png",
+      "bytes": 5763
+    },
+    {
+      "ticker": "AVGO",
+      "url": "https://cdn.ondo.finance/tokens/logos/avgoon_160x160.png",
+      "bytes": 5511
+    },
+    {
+      "ticker": "AXP",
+      "url": "https://cdn.ondo.finance/tokens/logos/axpon_160x160.png",
+      "bytes": 5654
+    },
+    {
+      "ticker": "AXTI",
+      "url": "https://cdn.ondo.finance/tokens/logos/axtion_160x160.png",
+      "bytes": 6363
+    },
+    {
+      "ticker": "BA",
+      "url": "https://cdn.ondo.finance/tokens/logos/baon_160x160.png",
+      "bytes": 5679
+    },
+    {
+      "ticker": "BABA",
+      "url": "https://cdn.ondo.finance/tokens/logos/babaon_160x160.png",
+      "bytes": 4640
+    },
+    {
+      "ticker": "BAC",
+      "url": "https://cdn.ondo.finance/tokens/logos/bacon_160x160.png",
+      "bytes": 5069
+    },
+    {
+      "ticker": "BAI",
+      "url": "https://cdn.ondo.finance/tokens/logos/baion_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "BBAI",
+      "url": "https://cdn.ondo.finance/tokens/logos/bbaion_160x160.png",
+      "bytes": 4459
+    },
+    {
+      "ticker": "BE",
+      "url": "https://cdn.ondo.finance/tokens/logos/beon_160x160.png",
+      "bytes": 6010
+    },
+    {
+      "ticker": "BIDU",
+      "url": "https://cdn.ondo.finance/tokens/logos/biduon_160x160.png",
+      "bytes": 5756
+    },
+    {
+      "ticker": "BIL",
+      "url": "https://cdn.ondo.finance/tokens/logos/bilon_160x160.png",
+      "bytes": 6032
+    },
+    {
+      "ticker": "BILI",
+      "url": "https://cdn.ondo.finance/tokens/logos/bilion_160x160.png",
+      "bytes": 5403
+    },
+    {
+      "ticker": "BINC",
+      "url": "https://cdn.ondo.finance/tokens/logos/bincon_160x160.png",
+      "bytes": 4853
+    },
+    {
+      "ticker": "BKCH",
+      "url": "https://cdn.ondo.finance/tokens/logos/bkchon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "BLCR",
+      "url": "https://cdn.ondo.finance/tokens/logos/blcron_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "BLK",
+      "url": "https://cdn.ondo.finance/tokens/logos/blkon_160x160.png",
+      "bytes": 4220
+    },
+    {
+      "ticker": "BLSH",
+      "url": "https://cdn.ondo.finance/tokens/logos/blshon_160x160.png",
+      "bytes": 4277
+    },
+    {
+      "ticker": "BMNR",
+      "url": "https://cdn.ondo.finance/tokens/logos/bmnron_160x160.png",
+      "bytes": 4099
+    },
+    {
+      "ticker": "BNO",
+      "url": "https://cdn.ondo.finance/tokens/logos/bnoon_160x160.png",
+      "bytes": 5882
+    },
+    {
+      "ticker": "BOT",
+      "url": "https://cdn.ondo.finance/tokens/logos/boton_160x160.png",
+      "bytes": 5102
+    },
+    {
+      "ticker": "BOTZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/botzon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "BRHY",
+      "url": "https://cdn.ondo.finance/tokens/logos/brhyon_160x160.png",
+      "bytes": 5900
+    },
+    {
+      "ticker": "BRLN",
+      "url": "https://cdn.ondo.finance/tokens/logos/brlnon_160x160.png",
+      "bytes": 5900
+    },
+    {
+      "ticker": "BRTR",
+      "url": "https://cdn.ondo.finance/tokens/logos/brtron_160x160.png",
+      "bytes": 5900
+    },
+    {
+      "ticker": "BTDR",
+      "url": "https://cdn.ondo.finance/tokens/logos/btdron_160x160.png",
+      "bytes": 6110
+    },
+    {
+      "ticker": "BTG",
+      "url": "https://cdn.ondo.finance/tokens/logos/btgon_160x160.png",
+      "bytes": 4366
+    },
+    {
+      "ticker": "BTGO",
+      "url": "https://cdn.ondo.finance/tokens/logos/btgoon_160x160.png",
+      "bytes": 4879
+    },
+    {
+      "ticker": "BWET",
+      "url": "https://cdn.ondo.finance/tokens/logos/bweton_160x160.png",
+      "bytes": 7055
+    },
+    {
+      "ticker": "BZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/bzon_160x160.png",
+      "bytes": 6390
+    },
+    {
+      "ticker": "C",
+      "url": "https://cdn.ondo.finance/tokens/logos/con_160x160.png",
+      "bytes": 5036
+    },
+    {
+      "ticker": "CAMT",
+      "url": "https://cdn.ondo.finance/tokens/logos/camton_160x160.png",
+      "bytes": 6001
+    },
+    {
+      "ticker": "CAPR",
+      "url": "https://cdn.ondo.finance/tokens/logos/capron_160x160.png",
+      "bytes": 6525
+    },
+    {
+      "ticker": "CAT",
+      "url": "https://cdn.ondo.finance/tokens/logos/caton_160x160.png",
+      "bytes": 4305
+    },
+    {
+      "ticker": "CBRS",
+      "url": "https://cdn.ondo.finance/tokens/logos/cbrson_160x160.png",
+      "bytes": 6772
+    },
+    {
+      "ticker": "CCJ",
+      "url": "https://cdn.ondo.finance/tokens/logos/ccjon_160x160.png",
+      "bytes": 6424
+    },
+    {
+      "ticker": "CEG",
+      "url": "https://cdn.ondo.finance/tokens/logos/cegon_160x160.png",
+      "bytes": 4003
+    },
+    {
+      "ticker": "CEVA",
+      "url": "https://cdn.ondo.finance/tokens/logos/cevaon_160x160.png",
+      "bytes": 6303
+    },
+    {
+      "ticker": "CIBR",
+      "url": "https://cdn.ondo.finance/tokens/logos/cibron_160x160.png",
+      "bytes": 5372
+    },
+    {
+      "ticker": "CIEN",
+      "url": "https://cdn.ondo.finance/tokens/logos/cienon_160x160.png",
+      "bytes": 5815
+    },
+    {
+      "ticker": "CIFR",
+      "url": "https://cdn.ondo.finance/tokens/logos/cifron_160x160.png",
+      "bytes": 4991
+    },
+    {
+      "ticker": "CLF",
+      "url": "https://cdn.ondo.finance/tokens/logos/clfon_160x160.png",
+      "bytes": 5453
+    },
+    {
+      "ticker": "CLOA",
+      "url": "https://cdn.ondo.finance/tokens/logos/cloaon_160x160.png",
+      "bytes": 4853
+    },
+    {
+      "ticker": "CLOI",
+      "url": "https://cdn.ondo.finance/tokens/logos/cloion_160x160.png",
+      "bytes": 4990
+    },
+    {
+      "ticker": "CLS",
+      "url": "https://cdn.ondo.finance/tokens/logos/clson_160x160.png",
+      "bytes": 6903
+    },
+    {
+      "ticker": "CMG",
+      "url": "https://cdn.ondo.finance/tokens/logos/cmgon_160x160.png",
+      "bytes": 6286
+    },
+    {
+      "ticker": "COF",
+      "url": "https://cdn.ondo.finance/tokens/logos/cofon_160x160.png",
+      "bytes": 4483
+    },
+    {
+      "ticker": "COHR",
+      "url": "https://cdn.ondo.finance/tokens/logos/cohron_160x160.png",
+      "bytes": 7143
+    },
+    {
+      "ticker": "COHU",
+      "url": "https://cdn.ondo.finance/tokens/logos/cohuon_160x160.png",
+      "bytes": 6178
+    },
+    {
+      "ticker": "COP",
+      "url": "https://cdn.ondo.finance/tokens/logos/copon_160x160.png",
+      "bytes": 3830
+    },
+    {
+      "ticker": "COPX",
+      "url": "https://cdn.ondo.finance/tokens/logos/copxon_160x160.png",
+      "bytes": 4160
+    },
+    {
+      "ticker": "CORO",
+      "url": "https://cdn.ondo.finance/tokens/logos/coroon_160x160.png",
+      "bytes": 6051
+    },
+    {
+      "ticker": "CORZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/corzon_160x160.png",
+      "bytes": 6184
+    },
+    {
+      "ticker": "CPER",
+      "url": "https://cdn.ondo.finance/tokens/logos/cperon_160x160.png",
+      "bytes": 5882
+    },
+    {
+      "ticker": "CPNG",
+      "url": "https://cdn.ondo.finance/tokens/logos/cpngon_160x160.png",
+      "bytes": 4803
+    },
+    {
+      "ticker": "CRCL",
+      "url": "https://cdn.ondo.finance/tokens/logos/crclon_160x160.png",
+      "bytes": 5635
+    },
+    {
+      "ticker": "CRDO",
+      "url": "https://cdn.ondo.finance/tokens/logos/crdoon_160x160.png",
+      "bytes": 6357
+    },
+    {
+      "ticker": "CRM",
+      "url": "https://cdn.ondo.finance/tokens/logos/crmon_160x160.png",
+      "bytes": 4672
+    },
+    {
+      "ticker": "CRWD",
+      "url": "https://cdn.ondo.finance/tokens/logos/crwdon_160x160.png",
+      "bytes": 4959
+    },
+    {
+      "ticker": "CRWV",
+      "url": "https://cdn.ondo.finance/tokens/logos/crwvon_160x160.png",
+      "bytes": 6064
+    },
+    {
+      "ticker": "CSCO",
+      "url": "https://cdn.ondo.finance/tokens/logos/cscoon_160x160.png",
+      "bytes": 4965
+    },
+    {
+      "ticker": "CVNA",
+      "url": "https://cdn.ondo.finance/tokens/logos/cvnaon_160x160.png",
+      "bytes": 5419
+    },
+    {
+      "ticker": "DASH",
+      "url": "https://cdn.ondo.finance/tokens/logos/dashon_160x160.png",
+      "bytes": 3790
+    },
+    {
+      "ticker": "DBC",
+      "url": "https://cdn.ondo.finance/tokens/logos/dbcon_160x160.png",
+      "bytes": 5999
+    },
+    {
+      "ticker": "DE",
+      "url": "https://cdn.ondo.finance/tokens/logos/deon_160x160.png",
+      "bytes": 7045
+    },
+    {
+      "ticker": "DELL",
+      "url": "https://cdn.ondo.finance/tokens/logos/dellon_160x160.png",
+      "bytes": 6875
+    },
+    {
+      "ticker": "DGRW",
+      "url": "https://cdn.ondo.finance/tokens/logos/dgrwon_160x160.png",
+      "bytes": 5953
+    },
+    {
+      "ticker": "DGXX",
+      "url": "https://cdn.ondo.finance/tokens/logos/dgxxon_160x160.png",
+      "bytes": 5411
+    },
+    {
+      "ticker": "DNN",
+      "url": "https://cdn.ondo.finance/tokens/logos/dnnon_160x160.png",
+      "bytes": 4307
+    },
+    {
+      "ticker": "DRAM",
+      "url": "https://cdn.ondo.finance/tokens/logos/dramon_160x160.png",
+      "bytes": 5845
+    },
+    {
+      "ticker": "DRS",
+      "url": "https://cdn.ondo.finance/tokens/logos/drson_160x160.png",
+      "bytes": 6668
+    },
+    {
+      "ticker": "DTCR",
+      "url": "https://cdn.ondo.finance/tokens/logos/dtcron_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "DYNF",
+      "url": "https://cdn.ondo.finance/tokens/logos/dynfon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "ECH",
+      "url": "https://cdn.ondo.finance/tokens/logos/echon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "ECO",
+      "url": "https://cdn.ondo.finance/tokens/logos/ecoon_160x160.png",
+      "bytes": 7674
+    },
+    {
+      "ticker": "EEM",
+      "url": "https://cdn.ondo.finance/tokens/logos/eemon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "EFA",
+      "url": "https://cdn.ondo.finance/tokens/logos/efaon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "EFV",
+      "url": "https://cdn.ondo.finance/tokens/logos/efvon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "EMR",
+      "url": "https://cdn.ondo.finance/tokens/logos/emron_160x160.png",
+      "bytes": 6603
+    },
+    {
+      "ticker": "ENB",
+      "url": "https://cdn.ondo.finance/tokens/logos/enbon_160x160.png",
+      "bytes": 6661
+    },
+    {
+      "ticker": "ENLV",
+      "url": "https://cdn.ondo.finance/tokens/logos/enlvon_160x160.png",
+      "bytes": 5568
+    },
+    {
+      "ticker": "ENPH",
+      "url": "https://cdn.ondo.finance/tokens/logos/enphon_160x160.png",
+      "bytes": 6162
+    },
+    {
+      "ticker": "ENTG",
+      "url": "https://cdn.ondo.finance/tokens/logos/entgon_160x160.png",
+      "bytes": 6511
+    },
+    {
+      "ticker": "EQIX",
+      "url": "https://cdn.ondo.finance/tokens/logos/eqixon_160x160.png",
+      "bytes": 4312
+    },
+    {
+      "ticker": "EQT",
+      "url": "https://cdn.ondo.finance/tokens/logos/eqton_160x160.png",
+      "bytes": 6362
+    },
+    {
+      "ticker": "ETHA",
+      "url": "https://cdn.ondo.finance/tokens/logos/ethaon_160x160.png",
+      "bytes": 5764
+    },
+    {
+      "ticker": "ETN",
+      "url": "https://cdn.ondo.finance/tokens/logos/etnon_160x160.png",
+      "bytes": 5409
+    },
+    {
+      "ticker": "EUHY",
+      "url": "https://cdn.ondo.finance/tokens/logos/euhyon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "EWJ",
+      "url": "https://cdn.ondo.finance/tokens/logos/ewjon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "EWY",
+      "url": "https://cdn.ondo.finance/tokens/logos/ewyon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "EWZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/ewzon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "EXOD",
+      "url": "https://cdn.ondo.finance/tokens/logos/exodon_160x160.png",
+      "bytes": 6000
+    },
+    {
+      "ticker": "EXTR",
+      "url": "https://cdn.ondo.finance/tokens/logos/extron_160x160.png",
+      "bytes": 5392
+    },
+    {
+      "ticker": "F",
+      "url": "https://cdn.ondo.finance/tokens/logos/fon_160x160.png",
+      "bytes": 5701
+    },
+    {
+      "ticker": "FCEL",
+      "url": "https://cdn.ondo.finance/tokens/logos/fcelon_160x160.png",
+      "bytes": 6352
+    },
+    {
+      "ticker": "FCX",
+      "url": "https://cdn.ondo.finance/tokens/logos/fcxon_160x160.png",
+      "bytes": 5349
+    },
+    {
+      "ticker": "FFOG",
+      "url": "https://cdn.ondo.finance/tokens/logos/ffogon_160x160.png",
+      "bytes": 6259
+    },
+    {
+      "ticker": "FGDL",
+      "url": "https://cdn.ondo.finance/tokens/logos/fgdlon_160x160.png",
+      "bytes": 6154
+    },
+    {
+      "ticker": "FIG",
+      "url": "https://cdn.ondo.finance/tokens/logos/figon_160x160.png",
+      "bytes": 4444
+    },
+    {
+      "ticker": "FIGR",
+      "url": "https://cdn.ondo.finance/tokens/logos/figron_160x160.png",
+      "bytes": 4325
+    },
+    {
+      "ticker": "FLEX",
+      "url": "https://cdn.ondo.finance/tokens/logos/flexon_160x160.png",
+      "bytes": 6281
+    },
+    {
+      "ticker": "FLHY",
+      "url": "https://cdn.ondo.finance/tokens/logos/flhyon_160x160.png",
+      "bytes": 6064
+    },
+    {
+      "ticker": "FLNC",
+      "url": "https://cdn.ondo.finance/tokens/logos/flncon_160x160.png",
+      "bytes": 5365
+    },
+    {
+      "ticker": "FLQL",
+      "url": "https://cdn.ondo.finance/tokens/logos/flqlon_160x160.png",
+      "bytes": 6259
+    },
+    {
+      "ticker": "FN",
+      "url": "https://cdn.ondo.finance/tokens/logos/fnon_160x160.png",
+      "bytes": 5356
+    },
+    {
+      "ticker": "FORM",
+      "url": "https://cdn.ondo.finance/tokens/logos/formon_160x160.png",
+      "bytes": 6098
+    },
+    {
+      "ticker": "FPS",
+      "url": "https://cdn.ondo.finance/tokens/logos/fpson_160x160.png",
+      "bytes": 5251
+    },
+    {
+      "ticker": "FSOL",
+      "url": "https://cdn.ondo.finance/tokens/logos/fsolon_160x160.png",
+      "bytes": 7001
+    },
+    {
+      "ticker": "FTGC",
+      "url": "https://cdn.ondo.finance/tokens/logos/ftgcon_160x160.png",
+      "bytes": 3689
+    },
+    {
+      "ticker": "FUTU",
+      "url": "https://cdn.ondo.finance/tokens/logos/futuon_160x160.png",
+      "bytes": 4129
+    },
+    {
+      "ticker": "FXI",
+      "url": "https://cdn.ondo.finance/tokens/logos/fxion_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "GD",
+      "url": "https://cdn.ondo.finance/tokens/logos/gdon_160x160.png",
+      "bytes": 5507
+    },
+    {
+      "ticker": "GE",
+      "url": "https://cdn.ondo.finance/tokens/logos/geon_160x160.png",
+      "bytes": 7738
+    },
+    {
+      "ticker": "GEMI",
+      "url": "https://cdn.ondo.finance/tokens/logos/gemion_160x160.png",
+      "bytes": 4785
+    },
+    {
+      "ticker": "GEV",
+      "url": "https://cdn.ondo.finance/tokens/logos/gevon_160x160.png",
+      "bytes": 7897
+    },
+    {
+      "ticker": "GFS",
+      "url": "https://cdn.ondo.finance/tokens/logos/gfson_160x160.png",
+      "bytes": 5635
+    },
+    {
+      "ticker": "GGOV",
+      "url": "https://cdn.ondo.finance/tokens/logos/ggovon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "GLTR",
+      "url": "https://cdn.ondo.finance/tokens/logos/gltron_160x160.png",
+      "bytes": 7705
+    },
+    {
+      "ticker": "GLW",
+      "url": "https://cdn.ondo.finance/tokens/logos/glwon_160x160.png",
+      "bytes": 6165
+    },
+    {
+      "ticker": "GLXY",
+      "url": "https://cdn.ondo.finance/tokens/logos/glxyon_160x160.png",
+      "bytes": 5535
+    },
+    {
+      "ticker": "GME",
+      "url": "https://cdn.ondo.finance/tokens/logos/gmeon_160x160.png",
+      "bytes": 4152
+    },
+    {
+      "ticker": "GNRC",
+      "url": "https://cdn.ondo.finance/tokens/logos/gnrcon_160x160.png",
+      "bytes": 5770
+    },
+    {
+      "ticker": "GOOG",
+      "url": "https://cdn.ondo.finance/tokens/logos/googon_160x160.png",
+      "bytes": 6088
+    },
+    {
+      "ticker": "GRAB",
+      "url": "https://cdn.ondo.finance/tokens/logos/grabon_160x160.png",
+      "bytes": 5776
+    },
+    {
+      "ticker": "GRND",
+      "url": "https://cdn.ondo.finance/tokens/logos/grndon_160x160.png",
+      "bytes": 4606
+    },
+    {
+      "ticker": "GS",
+      "url": "https://cdn.ondo.finance/tokens/logos/gson_160x160.png",
+      "bytes": 5251
+    },
+    {
+      "ticker": "HAL",
+      "url": "https://cdn.ondo.finance/tokens/logos/halon_160x160.png",
+      "bytes": 5135
+    },
+    {
+      "ticker": "HD",
+      "url": "https://cdn.ondo.finance/tokens/logos/hdon_160x160.png",
+      "bytes": 6644
+    },
+    {
+      "ticker": "HII",
+      "url": "https://cdn.ondo.finance/tokens/logos/hiion_160x160.png",
+      "bytes": 5264
+    },
+    {
+      "ticker": "HIMS",
+      "url": "https://cdn.ondo.finance/tokens/logos/himson_160x160.png",
+      "bytes": 4375
+    },
+    {
+      "ticker": "HIMX",
+      "url": "https://cdn.ondo.finance/tokens/logos/himxon_160x160.png",
+      "bytes": 5919
+    },
+    {
+      "ticker": "HIVE",
+      "url": "https://cdn.ondo.finance/tokens/logos/hiveon_160x160.png",
+      "bytes": 5825
+    },
+    {
+      "ticker": "HLIT",
+      "url": "https://cdn.ondo.finance/tokens/logos/hliton_160x160.png",
+      "bytes": 5714
+    },
+    {
+      "ticker": "HOOD",
+      "url": "https://cdn.ondo.finance/tokens/logos/hoodon_160x160.png",
+      "bytes": 4794
+    },
+    {
+      "ticker": "HPE",
+      "url": "https://cdn.ondo.finance/tokens/logos/hpeon_160x160.png",
+      "bytes": 5096
+    },
+    {
+      "ticker": "HSAI",
+      "url": "https://cdn.ondo.finance/tokens/logos/hsaion_160x160.png",
+      "bytes": 5612
+    },
+    {
+      "ticker": "HTZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/htzon_160x160.png",
+      "bytes": 5838
+    },
+    {
+      "ticker": "HUBB",
+      "url": "https://cdn.ondo.finance/tokens/logos/hubbon_160x160.png",
+      "bytes": 5416
+    },
+    {
+      "ticker": "HUT",
+      "url": "https://cdn.ondo.finance/tokens/logos/huton_160x160.png",
+      "bytes": 6010
+    },
+    {
+      "ticker": "HYDB",
+      "url": "https://cdn.ondo.finance/tokens/logos/hydbon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "HYG",
+      "url": "https://cdn.ondo.finance/tokens/logos/hygon_160x160.png",
+      "bytes": 4853
+    },
+    {
+      "ticker": "HYGW",
+      "url": "https://cdn.ondo.finance/tokens/logos/hygwon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "HYS",
+      "url": "https://cdn.ondo.finance/tokens/logos/hyson_160x160.png",
+      "bytes": 5830
+    },
+    {
+      "ticker": "IALT",
+      "url": "https://cdn.ondo.finance/tokens/logos/ialton_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "IAU",
+      "url": "https://cdn.ondo.finance/tokens/logos/iauon_160x160.png",
+      "bytes": 4667
+    },
+    {
+      "ticker": "IBIT",
+      "url": "https://cdn.ondo.finance/tokens/logos/ibiton_160x160.png",
+      "bytes": 5764
+    },
+    {
+      "ticker": "IBM",
+      "url": "https://cdn.ondo.finance/tokens/logos/ibmon_160x160.png",
+      "bytes": 4643
+    },
+    {
+      "ticker": "ICHR",
+      "url": "https://cdn.ondo.finance/tokens/logos/ichron_160x160.png",
+      "bytes": 6388
+    },
+    {
+      "ticker": "IDEF",
+      "url": "https://cdn.ondo.finance/tokens/logos/idefon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "IEF",
+      "url": "https://cdn.ondo.finance/tokens/logos/iefon_160x160.png",
+      "bytes": 5900
+    },
+    {
+      "ticker": "IEFA",
+      "url": "https://cdn.ondo.finance/tokens/logos/iefaon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IEI",
+      "url": "https://cdn.ondo.finance/tokens/logos/ieion_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "IEMG",
+      "url": "https://cdn.ondo.finance/tokens/logos/iemgon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IGEB",
+      "url": "https://cdn.ondo.finance/tokens/logos/igebon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "IGV",
+      "url": "https://cdn.ondo.finance/tokens/logos/igvon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "IJH",
+      "url": "https://cdn.ondo.finance/tokens/logos/ijhon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IJS",
+      "url": "https://cdn.ondo.finance/tokens/logos/ijson_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "INCE",
+      "url": "https://cdn.ondo.finance/tokens/logos/inceon_160x160.png",
+      "bytes": 6259
+    },
+    {
+      "ticker": "INDA",
+      "url": "https://cdn.ondo.finance/tokens/logos/indaon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "INOD",
+      "url": "https://cdn.ondo.finance/tokens/logos/inodon_160x160.png",
+      "bytes": 7107
+    },
+    {
+      "ticker": "INRO",
+      "url": "https://cdn.ondo.finance/tokens/logos/inroon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "INSW",
+      "url": "https://cdn.ondo.finance/tokens/logos/inswon_160x160.png",
+      "bytes": 6177
+    },
+    {
+      "ticker": "INTC",
+      "url": "https://cdn.ondo.finance/tokens/logos/intcon_160x160.png",
+      "bytes": 4636
+    },
+    {
+      "ticker": "INTU",
+      "url": "https://cdn.ondo.finance/tokens/logos/intuon_160x160.png",
+      "bytes": 3884
+    },
+    {
+      "ticker": "IONQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/ionqon_160x160.png",
+      "bytes": 5837
+    },
+    {
+      "ticker": "IRDM",
+      "url": "https://cdn.ondo.finance/tokens/logos/irdmon_160x160.png",
+      "bytes": 5592
+    },
+    {
+      "ticker": "IREN",
+      "url": "https://cdn.ondo.finance/tokens/logos/irenon_160x160.png",
+      "bytes": 4448
+    },
+    {
+      "ticker": "ISRG",
+      "url": "https://cdn.ondo.finance/tokens/logos/isrgon_160x160.png",
+      "bytes": 4052
+    },
+    {
+      "ticker": "ITA",
+      "url": "https://cdn.ondo.finance/tokens/logos/itaon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "ITOT",
+      "url": "https://cdn.ondo.finance/tokens/logos/itoton_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IVV",
+      "url": "https://cdn.ondo.finance/tokens/logos/ivvon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IWF",
+      "url": "https://cdn.ondo.finance/tokens/logos/iwfon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IWN",
+      "url": "https://cdn.ondo.finance/tokens/logos/iwnon_160x160.png",
+      "bytes": 5111
+    },
+    {
+      "ticker": "IYW",
+      "url": "https://cdn.ondo.finance/tokens/logos/iywon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "JAAA",
+      "url": "https://cdn.ondo.finance/tokens/logos/jaaaon_160x160.png",
+      "bytes": 4257
+    },
+    {
+      "ticker": "JBL",
+      "url": "https://cdn.ondo.finance/tokens/logos/jblon_160x160.png",
+      "bytes": 5636
+    },
+    {
+      "ticker": "JD",
+      "url": "https://cdn.ondo.finance/tokens/logos/jdon_160x160.png",
+      "bytes": 4711
+    },
+    {
+      "ticker": "KEEL",
+      "url": "https://cdn.ondo.finance/tokens/logos/keelon_160x160.png",
+      "bytes": 5512
+    },
+    {
+      "ticker": "KEYS",
+      "url": "https://cdn.ondo.finance/tokens/logos/keyson_160x160.png",
+      "bytes": 6043
+    },
+    {
+      "ticker": "KLAC",
+      "url": "https://cdn.ondo.finance/tokens/logos/klacon_160x160.png",
+      "bytes": 3665
+    },
+    {
+      "ticker": "KO",
+      "url": "https://cdn.ondo.finance/tokens/logos/koon_160x160.png",
+      "bytes": 5849
+    },
+    {
+      "ticker": "KOPN",
+      "url": "https://cdn.ondo.finance/tokens/logos/kopnon_160x160.png",
+      "bytes": 8054
+    },
+    {
+      "ticker": "KWEB",
+      "url": "https://cdn.ondo.finance/tokens/logos/kwebon_160x160.png",
+      "bytes": 5471
+    },
+    {
+      "ticker": "LASR",
+      "url": "https://cdn.ondo.finance/tokens/logos/lasron_160x160.png",
+      "bytes": 5920
+    },
+    {
+      "ticker": "LECO",
+      "url": "https://cdn.ondo.finance/tokens/logos/lecoon_160x160.png",
+      "bytes": 6063
+    },
+    {
+      "ticker": "LEMB",
+      "url": "https://cdn.ondo.finance/tokens/logos/lembon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "LI",
+      "url": "https://cdn.ondo.finance/tokens/logos/lion_160x160.png",
+      "bytes": 3892
+    },
+    {
+      "ticker": "LIN",
+      "url": "https://cdn.ondo.finance/tokens/logos/linon_160x160.png",
+      "bytes": 5107
+    },
+    {
+      "ticker": "LIT",
+      "url": "https://cdn.ondo.finance/tokens/logos/liton_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "LITE",
+      "url": "https://cdn.ondo.finance/tokens/logos/liteon_160x160.png",
+      "bytes": 5497
+    },
+    {
+      "ticker": "LMT",
+      "url": "https://cdn.ondo.finance/tokens/logos/lmton_160x160.png",
+      "bytes": 4906
+    },
+    {
+      "ticker": "LOW",
+      "url": "https://cdn.ondo.finance/tokens/logos/lowon_160x160.png",
+      "bytes": 4659
+    },
+    {
+      "ticker": "LPTH",
+      "url": "https://cdn.ondo.finance/tokens/logos/lpthon_160x160.png",
+      "bytes": 6669
+    },
+    {
+      "ticker": "LRCX",
+      "url": "https://cdn.ondo.finance/tokens/logos/lrcxon_160x160.png",
+      "bytes": 4647
+    },
+    {
+      "ticker": "LSCC",
+      "url": "https://cdn.ondo.finance/tokens/logos/lsccon_160x160.png",
+      "bytes": 5745
+    },
+    {
+      "ticker": "LUNR",
+      "url": "https://cdn.ondo.finance/tokens/logos/lunron_160x160.png",
+      "bytes": 5681
+    },
+    {
+      "ticker": "LWLG",
+      "url": "https://cdn.ondo.finance/tokens/logos/lwlgon_160x160.png",
+      "bytes": 5649
+    },
+    {
+      "ticker": "MA",
+      "url": "https://cdn.ondo.finance/tokens/logos/maon_160x160.png",
+      "bytes": 4412
+    },
+    {
+      "ticker": "MARA",
+      "url": "https://cdn.ondo.finance/tokens/logos/maraon_160x160.png",
+      "bytes": 4284
+    },
+    {
+      "ticker": "MBLY",
+      "url": "https://cdn.ondo.finance/tokens/logos/mblyon_160x160.png",
+      "bytes": 5511
+    },
+    {
+      "ticker": "MCD",
+      "url": "https://cdn.ondo.finance/tokens/logos/mcdon_160x160.png",
+      "bytes": 4905
+    },
+    {
+      "ticker": "MEI",
+      "url": "https://cdn.ondo.finance/tokens/logos/meion_160x160.png",
+      "bytes": 6055
+    },
+    {
+      "ticker": "MELI",
+      "url": "https://cdn.ondo.finance/tokens/logos/melion_160x160.png",
+      "bytes": 6363
+    },
+    {
+      "ticker": "MKSI",
+      "url": "https://cdn.ondo.finance/tokens/logos/mksion_160x160.png",
+      "bytes": 5830
+    },
+    {
+      "ticker": "MP",
+      "url": "https://cdn.ondo.finance/tokens/logos/mpon_160x160.png",
+      "bytes": 5854
+    },
+    {
+      "ticker": "MRK",
+      "url": "https://cdn.ondo.finance/tokens/logos/mrkon_160x160.png",
+      "bytes": 5133
+    },
+    {
+      "ticker": "MRNA",
+      "url": "https://cdn.ondo.finance/tokens/logos/mrnaon_160x160.png",
+      "bytes": 4749
+    },
+    {
+      "ticker": "MRVL",
+      "url": "https://cdn.ondo.finance/tokens/logos/mrvlon_160x160.png",
+      "bytes": 3854
+    },
+    {
+      "ticker": "MSTR",
+      "url": "https://cdn.ondo.finance/tokens/logos/mstron_160x160.png",
+      "bytes": 3775
+    },
+    {
+      "ticker": "MTSI",
+      "url": "https://cdn.ondo.finance/tokens/logos/mtsion_160x160.png",
+      "bytes": 5590
+    },
+    {
+      "ticker": "MTZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/mtzon_160x160.png",
+      "bytes": 4410
+    },
+    {
+      "ticker": "MU",
+      "url": "https://cdn.ondo.finance/tokens/logos/muon_160x160.png",
+      "bytes": 3756
+    },
+    {
+      "ticker": "MXL",
+      "url": "https://cdn.ondo.finance/tokens/logos/mxlon_160x160.png",
+      "bytes": 6115
+    },
+    {
+      "ticker": "MYRG",
+      "url": "https://cdn.ondo.finance/tokens/logos/myrgon_160x160.png",
+      "bytes": 5825
+    },
+    {
+      "ticker": "NAT",
+      "url": "https://cdn.ondo.finance/tokens/logos/naton_160x160.png",
+      "bytes": 6715
+    },
+    {
+      "ticker": "NBIS",
+      "url": "https://cdn.ondo.finance/tokens/logos/nbison_160x160.png",
+      "bytes": 5886
+    },
+    {
+      "ticker": "NEAR",
+      "url": "https://cdn.ondo.finance/tokens/logos/nearon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "NEE",
+      "url": "https://cdn.ondo.finance/tokens/logos/neeon_160x160.png",
+      "bytes": 5851
+    },
+    {
+      "ticker": "NEM",
+      "url": "https://cdn.ondo.finance/tokens/logos/nemon_160x160.png",
+      "bytes": 6010
+    },
+    {
+      "ticker": "NET",
+      "url": "https://cdn.ondo.finance/tokens/logos/neton_160x160.png",
+      "bytes": 5658
+    },
+    {
+      "ticker": "NIKL",
+      "url": "https://cdn.ondo.finance/tokens/logos/niklon_160x160.png",
+      "bytes": 4698
+    },
+    {
+      "ticker": "NIO",
+      "url": "https://cdn.ondo.finance/tokens/logos/nioon_160x160.png",
+      "bytes": 4361
+    },
+    {
+      "ticker": "NKE",
+      "url": "https://cdn.ondo.finance/tokens/logos/nkeon_160x160.png",
+      "bytes": 3585
+    },
+    {
+      "ticker": "NNE",
+      "url": "https://cdn.ondo.finance/tokens/logos/nneon_160x160.png",
+      "bytes": 7177
+    },
+    {
+      "ticker": "NOC",
+      "url": "https://cdn.ondo.finance/tokens/logos/nocon_160x160.png",
+      "bytes": 5100
+    },
+    {
+      "ticker": "NOK",
+      "url": "https://cdn.ondo.finance/tokens/logos/nokon_160x160.png",
+      "bytes": 5624
+    },
+    {
+      "ticker": "NOW",
+      "url": "https://cdn.ondo.finance/tokens/logos/nowon_160x160.png",
+      "bytes": 5185
+    },
+    {
+      "ticker": "NTES",
+      "url": "https://cdn.ondo.finance/tokens/logos/nteson_160x160.png",
+      "bytes": 6398
+    },
+    {
+      "ticker": "NUE",
+      "url": "https://cdn.ondo.finance/tokens/logos/nueon_160x160.png",
+      "bytes": 5465
+    },
+    {
+      "ticker": "NVMI",
+      "url": "https://cdn.ondo.finance/tokens/logos/nvmion_160x160.png",
+      "bytes": 5909
+    },
+    {
+      "ticker": "NVO",
+      "url": "https://cdn.ondo.finance/tokens/logos/nvoon_160x160.png",
+      "bytes": 6562
+    },
+    {
+      "ticker": "NVT",
+      "url": "https://cdn.ondo.finance/tokens/logos/nvton_160x160.png",
+      "bytes": 6062
+    },
+    {
+      "ticker": "NVTS",
+      "url": "https://cdn.ondo.finance/tokens/logos/nvtson_160x160.png",
+      "bytes": 6519
+    },
+    {
+      "ticker": "OIH",
+      "url": "https://cdn.ondo.finance/tokens/logos/oihon_160x160.png",
+      "bytes": 6043
+    },
+    {
+      "ticker": "OII",
+      "url": "https://cdn.ondo.finance/tokens/logos/oiion_160x160.png",
+      "bytes": 5934
+    },
+    {
+      "ticker": "OKLO",
+      "url": "https://cdn.ondo.finance/tokens/logos/okloon_160x160.png",
+      "bytes": 4384
+    },
+    {
+      "ticker": "ON",
+      "url": "https://cdn.ondo.finance/tokens/logos/onon_160x160.png",
+      "bytes": 4971
+    },
+    {
+      "ticker": "ONDS",
+      "url": "https://cdn.ondo.finance/tokens/logos/ondson_160x160.png",
+      "bytes": 5133
+    },
+    {
+      "ticker": "ONTO",
+      "url": "https://cdn.ondo.finance/tokens/logos/ontoon_160x160.png",
+      "bytes": 5700
+    },
+    {
+      "ticker": "OPEN",
+      "url": "https://cdn.ondo.finance/tokens/logos/openon_160x160.png",
+      "bytes": 5055
+    },
+    {
+      "ticker": "OPRA",
+      "url": "https://cdn.ondo.finance/tokens/logos/opraon_160x160.png",
+      "bytes": 4825
+    },
+    {
+      "ticker": "ORBX",
+      "url": "https://cdn.ondo.finance/tokens/logos/orbxon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "ORCL",
+      "url": "https://cdn.ondo.finance/tokens/logos/orclon_160x160.png",
+      "bytes": 4732
+    },
+    {
+      "ticker": "OSCR",
+      "url": "https://cdn.ondo.finance/tokens/logos/oscron_160x160.png",
+      "bytes": 4668
+    },
+    {
+      "ticker": "OUST",
+      "url": "https://cdn.ondo.finance/tokens/logos/ouston_160x160.png",
+      "bytes": 5911
+    },
+    {
+      "ticker": "OXY",
+      "url": "https://cdn.ondo.finance/tokens/logos/oxyon_160x160.png",
+      "bytes": 5590
+    },
+    {
+      "ticker": "PALL",
+      "url": "https://cdn.ondo.finance/tokens/logos/pallon_160x160.png",
+      "bytes": 7827
+    },
+    {
+      "ticker": "PANW",
+      "url": "https://cdn.ondo.finance/tokens/logos/panwon_160x160.png",
+      "bytes": 4128
+    },
+    {
+      "ticker": "PAVE",
+      "url": "https://cdn.ondo.finance/tokens/logos/paveon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "PBR",
+      "url": "https://cdn.ondo.finance/tokens/logos/pbron_160x160.png",
+      "bytes": 4663
+    },
+    {
+      "ticker": "PCG",
+      "url": "https://cdn.ondo.finance/tokens/logos/pcgon_160x160.png",
+      "bytes": 4809
+    },
+    {
+      "ticker": "PDBC",
+      "url": "https://cdn.ondo.finance/tokens/logos/pdbcon_160x160.png",
+      "bytes": 5999
+    },
+    {
+      "ticker": "PDD",
+      "url": "https://cdn.ondo.finance/tokens/logos/pddon_160x160.png",
+      "bytes": 5624
+    },
+    {
+      "ticker": "PENG",
+      "url": "https://cdn.ondo.finance/tokens/logos/pengon_160x160.png",
+      "bytes": 5895
+    },
+    {
+      "ticker": "PEP",
+      "url": "https://cdn.ondo.finance/tokens/logos/pepon_160x160.png",
+      "bytes": 7932
+    },
+    {
+      "ticker": "PFE",
+      "url": "https://cdn.ondo.finance/tokens/logos/pfeon_160x160.png",
+      "bytes": 5293
+    },
+    {
+      "ticker": "PG",
+      "url": "https://cdn.ondo.finance/tokens/logos/pgon_160x160.png",
+      "bytes": 5695
+    },
+    {
+      "ticker": "PINS",
+      "url": "https://cdn.ondo.finance/tokens/logos/pinson_160x160.png",
+      "bytes": 5909
+    },
+    {
+      "ticker": "PL",
+      "url": "https://cdn.ondo.finance/tokens/logos/plon_160x160.png",
+      "bytes": 6947
+    },
+    {
+      "ticker": "PLUG",
+      "url": "https://cdn.ondo.finance/tokens/logos/plugon_160x160.png",
+      "bytes": 4865
+    },
+    {
+      "ticker": "POWI",
+      "url": "https://cdn.ondo.finance/tokens/logos/powion_160x160.png",
+      "bytes": 6027
+    },
+    {
+      "ticker": "POWL",
+      "url": "https://cdn.ondo.finance/tokens/logos/powlon_160x160.png",
+      "bytes": 5902
+    },
+    {
+      "ticker": "PPLT",
+      "url": "https://cdn.ondo.finance/tokens/logos/pplton_160x160.png",
+      "bytes": 7705
+    },
+    {
+      "ticker": "PRIM",
+      "url": "https://cdn.ondo.finance/tokens/logos/primon_160x160.png",
+      "bytes": 5657
+    },
+    {
+      "ticker": "PSQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/psqon_160x160.png",
+      "bytes": 5578
+    },
+    {
+      "ticker": "PURR",
+      "url": "https://cdn.ondo.finance/tokens/logos/purron_160x160.png",
+      "bytes": 6167
+    },
+    {
+      "ticker": "PWR",
+      "url": "https://cdn.ondo.finance/tokens/logos/pwron_160x160.png",
+      "bytes": 6883
+    },
+    {
+      "ticker": "PYPL",
+      "url": "https://cdn.ondo.finance/tokens/logos/pyplon_160x160.png",
+      "bytes": 4584
+    },
+    {
+      "ticker": "QBTS",
+      "url": "https://cdn.ondo.finance/tokens/logos/qbtson_160x160.png",
+      "bytes": 4739
+    },
+    {
+      "ticker": "QCOM",
+      "url": "https://cdn.ondo.finance/tokens/logos/qcomon_160x160.png",
+      "bytes": 5383
+    },
+    {
+      "ticker": "QLTA",
+      "url": "https://cdn.ondo.finance/tokens/logos/qltaon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "QTUM",
+      "url": "https://cdn.ondo.finance/tokens/logos/qtumon_160x160.png",
+      "bytes": 6723
+    },
+    {
+      "ticker": "QUBT",
+      "url": "https://cdn.ondo.finance/tokens/logos/qubton_160x160.png",
+      "bytes": 5961
+    },
+    {
+      "ticker": "QYLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/qyldon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "RDDT",
+      "url": "https://cdn.ondo.finance/tokens/logos/rddton_160x160.png",
+      "bytes": 5443
+    },
+    {
+      "ticker": "RDW",
+      "url": "https://cdn.ondo.finance/tokens/logos/rdwon_160x160.png",
+      "bytes": 6823
+    },
+    {
+      "ticker": "REGN",
+      "url": "https://cdn.ondo.finance/tokens/logos/regnon_160x160.png",
+      "bytes": 5906
+    },
+    {
+      "ticker": "REMX",
+      "url": "https://cdn.ondo.finance/tokens/logos/remxon_160x160.png",
+      "bytes": 4850
+    },
+    {
+      "ticker": "RGTI",
+      "url": "https://cdn.ondo.finance/tokens/logos/rgtion_160x160.png",
+      "bytes": 4309
+    },
+    {
+      "ticker": "RIOT",
+      "url": "https://cdn.ondo.finance/tokens/logos/rioton_160x160.png",
+      "bytes": 4854
+    },
+    {
+      "ticker": "RIVN",
+      "url": "https://cdn.ondo.finance/tokens/logos/rivnon_160x160.png",
+      "bytes": 4647
+    },
+    {
+      "ticker": "RKLB",
+      "url": "https://cdn.ondo.finance/tokens/logos/rklbon_160x160.png",
+      "bytes": 5455
+    },
+    {
+      "ticker": "RMBS",
+      "url": "https://cdn.ondo.finance/tokens/logos/rmbson_160x160.png",
+      "bytes": 5879
+    },
+    {
+      "ticker": "ROK",
+      "url": "https://cdn.ondo.finance/tokens/logos/rokon_160x160.png",
+      "bytes": 6728
+    },
+    {
+      "ticker": "RTX",
+      "url": "https://cdn.ondo.finance/tokens/logos/rtxon_160x160.png",
+      "bytes": 5726
+    },
+    {
+      "ticker": "RXRX",
+      "url": "https://cdn.ondo.finance/tokens/logos/rxrxon_160x160.png",
+      "bytes": 5866
+    },
+    {
+      "ticker": "SAP",
+      "url": "https://cdn.ondo.finance/tokens/logos/sapon_160x160.png",
+      "bytes": 5940
+    },
+    {
+      "ticker": "SATA",
+      "url": "https://cdn.ondo.finance/tokens/logos/sataon_160x160.png",
+      "bytes": 5250
+    },
+    {
+      "ticker": "SBET",
+      "url": "https://cdn.ondo.finance/tokens/logos/sbeton_160x160.png",
+      "bytes": 5044
+    },
+    {
+      "ticker": "SBUX",
+      "url": "https://cdn.ondo.finance/tokens/logos/sbuxon_160x160.png",
+      "bytes": 8564
+    },
+    {
+      "ticker": "SCCO",
+      "url": "https://cdn.ondo.finance/tokens/logos/sccoon_160x160.png",
+      "bytes": 6625
+    },
+    {
+      "ticker": "SCHW",
+      "url": "https://cdn.ondo.finance/tokens/logos/schwon_160x160.png",
+      "bytes": 6213
+    },
+    {
+      "ticker": "SECU",
+      "url": "https://cdn.ondo.finance/tokens/logos/secuon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "SEDG",
+      "url": "https://cdn.ondo.finance/tokens/logos/sedgon_160x160.png",
+      "bytes": 5845
+    },
+    {
+      "ticker": "SGOV",
+      "url": "https://cdn.ondo.finance/tokens/logos/sgovon_160x160.png",
+      "bytes": 5119
+    },
+    {
+      "ticker": "SHLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/shldon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "SHOP",
+      "url": "https://cdn.ondo.finance/tokens/logos/shopon_160x160.png",
+      "bytes": 5639
+    },
+    {
+      "ticker": "SHY",
+      "url": "https://cdn.ondo.finance/tokens/logos/shyon_160x160.png",
+      "bytes": 5900
+    },
+    {
+      "ticker": "SIL",
+      "url": "https://cdn.ondo.finance/tokens/logos/silon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "SKHY",
+      "url": "https://cdn.ondo.finance/tokens/logos/skhyon_160x160.png",
+      "bytes": 6102
+    },
+    {
+      "ticker": "SLB",
+      "url": "https://cdn.ondo.finance/tokens/logos/slbon_160x160.png",
+      "bytes": 5911
+    },
+    {
+      "ticker": "SLV",
+      "url": "https://cdn.ondo.finance/tokens/logos/slvon_160x160.png",
+      "bytes": 4667
+    },
+    {
+      "ticker": "SMCI",
+      "url": "https://cdn.ondo.finance/tokens/logos/smcion_160x160.png",
+      "bytes": 5682
+    },
+    {
+      "ticker": "SMR",
+      "url": "https://cdn.ondo.finance/tokens/logos/smron_160x160.png",
+      "bytes": 6237
+    },
+    {
+      "ticker": "SNAP",
+      "url": "https://cdn.ondo.finance/tokens/logos/snapon_160x160.png",
+      "bytes": 5547
+    },
+    {
+      "ticker": "SNDK",
+      "url": "https://cdn.ondo.finance/tokens/logos/sndkon_160x160.png",
+      "bytes": 5665
+    },
+    {
+      "ticker": "SNOW",
+      "url": "https://cdn.ondo.finance/tokens/logos/snowon_160x160.png",
+      "bytes": 5738
+    },
+    {
+      "ticker": "SO",
+      "url": "https://cdn.ondo.finance/tokens/logos/soon_160x160.png",
+      "bytes": 4535
+    },
+    {
+      "ticker": "SOFI",
+      "url": "https://cdn.ondo.finance/tokens/logos/sofion_160x160.png",
+      "bytes": 5690
+    },
+    {
+      "ticker": "SOUN",
+      "url": "https://cdn.ondo.finance/tokens/logos/sounon_160x160.png",
+      "bytes": 4656
+    },
+    {
+      "ticker": "SOXL",
+      "url": "https://cdn.ondo.finance/tokens/logos/soxlon_160x160.png",
+      "bytes": 6198
+    },
+    {
+      "ticker": "SOXQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/soxqon_160x160.png",
+      "bytes": 6788
+    },
+    {
+      "ticker": "SOXS",
+      "url": "https://cdn.ondo.finance/tokens/logos/soxson_160x160.png",
+      "bytes": 6198
+    },
+    {
+      "ticker": "SOXX",
+      "url": "https://cdn.ondo.finance/tokens/logos/soxxon_160x160.png",
+      "bytes": 5990
+    },
+    {
+      "ticker": "SPCX",
+      "url": "https://cdn.ondo.finance/tokens/logos/spcxon_160x160.png",
+      "bytes": 4252
+    },
+    {
+      "ticker": "SPGI",
+      "url": "https://cdn.ondo.finance/tokens/logos/spgion_160x160.png",
+      "bytes": 5278
+    },
+    {
+      "ticker": "SPOT",
+      "url": "https://cdn.ondo.finance/tokens/logos/spoton_160x160.png",
+      "bytes": 5540
+    },
+    {
+      "ticker": "SQQQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/sqqqon_160x160.png",
+      "bytes": 5578
+    },
+    {
+      "ticker": "STLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/stldon_160x160.png",
+      "bytes": 6081
+    },
+    {
+      "ticker": "STM",
+      "url": "https://cdn.ondo.finance/tokens/logos/stmon_160x160.png",
+      "bytes": 5704
+    },
+    {
+      "ticker": "STNG",
+      "url": "https://cdn.ondo.finance/tokens/logos/stngon_160x160.png",
+      "bytes": 6286
+    },
+    {
+      "ticker": "STRC",
+      "url": "https://cdn.ondo.finance/tokens/logos/strcon_160x160.png",
+      "bytes": 3801
+    },
+    {
+      "ticker": "STX",
+      "url": "https://cdn.ondo.finance/tokens/logos/stxon_160x160.png",
+      "bytes": 6863
+    },
+    {
+      "ticker": "SWKS",
+      "url": "https://cdn.ondo.finance/tokens/logos/swkson_160x160.png",
+      "bytes": 5844
+    },
+    {
+      "ticker": "SYM",
+      "url": "https://cdn.ondo.finance/tokens/logos/symon_160x160.png",
+      "bytes": 6588
+    },
+    {
+      "ticker": "SYSB",
+      "url": "https://cdn.ondo.finance/tokens/logos/sysbon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "T",
+      "url": "https://cdn.ondo.finance/tokens/logos/ton_160x160.png",
+      "bytes": 6136
+    },
+    {
+      "ticker": "TASK",
+      "url": "https://cdn.ondo.finance/tokens/logos/taskon_160x160.png",
+      "bytes": 5367
+    },
+    {
+      "ticker": "TCOM",
+      "url": "https://cdn.ondo.finance/tokens/logos/tcomon_160x160.png",
+      "bytes": 3770
+    },
+    {
+      "ticker": "TEL",
+      "url": "https://cdn.ondo.finance/tokens/logos/telon_160x160.png",
+      "bytes": 5524
+    },
+    {
+      "ticker": "TEN",
+      "url": "https://cdn.ondo.finance/tokens/logos/tenon_160x160.png",
+      "bytes": 5696
+    },
+    {
+      "ticker": "TER",
+      "url": "https://cdn.ondo.finance/tokens/logos/teron_160x160.png",
+      "bytes": 5498
+    },
+    {
+      "ticker": "TIP",
+      "url": "https://cdn.ondo.finance/tokens/logos/tipon_160x160.png",
+      "bytes": 4853
+    },
+    {
+      "ticker": "TLN",
+      "url": "https://cdn.ondo.finance/tokens/logos/tlnon_160x160.png",
+      "bytes": 5297
+    },
+    {
+      "ticker": "TLT",
+      "url": "https://cdn.ondo.finance/tokens/logos/tlton_160x160.png",
+      "bytes": 4853
+    },
+    {
+      "ticker": "TM",
+      "url": "https://cdn.ondo.finance/tokens/logos/tmon_160x160.png",
+      "bytes": 5986
+    },
+    {
+      "ticker": "TMO",
+      "url": "https://cdn.ondo.finance/tokens/logos/tmoon_160x160.png",
+      "bytes": 3210
+    },
+    {
+      "ticker": "TMUS",
+      "url": "https://cdn.ondo.finance/tokens/logos/tmuson_160x160.png",
+      "bytes": 4460
+    },
+    {
+      "ticker": "TNK",
+      "url": "https://cdn.ondo.finance/tokens/logos/tnkon_160x160.png",
+      "bytes": 6065
+    },
+    {
+      "ticker": "TQQQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/tqqqon_160x160.png",
+      "bytes": 5578
+    },
+    {
+      "ticker": "TSEM",
+      "url": "https://cdn.ondo.finance/tokens/logos/tsemon_160x160.png",
+      "bytes": 5867
+    },
+    {
+      "ticker": "TSM",
+      "url": "https://cdn.ondo.finance/tokens/logos/tsmon_160x160.png",
+      "bytes": 4759
+    },
+    {
+      "ticker": "TT",
+      "url": "https://cdn.ondo.finance/tokens/logos/tton_160x160.png",
+      "bytes": 5906
+    },
+    {
+      "ticker": "TTMI",
+      "url": "https://cdn.ondo.finance/tokens/logos/ttmion_160x160.png",
+      "bytes": 5837
+    },
+    {
+      "ticker": "TXN",
+      "url": "https://cdn.ondo.finance/tokens/logos/txnon_160x160.png",
+      "bytes": 4946
+    },
+    {
+      "ticker": "UAMY",
+      "url": "https://cdn.ondo.finance/tokens/logos/uamyon_160x160.png",
+      "bytes": 5850
+    },
+    {
+      "ticker": "UBER",
+      "url": "https://cdn.ondo.finance/tokens/logos/uberon_160x160.png",
+      "bytes": 4165
+    },
+    {
+      "ticker": "UCTT",
+      "url": "https://cdn.ondo.finance/tokens/logos/uctton_160x160.png",
+      "bytes": 6051
+    },
+    {
+      "ticker": "UEC",
+      "url": "https://cdn.ondo.finance/tokens/logos/uecon_160x160.png",
+      "bytes": 5718
+    },
+    {
+      "ticker": "UMC",
+      "url": "https://cdn.ondo.finance/tokens/logos/umcon_160x160.png",
+      "bytes": 5677
+    },
+    {
+      "ticker": "UNG",
+      "url": "https://cdn.ondo.finance/tokens/logos/ungon_160x160.png",
+      "bytes": 5882
+    },
+    {
+      "ticker": "UNH",
+      "url": "https://cdn.ondo.finance/tokens/logos/unhon_160x160.png",
+      "bytes": 4639
+    },
+    {
+      "ticker": "UNP",
+      "url": "https://cdn.ondo.finance/tokens/logos/unpon_160x160.png",
+      "bytes": 6601
+    },
+    {
+      "ticker": "URA",
+      "url": "https://cdn.ondo.finance/tokens/logos/uraon_160x160.png",
+      "bytes": 6204
+    },
+    {
+      "ticker": "URNM",
+      "url": "https://cdn.ondo.finance/tokens/logos/urnmon_160x160.png",
+      "bytes": 6017
+    },
+    {
+      "ticker": "USAR",
+      "url": "https://cdn.ondo.finance/tokens/logos/usaron_160x160.png",
+      "bytes": 6594
+    },
+    {
+      "ticker": "USFR",
+      "url": "https://cdn.ondo.finance/tokens/logos/usfron_160x160.png",
+      "bytes": 5604
+    },
+    {
+      "ticker": "USHY",
+      "url": "https://cdn.ondo.finance/tokens/logos/ushyon_160x160.png",
+      "bytes": 5899
+    },
+    {
+      "ticker": "USO",
+      "url": "https://cdn.ondo.finance/tokens/logos/usoon_160x160.png",
+      "bytes": 4639
+    },
+    {
+      "ticker": "UUUU",
+      "url": "https://cdn.ondo.finance/tokens/logos/uuuuon_160x160.png",
+      "bytes": 6331
+    },
+    {
+      "ticker": "VCX",
+      "url": "https://cdn.ondo.finance/tokens/logos/vcxon_160x160.png",
+      "bytes": 5616
+    },
+    {
+      "ticker": "VDE",
+      "url": "https://cdn.ondo.finance/tokens/logos/vdeon_160x160.png",
+      "bytes": 5914
+    },
+    {
+      "ticker": "VFS",
+      "url": "https://cdn.ondo.finance/tokens/logos/vfson_160x160.png",
+      "bytes": 6818
+    },
+    {
+      "ticker": "VICR",
+      "url": "https://cdn.ondo.finance/tokens/logos/vicron_160x160.png",
+      "bytes": 5839
+    },
+    {
+      "ticker": "VNQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/vnqon_160x160.png",
+      "bytes": 5857
+    },
+    {
+      "ticker": "VPG",
+      "url": "https://cdn.ondo.finance/tokens/logos/vpgon_160x160.png",
+      "bytes": 6246
+    },
+    {
+      "ticker": "VRSN",
+      "url": "https://cdn.ondo.finance/tokens/logos/vrsnon_160x160.png",
+      "bytes": 6700
+    },
+    {
+      "ticker": "VRT",
+      "url": "https://cdn.ondo.finance/tokens/logos/vrton_160x160.png",
+      "bytes": 4450
+    },
+    {
+      "ticker": "VRTX",
+      "url": "https://cdn.ondo.finance/tokens/logos/vrtxon_160x160.png",
+      "bytes": 5595
+    },
+    {
+      "ticker": "VSH",
+      "url": "https://cdn.ondo.finance/tokens/logos/vshon_160x160.png",
+      "bytes": 6308
+    },
+    {
+      "ticker": "VST",
+      "url": "https://cdn.ondo.finance/tokens/logos/vston_160x160.png",
+      "bytes": 4957
+    },
+    {
+      "ticker": "VTI",
+      "url": "https://cdn.ondo.finance/tokens/logos/vtion_160x160.png",
+      "bytes": 5025
+    },
+    {
+      "ticker": "VTV",
+      "url": "https://cdn.ondo.finance/tokens/logos/vtvon_160x160.png",
+      "bytes": 5025
+    },
+    {
+      "ticker": "VZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/vzon_160x160.png",
+      "bytes": 4346
+    },
+    {
+      "ticker": "WCC",
+      "url": "https://cdn.ondo.finance/tokens/logos/wccon_160x160.png",
+      "bytes": 5819
+    },
+    {
+      "ticker": "WDC",
+      "url": "https://cdn.ondo.finance/tokens/logos/wdcon_160x160.png",
+      "bytes": 5604
+    },
+    {
+      "ticker": "WEN",
+      "url": "https://cdn.ondo.finance/tokens/logos/wenon_160x160.png",
+      "bytes": 6252
+    },
+    {
+      "ticker": "WFC",
+      "url": "https://cdn.ondo.finance/tokens/logos/wfcon_160x160.png",
+      "bytes": 5716
+    },
+    {
+      "ticker": "WLK",
+      "url": "https://cdn.ondo.finance/tokens/logos/wlkon_160x160.png",
+      "bytes": 5993
+    },
+    {
+      "ticker": "WM",
+      "url": "https://cdn.ondo.finance/tokens/logos/wmon_160x160.png",
+      "bytes": 5901
+    },
+    {
+      "ticker": "WMB",
+      "url": "https://cdn.ondo.finance/tokens/logos/wmbon_160x160.png",
+      "bytes": 6819
+    },
+    {
+      "ticker": "WOLF",
+      "url": "https://cdn.ondo.finance/tokens/logos/wolfon_160x160.png",
+      "bytes": 5657
+    },
+    {
+      "ticker": "WS",
+      "url": "https://cdn.ondo.finance/tokens/logos/wson_160x160.png",
+      "bytes": 5408
+    },
+    {
+      "ticker": "WULF",
+      "url": "https://cdn.ondo.finance/tokens/logos/wulfon_160x160.png",
+      "bytes": 5836
+    },
+    {
+      "ticker": "WYFI",
+      "url": "https://cdn.ondo.finance/tokens/logos/wyfion_160x160.png",
+      "bytes": 5706
+    },
+    {
+      "ticker": "XYLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/xyldon_160x160.png",
+      "bytes": 6203
+    },
+    {
+      "ticker": "XYZ",
+      "url": "https://cdn.ondo.finance/tokens/logos/xyzon_160x160.png",
+      "bytes": 4090
+    },
+    {
+      "ticker": "YEAR",
+      "url": "https://cdn.ondo.finance/tokens/logos/yearon_160x160.png",
+      "bytes": 5671
+    }
+  ],
+  "failures": []
+}
