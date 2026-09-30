@@ -88,6 +88,7 @@ const staticFiles = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
+  ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
 ]);
 
 export default async function handleRequest(request, response) {

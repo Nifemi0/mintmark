@@ -29,6 +29,10 @@ function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 }
 
+function icon(name, className = '') {
+  return `<svg class="ui-icon${className ? ` ${className}` : ''}" aria-hidden="true"><use href="#icon-${name}"/></svg>`;
+}
+
 function shortAddress(value) {
   return `${value.slice(0, 8)}…${value.slice(-6)}`;
 }
@@ -92,10 +96,10 @@ function tokenBalance(value) {
 function renderWallet(wallet) {
   const holdings = wallet.supported ?? [];
   const source = safeLink(wallet.sourceUrl);
-  const cards = holdings.map((holding) => `<button type="button" class="wallet-holding" data-wallet-key="${escapeHtml(holding.key)}" aria-label="Open ${escapeHtml(holding.companyName)} record">${logoHtml(holding.underlyingTicker, 'wallet-holding-mark')}<span><strong>${escapeHtml(holding.companyName)}</strong><small>${escapeHtml(holding.tokenSymbol)} · ${escapeHtml(shortAddress(holding.contractAddress))}</small></span><span class="wallet-holding-balance">${escapeHtml(tokenBalance(holding.balance))}<small>tokens held</small></span><span aria-hidden="true">↗</span></button>`).join('');
+  const cards = holdings.map((holding) => `<button type="button" class="wallet-holding" data-wallet-key="${escapeHtml(holding.key)}" aria-label="Open ${escapeHtml(holding.companyName)} record">${logoHtml(holding.underlyingTicker, 'wallet-holding-mark')}<span><strong>${escapeHtml(holding.companyName)}</strong><small>${escapeHtml(holding.tokenSymbol)} · ${escapeHtml(shortAddress(holding.contractAddress))}</small></span><span class="wallet-holding-balance">${escapeHtml(tokenBalance(holding.balance))}<small>tokens held</small></span>${icon('arrow-up-right')}</button>`).join('');
   return `<div class="wallet-result-head"><div><strong>${holdings.length ? `${holdings.length} supported holding${holdings.length === 1 ? '' : 's'} found` : 'No supported holdings found'}</strong><p>${escapeHtml(shortAddress(wallet.address))} · checked ${escapeHtml(dateLabel(wallet.observedAt))}</p></div><span>BNB Smart Chain</span></div>
     ${cards || '<p class="wallet-empty">This address has no positive balance in the 24 contracts Mintmark currently checks. It may hold other assets; this lookup does not scan them.</p>'}
-    <p class="wallet-note">Matched by exact BSC contract address, not symbol. Balances are third-party reported and may change. Other wallet tokens are not scanned or identified.${source ? ` <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Wallet API source ↗</a>` : ''}</p>`;
+    <p class="wallet-note">Matched by exact BSC contract address, not symbol. Balances are third-party reported and may change. Other wallet tokens are not scanned or identified.${source ? ` <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Wallet API source ${icon('arrow-up-right')}</a>` : ''}</p>`;
 }
 
 async function lookupWallet(address) {
@@ -121,7 +125,7 @@ async function lookupWallet(address) {
 
 function reportSource(source) {
   const link = safeLink(source.sourceUrl);
-  return `<span class="report-source">${escapeHtml(kindLabel(source.sourceKind))} · retrieved ${escapeHtml(dateLabel(source.retrievedAt))}${link ? ` · <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Data source ↗</a>` : ''}</span>`;
+  return `<span class="report-source">${escapeHtml(kindLabel(source.sourceKind))} · retrieved ${escapeHtml(dateLabel(source.retrievedAt))}${link ? ` · <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Data source ${icon('arrow-up-right')}</a>` : ''}</span>`;
 }
 
 function tokenChart(movement) {
@@ -144,7 +148,7 @@ function renderCompanyReport(report) {
   }
   const website = safeLink(company.website);
   return `<div class="report-title"><div><p class="eyebrow">Public company data</p><h4>Company report</h4><p>Learn about the underlying business, then compare market data with the token record above.</p></div><span class="report-industry">${escapeHtml(company.industry || 'Industry unavailable')}</span></div>
-    <div class="report-company"><div><span class="report-label">The business</span><div class="report-company-name">${logoHtml(company.ticker, 'report-company-mark')}<h5>${escapeHtml(company.name)}</h5></div><p>${escapeHtml(company.description || 'A sourced company description is not available.')}</p>${website ? `<a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">Company website ↗</a>` : ''}</div>${reportSource(company)}</div>
+    <div class="report-company"><div><span class="report-label">The business</span><div class="report-company-name">${logoHtml(company.ticker, 'report-company-mark')}<h5>${escapeHtml(company.name)}</h5></div><p>${escapeHtml(company.description || 'A sourced company description is not available.')}</p>${website ? `<a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">Company website ${icon('arrow-up-right')}</a>` : ''}</div>${reportSource(company)}</div>
     <div class="report-market"><div class="report-subhead"><div><span class="report-label">Underlying share data</span><h5>Market snapshot</h5></div><p>Reference price is derived by the provider from the token price. It is not an official exchange quote.</p></div><div class="metric-grid">
       <div class="metric"><span>Reference price</span><strong>${escapeHtml(money(market.referencePrice))}</strong></div>
       <div class="metric"><span>Market cap</span><strong>${escapeHtml(money(market.marketCap, true))}</strong></div>
@@ -205,7 +209,7 @@ function renderCategories() {
     const matches = allRecords.filter((record) => record.platformId === category);
     if (!matches.length) return '';
     const examples = ['NVDA', 'TSLA', 'AAPL'].map((ticker) => matches.find((record) => record.underlyingTicker === ticker)).filter(Boolean).slice(0, 2).map((record) => record.companyName).join(' · ');
-    return `<button type="button" class="category-card${selectedCategory === category ? ' active' : ''}" data-category="${escapeHtml(category)}" aria-pressed="${selectedCategory === category}"><span class="category-top"><strong>${escapeHtml(providerLabels[category])}</strong><span aria-hidden="true">↗</span></span><span class="category-examples">${escapeHtml(examples)}</span><small>${matches.length} checked contracts</small></button>`;
+    return `<button type="button" class="category-card${selectedCategory === category ? ' active' : ''}" data-category="${escapeHtml(category)}" aria-pressed="${selectedCategory === category}"><span class="category-top"><strong>${escapeHtml(providerLabels[category])}</strong>${icon('arrow-up-right')}</span><span class="category-examples">${escapeHtml(examples)}</span><small>${matches.length} checked contracts</small></button>`;
   }).join('');
 }
 
@@ -223,7 +227,7 @@ function renderComparison(records, query) {
     <div class="comparison-list">${records.map((record) => {
       const terms = safeLink(record.issuerTermsUrl);
       const explorer = `https://bscscan.com/token/${record.contractAddress}`;
-      return `<div class="comparison-row"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><div class="comparison-token"><strong>${escapeHtml(record.symbol)}</strong><small>Token symbol</small></div><div class="comparison-contract"><span>Exact BSC contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer">${escapeHtml(record.contractAddress)} ↗</a></div><div class="comparison-actions">${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents ↗</a>` : '<span>Documents unavailable</span>'}<button type="button" data-compare-key="${escapeHtml(record.key)}">Open record ↗</button></div></div>`;
+      return `<div class="comparison-row"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><div class="comparison-token"><strong>${escapeHtml(record.symbol)}</strong><small>Token symbol</small></div><div class="comparison-contract"><span>Exact BSC contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer">${escapeHtml(record.contractAddress)} ${icon('arrow-up-right')}</a></div><div class="comparison-actions">${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents ${icon('arrow-up-right')}</a>` : '<span>Documents unavailable</span>'}<button type="button" data-compare-key="${escapeHtml(record.key)}">Open record ${icon('arrow-up-right')}</button></div></div>`;
     }).join('')}</div>`;
 }
 
@@ -251,12 +255,12 @@ function renderCards(records, query) {
     return;
   }
   grid.innerHTML = records.slice(0, visibleLimit).map((record) => `<button class="record-card${record.key === selectedKey ? ' active' : ''}" type="button" data-key="${escapeHtml(record.key)}" aria-label="Open ${escapeHtml(record.symbol)} record for ${escapeHtml(record.companyName)}">
-    <span class="card-top">${logoHtml(record.underlyingTicker, 'ticker-mark', record.logoUrl)}<span class="card-arrow">↗</span></span>
+    <span class="card-top">${logoHtml(record.underlyingTicker, 'ticker-mark', record.logoUrl)}${icon('arrow-up-right', 'card-arrow')}</span>
     <span class="card-company">${escapeHtml(record.companyName)}</span><span class="card-symbol">${escapeHtml(record.symbol)} · ${escapeHtml(record.underlyingTicker)}</span>
     <span class="card-foot"><span>${escapeHtml(record.providerName)} · ${escapeHtml(record.category)}</span><span>${escapeHtml(shortAddress(record.contractAddress))}</span></span>
   </button>`).join('');
   loadMore.hidden = records.length <= visibleLimit;
-  loadMore.textContent = `Show ${Math.min(9, records.length - visibleLimit)} more stocks ↓`;
+  loadMore.innerHTML = `Show ${Math.min(9, records.length - visibleLimit)} more stocks ${icon('chevron-down')}`;
 }
 
 async function loadRecords(query = '') {
@@ -284,14 +288,14 @@ async function loadRecords(query = '') {
 
 function evidenceHtml(item) {
   const source = safeLink(item.sourceUrl);
-  const link = source ? `<a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Open ${escapeHtml(item.sourceLabel)} ↗</a>` : `<span>${escapeHtml(item.sourceLabel)}</span>`;
+  const link = source ? `<a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Open ${escapeHtml(item.sourceLabel)} ${icon('arrow-up-right')}</a>` : `<span>${escapeHtml(item.sourceLabel)}</span>`;
   const explanation = {
     onchain_observed: 'Read from the BSC contract at check time. This does not establish share backing or legal rights.',
     issuer_published: 'Published by the issuer. Mintmark links the statement but does not independently verify offchain backing.',
     third_party_reported: 'Reported by an external data provider and shown with its source and retrieval time.',
     unverified: 'Mintmark has not verified this claim with an external source.',
   }[item.kind] ?? 'Evidence details are unavailable.';
-  return `<details class="evidence-row"><summary><span class="evidence-kind ${escapeHtml(item.kind)}">${escapeHtml(kindLabel(item.kind))}</span><span class="evidence-claim"><strong>${escapeHtml(item.value)}</strong><small>${escapeHtml(item.field)} · checked ${escapeHtml(dateLabel(item.observedAt))}</small></span><span class="evidence-expand" aria-hidden="true">+</span></summary><div class="evidence-detail"><p>${escapeHtml(explanation)}</p>${link}</div></details>`;
+  return `<details class="evidence-row"><summary><span class="evidence-kind ${escapeHtml(item.kind)}">${escapeHtml(kindLabel(item.kind))}</span><span class="evidence-claim"><strong>${escapeHtml(item.value)}</strong><small>${escapeHtml(item.field)} · checked ${escapeHtml(dateLabel(item.observedAt))}</small></span>${icon('chevron-down', 'evidence-expand')}</summary><div class="evidence-detail"><p>${escapeHtml(explanation)}</p>${link}</div></details>`;
 }
 
 function renderRecordHistory(payload) {
@@ -303,9 +307,9 @@ function renderRecordHistory(payload) {
       : entry.kind === 'removed_from_catalog'
         ? '<p>Removed from the current curated catalog. This does not prove the issuer retired the token.</p>'
         : entry.changes.length
-          ? `<ul>${entry.changes.map((change) => `<li><strong>${escapeHtml(change.field)}</strong>: ${escapeHtml(change.from ?? 'not listed')} → ${escapeHtml(change.to ?? 'not listed')}</li>`).join('')}</ul>`
+          ? `<ul>${entry.changes.map((change) => `<li><strong>${escapeHtml(change.field)}</strong>: ${escapeHtml(change.from ?? 'not listed')} ${icon('arrow-right', 'inline-icon')} ${escapeHtml(change.to ?? 'not listed')}</li>`).join('')}</ul>`
           : '<p>Returned to the curated catalog.</p>';
-    return `<div class="history-entry"><div><strong>Version ${escapeHtml(entry.version)} · ${escapeHtml(entry.kind.replaceAll('_', ' '))}</strong><span>${escapeHtml(dateLabel(entry.observedAt))}</span></div>${changes}<small>${escapeHtml(entry.reviewMethod)}${source ? ` · <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Source ↗</a>` : ''}</small></div>`;
+    return `<div class="history-entry"><div><strong>Version ${escapeHtml(entry.version)} · ${escapeHtml(entry.kind.replaceAll('_', ' '))}</strong><span>${escapeHtml(dateLabel(entry.observedAt))}</span></div>${changes}<small>${escapeHtml(entry.reviewMethod)}${source ? ` · <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Source ${icon('arrow-up-right')}</a>` : ''}</small></div>`;
   }).join('');
   return `<div class="history-title"><div><p class="eyebrow">Public record history</p><h4>What changed in this record</h4></div><span>Current version ${escapeHtml(latest?.version ?? '—')}</span></div>${payload.unresolved.map((item) => `<div class="history-unresolved">Unresolved ${escapeHtml(item.source)} difference: ${escapeHtml(item.detail)}</div>`).join('')}<div class="history-entries">${items}</div>`;
 }
@@ -344,13 +348,13 @@ async function openRecord(key) {
         <div class="fact"><label>Underlying ticker</label><strong>${escapeHtml(record.underlyingTicker)}</strong></div>
         ${record.platformId === 'xstock' ? `<div class="fact"><label>xStocks catalog status</label><strong>${record.tradingHalted ? 'Marked trading halted' : 'Not marked halted'}</strong></div>` : ''}
         <div class="fact"><label>Provider</label><strong>${escapeHtml(providerLabels[record.platformId] || record.platformId)}</strong></div>
-        <div class="fact"><label>Issuer</label><strong>${escapeHtml(record.issuer)}</strong>${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Asset page ↗</a>` : ''}${safeLink(record.issuerTermsUrl) ? `<a href="${escapeHtml(record.issuerTermsUrl)}" target="_blank" rel="noopener noreferrer">Legal documents ↗</a>` : ''}</div>
+        <div class="fact"><label>Issuer</label><strong>${escapeHtml(record.issuer)}</strong>${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Asset page ${icon('arrow-up-right')}</a>` : ''}${safeLink(record.issuerTermsUrl) ? `<a href="${escapeHtml(record.issuerTermsUrl)}" target="_blank" rel="noopener noreferrer">Legal documents ${icon('arrow-up-right')}</a>` : ''}</div>
         <div class="fact"><label>Chain</label><strong>BNB Smart Chain · 56</strong></div>
-        <div class="fact"><label>Exact contract</label><code>${escapeHtml(record.contractAddress)}</code>${explorerUrl ? `<a href="${escapeHtml(explorerUrl)}" target="_blank" rel="noopener noreferrer">Open BscScan ↗</a>` : ''}</div>
+        <div class="fact"><label>Exact contract</label><code>${escapeHtml(record.contractAddress)}</code>${explorerUrl ? `<a href="${escapeHtml(explorerUrl)}" target="_blank" rel="noopener noreferrer">Open BscScan ${icon('arrow-up-right')}</a>` : ''}</div>
         <div class="fact"><label>Last checked</label><strong>${escapeHtml(dateLabel(record.observedAt))}</strong></div>
       </div><div class="evidence-panel"><h4>Evidence for this record</h4><p>Open a claim to see its source and limits. An issuer publication and an onchain observation answer different questions.</p>${record.evidence.map(evidenceHtml).join('')}</div></div>
       ${record.sourceConflict ? `<div class="cross-check conflict"><strong>Provider listing and onchain name differ</strong><p>${escapeHtml(record.sourceConflict)}</p><small>Compare the provider listing and BSC contract evidence above.</small></div>` : ''}
-      ${record.binanceCheck ? `<div class="cross-check ${escapeHtml(record.binanceCheck.state)}"><strong>Binance RWA cross-check · ${escapeHtml(record.binanceCheck.state.replace('_', ' '))}</strong><p>${escapeHtml(record.binanceCheck.detail)}</p><small>Third-party reported · checked ${escapeHtml(dateLabel(record.binanceCheck.observedAt))} · <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data" target="_blank" rel="noopener noreferrer">API source and field definitions ↗</a></small></div>` : ''}
+      ${record.binanceCheck ? `<div class="cross-check ${escapeHtml(record.binanceCheck.state)}"><strong>Binance RWA cross-check · ${escapeHtml(record.binanceCheck.state.replace('_', ' '))}</strong><p>${escapeHtml(record.binanceCheck.detail)}</p><small>Third-party reported · checked ${escapeHtml(dateLabel(record.binanceCheck.observedAt))} · <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data" target="_blank" rel="noopener noreferrer">API source and field definitions ${icon('arrow-up-right')}</a></small></div>` : ''}
       <section id="record-history" class="record-history" aria-label="Record history"><div class="report-loading">Loading record history…</div></section>
       <section id="company-report" class="company-report" aria-label="Company report"><div class="report-loading">Loading sourced company and market data…</div></section>`;
     recordPlaceholder.hidden = true;

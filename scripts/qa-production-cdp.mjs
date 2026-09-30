@@ -2,7 +2,7 @@ import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const debugBase = 'http://127.0.0.1:9227';
-const targetUrl = 'https://mintmark-ecru.vercel.app/';
+const targetUrl = process.env.MINTMARK_QA_URL ?? 'https://mintmark.nuvixes.studio/';
 const targets = await fetch(`${debugBase}/json/list`).then((response) => response.json());
 const target = targets.find((item) => item.type === 'page' && item.url.startsWith(targetUrl));
 if (!target) throw new Error('Mintmark Chrome target was not found');

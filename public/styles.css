@@ -27,3 +27,21 @@
 @media(max-width:930px){.comparison-row{grid-template-columns:minmax(160px,1fr) minmax(80px,.5fr) minmax(220px,1.5fr)}.comparison-actions{grid-column:1/-1;flex-direction:row;gap:20px;padding-left:51px}}
 @media(max-width:620px){.comparison-heading{display:block;padding:20px}.comparison-heading h3{font-size:22px}.comparison-heading>span{display:inline-block;margin-top:13px}.comparison-row{grid-template-columns:1fr auto;gap:10px;padding:17px 19px}.comparison-provider{grid-column:1/2}.comparison-token{grid-column:2/3;text-align:right}.comparison-contract{grid-column:1/-1;padding-top:7px}.comparison-actions{grid-column:1/-1;padding-left:0;gap:22px;padding-top:3px}}
 #wallet{border-top:1px solid #dfe8de;border-bottom:0}
+
+/* Consistent interface iconography */
+.icon-sprite{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.ui-icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.14em}
+.header-action,.hero-search button,.hero-note a,.sheet-bottom a,.dark-foot a,.browse-heading button,.load-more,.wallet-form button,.wallet-example,.record-close{display:inline-flex;align-items:center;gap:7px}
+.header-action .ui-icon{margin-left:7px}
+.hero-search>.search-icon{width:21px;height:21px;color:#697d6d;margin:0 10px 0 13px}
+.search-field>.search-icon{width:19px;height:19px;color:#829486}
+.chain-tag{display:inline-flex;align-items:center;gap:7px}.chain-tag i{width:7px;height:7px;border-radius:50%;background:#6b9272;box-shadow:0 0 0 3px #dfe9df}
+.category-top>.ui-icon{width:18px;height:18px;color:#719678}
+.card-arrow{width:20px;height:20px;color:#89a38e}
+.wallet-holding>.ui-icon{width:19px;height:19px;color:#6b9171}
+.placeholder-icon{width:52px;height:52px;color:#9db5a0}
+.method-symbol{width:38px;height:38px;color:#7a9d7e;margin-bottom:auto}
+.evidence-expand{width:17px;height:17px;color:#88a38d;transition:transform .18s ease}.evidence-row[open] .evidence-expand{transform:rotate(180deg)}
+.inline-icon{width:13px;height:13px;margin:0 3px}
+.comparison-contract a,.comparison-actions a,.comparison-actions button,.fact a,.evidence-detail a,.history-entry a,.report-source a,.report-company a,.wallet-note a{align-items:center;gap:4px}
+.comparison-contract a,.comparison-actions a,.comparison-actions button,.evidence-detail a,.history-entry a,.report-source a,.report-company a,.wallet-note a{display:inline-flex}
