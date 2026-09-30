@@ -28,7 +28,7 @@ Run focused checks with `npm test`.
 
 ## Hosting plan
 
-The app is deployed on Vercel. Vercel serves `public/` as the front end and routes `/api/*` to the Node handler. The included JSON snapshot is bundled with that handler. The public site shows the catalog, exact records, evidence, and history without a database account or private API credentials. Company reports, live Binance cross-checks, and wallet lookup require `OC_API_KEY` and `OC_SECRET_KEY` plus provider availability for the deployment. The same credentials work locally, but Binance returned `40304` for requests from this Vercel deployment; they were removed from production. Local `.env.local` is excluded from the deployed bundle; the production build was checked for private-key matches before upload.
+The app is deployed on Vercel. Vercel serves `public/` as the front end and routes `/api/*` to the Node handler. The included JSON snapshot is bundled with that handler. The public site shows the catalog, exact records, evidence, and history without a database account or private API credentials. Company reports, live Binance cross-checks, and wallet lookup require `OC_API_KEY` and `OC_SECRET_KEY` plus provider availability for the deployment. The same credentials work locally, but Binance returned `40304` from both Vercel and the tested owned VPS; the copied credentials were removed and the VPS process was stopped. Local `.env.local` is excluded from the deployed bundle; the production build was checked for private-key matches before upload.
 
 ## What the labels mean
 
