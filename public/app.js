@@ -108,6 +108,10 @@ async function lookupWallet(address) {
   try {
     const response = await fetch(`/api/wallet?address=${encodeURIComponent(address)}`);
     const payload = await response.json();
+    if (response.status === 503 && payload.code === 'live_data_not_configured') {
+      if (current === walletRequestId) walletResult.innerHTML = '<div class="report-unavailable">Live wallet lookup is not enabled on this demo yet. You can still search the registry by company or exact contract.</div>';
+      return;
+    }
     if (!response.ok) throw new Error(payload.error || 'Wallet lookup failed');
     if (current === walletRequestId) walletResult.innerHTML = renderWallet(payload.wallet);
   } catch (error) {
@@ -159,6 +163,10 @@ async function loadCompanyReport(key) {
   try {
     const response = await fetch(`/api/report?key=${encodeURIComponent(key)}`);
     const payload = await response.json();
+    if (response.status === 503 && payload.code === 'live_data_not_configured') {
+      if (selectedKey === key) target.innerHTML = '<div class="report-title"><div><p class="eyebrow">Public company data</p><h4>Live report not enabled yet</h4><p>This demo has not connected its Binance Web3 data source. The exact contract, issuer documents, and evidence above remain available.</p></div></div><div class="report-unavailable">Company and market figures will appear here after the live data source is configured. No price or company figures have been filled in from another token.</div>';
+      return;
+    }
     if (!response.ok) throw new Error(payload.error || 'Company report is unavailable');
     if (selectedKey === key) target.innerHTML = renderCompanyReport(payload.report);
   } catch (error) {

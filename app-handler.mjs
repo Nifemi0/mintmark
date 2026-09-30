@@ -120,7 +120,9 @@ export default async function handleRequest(request, response) {
       const key = (url.searchParams.get('key') ?? '').toLowerCase();
       const record = baseRecords.find((item) => item.key === key);
       if (!record) return sendJson(response, 404, { error: 'No registry record for that exact BSC token identity.' });
-      if (record.platformId !== 'xstock' && !hasBinanceCredentials()) return sendJson(response, 503, { error: 'Company reports require Binance API credentials.' });
+      if (record.platformId !== 'xstock' && !hasBinanceCredentials()) return sendJson(response, 503, {
+        code: 'live_data_not_configured', error: 'Live Binance company data is not enabled on this deployment.',
+      });
       try {
         return sendJson(response, 200, { report: await currentReport(record) });
       } catch (error) {
@@ -142,7 +144,9 @@ export default async function handleRequest(request, response) {
     if (url.pathname === '/api/wallet') {
       const address = normalizeAddress(url.searchParams.get('address'));
       if (!address) return sendJson(response, 400, { error: 'Enter a complete 0x BSC wallet address.' });
-      if (!hasBinanceCredentials()) return sendJson(response, 503, { error: 'Wallet lookup requires Binance API credentials.' });
+      if (!hasBinanceCredentials()) return sendJson(response, 503, {
+        code: 'live_data_not_configured', error: 'Live wallet lookup is not enabled on this deployment.',
+      });
       try {
         return sendJson(response, 200, { wallet: await currentWallet(address) });
       } catch (error) {

@@ -1,6 +1,6 @@
 # Mintmark testing status
 
-Checked 30 September 2026. This file describes the local build; it is not evidence of a public deployment.
+Checked 30 September 2026. This file records both local checks and the public production deployment.
 
 | Check | Status | Evidence and limit |
 | --- | --- | --- |
@@ -19,6 +19,7 @@ Checked 30 September 2026. This file describes the local build; it is not eviden
 | Public demo | Pass for core registry | [mintmark-ecru.vercel.app](https://mintmark-ecru.vercel.app) is a Ready production deployment. Its page, assets, logo, API health, search, xStocks unavailable report, and history responded. NVIDIA and TSLA each returned three providers; AAPL returned two. |
 | Production browser flow | Pass | Chrome checked NVIDIA search, three comparison rows, record dialog loading, Escape close, and no page errors or horizontal overflow at 1440px and 390px. |
 | Vercel hosting package | Pass for core registry | Production bundle contains the catalog and history snapshots, no `.env` file, and no configured private-key value. The public API reports 1,565 records and `binanceConfigured=false`. |
+| Public company reports | Pending credentials | The existing Binance credentials returned a sourced NVDA Ondo report locally. The production project has no Binance environment variables. It now shows a clear unavailable state for Ondo and bStocks reports rather than a raw credential error; xStocks remains identity-only. |
 | Demo video | On hold | The user asked to finish and confirm the features before video work. The event lists video as strongly recommended but optional. |
 | Developer experience report | Builder action pending | Factual engineering notes are in `DEV_EXPERIENCE_NOTES.md`. The final report must be written by the builder in their own words. |
 

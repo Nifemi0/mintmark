@@ -25,6 +25,11 @@ test('deployment entry serves the front end, catalog health, logos, and xStocks 
     const xstock = snapshot.records.find((record) => record.platformId === 'xstock' && record.underlyingTicker === 'NVDA');
     const report = await fetch(`${base}/api/report?key=${encodeURIComponent(xstock.key)}`).then((response) => response.json());
     assert.equal(report.report.availability, 'identity_only');
+
+    const ondo = snapshot.records.find((record) => record.platformId === 'ondo' && record.underlyingTicker === 'NVDA');
+    const unavailable = await fetch(`${base}/api/report?key=${encodeURIComponent(ondo.key)}`);
+    assert.equal(unavailable.status, 503);
+    assert.equal((await unavailable.json()).code, 'live_data_not_configured');
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
