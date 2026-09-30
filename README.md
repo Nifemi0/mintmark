@@ -2,6 +2,8 @@
 
 Mintmark is a BSC tokenized-stock identity registry spanning **Ondo, bStocks, and xStocks**. It maps each **exact chain and contract** to a provider's published asset, checks contract name and symbol on BSC, and shows the source and evidence class for each claim. Search NVIDIA, for example, to compare NVDAon, NVDAB, and NVDAx as three separate products in rows with their issuers, contracts, and legal-document links.
 
+For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo NVDAon (0xa9ee…6f75)](https://bscscan.com/address/0xa9ee28c80f960b889dfbd1902055218cba016f75), [bStocks NVDAB (0x02fc…7436)](https://bscscan.com/address/0x02fca66c1d1afb4e2a7884261eb00f63598a7436), and [xStocks NVDAx (0xc845…849d)](https://bscscan.com/address/0xc845b2894dbddd03858fd2d643b4ef725fe0849d). The registry shows their full addresses and provider evidence.
+
 ![Mintmark comparing three NVIDIA token products](docs/registry-nvda.png)
 
 **Release status:** This is a working local build. A public repository and public demo are being prepared. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
