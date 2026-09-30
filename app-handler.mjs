@@ -1,4 +1,3 @@
-import { createServer } from 'node:http';
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -11,7 +10,6 @@ import { mapWalletHoldings } from './wallet.mjs';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const envPath = path.join(root, '.env.local');
 if (existsSync(envPath)) process.loadEnvFile(envPath);
-const port = Number(process.env.PORT || 4173);
 const snapshot = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
 const history = JSON.parse(await readFile(path.join(root, 'data', 'registry-history.json'), 'utf8'));
 const baseRecords = normalizeRecords(snapshot.records);
@@ -94,7 +92,7 @@ const staticFiles = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
 ]);
 
-const server = createServer(async (request, response) => {
+export default async function handleRequest(request, response) {
   try {
     const url = new URL(request.url, `http://${request.headers.host ?? 'localhost'}`);
     if (request.method !== 'GET') return sendJson(response, 405, { error: 'Method not allowed' });
@@ -153,7 +151,7 @@ const server = createServer(async (request, response) => {
         return sendJson(response, 502, { error: `Wallet lookup is unavailable: ${error.message}` });
       }
     }
-    const logoMatch = /^\/logos\/([A-Z0-9]{1,10})$/.exec(url.pathname);
+    const logoMatch = /^\/logos\/([A-Z0-9]{1,10})\.png$/.exec(url.pathname);
     if (logoMatch) {
       const ticker = logoMatch[1];
       if (!baseRecords.some((record) => record.underlyingTicker === ticker)) return sendJson(response, 404, { error: 'Logo not found' });
@@ -177,6 +175,4 @@ const server = createServer(async (request, response) => {
     console.error('Request failed:', error.message);
     sendJson(response, 500, { error: 'Mintmark could not complete this request.' });
   }
-});
-
-server.listen(port, () => console.log(`Mintmark running at http://localhost:${port}`));
+}

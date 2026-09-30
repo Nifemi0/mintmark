@@ -35,7 +35,7 @@ function shortAddress(value) {
 
 function logoContent(ticker, logoUrl = '') {
   const fallback = safeLogo(logoUrl);
-  return `<span class="stock-logo-fallback">${escapeHtml(ticker[0] || '?')}</span><img class="stock-logo" src="/logos/${encodeURIComponent(ticker)}" data-fallback-src="${escapeHtml(fallback || '')}" alt="" loading="lazy">`;
+  return `<span class="stock-logo-fallback">${escapeHtml(ticker[0] || '?')}</span><img class="stock-logo" src="/logos/${encodeURIComponent(ticker)}.png" data-fallback-src="${escapeHtml(fallback || '')}" alt="" loading="lazy">`;
 }
 
 function logoHtml(ticker, className = '', logoUrl = '') {

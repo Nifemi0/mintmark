@@ -8,6 +8,8 @@ For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo N
 
 **Release status:** This is a working local build. A public repository and public demo are being prepared. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
 
+**Data storage:** The launch catalog and public record history are versioned JSON snapshots loaded by the server. The live app will read the same checked snapshot; it will not write corrections at runtime. [Data storage and the PostgreSQL migration path](docs/DATA_STORAGE.md) explains how updates are reviewed and when persistent storage is needed.
+
 ## Run locally
 
 Requires Node.js 22 or newer. No npm dependencies are required.
@@ -23,6 +25,10 @@ The directory and record view show provider-published token images. Ondo images 
 To refresh bStocks or enable live Binance checks, company reports, and wallet lookup, copy `.env.example` to `.env.local` and set `OC_API_KEY` and `OC_SECRET_KEY`; restart the server. The server signs requests using the documented `/build` path and never sends credentials to the browser. The page clearly marks when a live cross-check has not run. API keys are not required to view the bundled catalog. Company and market data for xStocks remains explicitly unavailable because Mintmark has not verified a matching price source for those exact contracts.
 
 Run focused checks with `npm test`.
+
+## Hosting plan
+
+The app is prepared for a Vercel deployment. Vercel serves `public/` as the front end and routes `/api/*` to the Node handler. The included JSON snapshot is bundled with that handler. A first deployment can show the catalog, exact records, evidence, and history without a database account or private API credentials. Company reports, live Binance cross-checks, and wallet lookup require `OC_API_KEY` and `OC_SECRET_KEY` configured as private deployment environment variables; `.env.local` is excluded from uploads. The public URL and its API behavior must be checked after deployment before claiming it as a working demo.
 
 ## What the labels mean
 

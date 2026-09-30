@@ -4,9 +4,9 @@ Checked 30 September 2026. This file describes the local build; it is not eviden
 
 | Check | Status | Evidence and limit |
 | --- | --- | --- |
-| Automated tests | Pass | `npm test`: 20 passing, 0 failing. Identity, catalog coverage, Binance signing/retry, reports, wallet matching, and history are covered. |
+| Automated tests | Pass | `npm test`: 21 passing, 0 failing. Identity, catalog coverage, deployment handler, Binance signing/retry, reports, wallet matching, and history are covered. |
 | Clean copy without credentials | Pass | Copied distributable files to a new directory, ran `npm test` and `npm run check:release`, then started the app without `.env.local` on port 4174. NVDA returned Ondo, bStocks, and xStocks records; xStocks returned an explicit identity-only report. |
-| Fresh local Git clone | Pass | Cloned the standalone Mintmark repository from its local commit without `.env.local`; `npm test` passed 20/20 and `npm run check:release` passed. Server startup from this clone was not rechecked; the earlier clean copy covered startup without credentials. |
+| Fresh local Git clone | Pass before hosting refactor | Cloned the standalone Mintmark repository from its earlier local commit without `.env.local`; `npm test` passed 20/20 and `npm run check:release` passed. The hosting refactor still needs a fresh-clone check. |
 | BSC contract identity | Pass at snapshot time | `npm run sync` checked bytecode and ERC-20 name/symbol for the 1,565 contracts in `data/catalog.json`. This does not verify offchain backing or legal rights. |
 | Priority searches | Pass | NVIDIA and TSLA each show three provider contracts; AAPL shows Ondo and xStocks. Each visible row links its exact contract and provider legal-document hub. |
 | Live Binance RWA reports | Pass with configured credentials | Exact-contract reports returned company and market data for sampled Ondo and bStocks records. A temporary HTTP 429 was observed and bounded retry added. These reports are not exchange quotes or independent custody checks. |
@@ -17,6 +17,7 @@ Checked 30 September 2026. This file describes the local build; it is not eviden
 | Private credentials in distributable text | Pass | `.env.example` contains placeholders; `npm run check:release` found no configured private credential values in distributable text files. `.env.local` is ignored. |
 | Public repository | Pending | A separate local repository has a release commit; no remote or public URL is claimed here. |
 | Public demo | Pending | The app currently runs at `http://localhost:4173/` in the builder's workspace. |
+| Vercel hosting package | Locally prepared | Static front end, `/api/*` function routing, bundled data snapshot, and private-file exclusions are configured. The Vercel build and public URL have not been verified. |
 | Demo video | On hold | The user asked to finish and confirm the features before video work. The event lists video as strongly recommended but optional. |
 | Developer experience report | Builder action pending | Factual engineering notes are in `DEV_EXPERIENCE_NOTES.md`. The final report must be written by the builder in their own words. |
 

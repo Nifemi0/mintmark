@@ -1,8 +1,7 @@
 .env.local
-node_modules/
-!data/
-!data/*.json
+.vercel/
 phase1-desktop.png
 phase1-mobile.png
 MASTER_BUILD_PROMPT.md
-.vercel/
+tests/
+docs/
