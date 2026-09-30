@@ -8,8 +8,6 @@ import { buildCompanyReport } from './report.mjs';
 import { mapWalletHoldings } from './wallet.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
-const envPath = path.join(root, '.env.local');
-if (existsSync(envPath)) process.loadEnvFile(envPath);
 const snapshot = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
 const history = JSON.parse(await readFile(path.join(root, 'data', 'registry-history.json'), 'utf8'));
 const baseRecords = normalizeRecords(snapshot.records);

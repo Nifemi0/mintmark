@@ -14,6 +14,6 @@ This is a factual draft for the builder to review. It is not a submitted entry o
 
 **How judges can run it:** Clone the public repository once published, use Node.js 22 or newer, run `npm start`, and open `http://localhost:4173`. The bundled checked catalog works without API keys. For live Binance reports and wallet lookup, copy `.env.example` to `.env.local`, add Binance Web3 credentials, and restart. Run `npm test` and `npm run check:release` for local verification.
 
-**Links to fill after publication:** Public repository: pending. Public demo: pending. Video: on hold at the builder's request. Final developer experience report: builder to write in their own words from `DEV_EXPERIENCE_NOTES.md`.
+**Links to fill after publication:** Public repository: pending. Public demo: https://mintmark-ecru.vercel.app (core registry live; private Binance credentials not configured). Video: on hold at the builder's request. Final developer experience report: builder to write in their own words from `DEV_EXPERIENCE_NOTES.md`.
 
 **Claim limits:** Contract bytecode, name, and symbol checks do not verify offchain backing. Binance market and company data are provider reports, not official exchange quotes. Wallet lookup covers a subset. The catalog is a dated snapshot. See `CLAIMS.md` and `docs/submission/TESTING-STATUS.md`.

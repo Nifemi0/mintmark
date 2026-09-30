@@ -16,8 +16,9 @@ Checked 30 September 2026. This file describes the local build; it is not eviden
 | Priority legal-document URLs | Partially verified | Ondo and Backed legal-document hubs returned HTTP 200. Binance's legal-document URL returned HTTP 202 to an automated request; a human browser content check is still needed. These hubs do not prove that individual token terms were reviewed. |
 | Private credentials in distributable text | Pass | `.env.example` contains placeholders; `npm run check:release` found no configured private credential values in distributable text files. `.env.local` is ignored. |
 | Public repository | Pending | A separate local repository has a release commit; no remote or public URL is claimed here. |
-| Public demo | Pending | The app currently runs at `http://localhost:4173/` in the builder's workspace. |
-| Vercel hosting package | Locally prepared | Static front end, `/api/*` function routing, bundled data snapshot, and private-file exclusions are configured. The Vercel build and public URL have not been verified. |
+| Public demo | Pass for core registry | [mintmark-ecru.vercel.app](https://mintmark-ecru.vercel.app) is a Ready production deployment. Its page, assets, logo, API health, search, xStocks unavailable report, and history responded. NVIDIA and TSLA each returned three providers; AAPL returned two. |
+| Production browser flow | Pass | Chrome checked NVIDIA search, three comparison rows, record dialog loading, Escape close, and no page errors or horizontal overflow at 1440px and 390px. |
+| Vercel hosting package | Pass for core registry | Production bundle contains the catalog and history snapshots, no `.env` file, and no configured private-key value. The public API reports 1,565 records and `binanceConfigured=false`. |
 | Demo video | On hold | The user asked to finish and confirm the features before video work. The event lists video as strongly recommended but optional. |
 | Developer experience report | Builder action pending | Factual engineering notes are in `DEV_EXPERIENCE_NOTES.md`. The final report must be written by the builder in their own words. |
 

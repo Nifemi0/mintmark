@@ -6,7 +6,7 @@ For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo N
 
 ![Mintmark comparing three NVIDIA token products](docs/registry-nvda.png)
 
-**Release status:** This is a working local build. A public repository and public demo are being prepared. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
+**Live site:** [mintmark-ecru.vercel.app](https://mintmark-ecru.vercel.app). The public deployment serves the checked catalog, exact records, evidence, and history without private credentials. Live Binance reports and wallet lookup are not configured on the public site yet. The repository is still local. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
 
 **Data storage:** The launch catalog and public record history are versioned JSON snapshots loaded by the server. The live app will read the same checked snapshot; it will not write corrections at runtime. [Data storage and the PostgreSQL migration path](docs/DATA_STORAGE.md) explains how updates are reviewed and when persistent storage is needed.
 
@@ -28,7 +28,7 @@ Run focused checks with `npm test`.
 
 ## Hosting plan
 
-The app is prepared for a Vercel deployment. Vercel serves `public/` as the front end and routes `/api/*` to the Node handler. The included JSON snapshot is bundled with that handler. A first deployment can show the catalog, exact records, evidence, and history without a database account or private API credentials. Company reports, live Binance cross-checks, and wallet lookup require `OC_API_KEY` and `OC_SECRET_KEY` configured as private deployment environment variables; `.env.local` is excluded from uploads. The public URL and its API behavior must be checked after deployment before claiming it as a working demo.
+The app is deployed on Vercel. Vercel serves `public/` as the front end and routes `/api/*` to the Node handler. The included JSON snapshot is bundled with that handler. The public site shows the catalog, exact records, evidence, and history without a database account or private API credentials. Company reports, live Binance cross-checks, and wallet lookup require `OC_API_KEY` and `OC_SECRET_KEY` configured as private deployment environment variables. Local `.env.local` is excluded from the deployed bundle; the production build was checked for private-key matches before upload.
 
 ## What the labels mean
 
