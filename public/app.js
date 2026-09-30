@@ -164,7 +164,7 @@ async function loadCompanyReport(key) {
     const response = await fetch(`/api/report?key=${encodeURIComponent(key)}`);
     const payload = await response.json();
     if (response.status === 503 && payload.code === 'live_data_not_configured') {
-      if (selectedKey === key) target.innerHTML = '<div class="report-title"><div><p class="eyebrow">Public company data</p><h4>Live report not enabled yet</h4><p>This demo has not connected its Binance Web3 data source. The exact contract, issuer documents, and evidence above remain available.</p></div></div><div class="report-unavailable">Company and market figures will appear here after the live data source is configured. No price or company figures have been filled in from another token.</div>';
+      if (selectedKey === key) target.innerHTML = '<div class="report-title"><div><p class="eyebrow">Public company data</p><h4>Live Binance report unavailable</h4><p>Binance restricted this deployment’s data requests, so company and market figures cannot be shown here. The exact contract, issuer documents, and evidence above remain available.</p></div></div><div class="report-unavailable">No company or price figures have been filled in from another token.</div>';
       return;
     }
     if (!response.ok) throw new Error(payload.error || 'Company report is unavailable');

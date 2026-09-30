@@ -2,6 +2,8 @@
 
 These are factual engineering notes for the builder's own developer experience report. They are not submission prose.
 
+- **Public hosting check (30 September 2026):** The same Binance credentials returned an exact-contract NVIDIA company report from the local server. After the credentials were added as encrypted Vercel production variables, the deployed server received HTTP 200 with Binance business code `40304` and the message “Service not available due to compliance restriction” for both the RWA list and underlying-profile requests. The public report therefore remained unavailable. The variables were removed from Vercel and a no-key production build was redeployed. This is a provider restriction for that hosted request, not evidence of a signature or missing-key bug. No regional routing workaround was attempted.
+
 - **29 September 2026:** No `OC_API_KEY` or `OC_SECRET_KEY` is configured locally. Signed Binance RWA requests cannot yet be exercised. The app's live cross-check remains pending and says so in the UI.
 - **Authentication detail:** The signature pre-hash uses the full `/build/api/v1/...` path, including the encoded query. The [authentication page](https://web3.binance.com/en/dev-docs/authentication) calls omission of `/build` a common cause of invalid signatures.
 - **Source bridge:** The [RWA Data documentation](https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data) lists Ondo BSC assets by chain ID and contract. Ondo's [contract addresses page](https://docs.ondo.finance/addresses) links an asset CSV with exact BSC contracts. The six selected contracts returned nonempty bytecode and matching ERC-20 name/symbol through public BSC RPC during the initial sync.
