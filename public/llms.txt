@@ -1,0 +1,45 @@
+# Mintmark
+
+> Mintmark is a public identity and evidence registry for tokenized stocks on BNB Smart Chain.
+
+Canonical product: https://mintmark.nuvixes.studio
+Source code: https://github.com/Nifemi0/mintmark
+
+## Product scope
+
+- Search by company name, public ticker, token symbol, category, keyword, or exact BSC contract.
+- Compare distinct Ondo, bStocks, and xStocks products without treating a shared stock ticker as one token.
+- Inspect 1,565 checked records: 450 Ondo, 46 bStocks, and 1,069 xStocks.
+- Open shareable comparisons with `/?q=NVDA#registry` and exact records with `/?q=NVDA&record=56%3A0x...#record`.
+- Review exact-contract token-market coverage from Binance when available: price, 24-hour change, reported volume, reported liquidity, holders, and transaction activity.
+- Review underlying-company profiles, market fields, and BSC token candles for supported Binance RWA records.
+- Check a wallet read-only against 24 explicitly supported Ondo contracts.
+
+## Public endpoints
+
+- `GET /api/health` — service status, record count, snapshot time, and Binance configuration state.
+- `GET /api/records?q=NVDA` — search and compact comparison records.
+- `GET /api/record?key=56:0x...` — one exact registry record and its evidence.
+- `GET /api/report?key=56:0x...` — exact-contract token-market coverage and, when supported, the underlying-company report.
+- `GET /api/history?key=56:0x...` — public versions and unresolved source differences.
+- `GET /api/wallet?address=0x...` — read-only lookup over the supported contract subset.
+
+## Evidence semantics
+
+- Identity is always BSC chain ID plus the complete contract address. A ticker is a discovery aid only.
+- Onchain observed means Mintmark read contract bytecode, name, or symbol from BSC RPC.
+- Issuer published means the provider published the identity or terms.
+- Third-party reported means Binance supplied the field.
+- Unverified means Mintmark has not independently inspected offchain backing, custody, or legal rights.
+- Missing data remains unavailable. Mintmark does not borrow a price or company report from a different token contract.
+- Binance market responses are displayed as reported. Missing liquidity and inconsistent volume or transaction counts are surfaced as coverage notes.
+
+## Data sources
+
+- Binance Web3 RWA Data API: https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data
+- Binance Web3 General Data API: https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/general-data
+- Binance Web3 Wallet API: https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/wallet-api
+- Ondo contract addresses: https://docs.ondo.finance/addresses
+- xStocks public asset API: https://docs.xstocks.fi/apis/openapi/assets/list_public_assets
+
+The catalog is a dated snapshot. Contract checks establish contract responses, not backing or equivalence between provider products. Mintmark does not execute transactions or give investment advice.

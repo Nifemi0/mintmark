@@ -15,6 +15,39 @@ function numericText(value) {
   return Number.isFinite(number) ? String(value) : null;
 }
 
+export function buildTokenMarketCoverage(record, tradingResult) {
+  const rows = tradingResult?.data;
+  if (!Array.isArray(rows)) throw new Error('Token trading info returned an unexpected shape');
+  const row = rows.find((item) => item && identityKey(item.binanceChainId, item.tokenContractAddress) === record.key);
+  if (!row) throw new Error('Token trading info did not identify the exact registry contract');
+  const volume24H = numericText(row.volume24H);
+  const liquidity = numericText(row.liquidity);
+  const txs24H = Number.isSafeInteger(Number(row.txs24H)) ? Number(row.txs24H) : null;
+  const notes = [];
+  if (Number(volume24H) > 0 && txs24H === 0) notes.push('Binance reports 24-hour volume while the transaction count is zero. Mintmark preserves both fields instead of resolving the discrepancy.');
+  if (liquidity == null) notes.push('Binance did not return a liquidity value for this exact contract.');
+  else if (Number(liquidity) === 0) notes.push('Binance reported zero liquidity for this exact contract at observation time.');
+  const providerTime = Number(row.time);
+  return {
+    availability: 'reported',
+    price: numericText(row.price),
+    priceChange24H: numericText(row.priceChange24H),
+    volume24H,
+    buyVolume24H: numericText(row.buyVolume24H),
+    sellVolume24H: numericText(row.sellVolume24H),
+    liquidity,
+    holders: Number.isSafeInteger(Number(row.holders)) ? Number(row.holders) : null,
+    txs24H,
+    marketCap: numericText(row.marketCap),
+    observedAt: Number.isFinite(providerTime) && providerTime > 0 ? new Date(providerTime).toISOString() : tradingResult.observedAt,
+    retrievedAt: tradingResult.observedAt,
+    notes,
+    sourceKind: 'third_party_reported',
+    sourceUrl: CANDLE_DOCS,
+    description: 'Exact-contract token metrics reported by Binance Market API. They are separate from the underlying share data and are not a quote or liquidity guarantee.',
+  };
+}
+
 export function normalizeCandles(data) {
   if (!Array.isArray(data)) throw new Error('Token candles returned an unexpected shape');
   const points = data.map((row) => ({ close: Number(row?.[3]), timestamp: Number(row?.[5]) }))
@@ -23,7 +56,7 @@ export function normalizeCandles(data) {
   return points.filter((point, index) => index === 0 || point.timestamp !== points[index - 1].timestamp);
 }
 
-export function buildCompanyReport(record, profileResult, marketResult, candleResult) {
+export function buildCompanyReport(record, profileResult, marketResult, candleResult, tradingResult) {
   sameIdentity(record, profileResult.data, 'Company profile');
   sameIdentity(record, marketResult.data, 'Underlying market data');
   if (String(profileResult.data.underlyingTicker).toUpperCase() !== record.underlyingTicker.toUpperCase()) {
@@ -35,6 +68,7 @@ export function buildCompanyReport(record, profileResult, marketResult, candleRe
   const first = points[0], last = points.at(-1);
   return {
     key: record.key,
+    tokenMarket: buildTokenMarketCoverage(record, tradingResult),
     company: {
       name: record.companyName,
       ticker: record.underlyingTicker,

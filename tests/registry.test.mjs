@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeAddress, identityKey, normalizeRecords, searchRecords, classifyEvidence, crossCheckBinance } from '../registry.mjs';
-import { signedRequest, getRwaTokens } from '../binance.mjs';
+import { signedRequest, getRwaTokens, getTokenTradingInfo } from '../binance.mjs';
 import { parseCsv, decodeAbiString } from '../scripts/sync-ondo.mjs';
 
 const address = '0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4';
@@ -86,6 +86,21 @@ test('Binance adapter retries a temporary rate limit and returns the verified re
   const result = await getRwaTokens(env, fakeFetch);
   assert.equal(calls, 2);
   assert.deepEqual(result.rows, []);
+});
+
+test('Binance market adapter requests the exact BSC contract in a signed POST body', async () => {
+  const env = { OC_API_KEY: 'public-test-key', OC_SECRET_KEY: 'private-test-secret' };
+  const fakeFetch = async (url, options) => {
+    assert.equal(url, 'https://web3.binance.com/build/api/v1/dex/market/price-info');
+    assert.equal(options.method, 'POST');
+    assert.equal(options.headers['content-type'], 'application/json');
+    assert.ok(options.headers['X-OC-SIGN']);
+    assert.deepEqual(JSON.parse(options.body), [{ binanceChainId: '56', tokenContractAddress: address }]);
+    return { ok: true, status: 200, json: async () => ({ code: 0, data: [{ binanceChainId: '56', tokenContractAddress: address, price: '232.10' }] }) };
+  };
+  const result = await getTokenTradingInfo(address, env, fakeFetch);
+  assert.equal(result.data[0].price, '232.10');
+  assert.ok(result.observedAt);
 });
 
 test('Ondo CSV parser preserves quoted commas and newlines', () => {

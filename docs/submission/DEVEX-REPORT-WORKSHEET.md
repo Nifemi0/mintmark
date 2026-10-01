@@ -22,7 +22,7 @@ The official report says perfunctory or AI-generated reports are not accepted. T
   - A host clock about four seconds behind Binance's HTTP `Date` header caused code `40103` (“timestamp expired”) when network time was included. Sending documented `X-OC-RECV-WINDOW: 60000` made the same request succeed.
   - Correctly signed US-hosted requests returned HTTP 200 with business code `40304` (“Service not available due to compliance restriction”). The same credentials and request worked from Lagos and later from Vercel `cpt1` in Cape Town.
 - **Step that took longer than expected:** Distinguishing authentication failure from regional availability. The signature and credentials were valid, but the API used a successful HTTP status with a business error code. The local machine, a US VPS, Vercel Washington, and Vercel Cape Town had to be compared before the cause was clear.
-- **Used `llms.txt` or `llms-full.txt`:** Yes. `llms.txt` was used on 1 October during final integration verification, after the first successful API call. It confirmed the RWA, candles, and targeted wallet-balance endpoints and linked the authentication and error-code references. Do not imply it was used during initial onboarding.
+- **Used `llms.txt` or `llms-full.txt`:** Yes. Binance's `llms.txt` was used on 1 October during final integration verification, after the first successful API call. It confirmed the RWA, general Market, candles, and targeted wallet-balance endpoints and linked the authentication and error-code references. Mintmark now also publishes its own `/llms.txt` with product scope, public endpoints, evidence semantics, and limits. Do not imply Binance's file was used during initial onboarding.
 - **What an AI coding agent got wrong:** No specific documentation hallucination was recorded. Codex needed the exact authentication page and live responses to settle the `/build` signing path and regional behavior. Rewrite this only if it matches the builder's experience.
 
 ## Documentation issues
@@ -45,7 +45,8 @@ The official report says perfunctory or AI-generated reports are not accepted. T
 - **Unexpected behavior and edge cases:**
   - `GET /api/v1/dex/market/rwa/tokens?binanceChainId=56` initially returned 488 rows in about 2.8 seconds. Exact-contract reconciliation found display-name differences that were not identity conflicts.
   - `GET /api/v1/dex/balance/all-token-balances-by-address` returned 2,000 unrelated tokens across the first 20 pages for a known AAPLon holder and still did not reach AAPLon. Mintmark changed to `POST /api/v1/dex/balance/token-balances-by-address` with exact contracts in batches of 20; the targeted response returned AAPLon and 18 supported positive holdings for the public example.
-  - `GET /api/v1/dex/market/rwa/underlying-profile`, `underlying-market`, and the candles route worked for exact Ondo and bStocks contracts. A matching Binance source was not verified for xStocks, so Mintmark returns an identity-only report instead of reusing another provider's figures.
+  - `GET /api/v1/dex/market/rwa/underlying-profile`, `underlying-market`, and the candles route worked for exact Ondo and bStocks contracts. `POST /api/v1/dex/market/price-info` returned exact-contract token-market fields for sampled Ondo, bStocks, and xStocks contracts. The xStocks underlying-company report remains unavailable instead of reusing another product's figures.
+  - Sample Market API responses contained large 24-hour volume with zero transactions, and liquidity was sometimes absent or reported as zero. Mintmark preserves those values and flags the discrepancy rather than inferring depth.
   - Three Ondo onchain names differed from the issuer CSV beyond whitespace, 13 bStocks names differed beyond the generic provider suffix, and eight checked Ondo contracts were absent from one Binance RWA response. Mintmark preserves these as source differences or third-party gaps.
 - **Unclear errors:**
   - Exact message: `Service not available due to compliance restriction`, business code `40304`, returned with HTTP 200 by RWA list and underlying-profile requests from Vercel Washington and a US VPS. It did not state that the credentials and signature were valid or point directly to the supported-region policy.
@@ -67,13 +68,13 @@ The official report says perfunctory or AI-generated reports are not accepted. T
 ## Tokenized-stock specifics
 
 - **Platforms used:** Ondo, bStocks, and xStocks.
-- **Liquidity depth:** Not measured. Mintmark is an identity and evidence registry and did not request quotes or execute trades.
+- **Liquidity depth:** Not independently measured. Mintmark displays the exact-contract liquidity field reported by Binance when present, but did not request executable quotes or test market depth.
 - **Slippage:** Not measured; no trade was submitted.
 - **Outside-market-hours behavior:** Not measured as a controlled study. The product does not make a claim about weekend or overnight price behavior.
 - **Onchain versus reference-price spread:** The fields were displayed separately where Binance supplied them, but Mintmark did not record a spread time series or test whether a gap was actionable.
 - **Practical representation differences:**
   - The same NVIDIA underlying appears as Ondo `NVDAon`, bStocks `NVDAB`, and xStocks `NVDAx`, each with a different BSC contract and issuer source.
-  - Binance RWA data supplied exact-contract company and market reports for sampled Ondo and bStocks records. No matching Binance report source was verified for xStocks.
+  - Binance RWA data supplied exact-contract company and underlying-market reports for sampled Ondo and bStocks records. General Market data supplied exact-contract token fields for all three sampled providers; no matching RWA company-report source was verified for xStocks.
   - Provider-published names and ERC-20 names can differ while the contract and symbol still match; these differences remain visible.
   - AAPL has Ondo and xStocks rows in the checked sources, but no bStocks AAPL row. Mintmark does not infer a missing third product.
 

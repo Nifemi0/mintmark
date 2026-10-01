@@ -8,6 +8,7 @@
     "sync": "node scripts/sync-ondo.mjs && node scripts/sync-providers.mjs",
     "sync:providers": "node scripts/sync-providers.mjs",
     "sync:logos": "node scripts/sync-logos.mjs",
+    "check:freshness": "node scripts/check-freshness.mjs",
     "check:release": "node scripts/check-release.mjs",
     "test": "node --test tests/*.test.mjs"
   },

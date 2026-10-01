@@ -23,7 +23,7 @@ Mintmark is a public BSC tokenized-stock registry for people who recognize a com
 
 The current checked snapshot contains 1,565 distinct BSC contracts: 450 Ondo products, 46 bStocks products, and 1,069 xStocks products. NVIDIA and Tesla each resolve to three separate products; Apple resolves to Ondo and xStocks because the checked bStocks list contains no AAPL row.
 
-Mintmark calls the Binance Web3 **RWA Data API** for token identity, underlying-company profiles, and market fields; the **Market API** for 30-day BSC token candles; and the **Wallet API** for read-only, exact-contract balance lookup across 24 explicitly supported Ondo contracts. Missing sources stay missing: xStocks reports are labeled identity-only instead of borrowing figures from another provider. Credentials remain server-side, and production runs from Vercel's Cape Town region after US-hosted requests returned Binance compliance code `40304`.
+Mintmark calls the Binance Web3 **RWA Data API** for token identity, underlying-company profiles, and underlying-market fields; the **Market API** for exact-contract price, change, volume, reported liquidity, holders, activity, and 30-day BSC token candles; and the **Wallet API** for read-only, exact-contract balance lookup across 24 explicitly supported Ondo contracts. Missing sources stay missing: xStocks can show only exact-contract General Data fields while its underlying-company RWA report remains unavailable. Credentials remain server-side, and production runs from Vercel's Cape Town region after US-hosted requests returned Binance compliance code `40304`.
 
 ## Problem
 
@@ -40,11 +40,13 @@ Tokenized-stock tooling should help a user answer “which token is this?” bef
 ## Key features
 
 - Search by company, fund, ticker, keywords, or exact BSC contract.
+- Open and copy shareable provider comparisons such as `/?q=NVDA#registry`.
 - Compare distinct Ondo, bStocks, and xStocks products for the same underlying.
 - Read an evidence matrix for onchain identity, source records, Binance coverage, company reports, wallet support, and source differences.
 - Inspect exact contracts, issuer pages, legal-document hubs, and evidence limits.
-- Read Binance-backed company and market reports for exact Ondo and bStocks contracts.
-- See explicit identity-only states where matching report data is unavailable.
+- Read exact-contract Binance token-market coverage with missing and inconsistent fields surfaced as coverage notes.
+- Read separate Binance-backed underlying-company reports for exact Ondo and bStocks contracts.
+- See explicit partial or unavailable states where a matching source does not exist.
 - Check a BSC wallet against 24 supported Ondo contracts without connecting or signing.
 - Review public record versions and unresolved source differences.
 
@@ -63,8 +65,8 @@ Tokenized-stock tooling should help a user answer “which token is this?” bef
 
 1. Open https://mintmark.nuvixes.studio.
 2. Search `NVIDIA`; verify three rows—Ondo `NVDAon`, bStocks `NVDAB`, and xStocks `NVDAx`—and compare their evidence and API-coverage matrix.
-3. Open an Ondo or bStocks record; inspect the exact contract, evidence rows, record history, company report, market fields, and token-price chart.
-4. Open the xStocks NVIDIA record; confirm that detailed market figures are explicitly unavailable for that exact product.
+3. Open an Ondo or bStocks record; inspect the exact contract, evidence rows, record history, exact-contract market coverage, company report, underlying-market fields, and token-price chart.
+4. Open the xStocks NVIDIA record; confirm that exact-contract market coverage appears separately while the unsupported underlying-company report remains unavailable.
 5. Search `AAPL`; verify two products rather than an invented third bStocks row.
 6. In wallet lookup, try the public example; verify supported holdings open their exact registry records.
 
@@ -82,7 +84,8 @@ Open `http://localhost:4173`. The checked registry works without API credentials
 
 ## Verified evidence
 
-- `npm test`: 21 passing tests.
+- `npm test`: 22 passing tests.
+- `npm run check:freshness`: the committed provider snapshot is within the 48-hour freshness window.
 - `npm run check:release`: 1,565 checked contracts, priority searches present, legal links present, and no configured private credential values in distributable files.
 - Production Chrome QA at 1440×900 and 390×844: search, comparison, record dialog, evidence expansion, history, live reports, unavailable state, wallet validation, and public example passed.
 - No production console exceptions, failed requests, HTTP errors, broken images, or horizontal overflow were observed in the latest run.
@@ -94,7 +97,8 @@ Open `http://localhost:4173`. The checked registry works without API credentials
 - Binance company and market fields are third-party reports, not official exchange quotes or independent custody checks.
 - The wallet feature checks 24 known Ondo contracts and does not scan every wallet asset.
 - The catalog is a dated snapshot, and a missing provider row is treated as a data gap rather than proof that a product is invalid.
-- Mintmark does not execute or simulate transactions, recommend investments, or measure liquidity and slippage.
+- Binance's reported liquidity field is displayed when present, but Mintmark does not independently measure liquidity, spread, or slippage.
+- Mintmark does not execute or simulate transactions or recommend investments.
 
 ## Screenshot shot list
 
@@ -109,4 +113,4 @@ Codex assisted with implementation, debugging, test automation, documentation, a
 
 ## Readiness
 
-The repository, live product, core written entry, evidence, and testing instructions are ready for review. Remaining work is limited to builder-owned form details, the builder-authored DevEx answers, and the optional demo video.
+The repository, live product, core written entry, evidence, and testing instructions are ready for review after the current production verification. Remaining builder-owned work is the form's personal details and final DevEx wording. The demo video remains postponed until product features are finalized.

@@ -8,7 +8,7 @@ For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo N
 
 **Live product:** [mintmark.nuvixes.studio](https://mintmark.nuvixes.studio) · **Source:** [github.com/Nifemi0/mintmark](https://github.com/Nifemi0/mintmark)
 
-The production deployment serves the 1,565-record checked catalog, exact contract records, evidence, version history, live Binance-backed Ondo and bStocks company reports, and the supported wallet lookup. Binance credentials stay encrypted in Vercel and are never sent to the browser. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
+The production deployment serves the 1,565-record checked catalog, shareable company comparisons, exact contract records, evidence, version history, live Binance-backed exact-contract market coverage, Ondo and bStocks company reports, and the supported wallet lookup. Binance credentials stay encrypted in Vercel and are never sent to the browser. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
 
 **Data storage:** The catalog and public record history are versioned JSON snapshots loaded by the server. Production reads the same checked snapshot and does not write corrections at runtime. [Data storage and the PostgreSQL migration path](docs/DATA_STORAGE.md) explains how updates are reviewed and when persistent storage is needed.
 
@@ -24,7 +24,9 @@ Open `http://localhost:4173`. The included `data/catalog.json` snapshot lets the
 
 The directory and record view show provider-published token images. Ondo images are cached locally; `npm run sync:logos` refreshes them from Ondo's CDN and `public/logos/sources.json` records their URLs. bStocks and xStocks images load from their published image hosts. Images aid recognition only; chain and contract establish identity. If an image cannot load, the interface falls back to the ticker's initial.
 
-To refresh bStocks or enable live Binance checks, company reports, and wallet lookup, copy `.env.example` to `.env.local` and set `OC_API_KEY` and `OC_SECRET_KEY`; restart the server. The server signs requests using the documented `/build` path and never sends credentials to the browser. The page clearly marks when a live cross-check has not run. API keys are not required to view the bundled catalog. Company and market data for xStocks remains explicitly unavailable because Mintmark has not verified a matching price source for those exact contracts.
+To refresh bStocks or enable live Binance checks, company reports, exact-contract token-market coverage, and wallet lookup, copy `.env.example` to `.env.local` and set `OC_API_KEY` and `OC_SECRET_KEY`; restart the server. The server signs requests using the documented `/build` path and never sends credentials to the browser. The page clearly marks when a live cross-check has not run. API keys are not required to view the bundled catalog. xStocks can receive exact-contract token-market coverage from Binance's general Market API while its underlying-company report remains explicitly unavailable when Binance RWA data does not cover that product.
+
+Search comparisons are linkable: `/?q=NVDA#registry` opens all NVIDIA products, and record links preserve that comparison context. The public [`llms.txt`](https://mintmark.nuvixes.studio/llms.txt) describes the identity model, API routes, evidence semantics, and limitations. `npm run check:freshness` verifies that the checked catalog is no more than 48 hours old; the daily GitHub Actions workflow runs that check with the test and release suites.
 
 Run focused checks with `npm test`.
 
@@ -39,7 +41,7 @@ The app is deployed on Vercel. Vercel serves `public/` as the front end and rout
 - **Unverified:** Mintmark does not independently inspect shares held by the issuer or custodian.
 - **Third-party reported:** Binance provides the bStocks catalog, some company profiles, market figures, BSC token candles, and wallet balances. These are timestamped provider reports, not Mintmark's own exchange or custody observations.
 
-The company report shows industry, public description, market cap, 52-week range, valuation and dividend fields when available. Its reference price is derived by the provider from token price and is not an official exchange quote. The 30-day chart shows **BSC token** daily closing prices, not stock-exchange history. Missing fields remain unavailable.
+The exact-contract market card shows the Binance-reported token price, 24-hour change, volume, liquidity, holders, and transaction activity when available. Mintmark requires the returned chain and contract to match the open record, preserves the provider and retrieval times, and displays missing or internally surprising fields as coverage notes. The separate company report shows industry, public description, market cap, 52-week range, valuation and dividend fields when available. Its reference price is derived by the provider from token price and is not an official exchange quote. The 30-day chart shows **BSC token** daily closing prices, not stock-exchange history. Missing fields remain unavailable.
 
 Wallet lookup is read-only. It sends the entered address to the server and Binance Wallet API and checks only the original **24 Ondo wallet-enabled contracts**, clearly labeled in the UI. This is a smaller subset than the 1,565-record discovery catalog; it does not scan or classify all other wallet tokens. Supported holdings link to their exact records. The public example button demonstrates a currently observed AAPLon holder; its balance may change.
 

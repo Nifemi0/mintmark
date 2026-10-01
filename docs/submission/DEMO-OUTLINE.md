@@ -24,9 +24,10 @@ Show the landing page and say:
 ## Binance integration — 1:35 to 2:15
 
 - Scroll to the company report.
+- Show the exact-contract token market card and its source and coverage notes.
 - Show industry, company description, market cap, 52-week range, and 30-day BSC token chart.
 - Explain that underlying reference fields and token candles are kept separate.
-- Open the xStocks NVIDIA record and show the explicit identity-only state rather than substituted figures.
+- Open the xStocks NVIDIA record and show exact-contract market coverage alongside the explicit unavailable underlying-company report.
 
 ## Wallet route — 2:15 to 2:50
 
@@ -37,7 +38,7 @@ Show the landing page and say:
 ## Proof and close — 2:50 to 3:30
 
 - Briefly show the public GitHub repository and testing status.
-- State: 1,565 checked BSC contracts across Ondo, bStocks, and xStocks; 21 automated tests; public desktop and mobile QA.
+- State: 1,565 checked BSC contracts across Ondo, bStocks, and xStocks; 22 automated tests; public desktop and mobile QA.
 - Close with the live URL: `https://mintmark.nuvixes.studio`.
 
 ## Recording checklist
@@ -48,3 +49,5 @@ Show the landing page and say:
 - [ ] Do not expose API keys, environment variables, wallet secrets, or personal data.
 - [ ] Keep the final video at four minutes or less.
 - [ ] Verify link sharing in a private/incognito window before adding the URL to the form.
+
+Recording remains postponed until the product feature release is finalized.

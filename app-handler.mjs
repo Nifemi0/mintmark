@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { crossCheckBinance, normalizeAddress, normalizeRecords, searchRecords, classifyEvidence } from './registry.mjs';
-import { getRwaTokens, getUnderlyingProfile, getUnderlyingMarket, getTokenCandles, getKnownTokenBalances, hasBinanceCredentials } from './binance.mjs';
-import { buildCompanyReport } from './report.mjs';
+import { getRwaTokens, getUnderlyingProfile, getUnderlyingMarket, getTokenCandles, getTokenTradingInfo, getKnownTokenBalances, hasBinanceCredentials } from './binance.mjs';
+import { buildCompanyReport, buildTokenMarketCoverage } from './report.mjs';
 import { mapWalletHoldings } from './wallet.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
@@ -20,18 +20,25 @@ const walletCache = new Map();
 async function currentReport(record) {
   const cached = reportCache.get(record.key);
   if (cached && Date.now() < cached.until) return cached.promise;
-  const promise = record.platformId === 'xstock' ? Promise.resolve({
+  const identityOnly = (tokenMarket = { availability: 'unavailable', notes: ['Live exact-contract market data requires Binance API credentials.'] }) => ({
     key: record.key,
     availability: 'identity_only',
+    tokenMarket,
     company: { name: record.companyName, ticker: record.underlyingTicker, industry: null, description: null, website: null, ceo: null, sourceKind: 'issuer_published', sourceUrl: record.publisherUrl, retrievedAt: record.observedAt },
     underlyingMarket: { referencePrice: null, marketCap: null, high52W: null, low52W: null, volumeShares24H: null, peRatioTTM: null, pbRatio: null, dividendYield: null, latestDividend: null, marketStatus: record.tradingHalted ? 'Trading halted' : null, sourceKind: 'issuer_published', sourceUrl: record.publisherUrl, retrievedAt: record.observedAt },
     tokenMovement: { points: [], firstClose: null, lastClose: null, changePct: null, firstAt: null, lastAt: null, sourceKind: 'issuer_published', sourceUrl: record.publisherUrl, retrievedAt: record.observedAt, description: 'A contract-verified xStock. Mintmark has no independently checked price series for this token.' },
-  }) : (async () => {
-    const profile = await getUnderlyingProfile(record.contractAddress);
-    const market = await getUnderlyingMarket(record.contractAddress);
-    const candles = await getTokenCandles(record.contractAddress);
-    return buildCompanyReport(record, profile, market, candles);
-  })();
+  });
+  const promise = record.platformId === 'xstock'
+    ? hasBinanceCredentials()
+      ? getTokenTradingInfo(record.contractAddress).then((trading) => identityOnly(buildTokenMarketCoverage(record, trading)))
+      : Promise.resolve(identityOnly())
+    : (async () => {
+      const [profile, market, candles, trading] = await Promise.all([
+        getUnderlyingProfile(record.contractAddress), getUnderlyingMarket(record.contractAddress),
+        getTokenCandles(record.contractAddress), getTokenTradingInfo(record.contractAddress),
+      ]);
+      return buildCompanyReport(record, profile, market, candles, trading);
+    })();
   reportCache.set(record.key, { until: Date.now() + 300000, promise });
   promise.catch(() => reportCache.delete(record.key));
   return promise;
@@ -95,6 +102,7 @@ const staticFiles = new Map([
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
+  ['/llms.txt', ['llms.txt', 'text/plain; charset=utf-8']],
 ]);
 
 export default async function handleRequest(request, response) {

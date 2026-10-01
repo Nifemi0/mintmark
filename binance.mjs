@@ -4,6 +4,7 @@ const RWA_LIST = '/api/v1/dex/market/rwa/tokens';
 const RWA_PROFILE = '/api/v1/dex/market/rwa/underlying-profile';
 const RWA_MARKET = '/api/v1/dex/market/rwa/underlying-market';
 const CANDLES = '/api/v1/dex/market/candles';
+const TOKEN_TRADING_INFO = '/api/v1/dex/market/price-info';
 const TARGETED_BALANCES = '/api/v1/dex/balance/token-balances-by-address';
 
 export function hasBinanceCredentials(env = process.env) {
@@ -72,6 +73,10 @@ export function getUnderlyingMarket(address, env = process.env, fetchImpl = fetc
 
 export function getTokenCandles(address, env = process.env, fetchImpl = fetch) {
   return getBinanceData(CANDLES, { binanceChainId: '56', tokenContractAddress: address, bar: '1d', limit: '30' }, env, fetchImpl);
+}
+
+export function getTokenTradingInfo(address, env = process.env, fetchImpl = fetch) {
+  return postBinanceData(TOKEN_TRADING_INFO, [{ binanceChainId: '56', tokenContractAddress: address }], env, fetchImpl);
 }
 
 export async function getKnownTokenBalances(address, contracts, env = process.env, fetchImpl = fetch) {
