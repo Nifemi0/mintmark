@@ -75,12 +75,21 @@ function sendJson(response, status, body) {
 }
 
 function directoryRecord(record) {
+  const evidence = record.evidence ?? [];
   return {
     key: record.key, contractAddress: record.contractAddress, companyName: record.companyName,
     underlyingTicker: record.underlyingTicker, symbol: record.symbol, issuer: record.issuer,
     category: record.category, featured: record.featured, platformId: record.platformId,
     providerName: record.providerName ?? record.issuer, logoUrl: record.logoUrl,
     issuerTermsUrl: record.issuerTermsUrl,
+    onchainIdentityObserved: ['chainId', 'symbol', 'tokenName'].every((field) => evidence.some((item) => item.kind === 'onchain_observed' && item.field === field)),
+    sourceRecordAvailable: evidence.some((item) => item.field === 'contractAddress' && ['issuer_published', 'third_party_reported'].includes(item.kind)),
+    binanceState: record.binanceCheck?.state ?? (record.platformId === 'bstock' ? 'snapshot_source' : 'not_checked'),
+    walletLookupEnabled: Boolean(record.walletLookupEnabled),
+    sourceConflict: record.sourceConflict,
+    providerActionUrl: record.platformId === 'ondo' ? record.issuerAssetUrl : null,
+    providerActionLabel: record.platformId === 'ondo' ? 'View & trade on Ondo' : null,
+    providerActionKind: record.platformId === 'ondo' ? 'official' : null,
   };
 }
 

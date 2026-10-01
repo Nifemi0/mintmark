@@ -41,10 +41,12 @@ Tokenized-stock tooling should help a user answer “which token is this?” bef
 
 - Search by company, fund, ticker, keywords, or exact BSC contract.
 - Compare distinct Ondo, bStocks, and xStocks products for the same underlying.
+- Read an evidence matrix for onchain identity, source records, Binance coverage, company reports, wallet support, and source differences.
 - Inspect exact contracts, issuer pages, legal-document hubs, and evidence limits.
 - Read Binance-backed company and market reports for exact Ondo and bStocks contracts.
 - See explicit identity-only states where matching report data is unavailable.
 - Check a BSC wallet against 24 supported Ondo contracts without connecting or signing.
+- Continue to an exact official Ondo asset page through a disclosed outbound provider link where available.
 - Review public record versions and unresolved source differences.
 
 ## Technical architecture
@@ -61,7 +63,7 @@ Tokenized-stock tooling should help a user answer “which token is this?” bef
 ## Testing instructions
 
 1. Open https://mintmark.nuvixes.studio.
-2. Search `NVIDIA`; verify three rows: Ondo `NVDAon`, bStocks `NVDAB`, and xStocks `NVDAx`.
+2. Search `NVIDIA`; verify three rows—Ondo `NVDAon`, bStocks `NVDAB`, and xStocks `NVDAx`—and compare their evidence and API-coverage matrix.
 3. Open an Ondo or bStocks record; inspect the exact contract, evidence rows, record history, company report, market fields, and token-price chart.
 4. Open the xStocks NVIDIA record; confirm that detailed market figures are explicitly unavailable for that exact product.
 5. Search `AAPL`; verify two products rather than an invented third bStocks row.
@@ -93,7 +95,7 @@ Open `http://localhost:4173`. The checked registry works without API credentials
 - Binance company and market fields are third-party reports, not official exchange quotes or independent custody checks.
 - The wallet feature checks 24 known Ondo contracts and does not scan every wallet asset.
 - The catalog is a dated snapshot, and a missing provider row is treated as a data gap rather than proof that a product is invalid.
-- Mintmark does not trade, simulate transactions, recommend investments, or measure liquidity and slippage.
+- Mintmark does not execute or simulate transactions, recommend investments, or measure liquidity and slippage. An official provider link may take an eligible user to an external asset page.
 
 ## Screenshot shot list
 
