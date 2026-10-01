@@ -8,7 +8,7 @@ For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo N
 
 **Live product:** [mintmark.nuvixes.studio](https://mintmark.nuvixes.studio) · **Source:** [github.com/Nifemi0/mintmark](https://github.com/Nifemi0/mintmark)
 
-The production deployment serves the 1,565-record checked catalog, exact contract records, evidence, version history, live Binance-backed Ondo and bStocks company reports, and the supported wallet lookup. Exact Ondo records also link to their official provider asset page for eligible users who want to continue outside Mintmark. These are outbound provider links; Mintmark does not execute a transaction. Binance credentials stay encrypted in Vercel and are never sent to the browser. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
+The production deployment serves the 1,565-record checked catalog, exact contract records, evidence, version history, live Binance-backed Ondo and bStocks company reports, and the supported wallet lookup. Binance credentials stay encrypted in Vercel and are never sent to the browser. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
 
 **Data storage:** The catalog and public record history are versioned JSON snapshots loaded by the server. Production reads the same checked snapshot and does not write corrections at runtime. [Data storage and the PostgreSQL migration path](docs/DATA_STORAGE.md) explains how updates are reviewed and when persistent storage is needed.
 
@@ -45,7 +45,7 @@ Wallet lookup is read-only. It sends the entered address to the server and Binan
 
 Each record includes expandable claim evidence and a public version history saved in `data/registry-history.json`. A version is added only when a tracked identity field changes during `npm run sync`, or the token leaves or returns to the curated catalog. The current first versions are an initial baseline, not a claim of historical issuer changes. A catalog removal does not prove issuer retirement. Unresolved Binance identity conflicts remain visible.
 
-The comparison view exposes an evidence matrix before a full record is opened. Official Ondo asset links are labeled **View & trade on Ondo** and include a regional-eligibility notice. No affiliate URL is currently active. Any future referral URL must remain on an approved provider domain and be labeled as an affiliate link that may compensate Mintmark.
+The comparison view exposes an evidence matrix before a full record is opened. Provider and issuer links remain evidence sources. Mintmark does not promote third-party exchanges. Any future referral action in this Binance hackathon build will be Binance-native, limited to eligible bStocks products, and clearly labeled as an affiliate link.
 
 For the submission demo, NVIDIA and TSLA each have three separate provider records. AAPL currently has two: Ondo and xStocks; the checked bStocks BSC list has no AAPL row. The legal-document links lead to each provider's documentation hub; individual final terms may need to be opened there. The current submission scope and later backlog are in [BUILD_PLAN.md](./BUILD_PLAN.md).
 

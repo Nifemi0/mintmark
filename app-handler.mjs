@@ -87,9 +87,6 @@ function directoryRecord(record) {
     binanceState: record.binanceCheck?.state ?? (record.platformId === 'bstock' ? 'snapshot_source' : 'not_checked'),
     walletLookupEnabled: Boolean(record.walletLookupEnabled),
     sourceConflict: record.sourceConflict,
-    providerActionUrl: record.platformId === 'ondo' ? record.issuerAssetUrl : null,
-    providerActionLabel: record.platformId === 'ondo' ? 'View & trade on Ondo' : null,
-    providerActionKind: record.platformId === 'ondo' ? 'official' : null,
   };
 }
 

@@ -46,7 +46,6 @@ Tokenized-stock tooling should help a user answer “which token is this?” bef
 - Read Binance-backed company and market reports for exact Ondo and bStocks contracts.
 - See explicit identity-only states where matching report data is unavailable.
 - Check a BSC wallet against 24 supported Ondo contracts without connecting or signing.
-- Continue to an exact official Ondo asset page through a disclosed outbound provider link where available.
 - Review public record versions and unresolved source differences.
 
 ## Technical architecture
@@ -95,7 +94,7 @@ Open `http://localhost:4173`. The checked registry works without API credentials
 - Binance company and market fields are third-party reports, not official exchange quotes or independent custody checks.
 - The wallet feature checks 24 known Ondo contracts and does not scan every wallet asset.
 - The catalog is a dated snapshot, and a missing provider row is treated as a data gap rather than proof that a product is invalid.
-- Mintmark does not execute or simulate transactions, recommend investments, or measure liquidity and slippage. An official provider link may take an eligible user to an external asset page.
+- Mintmark does not execute or simulate transactions, recommend investments, or measure liquidity and slippage.
 
 ## Screenshot shot list
 
