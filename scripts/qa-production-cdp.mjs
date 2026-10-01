@@ -140,14 +140,15 @@ await screenshot('qa-production-desktop-home.png');
 
 await fill('#hero-query', 'NVIDIA');
 await click('#hero-search button[type="submit"]');
-await waitFor(`document.querySelectorAll('.record-card').length === 3 && document.querySelector('#search-message').textContent.includes('3')`);
+await waitFor(`document.querySelectorAll('.comparison-card').length === 3 && document.querySelector('#search-message').textContent.includes('3')`);
 results.nvidiaSearch = await evaluate(`({
-  cards: document.querySelectorAll('.record-card').length,
-  symbols: [...document.querySelectorAll('.record-card')].map((card) => card.textContent.match(/NVDA(?:on|B|x)/)?.[0]).filter(Boolean),
+  cards: document.querySelectorAll('.comparison-card').length,
+  symbols: [...document.querySelectorAll('.comparison-card')].map((card) => card.textContent.match(/NVDA(?:on|B|x)/)?.[0]).filter(Boolean),
   comparisonVisible: !document.querySelector('#provider-comparison').hidden,
+  duplicateGridHidden: document.querySelector('#record-grid').hidden,
 })`);
 
-await domClick('.record-card', 'NVDAon');
+await domClick('button[data-compare-key]', 'NVDAon');
 await waitFor(`document.querySelector('#record')?.open && document.querySelector('#company-report') && !document.querySelector('#company-report').textContent.includes('Loading')`);
 results.ondoReport = await evaluate(`({
   dialogOpen: document.querySelector('#record').open,
@@ -170,16 +171,17 @@ results.dialogClose = await evaluate(`({ closed: !document.querySelector('#recor
 
 for (const [query, expected] of [['TSLA', 3], ['AAPL', 2], ['0xa9ee28c80f960b889dfbd1902055218cba016f75', 1]]) {
   await fill('#directory-query', query);
-  await waitFor(`document.querySelectorAll('.record-card').length === ${expected} && document.querySelector('#search-message').textContent.includes(${JSON.stringify(query)})`);
-  results[`search_${query.slice(0, 8)}`] = await evaluate(`({ cards: document.querySelectorAll('.record-card').length, message: document.querySelector('#search-message').textContent.trim() })`);
+  const selector = expected > 1 ? '.comparison-card' : '.record-card';
+  await waitFor(`document.querySelectorAll('${selector}').length === ${expected} && document.querySelector('#search-message').textContent.includes(${JSON.stringify(query)})`);
+  results[`search_${query.slice(0, 8)}`] = await evaluate(`({ cards: document.querySelectorAll('${selector}').length, message: document.querySelector('#search-message').textContent.trim() })`);
 }
 
 await fill('#directory-query', 'NVIDIA');
-await waitFor(`document.querySelectorAll('.record-card').length === 3`);
-await domClick('.record-card', 'NVDAx');
-await waitFor(`document.querySelector('#record')?.open && document.querySelector('#company-report')?.textContent.includes('Detailed report unavailable')`);
+await waitFor(`document.querySelectorAll('.comparison-card').length === 3`);
+await domClick('button[data-compare-key]', 'NVDAx');
+await waitFor(`document.querySelector('#record')?.open && document.querySelector('#company-report')?.textContent.includes('Detailed company report unavailable')`);
 results.xstocks = await evaluate(`({
-  explicitUnavailable: document.querySelector('#company-report').textContent.includes('Detailed report unavailable'),
+  explicitUnavailable: document.querySelector('#company-report').textContent.includes('Detailed company report unavailable'),
   noBorrowedFigures: document.querySelector('#company-report').textContent.includes('unavailable for this exact xStocks contract'),
 })`);
 await press('Escape');
@@ -204,8 +206,8 @@ results.mobileInitial = await evaluate(`({
 await screenshot('qa-production-mobile-home.png');
 await fill('#hero-query', 'NVIDIA');
 await click('#hero-search button[type="submit"]');
-await waitFor(`document.querySelectorAll('.record-card').length === 3`);
-await domClick('.record-card', 'NVDAB');
+await waitFor(`document.querySelectorAll('.comparison-card').length === 3`);
+await domClick('button[data-compare-key]', 'NVDAB');
 await waitFor(`document.querySelector('#record')?.open && document.querySelector('#company-report') && !document.querySelector('#company-report').textContent.includes('Loading')`);
 results.mobileReport = await evaluate(`(() => {
   const dialog = document.querySelector('#record').getBoundingClientRect();
