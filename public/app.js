@@ -24,6 +24,7 @@ let walletRequestId = 0;
 let recordRequestId = 0;
 const categoryOrder = ['ondo', 'bstock', 'xstock'];
 const providerLabels = { ondo: 'Ondo', bstock: 'bStocks', xstock: 'xStocks' };
+const binanceReferralUrl = 'https://www.binance.com/activity/referral-entry/CPA/together-v4?hl=en&ref=CPA_00BHOH4O1Y&utm_source=Lite_web_account';
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
@@ -226,9 +227,25 @@ function comparisonEvidence(record) {
     badge('Binance RWA', binanceLinked ? 'available' : binanceState === 'conflict' ? 'warning' : 'unavailable', binanceState === 'snapshot_source' ? 'Identity was sourced from the Binance RWA token list snapshot' : binanceLinked ? 'Exact contract is present in the live Binance RWA response' : binanceState === 'conflict' ? 'Binance data conflicts with this exact identity' : 'No matching Binance RWA record was verified'),
     badge('Company report', reportReady ? 'available' : 'unavailable', reportReady ? 'Exact-contract company and market data is available' : record.platformId === 'xstock' ? 'Identity only; no matching Binance report source was verified' : 'Live report coverage is unavailable for this exact contract'),
     badge('Wallet lookup', record.walletLookupEnabled ? 'available' : 'unavailable', record.walletLookupEnabled ? 'Included in Mintmark’s targeted Wallet API scan' : 'Not included in the current 24-contract wallet scan'),
+    badge('Liquidity', 'unavailable', 'Mintmark has not measured live depth, spread, or slippage for this exact contract'),
   ];
   if (record.sourceConflict) badges.push(badge('Source difference', 'warning', record.sourceConflict));
   return `<div class="comparison-evidence" aria-label="Evidence and API coverage">${badges.join('')}</div>`;
+}
+
+function comparisonBrief(records) {
+  const exactContracts = new Set(records.map((record) => record.contractAddress.toLowerCase())).size;
+  const sourceDifferences = records.filter((record) => record.sourceConflict).length;
+  const reportGaps = records.filter((record) => record.platformId === 'xstock' || !['matched', 'name_difference', 'snapshot_source'].includes(record.binanceState)).length;
+  const walletGaps = records.filter((record) => !record.walletLookupEnabled).length;
+  const item = (label, value, tone, detail) => `<div class="brief-item ${tone}"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong><small>${escapeHtml(detail)}</small></div>`;
+  return `<div class="comparison-brief" aria-label="Comparison risk summary">
+    ${item('Identity', `${exactContracts} distinct contracts`, exactContracts === records.length ? 'clear' : 'warning', 'Each contract is a separate product identity')}
+    ${item('Source differences', String(sourceDifferences), sourceDifferences ? 'warning' : 'clear', sourceDifferences ? 'Open evidence before relying on display names' : 'No recorded name conflict in this result')}
+    ${item('Report gaps', String(reportGaps), reportGaps ? 'neutral' : 'clear', reportGaps ? 'Some exact contracts lack matching Binance reports' : 'All rows have matching report coverage')}
+    ${item('Liquidity checks', 'Not measured', 'neutral', 'Depth, spread, and slippage remain unknown')}
+    ${item('Wallet gaps', String(walletGaps), walletGaps ? 'neutral' : 'clear', walletGaps ? 'The targeted scan does not cover every row' : 'Every row is included in the targeted scan')}
+  </div>`;
 }
 
 function renderComparison(records, query) {
@@ -241,11 +258,11 @@ function renderComparison(records, query) {
   const ticker = records[0].underlyingTicker;
   const providers = new Set(records.map((record) => record.platformId));
   providerComparison.hidden = false;
-  providerComparison.innerHTML = `<div class="comparison-heading"><div><p class="eyebrow">Evidence matrix</p><h3>${escapeHtml(ticker)} has ${records.length} BSC token product${records.length === 1 ? '' : 's'}</h3><p>Compare exact identity, source evidence, Binance data coverage, report availability and wallet support across every representation.</p></div><span>${providers.size} provider${providers.size === 1 ? '' : 's'}</span></div>
+  providerComparison.innerHTML = `<div class="comparison-heading"><div><p class="eyebrow">Evidence matrix</p><h3>${escapeHtml(ticker)} has ${records.length} BSC token product${records.length === 1 ? '' : 's'}</h3><p>Compare exact identity, source evidence, Binance data coverage, report availability and wallet support across every representation.</p></div><span>${providers.size} provider${providers.size === 1 ? '' : 's'}</span></div>${comparisonBrief(records)}
     <div class="comparison-list">${records.map((record) => {
       const terms = safeLink(record.issuerTermsUrl);
       const explorer = `https://bscscan.com/token/${record.contractAddress}`;
-      return `<div class="comparison-row"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><div class="comparison-token"><strong>${escapeHtml(record.symbol)}</strong><small>Token symbol</small></div><div class="comparison-contract"><span>Exact BSC contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer">${escapeHtml(record.contractAddress)} ${icon('arrow-up-right')}</a></div><div class="comparison-actions">${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents ${icon('arrow-up-right')}</a>` : '<span>Documents unavailable</span>'}<button type="button" data-compare-key="${escapeHtml(record.key)}">Open evidence ${icon('arrow-up-right')}</button></div>${comparisonEvidence(record)}</div>`;
+      return `<div class="comparison-row"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><div class="comparison-token"><strong>${escapeHtml(record.symbol)}</strong><small>Token symbol</small></div><div class="comparison-contract"><span>Exact BSC contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer">${escapeHtml(record.contractAddress)} ${icon('arrow-up-right')}</a></div><div class="comparison-actions">${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents ${icon('arrow-up-right')}</a>` : '<span>Documents unavailable</span>'}<button type="button" data-compare-key="${escapeHtml(record.key)}">Open evidence ${icon('arrow-up-right')}</button>${record.platformId === 'bstock' ? `<a class="affiliate-inline" href="${escapeHtml(binanceReferralUrl)}" target="_blank" rel="sponsored noopener noreferrer">Open Binance · affiliate ${icon('arrow-up-right')}</a>` : ''}</div>${comparisonEvidence(record)}</div>`;
     }).join('')}</div>`;
 }
 
@@ -373,6 +390,7 @@ async function openRecord(key) {
       </div><div class="evidence-panel"><h4>Evidence for this record</h4><p>Open a claim to see its source and limits. An issuer publication and an onchain observation answer different questions.</p>${record.evidence.map(evidenceHtml).join('')}</div></div>
       ${record.sourceConflict ? `<div class="cross-check conflict"><strong>Provider listing and onchain name differ</strong><p>${escapeHtml(record.sourceConflict)}</p><small>Compare the provider listing and BSC contract evidence above.</small></div>` : ''}
       ${record.binanceCheck ? `<div class="cross-check ${escapeHtml(record.binanceCheck.state)}"><strong>Binance RWA cross-check · ${escapeHtml(record.binanceCheck.state.replace('_', ' '))}</strong><p>${escapeHtml(record.binanceCheck.detail)}</p><small>Third-party reported · checked ${escapeHtml(dateLabel(record.binanceCheck.observedAt))} · <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data" target="_blank" rel="noopener noreferrer">API source and field definitions ${icon('arrow-up-right')}</a></small></div>` : ''}
+      ${record.platformId === 'bstock' ? `<div class="record-affiliate"><div><strong>Continue with Binance</strong><p>Open Binance through the builder’s referral link. This does not establish availability or liquidity for ${escapeHtml(record.symbol)} in your region.</p><small>Affiliate disclosure: the Mintmark builder may receive a reward from eligible activity.</small></div><a href="${escapeHtml(binanceReferralUrl)}" target="_blank" rel="sponsored noopener noreferrer">Open Binance ${icon('arrow-up-right')}</a></div>` : ''}
       <section id="record-history" class="record-history" aria-label="Record history"><div class="report-loading">Loading record history…</div></section>
       <section id="company-report" class="company-report" aria-label="Company report"><div class="report-loading">Loading sourced company and market data…</div></section>`;
     recordPlaceholder.hidden = true;

@@ -47,6 +47,8 @@ Each record includes expandable claim evidence and a public version history save
 
 The comparison view exposes an evidence matrix before a full record is opened. Provider and issuer links remain evidence sources. Mintmark does not promote third-party exchanges. Any future referral action in this Binance hackathon build will be Binance-native, limited to eligible bStocks products, and clearly labeled as an affiliate link.
 
+The live product includes a clearly disclosed Binance Referral Lite link in the product footer area and on bStocks records. The link is an affiliate action: the builder may receive a reward when a visitor registers and completes eligible activity. Mintmark does not claim that following the link guarantees a reward, regional availability, or liquidity for a specific token.
+
 For the submission demo, NVIDIA and TSLA each have three separate provider records. AAPL currently has two: Ondo and xStocks; the checked bStocks BSC list has no AAPL row. The legal-document links lead to each provider's documentation hub; individual final terms may need to be opened there. The current submission scope and later backlog are in [BUILD_PLAN.md](./BUILD_PLAN.md).
 
 ## Sources
