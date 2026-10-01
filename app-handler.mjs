@@ -143,7 +143,7 @@ export default async function handleRequest(request, response) {
       const { records, binance } = await currentRecords();
       const record = records.find((item) => item.key === key);
       const unresolved = [
-        ...(record?.sourceConflict ? [{ source: 'Ondo CSV vs BSC contract', observedAt: record.observedAt, detail: record.sourceConflict }] : []),
+        ...(record?.sourceConflict ? [{ source: 'Provider listing vs BSC contract', observedAt: record.observedAt, detail: record.sourceConflict }] : []),
         ...(record?.binanceCheck?.state === 'conflict' ? [{ source: 'Binance RWA Data', observedAt: record.binanceCheck.observedAt, detail: record.binanceCheck.detail }] : []),
       ];
       return sendJson(response, 200, { key, entries: entry.entries, unresolved, liveCheckState: binance.state });
