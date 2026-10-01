@@ -3,6 +3,7 @@
 > Mintmark is a public identity and evidence registry for tokenized stocks on BNB Smart Chain.
 
 Canonical product: https://mintmark.nuvixes.studio
+Product documentation: https://mintmark.nuvixes.studio/docs
 Source code: https://github.com/Nifemi0/mintmark
 
 ## Product scope

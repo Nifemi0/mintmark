@@ -26,6 +26,10 @@ test('deployment entry serves the front end, catalog health, logos, and xStocks 
     assert.match(llms.headers.get('content-type'), /^text\/plain/);
     assert.match(await llms.text(), /Identity is always BSC chain ID plus the complete contract address/);
 
+    const docs = await fetch(`${base}/docs`);
+    assert.equal(docs.status, 200);
+    assert.match(await docs.text(), /Public API/);
+
     const snapshot = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url)));
     const xstock = snapshot.records.find((record) => record.platformId === 'xstock' && record.underlyingTicker === 'NVDA');
     const report = await fetch(`${base}/api/report?key=${encodeURIComponent(xstock.key)}`).then((response) => response.json());
