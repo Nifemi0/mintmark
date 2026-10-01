@@ -1,6 +1,6 @@
 # Mintmark testing status
 
-Checked 30 September 2026. This file records both local checks and the public production deployment.
+Checked 1 October 2026. This file records both local checks and the public production deployment.
 
 | Check | Status | Evidence and limit |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ Checked 30 September 2026. This file records both local checks and the public pr
 | Production browser flow | Pass | Chrome 154 checked the live site at 1440×900 and 390×844. NVIDIA returned three products with live Ondo and bStocks reports; TSLA returned three, AAPL two, and an exact contract one. Evidence expansion, history, URL state, Escape close, explicit xStocks unavailability, malformed-wallet handling, and the public 18-holding example passed. No horizontal overflow, broken images, console exceptions, failed requests, or HTTP errors were observed. Screenshots are saved in `docs/qa-production-*.png`; the reproducible CDP flow is `scripts/qa-production-cdp.mjs`. |
 | Vercel hosting package | Pass | Production bundle contains the catalog and history snapshots and no `.env` file or private-key value. Credentials are encrypted Vercel variables. The public API reports 1,565 records, `binanceConfigured=true`, and execution in Cape Town (`cpt1`). |
 | Public company reports | Pass for Ondo and bStocks | The production API returned exact-contract NVIDIA company reports for Ondo and bStocks with HTTP 200. The Washington, D.C. deployment and US VPS previously returned Binance code `40304`; moving the Vercel function to Cape Town resolved it. xStocks remains explicitly identity-only. |
-| Demo video | On hold | The user asked to finish and confirm the features before video work. The event lists video as strongly recommended but optional. |
-| Developer experience report | Builder action pending | Factual engineering notes are in `DEV_EXPERIENCE_NOTES.md`. The final report must be written by the builder in their own words. |
+| Demo video | Outline ready; recording pending | `docs/submission/DEMO-OUTLINE.md` fits the official four-minute maximum. No video has been recorded or published. |
+| Developer experience report | Builder action pending | `docs/submission/DEVEX-REPORT-WORKSHEET.md` maps the official fields to recorded facts. The event rejects AI-generated reports, so the builder must confirm ratings and write the final narrative answers in their own words. |
 
 The [official BNB Hack brief](https://www.bnbchain.org/en/hackathons/tokenized-stocks) requires a public repository and a deployed link or reproducible judge instructions. The submission window closes 11 October 2026 at 12:00 UTC.

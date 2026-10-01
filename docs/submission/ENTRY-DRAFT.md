@@ -1,6 +1,6 @@
 # Mintmark submission draft
 
-This is a factual draft for the builder to review. It is not a submitted entry or the required developer experience report.
+This is the concise project summary. The current form-ready packet is `SUBMISSION.md`; the field-by-field developer-experience worksheet is `docs/submission/DEVEX-REPORT-WORKSHEET.md`. Nothing has been sent to either Google Form.
 
 **Project:** Mintmark
 
@@ -14,6 +14,6 @@ This is a factual draft for the builder to review. It is not a submitted entry o
 
 **How judges can run it:** Clone `https://github.com/Nifemi0/mintmark`, use Node.js 22 or newer, run `npm start`, and open `http://localhost:4173`. The bundled checked catalog works without API keys. For live Binance reports and wallet lookup, copy `.env.example` to `.env.local`, add Binance Web3 credentials, and restart. Run `npm test` and `npm run check:release` for local verification.
 
-**Submission links:** Public repository: https://github.com/Nifemi0/mintmark. Public demo: https://mintmark.nuvixes.studio (registry, live Binance-backed company reports, and supported wallet lookup are operational). Video: on hold at the builder's request. Final developer experience report: builder to write in their own words from `DEV_EXPERIENCE_NOTES.md`.
+**Submission links:** Public repository: https://github.com/Nifemi0/mintmark. Public demo: https://mintmark.nuvixes.studio (registry, live Binance-backed company reports, and supported wallet lookup are operational). Video recording: pending; the approved-length outline is in `docs/submission/DEMO-OUTLINE.md`. Developer experience report: builder to complete in their own words from `docs/submission/DEVEX-REPORT-WORKSHEET.md`.
 
 **Claim limits:** Contract bytecode, name, and symbol checks do not verify offchain backing. Binance market and company data are provider reports, not official exchange quotes. Wallet lookup covers a subset. The catalog is a dated snapshot. See `CLAIMS.md` and `docs/submission/TESTING-STATUS.md`.
