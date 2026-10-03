@@ -6,7 +6,7 @@ For a concrete example, NVIDIA resolves to three separate BSC contracts: [Ondo N
 
 ![Mintmark comparing three NVIDIA token products](docs/registry-nvda.png)
 
-**Live product:** [mintmark.nuvixes.studio](https://mintmark.nuvixes.studio) · **Source:** [github.com/Nifemi0/mintmark](https://github.com/Nifemi0/mintmark)
+**Live product:** [mintmark.nuvixes.studio](https://mintmark.nuvixes.studio) · **Demo:** [watch the four-minute product walkthrough](https://youtu.be/7Puxgq8_8Fk) · **Source:** [github.com/Nifemi0/mintmark](https://github.com/Nifemi0/mintmark)
 
 The production deployment serves the 1,565-record checked catalog, shareable company comparisons, exact contract records, evidence, version history, live Binance-backed exact-contract market coverage, Ondo and bStocks company reports, and the supported wallet lookup. Binance credentials stay encrypted in Vercel and are never sent to the browser. [Claims and evidence](CLAIMS.md) and [testing status](docs/submission/TESTING-STATUS.md) state what has and has not been verified.
 
