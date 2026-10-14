@@ -21,7 +21,7 @@ Mintmark is the identity and evidence layer for tokenized stocks on BNB Smart Ch
 
 Mintmark is a public BSC tokenized-stock registry for people who recognize a company but may not know its onchain ticker or contract. A user can search NVIDIA, Tesla, Apple, a fund name, a ticker, or an exact BSC address. Mintmark then keeps each provider product separate and shows its exact contract, issuer, legal-document hub, onchain name and symbol, evidence class, observation time, and public record history.
 
-The current checked snapshot contains 1,565 distinct BSC contracts: 450 Ondo products, 46 bStocks products, and 1,069 xStocks products. NVIDIA and Tesla each resolve to three separate products; Apple resolves to Ondo and xStocks because the checked bStocks list contains no AAPL row.
+The current checked snapshot contains 1,847 distinct BSC contracts: 450 Ondo products, 46 bStocks products, and 1,351 xStocks products. NVIDIA and Tesla each resolve to three separate products; Apple resolves to Ondo and xStocks because the checked bStocks list contains no AAPL row.
 
 Mintmark calls the Binance Web3 **RWA Data API** for token identity, underlying-company profiles, and underlying-market fields; the **Market API** for exact-contract price, change, volume, reported liquidity, holders, activity, and 30-day BSC token candles; and the **Wallet API** for read-only, exact-contract balance lookup across 24 explicitly supported Ondo contracts. Missing sources stay missing: xStocks can show only exact-contract General Data fields while its underlying-company RWA report remains unavailable. Credentials remain server-side, and production runs from Vercel's Cape Town region after US-hosted requests returned Binance compliance code `40304`.
 
@@ -86,7 +86,7 @@ Open `http://localhost:4173`. The checked registry works without API credentials
 
 - `npm test`: 22 passing tests.
 - `npm run check:freshness`: the committed provider snapshot is within the 48-hour freshness window.
-- `npm run check:release`: 1,565 checked contracts, priority searches present, legal links present, and no configured private credential values in distributable files.
+- `npm run check:release`: 1,847 checked contracts, priority searches present, legal links present, and no configured private credential values in distributable files.
 - Production Chrome QA at 1440×900 and 390×844: search, comparison, record dialog, evidence expansion, history, live reports, unavailable state, wallet validation, and public example passed.
 - No production console exceptions, failed requests, HTTP errors, broken images, or horizontal overflow were observed in the latest run.
 - QA screenshots are stored in `docs/qa-production-*.png`; the repeatable flow is `scripts/qa-production-cdp.mjs`.
@@ -109,7 +109,7 @@ Open `http://localhost:4173`. The checked registry works without API credentials
 
 ## Development process
 
-Codex assisted with implementation, debugging, test automation, documentation, and deployment. Product decisions were driven by builder review: company-first discovery replaced ticker-only navigation; records moved into a focused dialog; provider coverage expanded from a small sample to 1,565 checked contracts; unavailable xStocks data stayed visible rather than being filled from another product; and the production runtime moved to Cape Town only after host diagnostics isolated Binance's regional compliance response.
+Codex assisted with implementation, debugging, test automation, documentation, and deployment. Product decisions were driven by builder review: company-first discovery replaced ticker-only navigation; records moved into a focused dialog; provider coverage expanded from a small sample to 1,847 checked contracts; unavailable xStocks data stayed visible rather than being filled from another product; and the production runtime moved to Cape Town only after host diagnostics isolated Binance's regional compliance response.
 
 ## Readiness
 

@@ -90,7 +90,7 @@ The official report says perfunctory or AI-generated reports are not accepted. T
   - Provenance fields explaining whether each value came from an issuer, onchain observation, Binance normalization, or another third party.
 - **One change that would have saved the most time:** A copy-paste signing reference implementation paired with a diagnostic response that explicitly distinguishes regional compliance code `40304` from authentication and signature failures.
 - **Will you keep building?:** Yes, definitely
-- **Why?:** Suggested factual basis: the registry already normalizes 1,565 contracts across three providers, but scheduled refreshes, broader wallet coverage, correction workflows, and exact-contract report coverage remain useful follow-on work.
+- **Why?:** Suggested factual basis: the registry already normalizes 1,847 contracts across three providers, but scheduled refreshes, broader wallet coverage, correction workflows, and exact-contract report coverage remain useful follow-on work.
 - **Anything else:** The strongest part of the API for this project was the ability to join token identity, company context, market fields, candles, and targeted balances. The largest trust gap was provenance: users and builders need to know which facts came from the issuer, the contract, or Binance's aggregation layer.
 
 ## Builder completion checklist

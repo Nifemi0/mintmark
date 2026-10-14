@@ -10,7 +10,7 @@ Source code: https://github.com/Nifemi0/mintmark
 
 - Search by company name, public ticker, token symbol, category, keyword, or exact BSC contract.
 - Compare distinct Ondo, bStocks, and xStocks products without treating a shared stock ticker as one token.
-- Inspect 1,565 checked records: 450 Ondo, 46 bStocks, and 1,069 xStocks.
+- Inspect 1,847 checked records: 450 Ondo, 46 bStocks, and 1,351 xStocks.
 - Open shareable comparisons with `/?q=NVDA#registry` and exact records with `/?q=NVDA&record=56%3A0x...#record`.
 - Review exact-contract token-market coverage from Binance when available: price, 24-hour change, reported volume, reported liquidity, holders, and transaction activity.
 - Review underlying-company profiles, market fields, and BSC token candles for supported Binance RWA records.
