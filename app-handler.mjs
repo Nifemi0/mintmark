@@ -105,6 +105,8 @@ const staticFiles = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
   ['/llms.txt', ['llms.txt', 'text/plain; charset=utf-8']],
+  ['/robots.txt', ['robots.txt', 'text/plain; charset=utf-8']],
+  ['/sitemap.xml', ['sitemap.xml', 'application/xml; charset=utf-8']],
 ]);
 
 export default async function handleRequest(request, response) {
@@ -113,15 +115,22 @@ export default async function handleRequest(request, response) {
     if (request.method !== 'GET') return sendJson(response, 405, { error: 'Method not allowed' });
     if (url.pathname === '/api/health') return sendJson(response, 200, {
       status: 'ok', count: baseRecords.length, snapshotAt: snapshot.generatedAt,
-      binanceConfigured: hasBinanceCredentials(),
+      checkedAt: new Date().toISOString(), binanceConfigured: hasBinanceCredentials(),
     });
     if (url.pathname === '/api/records') {
       const { records, binance } = await currentRecords();
       const query = url.searchParams.get('q') ?? '';
       if (query.length > 120) return sendJson(response, 400, { error: 'Search is too long' });
+      const requestedLimit = Number.parseInt(url.searchParams.get('limit') ?? '50', 10);
+      const requestedOffset = Number.parseInt(url.searchParams.get('offset') ?? '0', 10);
+      const limit = Number.isFinite(requestedLimit) ? Math.min(Math.max(requestedLimit, 1), 250) : 50;
+      const offset = Number.isFinite(requestedOffset) ? Math.max(requestedOffset, 0) : 0;
+      const matched = searchRecords(records, query);
+      const page = matched.slice(offset, offset + limit);
       return sendJson(response, 200, {
-        records: searchRecords(records, query).map(directoryRecord), query,
-        total: records.length, snapshotAt: snapshot.generatedAt,
+        records: page.map(directoryRecord), query, offset, limit,
+        total: matched.length, catalogTotal: records.length, hasMore: offset + page.length < matched.length,
+        snapshotAt: snapshot.generatedAt, checkedAt: new Date().toISOString(),
         providers: snapshot.source.providers, binance,
       });
     }

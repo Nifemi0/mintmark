@@ -16,6 +16,25 @@ test('deployment entry serves the front end, catalog health, logos, and xStocks 
     const health = await fetch(`${base}/api/health`).then((response) => response.json());
     assert.equal(health.status, 'ok');
     assert.equal(health.count, 1565);
+    assert.ok(health.checkedAt);
+
+    const firstPage = await fetch(`${base}/api/records`).then((response) => response.json());
+    assert.equal(firstPage.records.length, 50);
+    assert.equal(firstPage.total, 1565);
+    assert.equal(firstPage.catalogTotal, 1565);
+    assert.equal(firstPage.hasMore, true);
+
+    const secondPage = await fetch(`${base}/api/records?limit=10&offset=10`).then((response) => response.json());
+    assert.equal(secondPage.records.length, 10);
+    assert.equal(secondPage.offset, 10);
+
+    const robots = await fetch(`${base}/robots.txt`);
+    assert.equal(robots.status, 200);
+    assert.match(await robots.text(), /Sitemap: https:\/\/mintmark\.nuvixes\.studio\/sitemap\.xml/);
+
+    const sitemap = await fetch(`${base}/sitemap.xml`);
+    assert.equal(sitemap.status, 200);
+    assert.match(await sitemap.text(), /<loc>https:\/\/mintmark\.nuvixes\.studio\/<\/loc>/);
 
     const logo = await fetch(`${base}/logos/NVDA.png`);
     assert.equal(logo.status, 200);

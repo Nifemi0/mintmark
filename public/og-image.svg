@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111a18"/>
+  <circle cx="1050" cy="80" r="260" fill="#d8f36b" opacity=".12"/>
+  <text x="84" y="110" fill="#d8f36b" font-family="Arial,sans-serif" font-size="28" letter-spacing="8">MINTMARK</text>
+  <text x="84" y="275" fill="#f7f8f0" font-family="Arial,sans-serif" font-size="76" font-weight="700">Every token has</text>
+  <text x="84" y="365" fill="#d8f36b" font-family="Arial,sans-serif" font-size="76" font-weight="700">a paper trail.</text>
+  <text x="84" y="445" fill="#b7c3bb" font-family="Arial,sans-serif" font-size="27">Search companies. Verify exact BSC contracts.</text>
+  <text x="84" y="490" fill="#b7c3bb" font-family="Arial,sans-serif" font-size="27">Compare issuers, sources, and data coverage.</text>
+</svg>

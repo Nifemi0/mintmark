@@ -214,7 +214,7 @@ function renderFeatured() {
 }
 
 function renderStatus(payload) {
-  snapshotStatus.textContent = `${payload.total} BSC records · 3 providers · checked ${dateLabel(payload.snapshotAt)}`;
+  snapshotStatus.textContent = `${payload.catalogTotal ?? payload.total} BSC records · 3 providers · catalog snapshot ${dateLabel(payload.snapshotAt)}`;
   const binance = payload.binance;
   apiStatus.className = 'api-status';
   if (binance.state === 'checked') {
@@ -318,9 +318,18 @@ function renderCards(records, query) {
 async function loadRecords(query = '') {
   const current = ++requestId;
   try {
-    const response = await fetch(`/api/records?q=${encodeURIComponent(query)}`);
-    const payload = await response.json();
-    if (!response.ok) throw new Error(payload.error || 'Registry request failed');
+    const pageSize = 250;
+    const pages = [];
+    let offset = 0;
+    let payload;
+    do {
+      const response = await fetch(`/api/records?q=${encodeURIComponent(query)}&limit=${pageSize}&offset=${offset}`);
+      payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || 'Registry request failed');
+      pages.push(...payload.records);
+      offset += payload.records.length;
+    } while (payload.hasMore && payload.records.length);
+    payload = { ...payload, records: pages, total: pages.length };
     if (current !== requestId) return;
     if (!query) {
       allRecords = payload.records;

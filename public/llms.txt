@@ -19,7 +19,7 @@ Source code: https://github.com/Nifemi0/mintmark
 ## Public endpoints
 
 - `GET /api/health` — service status, record count, snapshot time, and Binance configuration state.
-- `GET /api/records?q=NVDA` — search and compact comparison records.
+- `GET /api/records?q=NVDA&limit=50&offset=0` — paginated search and compact comparison records. Default page size is 50; maximum is 250. Responses include `hasMore`, `total`, and `catalogTotal`.
 - `GET /api/record?key=56:0x...` — one exact registry record and its evidence.
 - `GET /api/report?key=56:0x...` — exact-contract token-market coverage and, when supported, the underlying-company report.
 - `GET /api/history?key=56:0x...` — public versions and unresolved source differences.

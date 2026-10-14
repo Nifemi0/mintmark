@@ -1,6 +1,6 @@
 # Mintmark submission packet
 
-Prepared for **BNB Hack: Tokenized Stocks Edition**. This is a local draft for review; nothing has been sent to the submission form.
+Submitted to **BNB Hack: Tokenized Stocks Edition** on **October 3, 2026**. This file is the public record of the submitted project; the host confirmation ID was not retained.
 
 ## Form links
 
@@ -8,10 +8,10 @@ Prepared for **BNB Hack: Tokenized Stocks Edition**. This is a local draft for r
 - **Public repository:** https://github.com/Nifemi0/mintmark
 - **Deployed product:** https://mintmark.nuvixes.studio
 - **Track:** Main track: Tokenized Stocks Products & Agents
-- **Hackathon registration:** Unconfirmed. Check the official registration form with the builder's Google account before submitting the project.
-- **Demo video:** Pending. Keep the final recording at four minutes or less.
-- **Developer Experience Report:** Complete the separate report from `docs/submission/DEVEX-REPORT-WORKSHEET.md`.
-- **Builder details still required:** registration confirmation, registration email, ERC-20 wallet address or Binance UID, and optional Telegram handle. Keep these details out of the public repository and enter them directly in the official form.
+- **Hackathon registration:** Completed as part of the official submission flow; no separate host confirmation ID was retained.
+- **Demo video:** Submitted with the entry: https://youtu.be/7Puxgq8_8Fk (2:35, within the four-minute limit).
+- **Developer Experience Report:** Submitted with the entry on October 3, 2026.
+- **Prize contact:** Binance UID was entered in the official form; private builder details remain out of this public repository.
 
 ## One-line summary
 
