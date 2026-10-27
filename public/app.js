@@ -25,6 +25,10 @@ let recordRequestId = 0;
 const categoryOrder = ['ondo', 'bstock', 'xstock'];
 const providerLabels = { ondo: 'Ondo', bstock: 'bStocks', xstock: 'xStocks' };
 const binanceReferralUrl = 'https://www.binance.com/activity/referral-entry/CPA/together-v4?hl=en&ref=CPA_00BHOH4O1Y&utm_source=Lite_web_account';
+document.querySelectorAll('.footer a[href="#registry"]').forEach((link) => { link.href = '/registry'; });
+document.querySelectorAll('.footer a[href="#wallet"]').forEach((link) => { link.href = '/wallet'; });
+document.querySelectorAll('.footer a[href="#how-it-works"]').forEach((link) => { link.href = '/method'; });
+document.querySelectorAll('.footer a[href="#binance"]').forEach((link) => { link.href = '/registry'; });
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
@@ -444,7 +448,7 @@ async function openRecord(key) {
     selectedKey = record.key;
     const sourceUrl = safeLink(record.issuerAssetUrl);
     const explorerUrl = safeLink(record.explorerUrl);
-    recordContent.innerHTML = `<div class="detail-head"><div><p class="eyebrow">${escapeHtml(providerLabels[record.platformId] || record.platformId)} · ${escapeHtml(record.symbol)} · BNB Smart Chain · version ${escapeHtml(record.recordVersion ?? 1)}</p><h3>${escapeHtml(record.companyName)}</h3><p>Exact identity: ${escapeHtml(record.key)}</p><a class="compare-company-link" href="/?q=${encodeURIComponent(record.underlyingTicker)}#registry">Compare every ${escapeHtml(record.underlyingTicker)} product ${icon('arrow-up-right')}</a></div>${logoHtml(record.underlyingTicker, 'detail-mark', record.logoUrl)}</div>
+    recordContent.innerHTML = `<div class="detail-head"><div><p class="eyebrow">${escapeHtml(providerLabels[record.platformId] || record.platformId)} · ${escapeHtml(record.symbol)} · BNB Smart Chain · version ${escapeHtml(record.recordVersion ?? 1)}</p><h3>${escapeHtml(record.companyName)}</h3><p>Exact identity: ${escapeHtml(record.key)}</p><a class="compare-company-link" href="/registry?q=${encodeURIComponent(record.underlyingTicker)}#registry">Compare every ${escapeHtml(record.underlyingTicker)} product ${icon('arrow-up-right')}</a></div>${logoHtml(record.underlyingTicker, 'detail-mark', record.logoUrl)}</div>
       ${accessRouteHtml(record)}
       <div class="detail-body"><div class="identity-facts">
         <div class="fact"><label>Token symbol</label><strong>${escapeHtml(record.symbol)}</strong></div>
@@ -557,6 +561,11 @@ loadMore.addEventListener('click', () => {
 
 document.querySelector('#hero-search').addEventListener('submit', (event) => {
   event.preventDefault();
+  if (document.body.classList.contains('home-page')) {
+    const query = heroQuery.value.trim();
+    location.href = `/registry${query ? `?q=${encodeURIComponent(query)}` : ''}#registry`;
+    return;
+  }
   selectedCategory = 'All';
   renderCategories();
   directoryQuery.value = heroQuery.value.trim();

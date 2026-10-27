@@ -100,6 +100,12 @@ function directoryRecord(record) {
 
 const staticFiles = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
+  ['/registry', ['registry.html', 'text/html; charset=utf-8']],
+  ['/registry/', ['registry.html', 'text/html; charset=utf-8']],
+  ['/wallet', ['wallet.html', 'text/html; charset=utf-8']],
+  ['/wallet/', ['wallet.html', 'text/html; charset=utf-8']],
+  ['/method', ['method.html', 'text/html; charset=utf-8']],
+  ['/method/', ['method.html', 'text/html; charset=utf-8']],
   ['/docs', ['docs.html', 'text/html; charset=utf-8']],
   ['/docs/', ['docs.html', 'text/html; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],

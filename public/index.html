@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="/styles.css">
   <script type="module" src="/app.js"></script>
 </head>
-<body id="top">
+<body id="top" class="home-page">
   <svg class="icon-sprite" aria-hidden="true">
     <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
     <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
@@ -42,8 +42,8 @@
   <div class="dark-shell">
     <header class="site-header wrap">
       <a class="brand" href="/" aria-label="Mintmark home"><span class="brand-icon"><i></i></span><span>mintmark</span></a>
-      <nav aria-label="Main navigation"><a href="#registry">Registry</a><a href="#wallet">Wallet lookup</a><a href="#how-it-works">Method</a><a href="#documentation">Documentation</a><a href="#binance">Binance</a></nav>
-      <a class="header-action" href="#registry">Explore records <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+      <nav aria-label="Main navigation"><a href="/registry">Registry</a><a href="/wallet">Wallet lookup</a><a href="/method">Method</a><a href="/docs">Documentation</a></nav>
+      <a class="header-action" href="/registry">Explore records <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
     </header>
     <section class="hero wrap">
       <div class="hero-copy">
@@ -54,8 +54,8 @@
           <label class="visually-hidden" for="hero-query">Search a company, fund, ticker, or BSC contract</label>
           <svg class="ui-icon search-icon" aria-hidden="true"><use href="#icon-search"/></svg><input id="hero-query" type="search" autocomplete="off" placeholder="Company, fund, ticker, or 0x contract" maxlength="120"><button type="submit">Search <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></button>
         </form>
-        <p class="hero-note">No ticker in mind? <a href="#browse">Browse the catalog <svg class="ui-icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg></a></p>
-        <div class="quick-searches" aria-label="Popular comparisons"><span>Popular</span><a href="/?q=NVDA#registry">NVIDIA</a><a href="/?q=TSLA#registry">Tesla</a><a href="/?q=AAPL#registry">Apple</a><a href="/?q=SPY#registry">S&amp;P 500</a></div>
+        <p class="hero-note">No ticker in mind? <a href="/registry">Browse the catalog <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a></p>
+        <div class="quick-searches" aria-label="Popular comparisons"><span>Popular</span><a href="/registry?q=NVDA#registry">NVIDIA</a><a href="/registry?q=TSLA#registry">Tesla</a><a href="/registry?q=AAPL#registry">Apple</a><a href="/registry?q=SPY#registry">S&amp;P 500</a></div>
       </div>
       <div class="hero-product" aria-label="Preview of a real Mintmark asset record">
         <div class="product-back"><span>EXACT TOKEN IDENTITY</span><strong id="featured-contract">Loading contract…</strong><small>BNB SMART CHAIN · CHAIN 56</small></div>
@@ -63,12 +63,14 @@
           <div class="sheet-top"><span><i></i> mintmark / asset record</span><span>LIVE REGISTRY</span></div>
           <div class="sheet-company"><div class="company-mark stock-badge" id="featured-mark">A</div><div><strong id="featured-company">Loading asset…</strong><small id="featured-ticker">BSC TOKENIZED STOCK</small></div></div>
           <div class="sheet-record"><span>ISSUER RECORD</span><strong id="featured-symbol">—</strong><small id="featured-issuer">—</small></div>
-          <div class="sheet-bottom"><span>EXACT CONTRACT · SOURCE-LINKED CLAIMS</span><a href="#registry">OPEN REGISTRY <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a></div>
+          <div class="sheet-bottom"><span>EXACT CONTRACT · SOURCE-LINKED CLAIMS</span><a href="/registry">OPEN REGISTRY <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a></div>
         </div>
       </div>
     </section>
-    <div class="dark-foot wrap"><span>THE SOURCE MATTERS AS MUCH AS THE SYMBOL</span><a href="#registry">SCROLL TO THE REGISTRY <svg class="ui-icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg></a></div>
+    <div class="dark-foot wrap"><span>THE SOURCE MATTERS AS MUCH AS THE SYMBOL</span><a href="/registry">ENTER THE REGISTRY <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a></div>
   </div>
+
+  <section class="home-tiles wrap" aria-label="Mintmark destinations"><a class="home-tile home-tile-primary" href="/registry"><span class="home-tile-index">01</span><strong>Search the registry</strong><p>Find a familiar company, compare its provider products, and open the exact contract.</p><span class="home-tile-arrow">Open registry ↗</span></a><a class="home-tile" href="/wallet"><span class="home-tile-index">02</span><strong>Check a wallet</strong><p>Look up supported BNB Chain stock-token holdings without connecting or signing.</p><span class="home-tile-arrow">Read-only lookup ↗</span></a><a class="home-tile" href="/method"><span class="home-tile-index">03</span><strong>Understand the proof</strong><p>See how Mintmark separates onchain facts, issuer records, markets, and unknowns.</p><span class="home-tile-arrow">See the method ↗</span></a></section>
 
   <main>
     <section id="registry" class="registry-section wrap" aria-labelledby="registry-title">

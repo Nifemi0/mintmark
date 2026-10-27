@@ -8,6 +8,12 @@
     }
   },
   "rewrites": [
+    { "source": "/registry", "destination": "/registry.html" },
+    { "source": "/registry/", "destination": "/registry.html" },
+    { "source": "/wallet", "destination": "/wallet.html" },
+    { "source": "/wallet/", "destination": "/wallet.html" },
+    { "source": "/method", "destination": "/method.html" },
+    { "source": "/method/", "destination": "/method.html" },
     { "source": "/docs", "destination": "/docs.html" },
     { "source": "/docs/", "destination": "/docs.html" },
     { "source": "/api/:path*", "destination": "/api/index" }
