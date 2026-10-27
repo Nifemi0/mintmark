@@ -38,7 +38,7 @@ Show the landing page and say:
 ## Proof and close — 2:50 to 3:30
 
 - Briefly show the public GitHub repository and testing status.
-- State: 1,847 checked BSC contracts across Ondo, bStocks, and xStocks; 22 automated tests; public desktop and mobile QA.
+- State: 1,870 checked BSC contracts across Ondo, bStocks, and xStocks; 22 automated tests; public desktop and mobile QA.
 - Close with the live URL: `https://mintmark.nuvixes.studio`.
 
 ## Recording checklist

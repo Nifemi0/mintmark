@@ -4,7 +4,7 @@
 
 Mintmark's launch database is a versioned, checked snapshot committed with the app:
 
-- `data/catalog.json` has 1,847 exact BSC token identities, provider metadata, sources, and observation times.
+- `data/catalog.json` has 1,870 exact BSC token identities, provider metadata, sources, and observation times.
 - `data/registry-history.json` has the public history for those identity records.
 - `data/ondo-bsc.json` is a source snapshot used by the refresh scripts.
 

@@ -179712,6 +179712,1869 @@
           }
         }
       ]
+    },
+    "56:0x992e84d083796090791b30de34f3de3ed34ba9ee": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x992e84d083796090791b30de34f3de3ed34ba9ee"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "CBx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Chubb xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "CB"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Chubb"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x992e84d083796090791b30de34f3de3ed34ba9ee"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/CBx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x992e84d083796090791b30de34f3de3ed34ba9ee",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "CBx",
+            "tokenName": "Chubb xStock",
+            "underlyingTicker": "CB",
+            "companyName": "Chubb",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x992e84d083796090791b30de34f3de3ed34ba9ee",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/CBx"
+          }
+        }
+      ]
+    },
+    "56:0x2935f5ee215c6dc568cd5684653a45f89b9d5f94": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x2935f5ee215c6dc568cd5684653a45f89b9d5f94"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "CRHx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "CRH xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "CRH"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "CRH"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x2935f5ee215c6dc568cd5684653a45f89b9d5f94"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/CRHx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x2935f5ee215c6dc568cd5684653a45f89b9d5f94",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "CRHx",
+            "tokenName": "CRH xStock",
+            "underlyingTicker": "CRH",
+            "companyName": "CRH",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x2935f5ee215c6dc568cd5684653a45f89b9d5f94",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/CRHx"
+          }
+        }
+      ]
+    },
+    "56:0x4c9ad81bd6acded375174e263d7d71f5e58eb8f7": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x4c9ad81bd6acded375174e263d7d71f5e58eb8f7"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "SLBx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "SLB xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "SLB"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "SLB"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x4c9ad81bd6acded375174e263d7d71f5e58eb8f7"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/SLBx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x4c9ad81bd6acded375174e263d7d71f5e58eb8f7",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "SLBx",
+            "tokenName": "SLB xStock",
+            "underlyingTicker": "SLB",
+            "companyName": "SLB",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x4c9ad81bd6acded375174e263d7d71f5e58eb8f7",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/SLBx"
+          }
+        }
+      ]
+    },
+    "56:0x91177b3c9a0cb2b7a39ab8f30b21f781d8fcb166": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x91177b3c9a0cb2b7a39ab8f30b21f781d8fcb166"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "JCIx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Johnson Controls International xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "JCI"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Johnson Controls International"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x91177b3c9a0cb2b7a39ab8f30b21f781d8fcb166"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/JCIx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x91177b3c9a0cb2b7a39ab8f30b21f781d8fcb166",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "JCIx",
+            "tokenName": "Johnson Controls International xStock",
+            "underlyingTicker": "JCI",
+            "companyName": "Johnson Controls International",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x91177b3c9a0cb2b7a39ab8f30b21f781d8fcb166",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/JCIx"
+          }
+        }
+      ]
+    },
+    "56:0x5191f3bb31acd9f7ae22dcc6f2aa81a32ce28e02": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x5191f3bb31acd9f7ae22dcc6f2aa81a32ce28e02"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "SPOTx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Spotify Technology xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "SPOT"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Spotify Technology"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x5191f3bb31acd9f7ae22dcc6f2aa81a32ce28e02"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/SPOTx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x5191f3bb31acd9f7ae22dcc6f2aa81a32ce28e02",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "SPOTx",
+            "tokenName": "Spotify Technology xStock",
+            "underlyingTicker": "SPOT",
+            "companyName": "Spotify Technology",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x5191f3bb31acd9f7ae22dcc6f2aa81a32ce28e02",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/SPOTx"
+          }
+        }
+      ]
+    },
+    "56:0x19e7151f809a9e44ad2ae5364f243eb4640d0b7b": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x19e7151f809a9e44ad2ae5364f243eb4640d0b7b"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "FLEXx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Flex xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "FLEX"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Flex"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x19e7151f809a9e44ad2ae5364f243eb4640d0b7b"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/FLEXx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x19e7151f809a9e44ad2ae5364f243eb4640d0b7b",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "FLEXx",
+            "tokenName": "Flex xStock",
+            "underlyingTicker": "FLEX",
+            "companyName": "Flex",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x19e7151f809a9e44ad2ae5364f243eb4640d0b7b",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/FLEXx"
+          }
+        }
+      ]
+    },
+    "56:0xeddde8367aaa8e45a55d7075e7d6956432585943": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xeddde8367aaa8e45a55d7075e7d6956432585943"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "AONx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Aon xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "AON"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Aon"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xeddde8367aaa8e45a55d7075e7d6956432585943"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/AONx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xeddde8367aaa8e45a55d7075e7d6956432585943",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "AONx",
+            "tokenName": "Aon xStock",
+            "underlyingTicker": "AON",
+            "companyName": "Aon",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xeddde8367aaa8e45a55d7075e7d6956432585943",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/AONx"
+          }
+        }
+      ]
+    },
+    "56:0x79b940c47549283ff19d44249c1ba86c73700932": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x79b940c47549283ff19d44249c1ba86c73700932"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "TTx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Trane Technologies xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "TT"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Trane Technologies"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x79b940c47549283ff19d44249c1ba86c73700932"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/TTx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x79b940c47549283ff19d44249c1ba86c73700932",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "TTx",
+            "tokenName": "Trane Technologies xStock",
+            "underlyingTicker": "TT",
+            "companyName": "Trane Technologies",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x79b940c47549283ff19d44249c1ba86c73700932",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/TTx"
+          }
+        }
+      ]
+    },
+    "56:0x99d17923348c22965a7b82ebac3ca0fa384f7163": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x99d17923348c22965a7b82ebac3ca0fa384f7163"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "AUx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Anglogold Ashanti xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "AU"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Anglogold Ashanti"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x99d17923348c22965a7b82ebac3ca0fa384f7163"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/AUx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x99d17923348c22965a7b82ebac3ca0fa384f7163",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "AUx",
+            "tokenName": "Anglogold Ashanti xStock",
+            "underlyingTicker": "AU",
+            "companyName": "Anglogold Ashanti",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x99d17923348c22965a7b82ebac3ca0fa384f7163",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/AUx"
+          }
+        }
+      ]
+    },
+    "56:0xe08e309339c70d2eff9ae92d96429c4bf3371203": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xe08e309339c70d2eff9ae92d96429c4bf3371203"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "FTIx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "TechnipFMC xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "FTI"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "TechnipFMC"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xe08e309339c70d2eff9ae92d96429c4bf3371203"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/FTIx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xe08e309339c70d2eff9ae92d96429c4bf3371203",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "FTIx",
+            "tokenName": "TechnipFMC xStock",
+            "underlyingTicker": "FTI",
+            "companyName": "TechnipFMC",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xe08e309339c70d2eff9ae92d96429c4bf3371203",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/FTIx"
+          }
+        }
+      ]
+    },
+    "56:0xf7117837b367691f83963a53b7f7c6c4e9c730ad": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xf7117837b367691f83963a53b7f7c6c4e9c730ad"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "RCLx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Royal Caribbean xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "RCL"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Royal Caribbean"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xf7117837b367691f83963a53b7f7c6c4e9c730ad"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/RCLx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xf7117837b367691f83963a53b7f7c6c4e9c730ad",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "RCLx",
+            "tokenName": "Royal Caribbean xStock",
+            "underlyingTicker": "RCL",
+            "companyName": "Royal Caribbean",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xf7117837b367691f83963a53b7f7c6c4e9c730ad",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/RCLx"
+          }
+        }
+      ]
+    },
+    "56:0x506967054be1c6ef6637754874723068309c7bc8": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x506967054be1c6ef6637754874723068309c7bc8"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "TBCHx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Turtle Beach xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "TBCH"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Turtle Beach"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x506967054be1c6ef6637754874723068309c7bc8"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/TBCHx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x506967054be1c6ef6637754874723068309c7bc8",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "TBCHx",
+            "tokenName": "Turtle Beach xStock",
+            "underlyingTicker": "TBCH",
+            "companyName": "Turtle Beach",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x506967054be1c6ef6637754874723068309c7bc8",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/TBCHx"
+          }
+        }
+      ]
+    },
+    "56:0x40720f2ad0998040c090482e00964a21ee335493": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x40720f2ad0998040c090482e00964a21ee335493"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "ACS.ESx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "ACS Actividades de Construccion y Servicios xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "ACSE"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "ACS Actividades de Construccion y Servicios"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x40720f2ad0998040c090482e00964a21ee335493"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/ACS.ESx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x40720f2ad0998040c090482e00964a21ee335493",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "ACS.ESx",
+            "tokenName": "ACS Actividades de Construccion y Servicios xStock",
+            "underlyingTicker": "ACSE",
+            "companyName": "ACS Actividades de Construccion y Servicios",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x40720f2ad0998040c090482e00964a21ee335493",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/ACS.ESx"
+          }
+        }
+      ]
+    },
+    "56:0x0e87c9a509414b9a59e3fbcf237c6fd032c64224": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x0e87c9a509414b9a59e3fbcf237c6fd032c64224"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "HNR1x"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Hannover Rueck xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "HNR1D"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Hannover Rueck"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x0e87c9a509414b9a59e3fbcf237c6fd032c64224"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/HNR1x"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x0e87c9a509414b9a59e3fbcf237c6fd032c64224",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "HNR1x",
+            "tokenName": "Hannover Rueck xStock",
+            "underlyingTicker": "HNR1D",
+            "companyName": "Hannover Rueck",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x0e87c9a509414b9a59e3fbcf237c6fd032c64224",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/HNR1x"
+          }
+        }
+      ]
+    },
+    "56:0x3c313d234d0c6c876f6c21ba2ec1f26823247be2": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x3c313d234d0c6c876f6c21ba2ec1f26823247be2"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "FIGx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Figma xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "FIG"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Figma"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x3c313d234d0c6c876f6c21ba2ec1f26823247be2"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/FIGx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x3c313d234d0c6c876f6c21ba2ec1f26823247be2",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "FIGx",
+            "tokenName": "Figma xStock",
+            "underlyingTicker": "FIG",
+            "companyName": "Figma",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x3c313d234d0c6c876f6c21ba2ec1f26823247be2",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/FIGx"
+          }
+        }
+      ]
+    },
+    "56:0xd3c5af6b2f0f754b2141f368cfc5ea99c3594d3a": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xd3c5af6b2f0f754b2141f368cfc5ea99c3594d3a"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "SPGIx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "S&P Global xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "SPGI"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "S&P Global"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xd3c5af6b2f0f754b2141f368cfc5ea99c3594d3a"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/SPGIx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xd3c5af6b2f0f754b2141f368cfc5ea99c3594d3a",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "SPGIx",
+            "tokenName": "S&P Global xStock",
+            "underlyingTicker": "SPGI",
+            "companyName": "S&P Global",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xd3c5af6b2f0f754b2141f368cfc5ea99c3594d3a",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/SPGIx"
+          }
+        }
+      ]
+    },
+    "56:0x7ab6c97f65e4227adc5090bd31a376d1f36f39fa": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x7ab6c97f65e4227adc5090bd31a376d1f36f39fa"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "VSTx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Vistra xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "VST"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Vistra"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x7ab6c97f65e4227adc5090bd31a376d1f36f39fa"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/VSTx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x7ab6c97f65e4227adc5090bd31a376d1f36f39fa",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "VSTx",
+            "tokenName": "Vistra xStock",
+            "underlyingTicker": "VST",
+            "companyName": "Vistra",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x7ab6c97f65e4227adc5090bd31a376d1f36f39fa",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/VSTx"
+          }
+        }
+      ]
+    },
+    "56:0x61aee4f4e6b62806c26eaff921e7f41782ca2e03": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x61aee4f4e6b62806c26eaff921e7f41782ca2e03"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "TEMx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Tempus AI xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "TEM"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Tempus AI"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x61aee4f4e6b62806c26eaff921e7f41782ca2e03"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/TEMx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x61aee4f4e6b62806c26eaff921e7f41782ca2e03",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "TEMx",
+            "tokenName": "Tempus AI xStock",
+            "underlyingTicker": "TEM",
+            "companyName": "Tempus AI",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x61aee4f4e6b62806c26eaff921e7f41782ca2e03",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/TEMx"
+          }
+        }
+      ]
+    },
+    "56:0x03d44b9bb0398e2be3c89417d51e615c3d461f5a": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x03d44b9bb0398e2be3c89417d51e615c3d461f5a"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "DUOLx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Duolingo xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "DUOL"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Duolingo"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x03d44b9bb0398e2be3c89417d51e615c3d461f5a"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/DUOLx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x03d44b9bb0398e2be3c89417d51e615c3d461f5a",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "DUOLx",
+            "tokenName": "Duolingo xStock",
+            "underlyingTicker": "DUOL",
+            "companyName": "Duolingo",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x03d44b9bb0398e2be3c89417d51e615c3d461f5a",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/DUOLx"
+          }
+        }
+      ]
+    },
+    "56:0xab6a44ad34d083f463fa6f64d0619f11eb2cb48d": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xab6a44ad34d083f463fa6f64d0619f11eb2cb48d"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "TGTx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Target xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "TGT"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Target"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xab6a44ad34d083f463fa6f64d0619f11eb2cb48d"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/TGTx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xab6a44ad34d083f463fa6f64d0619f11eb2cb48d",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "TGTx",
+            "tokenName": "Target xStock",
+            "underlyingTicker": "TGT",
+            "companyName": "Target",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xab6a44ad34d083f463fa6f64d0619f11eb2cb48d",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/TGTx"
+          }
+        }
+      ]
+    },
+    "56:0x4c7610990cb63cdca174ce61822f7693b49fce93": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x4c7610990cb63cdca174ce61822f7693b49fce93"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "EBAYx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "eBay xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "EBAY"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "eBay"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x4c7610990cb63cdca174ce61822f7693b49fce93"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/EBAYx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x4c7610990cb63cdca174ce61822f7693b49fce93",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "EBAYx",
+            "tokenName": "eBay xStock",
+            "underlyingTicker": "EBAY",
+            "companyName": "eBay",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x4c7610990cb63cdca174ce61822f7693b49fce93",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/EBAYx"
+          }
+        }
+      ]
+    },
+    "56:0x5a6a0742ca689e7e8a91a38f5255589cb2191646": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x5a6a0742ca689e7e8a91a38f5255589cb2191646"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "BLKx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "BlackRock xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "BLK"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "BlackRock"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x5a6a0742ca689e7e8a91a38f5255589cb2191646"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/BLKx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x5a6a0742ca689e7e8a91a38f5255589cb2191646",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "BLKx",
+            "tokenName": "BlackRock xStock",
+            "underlyingTicker": "BLK",
+            "companyName": "BlackRock",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x5a6a0742ca689e7e8a91a38f5255589cb2191646",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/BLKx"
+          }
+        }
+      ]
+    },
+    "56:0x38de7b9fc733def81525e65c1bf99722026489e2": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-10-27T12:40:33.242Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x38de7b9fc733def81525e65c1bf99722026489e2"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "BLSHx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Bullish xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "BLSH"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Bullish"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x38de7b9fc733def81525e65c1bf99722026489e2"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/BLSHx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x38de7b9fc733def81525e65c1bf99722026489e2",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "BLSHx",
+            "tokenName": "Bullish xStock",
+            "underlyingTicker": "BLSH",
+            "companyName": "Bullish",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x38de7b9fc733def81525e65c1bf99722026489e2",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/BLSHx"
+          }
+        }
+      ]
     }
   }
 }

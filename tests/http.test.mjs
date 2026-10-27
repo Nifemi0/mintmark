@@ -15,13 +15,13 @@ test('deployment entry serves the front end, catalog health, logos, and xStocks 
 
     const health = await fetch(`${base}/api/health`).then((response) => response.json());
     assert.equal(health.status, 'ok');
-    assert.equal(health.count, 1847);
+    assert.equal(health.count, 1870);
     assert.ok(health.checkedAt);
 
     const firstPage = await fetch(`${base}/api/records`).then((response) => response.json());
     assert.equal(firstPage.records.length, 50);
-    assert.equal(firstPage.total, 1847);
-    assert.equal(firstPage.catalogTotal, 1847);
+    assert.equal(firstPage.total, 1870);
+    assert.equal(firstPage.catalogTotal, 1870);
     assert.equal(firstPage.hasMore, true);
 
     const secondPage = await fetch(`${base}/api/records?limit=10&offset=10`).then((response) => response.json());

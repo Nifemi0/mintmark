@@ -259,6 +259,9 @@ function renderFeatured() {
 
 function renderStatus(payload) {
   snapshotStatus.textContent = `${payload.catalogTotal ?? payload.total} BSC records · 3 providers · catalog snapshot ${dateLabel(payload.snapshotAt)}`;
+  document.querySelectorAll('.footer-status span').forEach((status) => {
+    status.innerHTML = `<strong>Registry online</strong>${escapeHtml(String(payload.catalogTotal ?? payload.total))} checked BSC contracts · 3 providers`;
+  });
   const binance = payload.binance;
   apiStatus.className = 'api-status';
   if (binance.state === 'checked') {
