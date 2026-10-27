@@ -74,6 +74,14 @@ function safeLink(url) {
 }
 
 function accessRoute(record) {
+  if (record.dexRoute?.state === 'detected' && safeLink(record.dexRoute.url)) {
+    return {
+      kind: 'dex', label: record.dexRoute.dexId === 'pancakeswap' ? 'Swap on PancakeSwap' : `Open ${record.dexRoute.dexId} pool`,
+      url: record.dexRoute.tradeUrl || record.dexRoute.url,
+      referenceLabel: 'View pool data', referenceUrl: record.dexRoute.url,
+      note: `${record.dexRoute.detail} This is indexed secondary-market liquidity, not issuer endorsement. Confirm the contract and price impact in your wallet before swapping.`
+    };
+  }
   // bStocks are the only records with a currently verified execution venue.
   // The pair was checked against Binance Spot exchangeInfo during the latest
   // registry refresh; this link never places an order from Mintmark.

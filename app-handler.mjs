@@ -6,6 +6,7 @@ import { crossCheckBinance, normalizeAddress, normalizeRecords, searchRecords, c
 import { getRwaTokens, getUnderlyingProfile, getUnderlyingMarket, getTokenCandles, getTokenTradingInfo, getKnownTokenBalances, hasBinanceCredentials } from './binance.mjs';
 import { buildCompanyReport, buildTokenMarketCoverage } from './report.mjs';
 import { mapWalletHoldings } from './wallet.mjs';
+import { getDexRoute } from './dex.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const snapshot = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
@@ -139,7 +140,7 @@ export default async function handleRequest(request, response) {
       const { records, binance } = await currentRecords();
       const record = records.find((item) => item.key === key.toLowerCase());
       return record
-        ? sendJson(response, 200, { record, snapshotAt: snapshot.generatedAt, binance })
+        ? sendJson(response, 200, { record: { ...record, dexRoute: await getDexRoute(record) }, snapshotAt: snapshot.generatedAt, binance })
         : sendJson(response, 404, { error: 'No registry record for that exact BSC token identity.' });
     }
     if (url.pathname === '/api/report') {

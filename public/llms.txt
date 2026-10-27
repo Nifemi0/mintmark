@@ -14,6 +14,7 @@ Source code: https://github.com/Nifemi0/mintmark
 - Open shareable comparisons with `/?q=NVDA#registry` and exact records with `/?q=NVDA&record=56%3A0x...#record`.
 - Review exact-contract token-market coverage from Binance when available: price, 24-hour change, reported volume, reported liquidity, holders, and transaction activity.
 - Exact Binance Spot routes are verified for the 46 bStocks records in the current snapshot, using each record's token symbol against the live `exchangeInfo` pair. Ondo and xStocks trading routes remain unavailable until Mintmark can verify an exact provider venue. Mintmark links out to the venue; it does not place orders.
+- Exact-record DEX checks are available when opening a record. Mintmark queries indexed BNB Chain pools and shows the largest pool only when it has at least $25,000 liquidity; this is market evidence, not issuer endorsement or a liquidity guarantee.
 - Review underlying-company profiles, market fields, and BSC token candles for supported Binance RWA records.
 - Check a wallet read-only against 24 explicitly supported Ondo contracts.
 
