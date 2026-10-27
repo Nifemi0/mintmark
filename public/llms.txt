@@ -13,6 +13,7 @@ Source code: https://github.com/Nifemi0/mintmark
 - Inspect 1,847 checked records: 450 Ondo, 46 bStocks, and 1,351 xStocks.
 - Open shareable comparisons with `/?q=NVDA#registry` and exact records with `/?q=NVDA&record=56%3A0x...#record`.
 - Review exact-contract token-market coverage from Binance when available: price, 24-hour change, reported volume, reported liquidity, holders, and transaction activity.
+- Use the record's access route to continue: bStocks records link to the Binance entry point, Ondo and xStocks records link to their provider asset pages, and records without a verified route remain unavailable.
 - Review underlying-company profiles, market fields, and BSC token candles for supported Binance RWA records.
 - Check a wallet read-only against 24 explicitly supported Ondo contracts.
 
@@ -43,4 +44,4 @@ Source code: https://github.com/Nifemi0/mintmark
 - Ondo contract addresses: https://docs.ondo.finance/addresses
 - xStocks public asset API: https://docs.xstocks.fi/apis/openapi/assets/list_public_assets
 
-The catalog is a dated snapshot. Contract checks establish contract responses, not backing or equivalence between provider products. Mintmark does not execute transactions or give investment advice.
+The catalog is a dated snapshot. Contract checks establish contract responses, not backing or equivalence between provider products. Mintmark does not execute transactions, place orders, hold funds, or give investment advice.

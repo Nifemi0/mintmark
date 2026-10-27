@@ -73,6 +73,30 @@ function safeLink(url) {
   try { return new URL(url).protocol === 'https:' ? url : null; } catch { return null; }
 }
 
+function accessRoute(record) {
+  const issuer = safeLink(record.issuerAssetUrl);
+  if (record.platformId === 'bstock') return {
+    kind: 'binance', label: 'Open Binance', url: binanceReferralUrl,
+    note: 'Binance is the access point for this provider. Check the exact-token market report below; Mintmark does not place orders.'
+  };
+  if (issuer) return {
+    kind: 'issuer', label: 'Visit issuer', url: issuer,
+    note: 'Open the provider asset page to review availability and terms. Mintmark does not place orders.'
+  };
+  return {
+    kind: 'unavailable', label: 'Purchase route unavailable', url: null,
+    note: 'No verified access route is recorded for this exact contract. Review the contract and issuer evidence first.'
+  };
+}
+
+function accessRouteHtml(record, compact = false) {
+  const route = accessRoute(record);
+  const action = route.url
+    ? `<a class="access-route-action ${route.kind}" href="${escapeHtml(route.url)}" target="_blank" rel="${route.kind === 'binance' ? 'sponsored ' : ''}noopener noreferrer">${escapeHtml(route.label)} ${icon('arrow-up-right')}</a>`
+    : `<span class="access-route-action unavailable">${escapeHtml(route.label)}</span>`;
+  return `<div class="access-route ${route.kind}${compact ? ' compact' : ''}"><div><span class="access-route-kicker">${compact ? 'Access route' : 'Verified access route'}</span><strong>${escapeHtml(route.kind === 'binance' ? 'Binance entry point' : route.kind === 'issuer' ? `${record.issuer} asset page` : 'No route recorded')}</strong><p>${escapeHtml(route.note)}</p></div>${action}</div>`;
+}
+
 function kindLabel(kind) {
   return ({ onchain_observed: 'Onchain observed', issuer_published: 'Issuer published', third_party_reported: 'Third-party report', unverified: 'Unverified' })[kind] || 'Unknown';
 }
@@ -271,7 +295,7 @@ function renderComparison(records, query) {
     <div class="comparison-cards">${records.map((record) => {
       const terms = safeLink(record.issuerTermsUrl);
       const explorer = `https://bscscan.com/token/${record.contractAddress}`;
-      return `<article class="comparison-card"><div class="product-card-head"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><span class="product-chain">BNB Chain</span></div><div class="product-symbol"><span>Token symbol</span><strong>${escapeHtml(record.symbol)}</strong></div><div class="product-contract"><span>Exact contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(record.contractAddress)}">${escapeHtml(shortAddress(record.contractAddress))} ${icon('arrow-up-right')}</a></div>${comparisonSignals(record)}${record.sourceConflict ? `<div class="product-alert"><strong>Source-name difference</strong><span>${escapeHtml(record.sourceConflict)}</span></div>` : ''}<div class="product-card-actions"><button type="button" data-compare-key="${escapeHtml(record.key)}">View ${escapeHtml(record.symbol)} record ${icon('arrow-up-right')}</button>${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents</a>` : '<span>Documents unavailable</span>'}${record.platformId === 'bstock' ? `<a class="affiliate-inline" href="${escapeHtml(binanceReferralUrl)}" target="_blank" rel="sponsored noopener noreferrer">Open Binance · affiliate</a>` : ''}</div></article>`;
+      return `<article class="comparison-card"><div class="product-card-head"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><span class="product-chain">BNB Chain</span></div><div class="product-symbol"><span>Token symbol</span><strong>${escapeHtml(record.symbol)}</strong></div><div class="product-contract"><span>Exact contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(record.contractAddress)}">${escapeHtml(shortAddress(record.contractAddress))} ${icon('arrow-up-right')}</a></div>${comparisonSignals(record)}${record.sourceConflict ? `<div class="product-alert"><strong>Source-name difference</strong><span>${escapeHtml(record.sourceConflict)}</span></div>` : ''}${accessRouteHtml(record, true)}<div class="product-card-actions"><button type="button" data-compare-key="${escapeHtml(record.key)}">View ${escapeHtml(record.symbol)} record ${icon('arrow-up-right')}</button>${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents</a>` : '<span>Documents unavailable</span>'}</div></article>`;
     }).join('')}</div>`;
 }
 
@@ -405,6 +429,7 @@ async function openRecord(key) {
     const sourceUrl = safeLink(record.issuerAssetUrl);
     const explorerUrl = safeLink(record.explorerUrl);
     recordContent.innerHTML = `<div class="detail-head"><div><p class="eyebrow">${escapeHtml(providerLabels[record.platformId] || record.platformId)} · ${escapeHtml(record.symbol)} · BNB Smart Chain · version ${escapeHtml(record.recordVersion ?? 1)}</p><h3>${escapeHtml(record.companyName)}</h3><p>Exact identity: ${escapeHtml(record.key)}</p><a class="compare-company-link" href="/?q=${encodeURIComponent(record.underlyingTicker)}#registry">Compare every ${escapeHtml(record.underlyingTicker)} product ${icon('arrow-up-right')}</a></div>${logoHtml(record.underlyingTicker, 'detail-mark', record.logoUrl)}</div>
+      ${accessRouteHtml(record)}
       <div class="detail-body"><div class="identity-facts">
         <div class="fact"><label>Token symbol</label><strong>${escapeHtml(record.symbol)}</strong></div>
         <div class="fact"><label>Underlying ticker</label><strong>${escapeHtml(record.underlyingTicker)}</strong></div>
