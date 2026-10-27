@@ -75,26 +75,22 @@ function safeLink(url) {
 
 function accessRoute(record) {
   const issuer = safeLink(record.issuerAssetUrl);
-  if (record.platformId === 'bstock') return {
-    kind: 'binance', label: 'Open Binance', url: binanceReferralUrl,
-    note: 'Binance is the access point for this provider. Check the exact-token market report below; Mintmark does not place orders.'
-  };
   if (issuer) return {
-    kind: 'issuer', label: 'Visit issuer', url: issuer,
-    note: 'Open the provider asset page to review availability and terms. Mintmark does not place orders.'
+    kind: 'unavailable', label: 'Trading route unavailable', url: null,
+    referenceLabel: 'View provider record', referenceUrl: issuer,
+    note: 'Mintmark has not verified an exact purchase market for this contract. Review the provider page and terms before taking any action.'
   };
   return {
-    kind: 'unavailable', label: 'Purchase route unavailable', url: null,
-    note: 'No verified access route is recorded for this exact contract. Review the contract and issuer evidence first.'
+    kind: 'unavailable', label: 'Trading route unavailable', url: null,
+    referenceLabel: 'View contract evidence', referenceUrl: safeLink(record.explorerUrl),
+    note: 'No exact purchase market is verified for this contract. Review the contract and issuer evidence first.'
   };
 }
 
 function accessRouteHtml(record, compact = false) {
   const route = accessRoute(record);
-  const action = route.url
-    ? `<a class="access-route-action ${route.kind}" href="${escapeHtml(route.url)}" target="_blank" rel="${route.kind === 'binance' ? 'sponsored ' : ''}noopener noreferrer">${escapeHtml(route.label)} ${icon('arrow-up-right')}</a>`
-    : `<span class="access-route-action unavailable">${escapeHtml(route.label)}</span>`;
-  return `<div class="access-route ${route.kind}${compact ? ' compact' : ''}"><div><span class="access-route-kicker">${compact ? 'Access route' : 'Verified access route'}</span><strong>${escapeHtml(route.kind === 'binance' ? 'Binance entry point' : route.kind === 'issuer' ? `${record.issuer} asset page` : 'No route recorded')}</strong><p>${escapeHtml(route.note)}</p></div>${action}</div>`;
+  const reference = route.referenceUrl ? `<a class="access-route-reference" href="${escapeHtml(route.referenceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(route.referenceLabel)} ${icon('arrow-up-right')}</a>` : '';
+  return `<div class="access-route unavailable${compact ? ' compact' : ''}"><div><span class="access-route-kicker">${compact ? 'Trading status' : 'Trading status'}</span><strong>${escapeHtml(route.label)}</strong><p>${escapeHtml(route.note)}</p>${reference}</div></div>`;
 }
 
 function kindLabel(kind) {
@@ -442,7 +438,6 @@ async function openRecord(key) {
       </div><div class="evidence-panel"><h4>Evidence for this record</h4><p>Open a claim to see its source and limits. An issuer publication and an onchain observation answer different questions.</p>${record.evidence.map(evidenceHtml).join('')}</div></div>
       ${record.sourceConflict ? `<div class="cross-check conflict"><strong>Provider listing and onchain name differ</strong><p>${escapeHtml(record.sourceConflict)}</p><small>Compare the provider listing and BSC contract evidence above.</small></div>` : ''}
       ${record.binanceCheck ? `<div class="cross-check ${escapeHtml(record.binanceCheck.state)}"><strong>Binance RWA cross-check · ${escapeHtml(record.binanceCheck.state.replace('_', ' '))}</strong><p>${escapeHtml(record.binanceCheck.detail)}</p><small>Third-party reported · checked ${escapeHtml(dateLabel(record.binanceCheck.observedAt))} · <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data" target="_blank" rel="noopener noreferrer">API source and field definitions ${icon('arrow-up-right')}</a></small></div>` : ''}
-      ${record.platformId === 'bstock' ? `<div class="record-affiliate"><div><strong>Continue with Binance</strong><p>Open Binance through the builder’s referral link. This does not establish availability or liquidity for ${escapeHtml(record.symbol)} in your region.</p><small>Affiliate disclosure: the Mintmark builder may receive a reward from eligible activity.</small></div><a href="${escapeHtml(binanceReferralUrl)}" target="_blank" rel="sponsored noopener noreferrer">Open Binance ${icon('arrow-up-right')}</a></div>` : ''}
       <section id="record-history" class="record-history" aria-label="Record history"><div class="report-loading">Loading record history…</div></section>
       <section id="company-report" class="company-report" aria-label="Company report"><div class="report-loading">Loading sourced company and market data…</div></section>`;
     recordPlaceholder.hidden = true;
