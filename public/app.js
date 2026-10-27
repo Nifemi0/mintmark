@@ -74,6 +74,16 @@ function safeLink(url) {
 }
 
 function accessRoute(record) {
+  // bStocks are the only records with a currently verified execution venue.
+  // The pair was checked against Binance Spot exchangeInfo during the latest
+  // registry refresh; this link never places an order from Mintmark.
+  if (record.platformId === 'bstock' && /^[A-Z0-9]{1,20}$/.test(record.symbol)) {
+    return {
+      kind: 'binance', label: 'Trade on Binance Spot',
+      url: `https://www.binance.com/en/trade/${encodeURIComponent(record.symbol)}_USDT?type=spot`,
+      note: `Exact ${record.symbol}/USDT pair verified on Binance Spot. Sign in and confirm your regional eligibility before trading.`,
+    };
+  }
   const issuer = safeLink(record.issuerAssetUrl);
   if (issuer) return {
     kind: 'unavailable', label: 'Trading route unavailable', url: null,
@@ -89,8 +99,10 @@ function accessRoute(record) {
 
 function accessRouteHtml(record, compact = false) {
   const route = accessRoute(record);
+  const available = route.kind !== 'unavailable' && safeLink(route.url);
+  const action = available ? `<a class="access-route-action ${escapeHtml(route.kind)}" href="${escapeHtml(route.url)}" target="_blank" rel="sponsored noopener noreferrer">${escapeHtml(route.label)} ${icon('arrow-up-right')}</a>` : '';
   const reference = route.referenceUrl ? `<a class="access-route-reference" href="${escapeHtml(route.referenceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(route.referenceLabel)} ${icon('arrow-up-right')}</a>` : '';
-  return `<div class="access-route unavailable${compact ? ' compact' : ''}"><div><span class="access-route-kicker">${compact ? 'Trading status' : 'Trading status'}</span><strong>${escapeHtml(route.label)}</strong><p>${escapeHtml(route.note)}</p>${reference}</div></div>`;
+  return `<div class="access-route ${available ? escapeHtml(route.kind) : 'unavailable'}${compact ? ' compact' : ''}"><div><span class="access-route-kicker">Trading status</span><strong>${escapeHtml(route.label)}</strong><p>${escapeHtml(route.note)}</p>${reference}</div>${action}</div>`;
 }
 
 function kindLabel(kind) {
