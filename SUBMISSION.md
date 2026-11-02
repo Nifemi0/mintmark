@@ -1,6 +1,6 @@
 # Mintmark submission packet
 
-Submitted to **BNB Hack: Tokenized Stocks Edition** on **October 3, 2026**. This file is the public record of the submitted project; the host confirmation ID was not retained.
+Submitted to **BNB Hack: Tokenized Stocks Edition** on **October 3, 2026**. This file is the public record of the submitted project; the host confirmation ID was not retained. Counts below reflect the snapshot at submission time; the live catalog has since grown (see `README.md` for current counts).
 
 ## Form links
 

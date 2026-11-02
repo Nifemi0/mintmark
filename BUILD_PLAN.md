@@ -8,6 +8,8 @@
 
 **Current instruction:** The core product is feature-frozen. Finish the builder-owned DevEx answers and review the submission packet before recording the final demo video.
 
+**Snapshot update (27 October):** The checked catalog now holds 1,870 BSC contracts: Ondo (450), bStocks (46), and xStocks (1,374). The 1 October note below is kept as the submission-time record.
+
 **Current state (1 October):** The public [Mintmark app](https://mintmark.nuvixes.studio) combines 1,565 checked BSC contracts from Ondo (450), bStocks (46), and xStocks (1,069). Search can show three distinct products and contracts for the same company. Provider metadata and BSC bytecode/name/symbol were checked; product terms and evidence remain separate. Live Binance reports work for sampled exact Ondo and bStocks contracts. Read-only wallet lookup covers 24 explicitly labeled Ondo contracts, sourced company reports appear where matching Binance data exists, evidence is expandable, and record history is visible. xStocks records identify unavailable market data rather than borrowing another provider's report. Production desktop and mobile QA passed, the public repository is current, and the submission packet is ready for builder review. Phase 3 remains open only for builder details, the human-written DevEx report, and the optional video.
 
 ## Scope that stays fixed across phases
