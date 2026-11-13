@@ -1,6 +1,6 @@
 {
   "description": "Ondo-published token images for visual recognition. Chain and exact contract remain the identity evidence.",
-  "generatedAt": "2026-09-30T10:55:21.149Z",
+  "generatedAt": "2026-11-13T14:39:00.710Z",
   "images": [
     {
       "ticker": "AAPL",
@@ -303,6 +303,11 @@
       "bytes": 4668
     },
     {
+      "ticker": "ASST",
+      "url": "https://cdn.ondo.finance/tokens/logos/asston_160x160.png",
+      "bytes": 5659
+    },
+    {
       "ticker": "ASTS",
       "url": "https://cdn.ondo.finance/tokens/logos/astson_160x160.png",
       "bytes": 5396
@@ -383,6 +388,11 @@
       "bytes": 4853
     },
     {
+      "ticker": "BITA",
+      "url": "https://cdn.ondo.finance/tokens/logos/bitaon_160x160.png",
+      "bytes": 5794
+    },
+    {
       "ticker": "BKCH",
       "url": "https://cdn.ondo.finance/tokens/logos/bkchon_160x160.png",
       "bytes": 6203
@@ -408,9 +418,19 @@
       "bytes": 4099
     },
     {
+      "ticker": "BMRN",
+      "url": "https://cdn.ondo.finance/tokens/logos/bmrnon_160x160.png",
+      "bytes": 6133
+    },
+    {
       "ticker": "BNO",
       "url": "https://cdn.ondo.finance/tokens/logos/bnoon_160x160.png",
       "bytes": 5882
+    },
+    {
+      "ticker": "BNTX",
+      "url": "https://cdn.ondo.finance/tokens/logos/bntxon_160x160.png",
+      "bytes": 5638
     },
     {
       "ticker": "BOT",
@@ -466,6 +486,11 @@
       "ticker": "C",
       "url": "https://cdn.ondo.finance/tokens/logos/con_160x160.png",
       "bytes": 5036
+    },
+    {
+      "ticker": "CAI",
+      "url": "https://cdn.ondo.finance/tokens/logos/caion_160x160.png",
+      "bytes": 6207
     },
     {
       "ticker": "CAMT",
@@ -736,6 +761,11 @@
       "ticker": "EQT",
       "url": "https://cdn.ondo.finance/tokens/logos/eqton_160x160.png",
       "bytes": 6362
+    },
+    {
+      "ticker": "ERAS",
+      "url": "https://cdn.ondo.finance/tokens/logos/erason_160x160.png",
+      "bytes": 5506
     },
     {
       "ticker": "ETHA",
@@ -1118,6 +1148,11 @@
       "bytes": 6017
     },
     {
+      "ticker": "INSM",
+      "url": "https://cdn.ondo.finance/tokens/logos/insmon_160x160.png",
+      "bytes": 5943
+    },
+    {
       "ticker": "INSW",
       "url": "https://cdn.ondo.finance/tokens/logos/inswon_160x160.png",
       "bytes": 6177
@@ -1453,6 +1488,11 @@
       "bytes": 6398
     },
     {
+      "ticker": "NTRA",
+      "url": "https://cdn.ondo.finance/tokens/logos/ntraon_160x160.png",
+      "bytes": 5893
+    },
+    {
       "ticker": "NUE",
       "url": "https://cdn.ondo.finance/tokens/logos/nueon_160x160.png",
       "bytes": 5465
@@ -1638,6 +1678,11 @@
       "bytes": 5578
     },
     {
+      "ticker": "PTGX",
+      "url": "https://cdn.ondo.finance/tokens/logos/ptgxon_160x160.png",
+      "bytes": 6510
+    },
+    {
       "ticker": "PURR",
       "url": "https://cdn.ondo.finance/tokens/logos/purron_160x160.png",
       "bytes": 6167
@@ -1728,6 +1773,11 @@
       "bytes": 5879
     },
     {
+      "ticker": "ROIV",
+      "url": "https://cdn.ondo.finance/tokens/logos/roivon_160x160.png",
+      "bytes": 5896
+    },
+    {
       "ticker": "ROK",
       "url": "https://cdn.ondo.finance/tokens/logos/rokon_160x160.png",
       "bytes": 6728
@@ -1751,6 +1801,11 @@
       "ticker": "SATA",
       "url": "https://cdn.ondo.finance/tokens/logos/sataon_160x160.png",
       "bytes": 5250
+    },
+    {
+      "ticker": "SATS",
+      "url": "https://cdn.ondo.finance/tokens/logos/satson_160x160.png",
+      "bytes": 5659
     },
     {
       "ticker": "SBET",
@@ -2033,6 +2088,11 @@
       "bytes": 5837
     },
     {
+      "ticker": "TWST",
+      "url": "https://cdn.ondo.finance/tokens/logos/twston_160x160.png",
+      "bytes": 5553
+    },
+    {
       "ticker": "TXN",
       "url": "https://cdn.ondo.finance/tokens/logos/txnon_160x160.png",
       "bytes": 4946
@@ -2251,6 +2311,66 @@
       "ticker": "YEAR",
       "url": "https://cdn.ondo.finance/tokens/logos/yearon_160x160.png",
       "bytes": 5671
+    },
+    {
+      "ticker": "ZAPR",
+      "url": "https://cdn.ondo.finance/tokens/logos/zapron_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZAUG",
+      "url": "https://cdn.ondo.finance/tokens/logos/zaugon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZDEK",
+      "url": "https://cdn.ondo.finance/tokens/logos/zdekon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZFEB",
+      "url": "https://cdn.ondo.finance/tokens/logos/zfebon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZJAN",
+      "url": "https://cdn.ondo.finance/tokens/logos/zjanon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZJUL",
+      "url": "https://cdn.ondo.finance/tokens/logos/zjulon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZJUN",
+      "url": "https://cdn.ondo.finance/tokens/logos/zjunon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZMAR",
+      "url": "https://cdn.ondo.finance/tokens/logos/zmaron_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZMAY",
+      "url": "https://cdn.ondo.finance/tokens/logos/zmayon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZNOV",
+      "url": "https://cdn.ondo.finance/tokens/logos/znovon_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZOCT",
+      "url": "https://cdn.ondo.finance/tokens/logos/zocton_160x160.png",
+      "bytes": 4211
+    },
+    {
+      "ticker": "ZSEP",
+      "url": "https://cdn.ondo.finance/tokens/logos/zsepon_160x160.png",
+      "bytes": 4211
     }
   ],
   "failures": []

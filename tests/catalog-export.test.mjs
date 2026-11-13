@@ -23,11 +23,11 @@ function call(url) {
 test('catalog endpoints export every registry record', async () => {
   const json = await call('/api/catalog.json');
   const payload = JSON.parse(json.body);
-  assert.equal(payload.count, 1870);
-  assert.equal(payload.records.length, 1870);
+  assert.equal(payload.count, 1937);
+  assert.equal(payload.records.length, 1937);
   const csv = await call('/api/catalog.csv?download');
   assert.match(csv.headers['content-disposition'], /attachment; filename="mintmark-catalog-/);
-  assert.equal(csv.body.trim().split('\r\n').length, 1871);
+  assert.equal(csv.body.trim().split("\r\n").length, 1938);
 });
 
 test('contract check recognises a registered contract without an onchain call', async () => {

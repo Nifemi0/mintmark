@@ -136,11 +136,15 @@ function makeRecord(candidate, chain, observedAt) {
 }
 
 async function main() {
-  if (!hasBinanceCredentials()) throw new Error('Binance API credentials are needed to sync bStocks');
+  // bStocks are only published through Binance's signed RWA API. Without
+  // credentials, keep the last reviewed bStocks records and their check times.
+  const bstockLive = hasBinanceCredentials();
+  const previous = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
+  if (!bstockLive) console.warn('Binance credentials not set: keeping the existing bStocks records unchanged.');
   const chain = await json(rpcUrl, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_chainId', params: [] }) });
   if (chain.result !== '0x38') throw new Error('RPC is not BSC mainnet');
   const [binance, xstocks, ondo] = await Promise.all([
-    getRwaTokens(), xstockAssets(), readFile(path.join(root, 'data', 'ondo-bsc.json'), 'utf8').then(JSON.parse),
+    bstockLive ? getRwaTokens() : Promise.resolve({ rows: [] }), xstockAssets(), readFile(path.join(root, 'data', 'ondo-bsc.json'), 'utf8').then(JSON.parse),
   ]);
   const observedAt = new Date().toISOString();
   const candidates = [
@@ -162,7 +166,9 @@ async function main() {
     }
     if ((offset + 5) % 100 === 0 || offset + 5 >= candidates.length) console.log(`Checked ${Math.min(offset + 5, candidates.length)}/${candidates.length} additional BSC contracts`);
   }
-  const all = normalizeRecords([...ondo.records, ...records]);
+  const keptBstocks = bstockLive ? [] : previous.records.filter((record) => record.platformId === 'bstock')
+    .map(({ key, recordVersion, ...record }) => record);
+  const all = normalizeRecords([...ondo.records, ...keptBstocks, ...records]);
   const historyPath = path.join(root, 'data', 'registry-history.json');
   let oldHistory = null;
   try { oldHistory = JSON.parse(await readFile(historyPath, 'utf8')); }
@@ -180,9 +186,10 @@ async function main() {
   const snapshot = {
     generatedAt: observedAt,
     source: { publisherUrl: null, providers: {
-      ondo: { url: ondo.source.publisherUrl, count: ondo.records.length },
-      bstock: { url: binanceDocs, count: records.filter((record) => record.platformId === 'bstock').length },
-      xstock: { url: xstocksDocs, count: records.filter((record) => record.platformId === 'xstock').length },
+      ondo: { url: ondo.source.publisherUrl, count: ondo.records.length, checkedAt: ondo.generatedAt },
+      bstock: { url: binanceDocs, count: all.filter((record) => record.platformId === 'bstock').length,
+        checkedAt: bstockLive ? observedAt : previous.source.providers.bstock?.checkedAt ?? previous.generatedAt },
+      xstock: { url: xstocksDocs, count: records.filter((record) => record.platformId === 'xstock').length, checkedAt: observedAt },
     }, candidateCount: candidates.length, skipped },
     records: versioned,
   };
