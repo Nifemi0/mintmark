@@ -28,7 +28,6 @@ const binanceReferralUrl = 'https://www.binance.com/activity/referral-entry/CPA/
 document.querySelectorAll('.footer a[href="#registry"]').forEach((link) => { link.href = '/registry'; });
 document.querySelectorAll('.footer a[href="#wallet"]').forEach((link) => { link.href = '/wallet'; });
 document.querySelectorAll('.footer a[href="#how-it-works"]').forEach((link) => { link.href = '/method'; });
-document.querySelectorAll('.footer a[href="#binance"]').forEach((link) => { link.href = '/registry'; });
 
 function escapeHtml(value) {
   return String(value ?? '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
@@ -265,7 +264,8 @@ function renderFeatured() {
 function renderStatus(payload) {
   snapshotStatus.textContent = `${payload.catalogTotal ?? payload.total} BSC records · 3 providers · catalog snapshot ${dateLabel(payload.snapshotAt)}`;
   document.querySelectorAll('.footer-status span').forEach((status) => {
-    status.innerHTML = `<strong>Registry online</strong>${escapeHtml(String(payload.catalogTotal ?? payload.total))} checked BSC contracts · 3 providers`;
+    const count = Number(payload.catalogTotal ?? payload.total).toLocaleString('en-US');
+    status.innerHTML = `<strong>Registry online</strong>${escapeHtml(count)} checked BSC contracts · updated ${escapeHtml(new Date(payload.snapshotAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }))}`;
   });
   const binance = payload.binance;
   apiStatus.className = 'api-status';
@@ -442,6 +442,10 @@ async function loadRecords(query = '') {
     if (current !== requestId) return;
     providerComparison.hidden = true;
     grid.innerHTML = `<div class="empty-card"><strong>Registry unavailable.</strong><p>${escapeHtml(error.message)}</p></div>`;
+    document.querySelectorAll('.footer-status').forEach((status) => {
+      status.classList.add('offline');
+      status.querySelector('span').innerHTML = '<strong>Registry unavailable</strong>The checked catalog could not be loaded just now.';
+    });
     searchMessage.textContent = '';
   }
 }
