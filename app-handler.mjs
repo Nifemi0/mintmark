@@ -5,17 +5,35 @@ import path from 'node:path';
 import { crossCheckBinance, normalizeAddress, normalizeRecords, searchRecords, classifyEvidence } from './registry.mjs';
 import { getRwaTokens, getUnderlyingProfile, getUnderlyingMarket, getTokenCandles, getTokenTradingInfo, getKnownTokenBalances, hasBinanceCredentials } from './binance.mjs';
 import { buildCompanyReport, buildTokenMarketCoverage } from './report.mjs';
-import { mapWalletHoldings } from './wallet.mjs';
+import { mapWalletHoldings, walletLookupRecords } from './wallet.mjs';
 import { getDexRoute } from './dex.mjs';
 import { spotRouteFor } from './spot.mjs';
 import { isReportDate, renderRss } from './daily-report.mjs';
+import { readTokenIdentity, findLookalikes, lookalikeVerdict } from './lookalike.mjs';
+import { exportRows, toCsv } from './catalog-export.mjs';
+const contractCheckCache = new Map();
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const snapshot = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
 const history = JSON.parse(await readFile(path.join(root, 'data', 'registry-history.json'), 'utf8'));
 const spotPath = path.join(root, 'data', 'binance-spot.json');
 const spotCheck = existsSync(spotPath) ? JSON.parse(await readFile(spotPath, 'utf8')) : null;
-const baseRecords = normalizeRecords(snapshot.records).map((record) => ({ ...record, binanceSpot: spotRouteFor(record, spotCheck) }));
+// The daily report's latest provider observation is fresher than the reviewed
+// catalog, so xStocks halt status comes from it when it covers the contract.
+const observationPath = path.join(root, 'data', 'state', 'report-observation.json');
+const latestObservation = existsSync(observationPath) ? JSON.parse(await readFile(observationPath, 'utf8')).observation : null;
+
+export function tradingStatusFor(record, observation) {
+  if (record.platformId !== 'xstock') return null;
+  const observed = observation?.xstock?.[record.contractAddress];
+  if (observed) return { halted: Boolean(observed.halted), observedAt: observation.observedAt, source: 'xStocks asset API (daily report)' };
+  return { halted: Boolean(record.tradingHalted), observedAt: record.observedAt, source: 'xStocks asset API (registry snapshot)' };
+}
+
+const baseRecords = normalizeRecords(snapshot.records).map((record) => ({
+  ...record, binanceSpot: spotRouteFor(record, spotCheck),
+  tradingStatus: tradingStatusFor({ ...record, contractAddress: record.contractAddress.toLowerCase() }, latestObservation),
+}));
 for (const record of baseRecords) for (const evidence of record.evidence) classifyEvidence(evidence.kind);
 
 const reportsDir = path.join(root, 'data', 'reports');
@@ -59,7 +77,7 @@ async function currentReport(record) {
 async function currentWallet(address) {
   const cached = walletCache.get(address);
   if (cached && Date.now() < cached.until) return cached.promise;
-  const promise = getKnownTokenBalances(address, baseRecords.filter((record) => record.walletLookupEnabled).map((record) => record.contractAddress)).then((result) =>
+  const promise = getKnownTokenBalances(address, walletLookupRecords(baseRecords).map((record) => record.contractAddress)).then((result) =>
     mapWalletHoldings(address, result.tokenAssets, baseRecords, result.observedAt, result.partial));
   walletCache.set(address, { until: Date.now() + 60000, promise });
   promise.catch(() => walletCache.delete(address));
@@ -104,8 +122,9 @@ function directoryRecord(record) {
     onchainIdentityObserved: ['chainId', 'symbol', 'tokenName'].every((field) => evidence.some((item) => item.kind === 'onchain_observed' && item.field === field)),
     sourceRecordAvailable: evidence.some((item) => item.field === 'contractAddress' && ['issuer_published', 'third_party_reported'].includes(item.kind)),
     binanceState: record.binanceCheck?.state ?? (record.platformId === 'bstock' ? 'snapshot_source' : 'not_checked'),
-    walletLookupEnabled: Boolean(record.walletLookupEnabled),
+    walletLookupEnabled: Boolean(record.walletLookupEnabled) || record.platformId === 'bstock',
     binanceSpot: record.binanceSpot ?? null,
+    tradingStatus: record.tradingStatus ?? null,
     sourceConflict: record.sourceConflict,
   };
 }
@@ -156,6 +175,44 @@ export default async function handleRequest(request, response) {
       if (!isReportDate(date)) return sendJson(response, 400, { error: 'Use a report date in YYYY-MM-DD format.' });
       const report = await readReportFile(`${date}.json`);
       return report ? sendJson(response, 200, { report }) : sendJson(response, 404, { error: 'No daily report for that date.' });
+    }
+    if (url.pathname === '/api/catalog.json' || url.pathname === '/api/catalog.csv') {
+      const rows = exportRows(baseRecords);
+      const csv = url.pathname.endsWith('.csv');
+      const stamp = String(snapshot.generatedAt).slice(0, 10);
+      response.writeHead(200, {
+        'content-type': csv ? 'text/csv; charset=utf-8' : 'application/json; charset=utf-8',
+        'content-disposition': `${url.searchParams.has('download') ? 'attachment' : 'inline'}; filename="mintmark-catalog-${stamp}.${csv ? 'csv' : 'json'}"`,
+        'cache-control': 'public, max-age=600', 'access-control-allow-origin': '*',
+      });
+      response.end(csv ? toCsv(rows) : JSON.stringify({ snapshotAt: snapshot.generatedAt, count: rows.length, records: rows }));
+      return;
+    }
+    if (url.pathname === '/api/contract-check') {
+      const address = normalizeAddress(url.searchParams.get('address'));
+      if (!address) return sendJson(response, 400, { error: 'Enter a complete 0x BSC contract address.' });
+      const registered = baseRecords.find((record) => record.contractAddress === address);
+      if (registered) return sendJson(response, 200, { address, verdict: 'registered', record: directoryRecord(registered) });
+      // A contract a provider published after the last registry review is genuine
+      // but not yet a registry record; say so instead of treating it as unknown.
+      const pendingProvider = ['ondo', 'bstock', 'xstock'].find((provider) => latestObservation?.[provider]?.[address]);
+      if (pendingProvider) {
+        const published = latestObservation[pendingProvider][address];
+        return sendJson(response, 200, { address, verdict: 'pending_review', provider: { ondo: 'Ondo', bstock: 'bStocks', xstock: 'xStocks' }[pendingProvider],
+          published: { symbol: published.symbol, name: published.name, ticker: published.ticker }, observedAt: latestObservation.observedAt });
+      }
+      const cached = contractCheckCache.get(address);
+      if (cached && Date.now() < cached.until) return sendJson(response, 200, cached.value);
+      try {
+        const identity = await readTokenIdentity(address);
+        const lookalikes = findLookalikes(baseRecords, identity);
+        const value = { address, verdict: lookalikeVerdict(identity, lookalikes), onchain: identity, lookalikes, checkedAt: new Date().toISOString() };
+        if (contractCheckCache.size > 500) contractCheckCache.clear();
+        contractCheckCache.set(address, { until: Date.now() + 600000, value });
+        return sendJson(response, 200, value);
+      } catch (error) {
+        return sendJson(response, 502, { error: `The BSC contract could not be read: ${error.message}` });
+      }
     }
     if (url.pathname === '/api/records') {
       const { records, binance } = await currentRecords();

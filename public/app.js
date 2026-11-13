@@ -154,7 +154,7 @@ function renderWallet(wallet) {
   const source = safeLink(wallet.sourceUrl);
   const cards = holdings.map((holding) => `<button type="button" class="wallet-holding" data-wallet-key="${escapeHtml(holding.key)}" aria-label="Open ${escapeHtml(holding.companyName)} record">${logoHtml(holding.underlyingTicker, 'wallet-holding-mark')}<span><strong>${escapeHtml(holding.companyName)}</strong><small>${escapeHtml(holding.tokenSymbol)} · ${escapeHtml(shortAddress(holding.contractAddress))}</small></span><span class="wallet-holding-balance">${escapeHtml(tokenBalance(holding.balance))}<small>tokens held</small></span>${icon('arrow-up-right')}</button>`).join('');
   return `<div class="wallet-result-head"><div><strong>${holdings.length ? `${holdings.length} supported holding${holdings.length === 1 ? '' : 's'} found` : 'No supported holdings found'}</strong><p>${escapeHtml(shortAddress(wallet.address))} · checked ${escapeHtml(dateLabel(wallet.observedAt))}</p></div><span>BNB Smart Chain</span></div>
-    ${cards || '<p class="wallet-empty">This address has no positive balance in the 24 contracts Mintmark currently checks. It may hold other assets; this lookup does not scan them.</p>'}
+    ${cards || '<p class="wallet-empty">This address has no positive balance in the 70 contracts Mintmark currently checks (24 Ondo and 46 bStocks). It may hold other assets; this lookup does not scan them.</p>'}
     <p class="wallet-note">Matched by exact BSC contract address, not symbol. Balances are third-party reported and may change. Other wallet tokens are not scanned or identified.${source ? ` <a href="${escapeHtml(source)}" target="_blank" rel="noopener noreferrer">Wallet API source ${icon('arrow-up-right')}</a>` : ''}</p>`;
 }
 
@@ -289,6 +289,11 @@ function renderCategories() {
   }).join('');
 }
 
+function haltedBadge(record) {
+  if (!record.tradingStatus?.halted) return '';
+  return `<span class="halt-badge" title="Marked halted by ${escapeHtml(record.tradingStatus.source)} on ${escapeHtml(dateLabel(record.tradingStatus.observedAt))}">Trading halted</span>`;
+}
+
 function comparisonSignals(record) {
   const hasOnchainIdentity = record.onchainIdentityObserved;
   const binanceState = record.binanceState;
@@ -300,6 +305,7 @@ function comparisonSignals(record) {
     ${signal('Company report', reportReady ? 'Available' : 'Not available', reportReady ? 'available' : 'unavailable')}
     ${signal('Wallet lookup', record.walletLookupEnabled ? 'Supported' : 'Not included', record.walletLookupEnabled ? 'available' : 'unavailable')}
     ${signal('Market snapshot', 'Loads when opened', 'live')}
+    ${record.tradingStatus ? signal('Provider trading status', record.tradingStatus.halted ? 'Halted' : 'Not halted', record.tradingStatus.halted ? 'warning' : 'available') : ''}
   </div>`;
 }
 
@@ -323,7 +329,7 @@ function renderComparison(records, query) {
     <div class="comparison-cards">${records.map((record) => {
       const terms = safeLink(record.issuerTermsUrl);
       const explorer = `https://bscscan.com/token/${record.contractAddress}`;
-      return `<article class="comparison-card"><div class="product-card-head"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><span class="product-chain">BNB Chain</span></div><div class="product-symbol"><span>Token symbol</span><strong>${escapeHtml(record.symbol)}</strong></div><div class="product-contract"><span>Exact contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(record.contractAddress)}">${escapeHtml(shortAddress(record.contractAddress))} ${icon('arrow-up-right')}</a></div>${comparisonSignals(record)}${record.sourceConflict ? `<div class="product-alert"><strong>Source-name difference</strong><span>${escapeHtml(record.sourceConflict)}</span></div>` : ''}${accessRouteHtml(record, true)}<div class="product-card-actions"><button type="button" data-compare-key="${escapeHtml(record.key)}">View ${escapeHtml(record.symbol)} record ${icon('arrow-up-right')}</button>${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents</a>` : '<span>Documents unavailable</span>'}</div></article>`;
+      return `<article class="comparison-card"><div class="product-card-head"><div class="comparison-provider">${logoHtml(record.underlyingTicker, 'comparison-mark', record.logoUrl)}<span><strong>${escapeHtml(record.providerName)}</strong><small>${escapeHtml(record.issuer)}</small></span></div><span class="product-chain">BNB Chain</span></div><div class="product-symbol"><span>Token symbol</span><strong>${escapeHtml(record.symbol)}</strong></div>${haltedBadge(record)}<div class="product-contract"><span>Exact contract</span><a href="${escapeHtml(explorer)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(record.contractAddress)}">${escapeHtml(shortAddress(record.contractAddress))} ${icon('arrow-up-right')}</a></div>${comparisonSignals(record)}${record.sourceConflict ? `<div class="product-alert"><strong>Source-name difference</strong><span>${escapeHtml(record.sourceConflict)}</span></div>` : ''}${accessRouteHtml(record, true)}<div class="product-card-actions"><button type="button" data-compare-key="${escapeHtml(record.key)}">View ${escapeHtml(record.symbol)} record ${icon('arrow-up-right')}</button>${terms ? `<a href="${escapeHtml(terms)}" target="_blank" rel="noopener noreferrer">Legal documents</a>` : '<span>Documents unavailable</span>'}</div></article>`;
     }).join('')}</div>`;
 }
 
@@ -349,6 +355,7 @@ function renderCards(records, query) {
     const contract = query.trim().toLowerCase().startsWith('0x');
     grid.innerHTML = `<div class="empty-card"><strong>${contract ? 'No exact contract match.' : 'No matching record.'}</strong><p>${contract ? 'This BSC contract is not in Mintmark’s checked catalog. Browse companies above or try another exact address.' : 'Try a company or fund name, ticker, or another browse category.'}</p></div>`;
     loadMore.hidden = true;
+    if (/^0x[a-f0-9]{40}$/.test(query.trim().toLowerCase())) checkUnknownContract(query.trim().toLowerCase());
     return;
   }
   if (!providerComparison.hidden) {
@@ -360,11 +367,51 @@ function renderCards(records, query) {
   grid.hidden = false;
   grid.innerHTML = records.slice(0, visibleLimit).map((record) => `<button class="record-card${record.key === selectedKey ? ' active' : ''}" type="button" data-key="${escapeHtml(record.key)}" aria-label="Open ${escapeHtml(record.symbol)} record for ${escapeHtml(record.companyName)}">
     <span class="card-top">${logoHtml(record.underlyingTicker, 'ticker-mark', record.logoUrl)}${icon('arrow-up-right', 'card-arrow')}</span>
-    <span class="card-company">${escapeHtml(record.companyName)}</span><span class="card-symbol">${escapeHtml(record.symbol)} · ${escapeHtml(record.underlyingTicker)}</span>
+    <span class="card-company">${escapeHtml(record.companyName)}</span><span class="card-symbol">${escapeHtml(record.symbol)} · ${escapeHtml(record.underlyingTicker)}</span>${haltedBadge(record)}
     <span class="card-foot"><span>${escapeHtml(record.providerName)} · ${escapeHtml(record.category)}</span><span>${escapeHtml(shortAddress(record.contractAddress))}</span></span>
   </button>`).join('');
   loadMore.hidden = records.length <= visibleLimit;
   loadMore.innerHTML = `Show ${Math.min(9, records.length - visibleLimit)} more stocks ${icon('chevron-down')}`;
+}
+
+const lookalikeReasons = { same_symbol: 'Same token symbol', same_name: 'Same token name', same_underlying: 'Same underlying stock' };
+
+async function checkUnknownContract(address) {
+  const current = requestId;
+  grid.innerHTML = '<div class="empty-card"><strong>Not in the registry.</strong><p>Reading this contract on BNB Chain…</p></div>';
+  try {
+    const response = await fetch(`/api/contract-check?address=${encodeURIComponent(address)}`);
+    const payload = await response.json();
+    if (current !== requestId) return;
+    if (!response.ok) throw new Error(payload.error || 'Contract check failed');
+    if (payload.verdict === 'registered') { loadRecords(address); return; }
+    if (payload.verdict === 'pending_review') {
+      grid.innerHTML = `<div class="empty-card lookalike-card pending_review"><strong>Published by ${escapeHtml(payload.provider)}, not reviewed yet.</strong><p>${escapeHtml(payload.provider)} lists this contract as <b>${escapeHtml(payload.published.symbol)}</b> (“${escapeHtml(payload.published.name)}”, underlying ${escapeHtml(payload.published.ticker)}) as of ${escapeHtml(dateLabel(payload.observedAt))}. It is not a Mintmark registry record yet, so its evidence has not been reviewed. <a href="/reports">See the daily report ${icon('arrow-up-right')}</a></p></div>`;
+      return;
+    }
+    const onchain = payload.onchain;
+    const explorer = `https://bscscan.com/token/${encodeURIComponent(address)}`;
+    const identity = onchain.state === 'contract'
+      ? `It calls itself <b>${escapeHtml(onchain.symbol ?? 'no symbol')}</b>${onchain.name ? ` (“${escapeHtml(onchain.name)}”)` : ''} on BNB Chain.`
+      : 'No contract code exists at this address on BNB Chain.';
+    const heading = ({
+      impersonation_risk: 'Not a registered product. It looks like one.',
+      related_unregistered: 'Not a registered product.',
+      no_contract: 'No contract at this address.',
+      unknown: 'Not a registered product.',
+    })[payload.verdict];
+    const warning = payload.verdict === 'impersonation_risk'
+      ? '<p class="lookalike-warning">Its symbol or name matches a registered product, but its contract address is different. Treat it as a different token: tokenized-stock identity is the exact contract, not the ticker.</p>'
+      : '';
+    const list = payload.lookalikes.length
+      ? `<p class="lookalike-label">Registered products it could be confused with:</p><div class="lookalike-list">${payload.lookalikes.map((item) => `<button type="button" data-lookalike-key="${escapeHtml(item.key)}"><span><b>${escapeHtml(item.symbol)}</b> · ${escapeHtml(item.providerName)}<small>${escapeHtml(item.companyName)} · ${escapeHtml(shortAddress(item.contractAddress))}</small></span><em>${escapeHtml(lookalikeReasons[item.reason])}</em></button>`).join('')}</div>`
+      : '';
+    grid.innerHTML = `<div class="empty-card lookalike-card ${escapeHtml(payload.verdict)}"><strong>${escapeHtml(heading)}</strong><p>${identity} Mintmark has no provider record for <a href="${explorer}" target="_blank" rel="noopener noreferrer">${escapeHtml(shortAddress(address))} ${icon('arrow-up-right')}</a>.</p>${warning}${list}<p class="lookalike-note">Onchain name and symbol checked ${escapeHtml(dateLabel(payload.checkedAt))}. Anyone can deploy a contract with any name or symbol.</p></div>`;
+    grid.querySelectorAll('[data-lookalike-key]').forEach((button) => button.addEventListener('click', () => openRecord(button.dataset.lookalikeKey)));
+  } catch (error) {
+    if (current !== requestId) return;
+    grid.innerHTML = `<div class="empty-card"><strong>No exact contract match.</strong><p>This BSC contract is not in Mintmark’s checked catalog, and its onchain identity could not be read: ${escapeHtml(error.message)}</p></div>`;
+  }
 }
 
 async function loadRecords(query = '') {
@@ -461,7 +508,7 @@ async function openRecord(key) {
       <div class="detail-body"><div class="identity-facts">
         <div class="fact"><label>Token symbol</label><strong>${escapeHtml(record.symbol)}</strong></div>
         <div class="fact"><label>Underlying ticker</label><strong>${escapeHtml(record.underlyingTicker)}</strong></div>
-        ${record.platformId === 'xstock' ? `<div class="fact"><label>xStocks catalog status</label><strong>${record.tradingHalted ? 'Marked trading halted' : 'Not marked halted'}</strong></div>` : ''}
+        ${record.tradingStatus ? `<div class="fact"><label>Provider trading status</label><strong>${record.tradingStatus.halted ? 'Marked trading halted' : 'Not marked halted'}</strong><small>${escapeHtml(record.tradingStatus.source)} · ${escapeHtml(dateLabel(record.tradingStatus.observedAt))}</small></div>` : ''}
         <div class="fact"><label>Provider</label><strong>${escapeHtml(providerLabels[record.platformId] || record.platformId)}</strong></div>
         <div class="fact"><label>Issuer</label><strong>${escapeHtml(record.issuer)}</strong>${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Provider asset record ${icon('arrow-up-right')}</a>` : ''}${safeLink(record.issuerTermsUrl) ? `<a href="${escapeHtml(record.issuerTermsUrl)}" target="_blank" rel="noopener noreferrer">Legal documents ${icon('arrow-up-right')}</a>` : ''}</div>
         <div class="fact"><label>Chain</label><strong>BNB Smart Chain · 56</strong></div>

@@ -1,5 +1,11 @@
 import { identityKey, normalizeAddress } from './registry.mjs';
 
+// Wallet lookup checks the original 24 Ondo contracts plus every bStocks
+// contract; Binance's targeted balance API takes 20 contracts per request.
+export function walletLookupRecords(records) {
+  return records.filter((record) => record.walletLookupEnabled || record.platformId === 'bstock');
+}
+
 export function mapWalletHoldings(walletAddress, tokenAssets, records, observedAt, partial = false) {
   const address = normalizeAddress(walletAddress);
   if (!address) throw new Error('A complete BSC wallet address is required');

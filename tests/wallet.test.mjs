@@ -40,3 +40,13 @@ test('targeted wallet API signs POST bodies and queries each supported contract'
   const queried = calls.flatMap((call) => JSON.parse(call.options.body).tokenContractAddresses.map((item) => item.tokenContractAddress));
   assert.deepEqual(queried, checkedRecords.map((record) => record.contractAddress));
 });
+
+test('wallet lookup covers the 24 Ondo wallet contracts plus every bStocks contract', async () => {
+  const { walletLookupRecords } = await import('../wallet.mjs');
+  const { readFile } = await import('node:fs/promises');
+  const snapshot = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8'));
+  const checked = walletLookupRecords(snapshot.records);
+  assert.equal(checked.filter((record) => record.platformId === 'ondo').length, 24);
+  assert.equal(checked.filter((record) => record.platformId === 'bstock').length, 46);
+  assert.equal(checked.filter((record) => record.platformId === 'xstock').length, 0);
+});

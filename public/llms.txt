@@ -16,7 +16,7 @@ Source code: https://github.com/Nifemi0/mintmark
 - Binance Spot routes appear only for bStocks records whose exact SYMBOL/USDT pair was listed with status TRADING in Binance Spot `exchangeInfo` at the last `npm run sync:spot`; the check and its time are stored in `data/binance-spot.json`. A record can also show a detected BNB Chain DEX pool; when both exist, both routes are shown. Ondo and xStocks trading routes remain unavailable until Mintmark can verify an exact venue. Mintmark links out to the venue; it does not place orders.
 - Exact-record DEX checks are available when opening a record. Mintmark queries indexed BNB Chain pools and shows the largest pool only when it has at least $25,000 liquidity; this is market evidence, not issuer endorsement or a liquidity guarantee.
 - Review underlying-company profiles, market fields, and BSC token candles for supported Binance RWA records.
-- Check a wallet read-only against 24 explicitly supported Ondo contracts.
+- Check a wallet read-only against 70 supported contracts: 24 Ondo and all 46 bStocks. xStocks holdings are not checked.
 
 ## Public endpoints
 
@@ -47,3 +47,5 @@ Source code: https://github.com/Nifemi0/mintmark
 
 The catalog is a dated snapshot. Contract checks establish contract responses, not backing or equivalence between provider products. Mintmark does not execute transactions, place orders, hold funds, or give investment advice.
 - Daily report: `/reports` shows what changed upstream each day (new, removed, changed, and halted tokens; Binance Spot pair changes; unconfirmed bStocks candidates). JSON: `/api/reports` (index) and `/api/daily-report?date=YYYY-MM-DD` (omit `date` for the latest). RSS: `/api/reports/feed.xml`. A report lists provider observations; registry records change only after review.
+- Contract check: `/api/contract-check?address=0x…` reads an unregistered contract's onchain symbol and name and lists registered products it could be mistaken for.
+- Catalog export: `/api/catalog.json` and `/api/catalog.csv` return the full reviewed catalog, one row per exact BSC contract.
