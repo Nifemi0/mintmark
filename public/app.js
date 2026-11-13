@@ -77,44 +77,49 @@ function safeLink(url) {
   try { return new URL(url).protocol === 'https:' ? url : null; } catch { return null; }
 }
 
-function accessRoute(record) {
+function accessRoutes(record) {
+  const routes = [];
+  // Binance Spot is shown only when the stored exchangeInfo check
+  // (data/binance-spot.json) listed this exact SYMBOL/USDT pair as TRADING.
+  // The link never places an order from Mintmark.
+  const spot = record.binanceSpot;
+  if (spot?.status === 'TRADING' && /^[A-Z0-9]{1,24}$/.test(spot.pair ?? '')) {
+    routes.push({
+      kind: 'binance', label: 'Trade on Binance Spot',
+      url: `https://www.binance.com/en/trade/${encodeURIComponent(spot.baseAsset)}_${encodeURIComponent(spot.quoteAsset)}?type=spot`,
+      referenceLabel: 'View pair check', referenceUrl: safeLink(`${spot.sourceUrl}?symbol=${encodeURIComponent(spot.pair)}`),
+      note: `${spot.baseAsset}/${spot.quoteAsset} was listed as trading on Binance Spot when checked ${dateLabel(spot.checkedAt)}. Sign in and confirm your regional eligibility before trading.`,
+    });
+  }
   if (record.dexRoute?.state === 'detected' && safeLink(record.dexRoute.url)) {
-    return {
+    routes.push({
       kind: 'dex', label: record.dexRoute.dexId === 'pancakeswap' ? 'Swap on PancakeSwap' : `Open ${record.dexRoute.dexId} pool`,
       url: record.dexRoute.tradeUrl || record.dexRoute.url,
       referenceLabel: 'View pool data', referenceUrl: record.dexRoute.url,
       note: `${record.dexRoute.detail} This is indexed secondary-market liquidity, not issuer endorsement. Confirm the contract and price impact in your wallet before swapping.`
-    };
+    });
   }
-  // bStocks are the only records with a currently verified execution venue.
-  // The pair was checked against Binance Spot exchangeInfo during the latest
-  // registry refresh; this link never places an order from Mintmark.
-  if (record.platformId === 'bstock' && /^[A-Z0-9]{1,20}$/.test(record.symbol)) {
-    return {
-      kind: 'binance', label: 'Trade on Binance Spot',
-      url: `https://www.binance.com/en/trade/${encodeURIComponent(record.symbol)}_USDT?type=spot`,
-      note: `Exact ${record.symbol}/USDT pair verified on Binance Spot. Sign in and confirm your regional eligibility before trading.`,
-    };
-  }
+  if (routes.length) return routes;
   const issuer = safeLink(record.issuerAssetUrl);
-  if (issuer) return {
+  if (issuer) return [{
     kind: 'unavailable', label: 'Trading route unavailable', url: null,
     referenceLabel: 'View provider record', referenceUrl: issuer,
     note: 'Mintmark has not verified an exact purchase market for this contract. Review the provider page and terms before taking any action.'
-  };
-  return {
+  }];
+  return [{
     kind: 'unavailable', label: 'Trading route unavailable', url: null,
     referenceLabel: 'View contract evidence', referenceUrl: safeLink(record.explorerUrl),
     note: 'No exact purchase market is verified for this contract. Review the contract and issuer evidence first.'
-  };
+  }];
 }
 
 function accessRouteHtml(record, compact = false) {
-  const route = accessRoute(record);
-  const available = route.kind !== 'unavailable' && safeLink(route.url);
-  const action = available ? `<a class="access-route-action ${escapeHtml(route.kind)}" href="${escapeHtml(route.url)}" target="_blank" rel="sponsored noopener noreferrer">${escapeHtml(route.label)} ${icon('arrow-up-right')}</a>` : '';
-  const reference = route.referenceUrl ? `<a class="access-route-reference" href="${escapeHtml(route.referenceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(route.referenceLabel)} ${icon('arrow-up-right')}</a>` : '';
-  return `<div class="access-route ${available ? escapeHtml(route.kind) : 'unavailable'}${compact ? ' compact' : ''}"><div><span class="access-route-kicker">Trading status</span><strong>${escapeHtml(route.label)}</strong><p>${escapeHtml(route.note)}</p>${reference}</div>${action}</div>`;
+  return accessRoutes(record).map((route) => {
+    const available = route.kind !== 'unavailable' && safeLink(route.url);
+    const action = available ? `<a class="access-route-action ${escapeHtml(route.kind)}" href="${escapeHtml(route.url)}" target="_blank" rel="sponsored noopener noreferrer">${escapeHtml(route.label)} ${icon('arrow-up-right')}</a>` : '';
+    const reference = route.referenceUrl ? `<a class="access-route-reference" href="${escapeHtml(route.referenceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(route.referenceLabel)} ${icon('arrow-up-right')}</a>` : '';
+    return `<div class="access-route ${available ? escapeHtml(route.kind) : 'unavailable'}${compact ? ' compact' : ''}"><div><span class="access-route-kicker">Trading status</span><strong>${escapeHtml(route.label)}</strong><p>${escapeHtml(route.note)}</p>${reference}</div>${action}</div>`;
+  }).join('');
 }
 
 function kindLabel(kind) {

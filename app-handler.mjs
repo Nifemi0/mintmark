@@ -7,11 +7,14 @@ import { getRwaTokens, getUnderlyingProfile, getUnderlyingMarket, getTokenCandle
 import { buildCompanyReport, buildTokenMarketCoverage } from './report.mjs';
 import { mapWalletHoldings } from './wallet.mjs';
 import { getDexRoute } from './dex.mjs';
+import { spotRouteFor } from './spot.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const snapshot = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
 const history = JSON.parse(await readFile(path.join(root, 'data', 'registry-history.json'), 'utf8'));
-const baseRecords = normalizeRecords(snapshot.records);
+const spotPath = path.join(root, 'data', 'binance-spot.json');
+const spotCheck = existsSync(spotPath) ? JSON.parse(await readFile(spotPath, 'utf8')) : null;
+const baseRecords = normalizeRecords(snapshot.records).map((record) => ({ ...record, binanceSpot: spotRouteFor(record, spotCheck) }));
 for (const record of baseRecords) for (const evidence of record.evidence) classifyEvidence(evidence.kind);
 
 let binanceCache = { until: 0, result: null, promise: null };
@@ -94,6 +97,7 @@ function directoryRecord(record) {
     sourceRecordAvailable: evidence.some((item) => item.field === 'contractAddress' && ['issuer_published', 'third_party_reported'].includes(item.kind)),
     binanceState: record.binanceCheck?.state ?? (record.platformId === 'bstock' ? 'snapshot_source' : 'not_checked'),
     walletLookupEnabled: Boolean(record.walletLookupEnabled),
+    binanceSpot: record.binanceSpot ?? null,
     sourceConflict: record.sourceConflict,
   };
 }
