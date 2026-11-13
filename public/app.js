@@ -25,6 +25,11 @@ let recordRequestId = 0;
 const categoryOrder = ['ondo', 'bstock', 'xstock'];
 const providerLabels = { ondo: 'Ondo', bstock: 'bStocks', xstock: 'xStocks' };
 const binanceReferralUrl = 'https://www.binance.com/activity/referral-entry/CPA/together-v4?hl=en&ref=CPA_00BHOH4O1Y&utm_source=Lite_web_account';
+// Footer link groups collapse into tap-to-open rows on phones.
+const footerQuery = window.matchMedia('(max-width: 650px)');
+function syncFooterGroups() { document.querySelectorAll('.footer-group').forEach((group) => { group.open = !footerQuery.matches; }); }
+syncFooterGroups();
+footerQuery.addEventListener('change', syncFooterGroups);
 document.querySelectorAll('.footer a[href="#registry"]').forEach((link) => { link.href = '/registry'; });
 document.querySelectorAll('.footer a[href="#wallet"]').forEach((link) => { link.href = '/wallet'; });
 document.querySelectorAll('.footer a[href="#how-it-works"]').forEach((link) => { link.href = '/method'; });
