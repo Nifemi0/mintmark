@@ -1,0 +1,14 @@
+{
+  "updates": [
+    {
+      "date": "2026-11-13",
+      "title": "Daily change report",
+      "detail": "Mintmark now publishes a daily report of new, removed, halted, and changed tokenized-stock identities across Ondo, bStocks, and xStocks on BNB Chain."
+    },
+    {
+      "date": "2026-11-13",
+      "title": "Checked Binance Spot routes",
+      "detail": "bStocks records show a Binance Spot route only when a stored check found the exact pair trading. Records with a PancakeSwap pool now show both routes."
+    }
+  ]
+}

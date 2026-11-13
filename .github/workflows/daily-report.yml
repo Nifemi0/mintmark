@@ -1,0 +1,51 @@
+name: Daily report
+
+on:
+  schedule:
+    - cron: "23 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the report
+        env:
+          OC_API_KEY: ${{ secrets.OC_API_KEY }}
+          OC_SECRET_KEY: ${{ secrets.OC_SECRET_KEY }}
+        run: npm run report
+      - run: npm test
+      - name: Open a draft pull request for review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          date="$(node -p "require('./data/reports/index.json').reports[0].date")"
+          headline="$(node -p "require('./data/reports/index.json').reports[0].headline")"
+          branch="report/${date}"
+          git config user.name "Nifemi0"
+          git config user.email "Nifemi0@github.com"
+          git checkout -B "$branch"
+          git add data/reports data/state
+          if git diff --cached --quiet; then echo "No report changes."; exit 0; fi
+          git commit -m "Daily report ${date}"
+          git push --force origin "$branch"
+          if [ -z "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --draft --base main --head "$branch" \
+              --title "Daily report ${date}" \
+              --body "${headline}
+
+          Review the report in \`data/reports/${date}.json\`. Merging publishes it on the next production deploy."
+          fi

@@ -28,6 +28,8 @@ To refresh bStocks or enable live Binance checks, company reports, exact-contrac
 
 Search comparisons are linkable: `/?q=NVDA#registry` opens all NVIDIA products, and record links preserve that comparison context. The public [`llms.txt`](https://mintmark.nuvixes.studio/llms.txt) describes the identity model, API routes, evidence semantics, and limitations. `npm run check:freshness` verifies that the checked catalog is no more than 48 hours old; the daily GitHub Actions workflow runs that check with the test and release suites.
 
+`npm run report` writes the daily change report to `data/reports/` by comparing the live Ondo, xStocks, and Binance Spot lists (and the Binance RWA bStocks list when credentials are set) with the previous observation. The site shows it at `/reports`, with JSON at `/api/daily-report` and RSS at `/api/reports/feed.xml`. A scheduled GitHub Actions workflow prepares each report as a draft pull request; it is published when that pull request is merged and deployed. Mintmark's own product notes for the report come from `data/product-updates.json`.
+
 Run focused checks with `npm test`.
 
 ## Hosting

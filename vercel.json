@@ -1,21 +1,58 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "regions": ["cpt1"],
+  "regions": [
+    "cpt1"
+  ],
   "functions": {
     "api/index.mjs": {
-      "includeFiles": "data/*.json"
+      "includeFiles": "data/**/*.json"
     }
   },
   "rewrites": [
-    { "source": "/registry", "destination": "/registry.html" },
-    { "source": "/registry/", "destination": "/registry.html" },
-    { "source": "/wallet", "destination": "/wallet.html" },
-    { "source": "/wallet/", "destination": "/wallet.html" },
-    { "source": "/method", "destination": "/method.html" },
-    { "source": "/method/", "destination": "/method.html" },
-    { "source": "/docs", "destination": "/docs.html" },
-    { "source": "/docs/", "destination": "/docs.html" },
-    { "source": "/api/:path*", "destination": "/api/index" }
+    {
+      "source": "/registry",
+      "destination": "/registry.html"
+    },
+    {
+      "source": "/registry/",
+      "destination": "/registry.html"
+    },
+    {
+      "source": "/wallet",
+      "destination": "/wallet.html"
+    },
+    {
+      "source": "/wallet/",
+      "destination": "/wallet.html"
+    },
+    {
+      "source": "/method",
+      "destination": "/method.html"
+    },
+    {
+      "source": "/method/",
+      "destination": "/method.html"
+    },
+    {
+      "source": "/docs",
+      "destination": "/docs.html"
+    },
+    {
+      "source": "/docs/",
+      "destination": "/docs.html"
+    },
+    {
+      "source": "/reports",
+      "destination": "/reports.html"
+    },
+    {
+      "source": "/reports/",
+      "destination": "/reports.html"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index"
+    }
   ]
 }

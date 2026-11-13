@@ -1,0 +1,1281 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-13",
+  "generatedAt": "2026-11-13T13:16:31.200Z",
+  "baseline": {
+    "since": "2026-10-27T12:40:33.242Z",
+    "kind": "catalog",
+    "previousReport": null
+  },
+  "catalogSnapshotAt": "2026-10-27T12:40:33.242Z",
+  "bstockSource": "not_checked",
+  "headline": "67 new tokens, 2 halted, 1 resumed, 58 possible bStocks listings on Binance Spot.",
+  "summary": {
+    "added": 67,
+    "removed": 0,
+    "changed": 0,
+    "halts": 3,
+    "spot": 0,
+    "bstockCandidates": 58,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 24,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1417,
+        "added": 43,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 67,
+      "removed": 0,
+      "changed": 0,
+      "halts": 3
+    }
+  },
+  "added": [
+    {
+      "provider": "ondo",
+      "address": "0x80d672ea969ea634345618312c8ccf4322f0675c",
+      "symbol": "ASSTon",
+      "ticker": "ASST",
+      "name": "Strive (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ASSTon",
+        "name": "Strive (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xa3e7b4ee9ae8dfe8c9eb7e4e58fdb042f6d179f9",
+      "symbol": "BITAon",
+      "ticker": "BITA",
+      "name": "iShares Bitcoin Premium Income ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "BITAon",
+        "name": "iShares Bitcoin Premium Income ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x14315f0dd6765935ebd9642242aa4f52cb975fef",
+      "symbol": "BMRNon",
+      "ticker": "BMRN",
+      "name": "BioMarin Pharmaceutical Inc. (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "BMRNon",
+        "name": "BioMarin Pharmaceutical (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x0f3931104d9ce770fe33b1032bedf32d67273fe0",
+      "symbol": "BNTXon",
+      "ticker": "BNTX",
+      "name": "BioNTech SE (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "BNTXon",
+        "name": "BioNTech (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x3f41bcf043a07ca9dc734f24b0a77c01cbfa0e8d",
+      "symbol": "CAIon",
+      "ticker": "CAI",
+      "name": "Caris Life Sciences Inc (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "CAIon",
+        "name": "Caris Life Sciences (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x56bb3f07ab727d9a68c77eb132bcbbf294177222",
+      "symbol": "ERASon",
+      "ticker": "ERAS",
+      "name": "Erasca, Inc. (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ERASon",
+        "name": "Erasca (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xac0919d699ee1725d30d5ced86cfd553c33dc36a",
+      "symbol": "INSMon",
+      "ticker": "INSM",
+      "name": "Insmed Incorporated (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "INSMon",
+        "name": "Insmed (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x452248f839755c7b777bbc0f6aa49d7f05eb8020",
+      "symbol": "NTRAon",
+      "ticker": "NTRA",
+      "name": "Natera, Inc. (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "NTRAon",
+        "name": "Natera (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x6a28d66cd0db1730c1227465f03848e295a34b21",
+      "symbol": "PTGXon",
+      "ticker": "PTGX",
+      "name": "Protagonist Therapeutics, Inc. (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "PTGXon",
+        "name": "Protagonist Therapeutics (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x71c63cb88cc3538437560cd1f87daca82db0fc79",
+      "symbol": "ROIVon",
+      "ticker": "ROIV",
+      "name": "Roivant Sciences Ltd. (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ROIVon",
+        "name": "Roivant Sciences (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x3a5cc5222ea69bcb47cbeb5da2427568244a1f69",
+      "symbol": "SATSon",
+      "ticker": "SATS",
+      "name": "Strive SATS Preferred (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "SATSon",
+        "name": "Strive SATS Preferred (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x820f09c2ebe7852e14a1310008bf7af4d29d4f09",
+      "symbol": "TWSTon",
+      "ticker": "TWST",
+      "name": "Twist Bioscience Corporation (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "TWSTon",
+        "name": "Twist Bioscience (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x7c2494b59500aeb76eb942579a0f2c080da4bda0",
+      "symbol": "ZAPRon",
+      "ticker": "ZAPR",
+      "name": "Innovator ZAPR ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZAPRon",
+        "name": "Innovator ZAPR ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x11b664414291512f3b13c7127768ba16fbea35a5",
+      "symbol": "ZAUGon",
+      "ticker": "ZAUG",
+      "name": "Innovator ZAUG ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZAUGon",
+        "name": "Innovator ZAUG ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xb5f44eb9e3f97254fe9fe4bbb20a32d683fdc529",
+      "symbol": "ZDEKon",
+      "ticker": "ZDEK",
+      "name": "Innovator ZDEK ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZDEKon",
+        "name": "Innovator ZDEK ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x6e2be4514b705c9fad357e6e556c67c710190bb9",
+      "symbol": "ZFEBon",
+      "ticker": "ZFEB",
+      "name": "Innovator ZFEB ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZFEBon",
+        "name": "Innovator ZFEB ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x7b5d01d315485280e6c4fe620405fb9c2e226a33",
+      "symbol": "ZJANon",
+      "ticker": "ZJAN",
+      "name": "Innovator ZJAN ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZJANon",
+        "name": "Innovator ZJAN ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x16b384878990f94fe3a6a18e5e46a5eff1a50a08",
+      "symbol": "ZJULon",
+      "ticker": "ZJUL",
+      "name": "Innovator ZJUL ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZJULon",
+        "name": "Innovator ZJUL ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xc5337e92bb8ec00722985f85287c928961bd82df",
+      "symbol": "ZJUNon",
+      "ticker": "ZJUN",
+      "name": "Innovator ZJUN ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZJUNon",
+        "name": "Innovator ZJUN ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xc83075d19dfba5fb16dfcc7e1901127797b41804",
+      "symbol": "ZMARon",
+      "ticker": "ZMAR",
+      "name": "Innovator ZMAR ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZMARon",
+        "name": "Innovator ZMAR ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xb41d89c61aa53097184e2f47abcb23cc15ac266e",
+      "symbol": "ZMAYon",
+      "ticker": "ZMAY",
+      "name": "Innovator ZMAY ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZMAYon",
+        "name": "Innovator ZMAY ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0xb041e45025ef1d3d149f37b984191faf9af55dea",
+      "symbol": "ZNOVon",
+      "ticker": "ZNOV",
+      "name": "Innovator ZNOV ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZNOVon",
+        "name": "Innovator ZNOV ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x4f1a7e696e2550fffd3c241ffafa3cfbe603078a",
+      "symbol": "ZOCTon",
+      "ticker": "ZOCT",
+      "name": "Innovator ZOCT ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZOCTon",
+        "name": "Innovator ZOCT ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "ondo",
+      "address": "0x2c4846bb54b2d232d89f9ce763005f0861c72921",
+      "symbol": "ZSEPon",
+      "ticker": "ZSEP",
+      "name": "Innovator ZSEP ETF (Ondo Tokenized)",
+      "onchain": {
+        "state": "checked",
+        "symbol": "ZSEPon",
+        "name": "Innovator ZSEP ETF (Ondo Tokenized)"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xffb1cbdc7370cd439e15a4f6c9fadbdb930f35a5",
+      "symbol": "ACGLx",
+      "ticker": "ACGL",
+      "name": "Arch Capital xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "ACGLx",
+        "name": "Arch Capital xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xec3288372ddec8c1e4d8dd42753d8b3882343d85",
+      "symbol": "AMCx",
+      "ticker": "AMC",
+      "name": "AMC Entertainment xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "AMCx",
+        "name": "AMC Entertainment xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x91f714040beef35ebcf952b538508aca47598ce6",
+      "symbol": "ANx",
+      "ticker": "AN",
+      "name": "AutoNation xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "ANx",
+        "name": "AutoNation xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x8e8428921ef1f11668bc71d434a3c4ab2e2c79da",
+      "symbol": "ARQQx",
+      "ticker": "ARQQ",
+      "name": "Arqit Quantum xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "ARQQx",
+        "name": "Arqit Quantum xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x8345cf29bd9e883ebf4c6d4e03dc8e38b0f00459",
+      "symbol": "BGx",
+      "ticker": "BG",
+      "name": "Bunge Global xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "BGx",
+        "name": "Bunge Global xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x3bdc0a42d9e1c64e9a95f0f3c4515b486b466360",
+      "symbol": "BILIx",
+      "ticker": "BILI",
+      "name": "Bilibili xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "BILIx",
+        "name": "Bilibili xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x24df90239fc5ff49e5409f2eac3d902e6685071c",
+      "symbol": "CAPRx",
+      "ticker": "CAPR",
+      "name": "Capricor Therapeutics xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "CAPRx",
+        "name": "Capricor Therapeutics xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xa416520fa325b5c3f1ea30fc622a040385c2ff15",
+      "symbol": "CCLx",
+      "ticker": "CCL",
+      "name": "Carnival xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "CCLx",
+        "name": "Carnival xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x9867a1cc080e7cb772a8a2303cafa07ee11eb716",
+      "symbol": "CHYMx",
+      "ticker": "CHYM",
+      "name": "Chime Financial xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "CHYMx",
+        "name": "Chime Financial xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xe6adef0cdf6ed5cd1bd8b9b0aa206d29c14b2ae0",
+      "symbol": "CRDOx",
+      "ticker": "CRDO",
+      "name": "Credo Technology xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "CRDOx",
+        "name": "Credo Technology xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x0e1b86000443b74bc515e2e9ef780d0bb05b4e27",
+      "symbol": "DOCSx",
+      "ticker": "DOCS",
+      "name": "Doximity xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "DOCSx",
+        "name": "Doximity xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xe419752d5496f3f212e0bb909fa847b7aad62bcd",
+      "symbol": "DTMx",
+      "ticker": "DTM",
+      "name": "DT Midstream xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "DTMx",
+        "name": "DT Midstream xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x81886fe9544987376ef9ed6f85381d879ae927b0",
+      "symbol": "EWTx",
+      "ticker": "EWT",
+      "name": "iShares MSCI Taiwan ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "EWTx",
+        "name": "iShares MSCI Taiwan ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xc8bba78e7f607ac0b45b1e12b6c661ea3854f45e",
+      "symbol": "FIGRx",
+      "ticker": "FIGR",
+      "name": "Figure Technology Solutions xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "FIGRx",
+        "name": "Figure Technology Solutions xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xac54c338c18550333ff84525e05510304354b33d",
+      "symbol": "FLUTx",
+      "ticker": "FLUT",
+      "name": "Flutter Entertainment xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "FLUTx",
+        "name": "Flutter Entertainment xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x8e6f462beb0f109a9fcbced65ca96e0b3e1fafcd",
+      "symbol": "FWDIx",
+      "ticker": "FWDI",
+      "name": "Forward Industries xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "FWDIx",
+        "name": "Forward Industries xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xc96553ea003e5fed062c081baf759f7087fab858",
+      "symbol": "GPROx",
+      "ticker": "GPRO",
+      "name": "GoPro xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "GPROx",
+        "name": "GoPro xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x0529d8cd345dffa96f0c7b9b5eeaee70833e1a74",
+      "symbol": "GRMNx",
+      "ticker": "GRMN",
+      "name": "Garmin xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "GRMNx",
+        "name": "Garmin xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xf71728c13b2cf61191f23f7ebda2d5b897eccaba",
+      "symbol": "INFQx",
+      "ticker": "INFQ",
+      "name": "Infleqtion xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "INFQx",
+        "name": "Infleqtion xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xa2068b4664f252c282669c62f590e99dadd614f7",
+      "symbol": "JAZZx",
+      "ticker": "JAZZ",
+      "name": "Jazz Pharmaceuticals xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "JAZZx",
+        "name": "Jazz Pharmaceuticals xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xc2ce8233bafa9724f6eab3435dfa96cda89bbe76",
+      "symbol": "LYBx",
+      "ticker": "LYB",
+      "name": "LyondellBasell Industries xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "LYBx",
+        "name": "LyondellBasell Industries xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x9bbe6aea725215fac44f523260b3373b78661299",
+      "symbol": "MWHx",
+      "ticker": "MWH",
+      "name": "SOLV Energy xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "MWHx",
+        "name": "SOLV Energy xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xef14e2ecba99e303c18759e5b71acfaac91212de",
+      "symbol": "NUx",
+      "ticker": "NU",
+      "name": "Nu xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "NUx",
+        "name": "Nu xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xbd8ee984ca75475161d38facbec2749276012737",
+      "symbol": "NVDLx",
+      "ticker": "NVDL",
+      "name": "GraniteShares 2x Long NVDA Daily ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "NVDLx",
+        "name": "GraniteShares 2x Long NVDA Daily ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x1b697167c29e146ad0eab857e57269114789049e",
+      "symbol": "OUSTx",
+      "ticker": "OUST",
+      "name": "Ouster xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "OUSTx",
+        "name": "Ouster xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x6fe11d98a4518a7d40c1b6f240d201ffdfe41aa3",
+      "symbol": "PBx",
+      "ticker": "PB",
+      "name": "Prosperity Bancshares xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "PBx",
+        "name": "Prosperity Bancshares xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x5a0b3434151e0f2d23608c949505a62e436aae86",
+      "symbol": "PDDx",
+      "ticker": "PDD",
+      "name": "PDD xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "PDDx",
+        "name": "PDD xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x0a7b870a1f09553c141cec33a764f1494b57ee61",
+      "symbol": "PENGx",
+      "ticker": "PENG",
+      "name": "Penguin Solutions xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "PENGx",
+        "name": "Penguin Solutions xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xab401aa3321ee1d3dd83ee664061605202b317f6",
+      "symbol": "PNRx",
+      "ticker": "PNR",
+      "name": "Pentair xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "PNRx",
+        "name": "Pentair xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xe3a094d72085157e9f69ac700a451a8af3c2d631",
+      "symbol": "RAMx",
+      "ticker": "RAM",
+      "name": "Roundhill T-REX 2X Long DRAM Daily Target ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "RAMx",
+        "name": "Roundhill T-REX 2X Long DRAM Daily Target ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x1814b734c5868dad190ddcc0aca4f59da235ce76",
+      "symbol": "RKTx",
+      "ticker": "RKT",
+      "name": "Rocket Companies xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "RKTx",
+        "name": "Rocket Companies xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x118bc7580d2ff916ce09c85e07f17d3223b75311",
+      "symbol": "RPRXx",
+      "ticker": "RPRX",
+      "name": "Royalty Pharma xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "RPRXx",
+        "name": "Royalty Pharma xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x4ef07a41093ace58af54ca91346477553d686033",
+      "symbol": "SHLDx",
+      "ticker": "SHLD",
+      "name": "Global X Defense Tech ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "SHLDx",
+        "name": "Global X Defense Tech ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x108db3b073343753b0ccdd0bd902abf6376dcac8",
+      "symbol": "SKDDx",
+      "ticker": "SKDD",
+      "name": "GraniteShares 2x Short SK Hynix Daily ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "SKDDx",
+        "name": "GraniteShares 2x Short SK Hynix Daily ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x6f659d89c556a3a2701e17ee05a47a2dc394825f",
+      "symbol": "SKUUx",
+      "ticker": "SKUU",
+      "name": "GraniteShares 2x Long SK Hynix Daily ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "SKUUx",
+        "name": "GraniteShares 2x Long SK Hynix Daily ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xb0c3e2929aa09c4c56009aafa5514ba475c1288d",
+      "symbol": "SPCHx",
+      "ticker": "SPCH",
+      "name": "Leverage Shares 2X Long SPCX Daily ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "SPCHx",
+        "name": "Leverage Shares 2X Long SPCX Daily ETF xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x4b1e8e2e9256cb35b5fe59fa63ae0f0fdc2b9b72",
+      "symbol": "SPXCx",
+      "ticker": "SPXC",
+      "name": "SPX Technologies xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "SPXCx",
+        "name": "SPX Technologies xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xe8ff2d2b9fd5099b70e535a53feb83048cf798f2",
+      "symbol": "SQQQx",
+      "ticker": "SQQQ",
+      "name": "ProShares UltraPro Short QQQ xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "SQQQx",
+        "name": "ProShares UltraPro Short QQQ xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xb84fb44fd817b38bad5690c7a3f260434c723a4c",
+      "symbol": "STEx",
+      "ticker": "STE",
+      "name": "Steris xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "STEx",
+        "name": "Steris xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xc9e5a5df9aeb1f36801a90e4179fb785b6566564",
+      "symbol": "USOx",
+      "ticker": "USO",
+      "name": "United States Oil Fund xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "USOx",
+        "name": "United States Oil Fund xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x8277c95a559bd1669b13e376c783fecacf05cc9b",
+      "symbol": "UWMCx",
+      "ticker": "UWMC",
+      "name": "UWM xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "UWMCx",
+        "name": "UWM xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x0e60b9d0f3f62f8f429dea2179e8d6b62bd127f0",
+      "symbol": "WTWx",
+      "ticker": "WTW",
+      "name": "Willis Towers Watson xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "WTWx",
+        "name": "Willis Towers Watson xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xc1ccf97dcd79e0edeaeb5cd80416ac243a4fbe52",
+      "symbol": "XBIx",
+      "ticker": "XBI",
+      "name": "State Street SPDR S&P Biotech ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "XBIx",
+        "name": "State Street SPDR S&P Biotech ETF xStock"
+      }
+    }
+  ],
+  "removed": [],
+  "changed": [],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0x285e1e3268557770f83083717e66a65250e9706e",
+      "symbol": "CKAHx",
+      "ticker": "1113",
+      "halted": false
+    },
+    {
+      "provider": "xstock",
+      "address": "0xe75aff5123d9de91a1c27167c6c01b1f5b1eab14",
+      "symbol": "ENHAx",
+      "ticker": "ENHA",
+      "halted": true
+    },
+    {
+      "provider": "xstock",
+      "address": "0x920ecdf6cb715424ff6bd609744721e4a6bac0b3",
+      "symbol": "KVUEx",
+      "ticker": "KVUE",
+      "halted": true
+    }
+  ],
+  "spot": [],
+  "bstockCandidates": [
+    {
+      "symbol": "AAPLB",
+      "likelyTicker": "AAPL",
+      "pair": "AAPLBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "ADBEB",
+      "likelyTicker": "ADBE",
+      "pair": "ADBEBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "AGPUB",
+      "likelyTicker": "AGPU",
+      "pair": "AGPUBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "ALABB",
+      "likelyTicker": "ALAB",
+      "pair": "ALABBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "AMATB",
+      "likelyTicker": "AMAT",
+      "pair": "AMATBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "AMCB",
+      "likelyTicker": "AMC",
+      "pair": "AMCBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "AMZNB",
+      "likelyTicker": "AMZN",
+      "pair": "AMZNBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "APPB",
+      "likelyTicker": "APP",
+      "pair": "APPBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "ASMLB",
+      "likelyTicker": "ASML",
+      "pair": "ASMLBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "ASTSB",
+      "likelyTicker": "ASTS",
+      "pair": "ASTSBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "BBB",
+      "likelyTicker": "BB",
+      "pair": "BBBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "BEB",
+      "likelyTicker": "BE",
+      "pair": "BEBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "BMNRB",
+      "likelyTicker": "BMNR",
+      "pair": "BMNRBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "BOTB",
+      "likelyTicker": "BOT",
+      "pair": "BOTBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "BRKBB",
+      "likelyTicker": "BRKB",
+      "pair": "BRKBBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "BSPB",
+      "likelyTicker": "BSP",
+      "pair": "BSPBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "COHRB",
+      "likelyTicker": "COHR",
+      "pair": "COHRBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "CRDOB",
+      "likelyTicker": "CRDO",
+      "pair": "CRDOBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "CRMB",
+      "likelyTicker": "CRM",
+      "pair": "CRMBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "CRWDB",
+      "likelyTicker": "CRWD",
+      "pair": "CRWDBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "CYPHB",
+      "likelyTicker": "CYPH",
+      "pair": "CYPHBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "DELLB",
+      "likelyTicker": "DELL",
+      "pair": "DELLBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "DJTB",
+      "likelyTicker": "DJT",
+      "pair": "DJTBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "FLNCB",
+      "likelyTicker": "FLNC",
+      "pair": "FLNCBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "FWDIB",
+      "likelyTicker": "FWDI",
+      "pair": "FWDIBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "GEVB",
+      "likelyTicker": "GEV",
+      "pair": "GEVBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "GMEB",
+      "likelyTicker": "GME",
+      "pair": "GMEBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "GPROB",
+      "likelyTicker": "GPRO",
+      "pair": "GPROBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "GSB",
+      "likelyTicker": "GS",
+      "pair": "GSBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "HIMSB",
+      "likelyTicker": "HIMS",
+      "pair": "HIMSBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "HPEB",
+      "likelyTicker": "HPE",
+      "pair": "HPEBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "IRENB",
+      "likelyTicker": "IREN",
+      "pair": "IRENBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "JPMB",
+      "likelyTicker": "JPM",
+      "pair": "JPMBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "KSTRB",
+      "likelyTicker": "KSTR",
+      "pair": "KSTRBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "LLYB",
+      "likelyTicker": "LLY",
+      "pair": "LLYBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "MDBB",
+      "likelyTicker": "MDB",
+      "pair": "MDBBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "MRNAB",
+      "likelyTicker": "MRNA",
+      "pair": "MRNABUSDT",
+      "new": true
+    },
+    {
+      "symbol": "NFLXB",
+      "likelyTicker": "NFLX",
+      "pair": "NFLXBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "PDDB",
+      "likelyTicker": "PDD",
+      "pair": "PDDBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "PENGB",
+      "likelyTicker": "PENG",
+      "pair": "PENGBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "PYPLB",
+      "likelyTicker": "PYPL",
+      "pair": "PYPLBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "RDDTB",
+      "likelyTicker": "RDDT",
+      "pair": "RDDTBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SECZB",
+      "likelyTicker": "SECZ",
+      "pair": "SECZBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SHAZB",
+      "likelyTicker": "SHAZ",
+      "pair": "SHAZBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SKDDB",
+      "likelyTicker": "SKDD",
+      "pair": "SKDDBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SKUUB",
+      "likelyTicker": "SKUU",
+      "pair": "SKUUBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SMCIB",
+      "likelyTicker": "SMCI",
+      "pair": "SMCIBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SMHB",
+      "likelyTicker": "SMH",
+      "pair": "SMHBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SOXSB",
+      "likelyTicker": "SOXS",
+      "pair": "SOXSBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "SQQQB",
+      "likelyTicker": "SQQQ",
+      "pair": "SQQQBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "STXB",
+      "likelyTicker": "STX",
+      "pair": "STXBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "TMFB",
+      "likelyTicker": "TMF",
+      "pair": "TMFBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "USARB",
+      "likelyTicker": "USAR",
+      "pair": "USARBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "USDEB",
+      "likelyTicker": "USDE",
+      "pair": "USDEBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "UVXYB",
+      "likelyTicker": "UVXY",
+      "pair": "UVXYBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "VSTB",
+      "likelyTicker": "VST",
+      "pair": "VSTBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "WENB",
+      "likelyTicker": "WEN",
+      "pair": "WENBUSDT",
+      "new": true
+    },
+    {
+      "symbol": "ZMB",
+      "likelyTicker": "ZM",
+      "pair": "ZMBUSDT",
+      "new": true
+    }
+  ],
+  "productUpdates": [
+    {
+      "date": "2026-11-13",
+      "title": "Daily change report",
+      "detail": "Mintmark now publishes a daily report of new, removed, halted, and changed tokenized-stock identities across Ondo, bStocks, and xStocks on BNB Chain."
+    },
+    {
+      "date": "2026-11-13",
+      "title": "Checked Binance Spot routes",
+      "detail": "bStocks records show a Binance Spot route only when a stored check found the exact pair trading. Records with a PancakeSwap pool now show both routes."
+    }
+  ]
+}

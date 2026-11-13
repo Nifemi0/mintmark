@@ -8,6 +8,7 @@ import { buildCompanyReport, buildTokenMarketCoverage } from './report.mjs';
 import { mapWalletHoldings } from './wallet.mjs';
 import { getDexRoute } from './dex.mjs';
 import { spotRouteFor } from './spot.mjs';
+import { isReportDate, renderRss } from './daily-report.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const snapshot = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
@@ -16,6 +17,13 @@ const spotPath = path.join(root, 'data', 'binance-spot.json');
 const spotCheck = existsSync(spotPath) ? JSON.parse(await readFile(spotPath, 'utf8')) : null;
 const baseRecords = normalizeRecords(snapshot.records).map((record) => ({ ...record, binanceSpot: spotRouteFor(record, spotCheck) }));
 for (const record of baseRecords) for (const evidence of record.evidence) classifyEvidence(evidence.kind);
+
+const reportsDir = path.join(root, 'data', 'reports');
+const siteUrl = 'https://mintmark.nuvixes.studio';
+async function readReportFile(name) {
+  const file = path.join(reportsDir, name);
+  return existsSync(file) ? JSON.parse(await readFile(file, 'utf8')) : null;
+}
 
 let binanceCache = { until: 0, result: null, promise: null };
 const reportCache = new Map();
@@ -112,6 +120,9 @@ const staticFiles = new Map([
   ['/method/', ['method.html', 'text/html; charset=utf-8']],
   ['/docs', ['docs.html', 'text/html; charset=utf-8']],
   ['/docs/', ['docs.html', 'text/html; charset=utf-8']],
+  ['/reports', ['reports.html', 'text/html; charset=utf-8']],
+  ['/reports/', ['reports.html', 'text/html; charset=utf-8']],
+  ['/reports.js', ['reports.js', 'text/javascript; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
@@ -128,6 +139,24 @@ export default async function handleRequest(request, response) {
       status: 'ok', count: baseRecords.length, snapshotAt: snapshot.generatedAt,
       checkedAt: new Date().toISOString(), binanceConfigured: hasBinanceCredentials(),
     });
+    if (url.pathname === '/api/reports') {
+      const index = await readReportFile('index.json');
+      return sendJson(response, 200, { reports: index?.reports ?? [] });
+    }
+    if (url.pathname === '/api/reports/feed.xml') {
+      const index = await readReportFile('index.json');
+      response.writeHead(200, { 'content-type': 'application/rss+xml; charset=utf-8', 'cache-control': 'public, max-age=600' });
+      response.end(renderRss(index, siteUrl));
+      return;
+    }
+    if (url.pathname === '/api/daily-report') {
+      const index = await readReportFile('index.json');
+      const date = url.searchParams.get('date') ?? index?.reports?.[0]?.date;
+      if (!date) return sendJson(response, 404, { error: 'No daily report has been published yet.' });
+      if (!isReportDate(date)) return sendJson(response, 400, { error: 'Use a report date in YYYY-MM-DD format.' });
+      const report = await readReportFile(`${date}.json`);
+      return report ? sendJson(response, 200, { report }) : sendJson(response, 404, { error: 'No daily report for that date.' });
+    }
     if (url.pathname === '/api/records') {
       const { records, binance } = await currentRecords();
       const query = url.searchParams.get('q') ?? '';

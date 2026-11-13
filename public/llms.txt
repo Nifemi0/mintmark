@@ -46,3 +46,4 @@ Source code: https://github.com/Nifemi0/mintmark
 - xStocks public asset API: https://docs.xstocks.fi/apis/openapi/assets/list_public_assets
 
 The catalog is a dated snapshot. Contract checks establish contract responses, not backing or equivalence between provider products. Mintmark does not execute transactions, place orders, hold funds, or give investment advice.
+- Daily report: `/reports` shows what changed upstream each day (new, removed, changed, and halted tokens; Binance Spot pair changes; unconfirmed bStocks candidates). JSON: `/api/reports` (index) and `/api/daily-report?date=YYYY-MM-DD` (omit `date` for the latest). RSS: `/api/reports/feed.xml`. A report lists provider observations; registry records change only after review.
