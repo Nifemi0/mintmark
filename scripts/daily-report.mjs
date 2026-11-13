@@ -157,7 +157,8 @@ await mkdir(reportsDir, { recursive: true });
 await mkdir(stateDir, { recursive: true });
 await writeFile(path.join(reportsDir, `${report.date}.json`), `${JSON.stringify(report, null, 2)}\n`);
 await writeFile(path.join(reportsDir, 'index.json'), `${JSON.stringify(upsertIndex(index, report), null, 2)}\n`);
-await writeFile(observationFile, `${JSON.stringify({ date: today, baseline: previous, observation: current })}\n`);
+// Pretty-printed so daily commits store small diffs.
+await writeFile(observationFile, `${JSON.stringify({ date: today, baseline: previous, observation: current }, null, 1)}\n`);
 
 console.log(`Report ${report.date}: ${report.headline}`);
 console.log(`bStocks contracts: ${report.bstockSource === 'binance_rwa' ? 'checked with Binance RWA data' : 'not checked (Binance credentials not configured)'}`);

@@ -28,24 +28,36 @@ jobs:
           OC_SECRET_KEY: ${{ secrets.OC_SECRET_KEY }}
         run: npm run report
       - run: npm test
-      - name: Open a draft pull request for review
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Decide whether the report needs a person
+        id: check
+        run: node scripts/report-decision.mjs
+      - name: Commit the report
         run: |
-          date="$(node -p "require('./data/reports/index.json').reports[0].date")"
-          headline="$(node -p "require('./data/reports/index.json').reports[0].headline")"
-          branch="report/${date}"
           git config user.name "Nifemi0"
           git config user.email "Nifemi0@github.com"
-          git checkout -B "$branch"
           git add data/reports data/state
-          if git diff --cached --quiet; then echo "No report changes."; exit 0; fi
-          git commit -m "Daily report ${date}"
-          git push --force origin "$branch"
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git commit -m "Daily report ${{ steps.check.outputs.date }}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+        id: commit
+      - name: Publish a normal report
+        if: steps.commit.outputs.changed == 'true' && steps.check.outputs.decision == 'publish'
+        env:
+          DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          git push origin HEAD:main
+          if [ -n "$DEPLOY_HOOK" ]; then curl -fsS -X POST "$DEPLOY_HOOK" > /dev/null && echo "Vercel deploy started."
+          else echo "::warning::VERCEL_DEPLOY_HOOK is not set; the report is on main but not deployed."; fi
+      - name: Hold an unusual report for review
+        if: steps.commit.outputs.changed == 'true' && steps.check.outputs.decision == 'review'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REASONS: ${{ steps.check.outputs.reasons }}
+          DATE: ${{ steps.check.outputs.date }}
+        run: |
+          branch="report/${DATE}"
+          git push --force origin "HEAD:refs/heads/${branch}"
           if [ -z "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
-            gh pr create --draft --base main --head "$branch" \
-              --title "Daily report ${date}" \
-              --body "${headline}
-
-          Review the report in \`data/reports/${date}.json\`. Merging publishes it on the next production deploy."
+            gh pr create --base main --head "$branch" --title "Daily report ${DATE} needs a look" \
+              --body "This report was not published automatically: ${REASONS}. Check data/reports/${DATE}.json, then merge to publish or close to skip."
           fi

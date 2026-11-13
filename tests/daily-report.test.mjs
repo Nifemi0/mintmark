@@ -86,3 +86,18 @@ test('report API serves the index, the latest report, and rejects bad dates', as
   assert.match(feed.headers['content-type'], /rss/);
   assert.equal((await call('/reports')).status, 200);
 });
+
+test('reports publish automatically unless they look like an outage or mass change', async () => {
+  const { reviewReasons } = await import('../daily-report.mjs');
+  const report = (removed, extra = {}) => ({
+    summary: { changed: 0, halts: 0, byProvider: { ondo: { live: 474 - removed, added: 0, removed }, bstock: { live: 46, added: 0, removed: 0 }, xstock: { live: 1417, added: 0, removed: 0 } }, ...extra },
+    added: [],
+  });
+  assert.deepEqual(reviewReasons(report(0)), []);
+  assert.deepEqual(reviewReasons(report(3)), []);
+  assert.match(reviewReasons(report(12))[0], /Ondo: 12 tokens no longer listed/);
+  assert.match(reviewReasons(report(0, { changed: 30 }))[0], /30 identity changes/);
+  const odd = report(0);
+  odd.added = [{ symbol: 'NEWon', onchain: { state: 'checked', symbol: 'OTHER' } }];
+  assert.match(reviewReasons(odd)[0], /different onchain symbol/);
+});

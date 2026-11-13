@@ -175,3 +175,21 @@ export function renderRss(index, siteUrl) {
   }).join('');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Mintmark daily report</title><link>${xml(`${siteUrl}/reports`)}</link><description>Daily changes to tokenized-stock identities on BNB Smart Chain across Ondo, bStocks, and xStocks.</description>${items}</channel></rss>\n`;
 }
+
+// A report publishes automatically unless it looks like a provider outage or a
+// mass change, which a person should look at first.
+export function reviewReasons(report, previousLive = {}) {
+  const reasons = [];
+  for (const [provider, counts] of Object.entries(report.summary.byProvider)) {
+    const before = previousLive[provider] ?? counts.live + counts.removed - counts.added;
+    if (counts.removed >= 10 || (before > 0 && counts.removed / before > 0.05)) {
+      reasons.push(`${PROVIDER_LABELS[provider]}: ${counts.removed} tokens no longer listed`);
+    }
+  }
+  if (report.summary.changed >= 25) reasons.push(`${report.summary.changed} identity changes in one day`);
+  if (report.summary.halts >= 25) reasons.push(`${report.summary.halts} halt changes in one day`);
+  const unreadable = report.added.filter((item) => item.onchain?.state === 'no_bytecode'
+    || (item.onchain?.state === 'checked' && item.onchain.symbol !== item.symbol));
+  if (unreadable.length) reasons.push(`${unreadable.length} new contract${unreadable.length === 1 ? '' : 's'} missing on BSC or with a different onchain symbol`);
+  return reasons;
+}
