@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-14",
+  "generatedAt": "2026-11-14T12:16:23.409Z",
+  "baseline": {
+    "since": "2026-11-13T14:38:12.197Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-13"
+  },
+  "catalogSnapshotAt": "2026-11-13T14:36:49.623Z",
+  "bstockSource": "not_checked",
+  "headline": "No upstream changes since the last report.",
+  "summary": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0,
+    "halts": 0,
+    "spot": 0,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1417,
+        "added": 0,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 0,
+      "changed": 0,
+      "halts": 0
+    }
+  },
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "halts": [],
+  "spot": [],
+  "bstockCandidates": [
+    {
+      "symbol": "AAPLB",
+      "likelyTicker": "AAPL",
+      "pair": "AAPLBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "ADBEB",
+      "likelyTicker": "ADBE",
+      "pair": "ADBEBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "AGPUB",
+      "likelyTicker": "AGPU",
+      "pair": "AGPUBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "ALABB",
+      "likelyTicker": "ALAB",
+      "pair": "ALABBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "AMATB",
+      "likelyTicker": "AMAT",
+      "pair": "AMATBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "AMCB",
+      "likelyTicker": "AMC",
+      "pair": "AMCBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "AMZNB",
+      "likelyTicker": "AMZN",
+      "pair": "AMZNBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "APPB",
+      "likelyTicker": "APP",
+      "pair": "APPBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "ASMLB",
+      "likelyTicker": "ASML",
+      "pair": "ASMLBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "ASTSB",
+      "likelyTicker": "ASTS",
+      "pair": "ASTSBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "BBB",
+      "likelyTicker": "BB",
+      "pair": "BBBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "BEB",
+      "likelyTicker": "BE",
+      "pair": "BEBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "BMNRB",
+      "likelyTicker": "BMNR",
+      "pair": "BMNRBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "BOTB",
+      "likelyTicker": "BOT",
+      "pair": "BOTBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "BRKBB",
+      "likelyTicker": "BRKB",
+      "pair": "BRKBBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "BSPB",
+      "likelyTicker": "BSP",
+      "pair": "BSPBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "COHRB",
+      "likelyTicker": "COHR",
+      "pair": "COHRBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "CRDOB",
+      "likelyTicker": "CRDO",
+      "pair": "CRDOBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "CRMB",
+      "likelyTicker": "CRM",
+      "pair": "CRMBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "CRWDB",
+      "likelyTicker": "CRWD",
+      "pair": "CRWDBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "CYPHB",
+      "likelyTicker": "CYPH",
+      "pair": "CYPHBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "DELLB",
+      "likelyTicker": "DELL",
+      "pair": "DELLBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "DJTB",
+      "likelyTicker": "DJT",
+      "pair": "DJTBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "FLNCB",
+      "likelyTicker": "FLNC",
+      "pair": "FLNCBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "FWDIB",
+      "likelyTicker": "FWDI",
+      "pair": "FWDIBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "GEVB",
+      "likelyTicker": "GEV",
+      "pair": "GEVBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "GMEB",
+      "likelyTicker": "GME",
+      "pair": "GMEBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "GPROB",
+      "likelyTicker": "GPRO",
+      "pair": "GPROBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "GSB",
+      "likelyTicker": "GS",
+      "pair": "GSBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "HIMSB",
+      "likelyTicker": "HIMS",
+      "pair": "HIMSBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "HPEB",
+      "likelyTicker": "HPE",
+      "pair": "HPEBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "IRENB",
+      "likelyTicker": "IREN",
+      "pair": "IRENBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "JPMB",
+      "likelyTicker": "JPM",
+      "pair": "JPMBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "KSTRB",
+      "likelyTicker": "KSTR",
+      "pair": "KSTRBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "LLYB",
+      "likelyTicker": "LLY",
+      "pair": "LLYBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "MDBB",
+      "likelyTicker": "MDB",
+      "pair": "MDBBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "MRNAB",
+      "likelyTicker": "MRNA",
+      "pair": "MRNABUSDT",
+      "new": false
+    },
+    {
+      "symbol": "NFLXB",
+      "likelyTicker": "NFLX",
+      "pair": "NFLXBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "PDDB",
+      "likelyTicker": "PDD",
+      "pair": "PDDBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "PENGB",
+      "likelyTicker": "PENG",
+      "pair": "PENGBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "PYPLB",
+      "likelyTicker": "PYPL",
+      "pair": "PYPLBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "RDDTB",
+      "likelyTicker": "RDDT",
+      "pair": "RDDTBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SECZB",
+      "likelyTicker": "SECZ",
+      "pair": "SECZBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SHAZB",
+      "likelyTicker": "SHAZ",
+      "pair": "SHAZBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SKDDB",
+      "likelyTicker": "SKDD",
+      "pair": "SKDDBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SKUUB",
+      "likelyTicker": "SKUU",
+      "pair": "SKUUBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SMCIB",
+      "likelyTicker": "SMCI",
+      "pair": "SMCIBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SMHB",
+      "likelyTicker": "SMH",
+      "pair": "SMHBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SOXSB",
+      "likelyTicker": "SOXS",
+      "pair": "SOXSBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "SQQQB",
+      "likelyTicker": "SQQQ",
+      "pair": "SQQQBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "STXB",
+      "likelyTicker": "STX",
+      "pair": "STXBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "TMFB",
+      "likelyTicker": "TMF",
+      "pair": "TMFBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "USARB",
+      "likelyTicker": "USAR",
+      "pair": "USARBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "USDEB",
+      "likelyTicker": "USDE",
+      "pair": "USDEBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "UVXYB",
+      "likelyTicker": "UVXY",
+      "pair": "UVXYBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "VSTB",
+      "likelyTicker": "VST",
+      "pair": "VSTBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "WENB",
+      "likelyTicker": "WEN",
+      "pair": "WENBUSDT",
+      "new": false
+    },
+    {
+      "symbol": "ZMB",
+      "likelyTicker": "ZM",
+      "pair": "ZMBUSDT",
+      "new": false
+    }
+  ],
+  "productUpdates": []
+}

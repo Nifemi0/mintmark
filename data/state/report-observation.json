@@ -1,143 +1,18 @@
 {
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "baseline": {
-  "observedAt": "2026-10-27T12:40:33.242Z",
-  "source": "catalog",
+  "observedAt": "2026-11-13T14:38:12.197Z",
+  "source": "upstream",
   "ondo": {
-   "0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4": {
-    "symbol": "AAPLon",
-    "ticker": "AAPL",
-    "name": "Apple (Ondo Tokenized)"
-   },
-   "0xa9ee28c80f960b889dfbd1902055218cba016f75": {
-    "symbol": "NVDAon",
-    "ticker": "NVDA",
-    "name": "NVIDIA (Ondo Tokenized)"
-   },
-   "0x6bfe75d1ad432050ea973c3a3dcd88f02e2444c3": {
-    "symbol": "MSFTon",
-    "ticker": "MSFT",
-    "name": "Microsoft (Ondo Tokenized)"
-   },
-   "0x091fc7778e6932d4009b087b191d1ee3bac5729a": {
-    "symbol": "GOOGLon",
-    "ticker": "GOOGL",
-    "name": "Alphabet Class A (Ondo Tokenized)"
-   },
-   "0xd7df5863a3e742f0c767768cdfcb63f09e0422f6": {
-    "symbol": "METAon",
-    "ticker": "META",
-    "name": "Meta Platforms (Ondo Tokenized)"
-   },
-   "0x9f16e46c73b43bdb70861247d537bee4ea18f639": {
-    "symbol": "AMDon",
-    "ticker": "AMD",
-    "name": "AMD (Ondo Tokenized)"
-   },
-   "0x9351abd19f42101dd36025e495b98e910b255d78": {
-    "symbol": "PLTRon",
-    "ticker": "PLTR",
-    "name": "Palantir Technologies (Ondo Tokenized)"
-   },
-   "0x317bf42b43a394860718266dec445dcc9fd9da49": {
-    "symbol": "JPMon",
-    "ticker": "JPM",
-    "name": "JPMorgan Chase (Ondo Tokenized)"
-   },
-   "0x1cde419fae0ef7f7931ae3e29e5f411c8c5e5fa1": {
-    "symbol": "Von",
-    "ticker": "V",
-    "name": "Visa (Ondo Tokenized)"
-   },
-   "0xf8589b526fdd65f7f301c605a6e04f0f1b4b3620": {
-    "symbol": "COINon",
-    "ticker": "COIN",
-    "name": "Coinbase (Ondo Tokenized)"
-   },
-   "0x4553cfe1c09f37f38b12dc509f676964e392f8fc": {
-    "symbol": "AMZNon",
-    "ticker": "AMZN",
-    "name": "Amazon (Ondo Tokenized)"
-   },
-   "0x2494b603319d4d9f9715c9f4496d9e0364b59d93": {
-    "symbol": "TSLAon",
-    "ticker": "TSLA",
-    "name": "Tesla (Ondo Tokenized)"
-   },
-   "0xa7d1e886acf66ec0656df2decb4b7c893a3bab4c": {
-    "symbol": "WMTon",
-    "ticker": "WMT",
-    "name": "Walmart (Ondo Tokenized)"
-   },
-   "0x34375f826fd3dd4e15f883d4f4786bb45eb705ac": {
-    "symbol": "COSTon",
-    "ticker": "COST",
-    "name": "Costco (Ondo Tokenized)"
-   },
-   "0xeee9eee593cb8f7946260b4066cba7907f40acfa": {
-    "symbol": "DISon",
-    "ticker": "DIS",
-    "name": "Disney (Ondo Tokenized)"
-   },
-   "0x7048f5227b032326cc8dbc53cf3fddd947a2c757": {
-    "symbol": "NFLXon",
-    "ticker": "NFLX",
-    "name": "Netflix (Ondo Tokenized)"
-   },
-   "0x341d31b2be1fee9c00e395a62ba41837f4322eed": {
-    "symbol": "LLYon",
-    "ticker": "LLY",
-    "name": "Eli Lilly (Ondo Tokenized)"
-   },
-   "0xd1f799cb9f5d0a02951b0755beced6c43882712f": {
-    "symbol": "JNJon",
-    "ticker": "JNJ",
-    "name": "Johnson & Johnson (Ondo Tokenized)"
-   },
-   "0x4d209d275e3492ac08497a7a42915899c4dd5e86": {
-    "symbol": "XOMon",
-    "ticker": "XOM",
-    "name": "Exxon Mobil (Ondo Tokenized)"
-   },
-   "0xd3113a0ad20a46f6a662c63fe8e637f7713e59c7": {
-    "symbol": "CVXon",
-    "ticker": "CVX",
-    "name": "Chevron (Ondo Tokenized)"
-   },
-   "0x6a708ead771238919d85930b5a0f10454e1c331a": {
-    "symbol": "SPYon",
-    "ticker": "SPY",
-    "name": "SPDR S&P 500 ETF (Ondo Tokenized)"
-   },
-   "0x0cde6936d305d5b34667fc46425e852efd73559a": {
-    "symbol": "QQQon",
-    "ticker": "QQQ",
-    "name": "Invesco QQQ (Ondo Tokenized)"
-   },
-   "0x500eafc69b68acd6f27064f9b75f1c7d91cc4d9f": {
-    "symbol": "IWMon",
-    "ticker": "IWM",
-    "name": "iShares Russell 2000 ETF (Ondo Tokenized)"
-   },
-   "0xfa9a1e901085e269f6d428f79cd5252d8b919344": {
-    "symbol": "GLDon",
-    "ticker": "GLD",
-    "name": "SPDR Gold Shares (Ondo Tokenized)"
-   },
    "0x02d608506ca0048d0d991a11f1e7fb8cad1e44f8": {
     "symbol": "AALon",
     "ticker": "AAL",
     "name": "American Airlines Group (Ondo Tokenized)"
    },
-   "0x149bda9e7251dc36f536d1fe7f92a5ea203f4f3d": {
-    "symbol": "AAOIon",
-    "ticker": "AAOI",
-    "name": "Applied Optoelectronics (Ondo Tokenized)"
-   },
-   "0x0b61036b5182a29a228d8ed9e647a16f62bad1bc": {
-    "symbol": "AAONon",
-    "ticker": "AAON",
-    "name": "AAON (Ondo Tokenized)"
+   "0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4": {
+    "symbol": "AAPLon",
+    "ticker": "AAPL",
+    "name": "Apple (Ondo Tokenized)"
    },
    "0x8677abad7b458bf16a0fb2676dfc7d3f55ac202a": {
     "symbol": "ABBVon",
@@ -159,16 +34,6 @@
     "ticker": "ACHR",
     "name": "Archer Aviation (Ondo Tokenized)"
    },
-   "0xf2e14fce9259c8a7903c4be5326058ae2d004fc7": {
-    "symbol": "ACLSon",
-    "ticker": "ACLS",
-    "name": "Axcelis Technologies (Ondo Tokenized)"
-   },
-   "0xc5efd0c3a8ff6d9816da7b56625ab4c398eb9e08": {
-    "symbol": "ACMRon",
-    "ticker": "ACMR",
-    "name": "ACM Research (Ondo Tokenized)"
-   },
    "0x7af44d51d1fb88c5b74fc71d3cba649bb8099d14": {
     "symbol": "ACNon",
     "ticker": "ACN",
@@ -184,50 +49,15 @@
     "ticker": "ADI",
     "name": "Analog Devices (Ondo Tokenized)"
    },
-   "0xdce0957e22f7baf2aa1a50d854e03cee6f215004": {
-    "symbol": "AEHRon",
-    "ticker": "AEHR",
-    "name": "Aehr Test Systems (Ondo Tokenized)"
-   },
-   "0xa2a97e3d6140e8ccd058f3b84230f3e1a349b1a3": {
-    "symbol": "AGon",
-    "ticker": "AG",
-    "name": "First Majestic Silver (Ondo Tokenized)"
-   },
    "0x08ce97f3d5cf11e577d091ab048bc5e2eae3fabb": {
     "symbol": "AGGon",
     "ticker": "AGG",
     "name": "iShares Core US Aggregate Bond ETF (Ondo Tokenized)"
    },
-   "0xbb8c10f7e828e3279df8cc3397a5212f845c509b": {
-    "symbol": "AIon",
-    "ticker": "AI",
-    "name": "C3.ai (Ondo Tokenized)"
-   },
-   "0xae922b6cc2371b6dce592a82fac15ef890a7d467": {
-    "symbol": "AIPon",
-    "ticker": "AIP",
-    "name": "Arteris (Ondo Tokenized)"
-   },
-   "0x333932f15e6e14f4a630163d3224548a721ddfa4": {
-    "symbol": "AIQon",
-    "ticker": "AIQ",
-    "name": "Global X Artificial Intelligence & Technology ETF (Ondo Tokenized)"
-   },
-   "0x573e11cc667a8e5be0c7af2410403371088d3d0d": {
-    "symbol": "ALABon",
-    "ticker": "ALAB",
-    "name": "Astera Labs (Ondo Tokenized)"
-   },
    "0x0b790abd6594918de1022233b7cc79badb84d92a": {
     "symbol": "ALBon",
     "ticker": "ALB",
     "name": "Albemarle (Ondo Tokenized)"
-   },
-   "0x941e3a7a6fc97b094c63a0348367cf90d93ff090": {
-    "symbol": "ALOYon",
-    "ticker": "ALOY",
-    "name": "REalloys (Ondo Tokenized)"
    },
    "0x5ecc352c4640f1d26bd231dbbd171f40f7d0eec6": {
     "symbol": "AMATon",
@@ -239,35 +69,25 @@
     "ticker": "AMC",
     "name": "AMC Entertainment (Ondo Tokenized)"
    },
-   "0x7a5bd36047a9d15c90fa79b0654de8dd9d6ebbb1": {
-    "symbol": "AMEon",
-    "ticker": "AME",
-    "name": "AMETEK (Ondo Tokenized)"
+   "0x9f16e46c73b43bdb70861247d537bee4ea18f639": {
+    "symbol": "AMDon",
+    "ticker": "AMD",
+    "name": "AMD (Ondo Tokenized)"
    },
    "0xfbdf0366f800cc79d6663da26bc0bf21fb455aa6": {
     "symbol": "AMGNon",
     "ticker": "AMGN",
     "name": "Amgen (Ondo Tokenized)"
    },
-   "0xb84e150a1d18380cfeeebcde8756368dd489a1a3": {
-    "symbol": "AMKRon",
-    "ticker": "AMKR",
-    "name": "Amkor Technology (Ondo Tokenized)"
+   "0x4553cfe1c09f37f38b12dc509f676964e392f8fc": {
+    "symbol": "AMZNon",
+    "ticker": "AMZN",
+    "name": "Amazon (Ondo Tokenized)"
    },
    "0x538e2838f9ebc9b891399df4a8dcc42890d9dc20": {
     "symbol": "ANETon",
     "ticker": "ANET",
     "name": "Arista Networks (Ondo Tokenized)"
-   },
-   "0x55b8cc618c4209a97250dff926d3d708814d36aa": {
-    "symbol": "AOSLon",
-    "ticker": "AOSL",
-    "name": "Alpha and Omega Semiconductor (Ondo Tokenized)"
-   },
-   "0x70afc3a600f843d2018df16b0b316e4bc9c603e9": {
-    "symbol": "APHon",
-    "ticker": "APH",
-    "name": "Amphenol (Ondo Tokenized)"
    },
    "0x18de24acb876c0b8392d9c55583bb21c0355980b": {
     "symbol": "APLDon",
@@ -284,20 +104,10 @@
     "ticker": "APP",
     "name": "AppLovin (Ondo Tokenized)"
    },
-   "0x2b08f1c28cb1ede3b11d397929f00215fa97ecfa": {
-    "symbol": "ARGTon",
-    "ticker": "ARGT",
-    "name": "Global X MSCI Argentina ETF (Ondo Tokenized)"
-   },
    "0x527c6436e1eaa4f2065cde4090f798cb5d031dd6": {
     "symbol": "ARMon",
     "ticker": "ARM",
     "name": "Arm Holdings plc (Ondo Tokenized)"
-   },
-   "0x1161989389a991532dce453d04d6346c2581c907": {
-    "symbol": "ARQQon",
-    "ticker": "ARQQ",
-    "name": "Arqit Quantum (Ondo Tokenized)"
    },
    "0xb034f6cb52b7f2fd5a7eeeffca6b9adcd6b9a6f6": {
     "symbol": "ASMLon",
@@ -309,16 +119,6 @@
     "ticker": "ASTS",
     "name": "AST SpaceMobile (Ondo Tokenized)"
    },
-   "0xafaa2087093b7b396adab8216506d9066c6a6f13": {
-    "symbol": "ATKRon",
-    "ticker": "ATKR",
-    "name": "Atkore (Ondo Tokenized)"
-   },
-   "0x66a1409fe303d00209202933e3d31ee43aaab39d": {
-    "symbol": "AURon",
-    "ticker": "AUR",
-    "name": "Aurora Innovation (Ondo Tokenized)"
-   },
    "0x0ed2e3180edf393e6bf8db124bd15ddd54de150a": {
     "symbol": "AVGOon",
     "ticker": "AVGO",
@@ -328,16 +128,6 @@
     "symbol": "AXPon",
     "ticker": "AXP",
     "name": "American Express (Ondo Tokenized)"
-   },
-   "0x0c50323af81d5c33822c6add256fb9093d42bc74": {
-    "symbol": "AXTIon",
-    "ticker": "AXTI",
-    "name": "AXT (Ondo Tokenized)"
-   },
-   "0xf21132a811ad1a878e21af60f64d4e690c9daa42": {
-    "symbol": "BAon",
-    "ticker": "BA",
-    "name": "Boeing (Ondo Tokenized)"
    },
    "0xd5964f3fcee8d649995ab88f04b8982539c282d2": {
     "symbol": "BABAon",
@@ -349,30 +139,20 @@
     "ticker": "BAC",
     "name": "Bank of America (Ondo Tokenized)"
    },
-   "0x2659dd96def34ced3679901e5500779be297fe5a": {
-    "symbol": "BAIon",
-    "ticker": "BAI",
-    "name": "iShares A.I. Innovation and Tech Active ETF (Ondo Tokenized)"
+   "0xf21132a811ad1a878e21af60f64d4e690c9daa42": {
+    "symbol": "BAon",
+    "ticker": "BA",
+    "name": "Boeing (Ondo Tokenized)"
    },
    "0x7ba995f1662a01f3be0dc299ce94bb7e9c7075f5": {
     "symbol": "BBAIon",
     "ticker": "BBAI",
     "name": "BigBear.ai Holdings (Ondo Tokenized)"
    },
-   "0x17d03ae104a9d12e9e5794efb109b817dd7f3404": {
-    "symbol": "BEon",
-    "ticker": "BE",
-    "name": "Bloom Energy (Ondo Tokenized)"
-   },
    "0x467e59ce5d5fe01686d4a80dd1e1dae13549aa6c": {
     "symbol": "BIDUon",
     "ticker": "BIDU",
     "name": "Baidu (Ondo Tokenized)"
-   },
-   "0x03f09e2ef6e64d804a5579e21e7b519db174cf54": {
-    "symbol": "BILon",
-    "ticker": "BIL",
-    "name": "SPDR Bloomberg 1-3 Month T-Bill ETF (Ondo Tokenized)"
    },
    "0x91fc7371d6de682a1e8cfcb4eb7da693312a03a4": {
     "symbol": "BILIon",
@@ -383,16 +163,6 @@
     "symbol": "BINCon",
     "ticker": "BINC",
     "name": "iShares Flexible Income Active ETF (Ondo Tokenized)"
-   },
-   "0x2291e5361f4ef7bb0d6703377bf497bfe4325152": {
-    "symbol": "BKCHon",
-    "ticker": "BKCH",
-    "name": "Global X Blockchain ETF (Ondo Tokenized)"
-   },
-   "0x398ae5b33505f121c359f22b300fbcfa81db79ae": {
-    "symbol": "BLCRon",
-    "ticker": "BLCR",
-    "name": "iShares Large Cap Core Active ETF (Ondo Tokenized)"
    },
    "0x24f5471183ea549987f245d6ce236b6108869c92": {
     "symbol": "BLKon",
@@ -414,36 +184,6 @@
     "ticker": "BNO",
     "name": "US Brent Oil Fund (Ondo Tokenized)"
    },
-   "0xc43ae29afe58bf90da6fe3edd570c2e735fb2850": {
-    "symbol": "BOTon",
-    "ticker": "BOT",
-    "name": "RoboStrategy (Ondo Tokenized)"
-   },
-   "0xb42f5597eadd424de67b46fe5d1ec4b61367a4e5": {
-    "symbol": "BOTZon",
-    "ticker": "BOTZ",
-    "name": "Global X Robotics & Artificial Intelligence ETF (Ondo Tokenized)"
-   },
-   "0x6860a2f969a8133a23421ddce21397995139d7e8": {
-    "symbol": "BRHYon",
-    "ticker": "BRHY",
-    "name": "iShares High Yield Active ETF (Ondo Tokenized)"
-   },
-   "0xd41829dec8b51119176ee0a6b73bc8b2718546a9": {
-    "symbol": "BRLNon",
-    "ticker": "BRLN",
-    "name": "iShares Floating Rate Loan Active ETF (Ondo Tokenized)"
-   },
-   "0x463196cc72cbad2d1ac1896cde0766bfbbd64443": {
-    "symbol": "BRTRon",
-    "ticker": "BRTR",
-    "name": "iShares Total Return Active ETF (Ondo Tokenized)"
-   },
-   "0x3a562836afb1026f5d7a6b6da1125d27fdfee372": {
-    "symbol": "BTDRon",
-    "ticker": "BTDR",
-    "name": "Bitdeer Technologies (Ondo Tokenized)"
-   },
    "0xe2ac868f2fd097086d83bc939248e5ae08d35da4": {
     "symbol": "BTGon",
     "ticker": "BTG",
@@ -454,25 +194,10 @@
     "ticker": "BTGO",
     "name": "BitGo Holdings (Ondo Tokenized)"
    },
-   "0x472f46c5d7409c82234701eff7d4dda4c28b5a93": {
-    "symbol": "BWETon",
-    "ticker": "BWET",
-    "name": "Breakwave Tanker Shipping ETF (Ondo Tokenized)"
-   },
    "0xc2c7fcddc37f6737ca2481ebda6b81ee279fe20c": {
     "symbol": "BZon",
     "ticker": "BZ",
     "name": "Kanzhun (Ondo Tokenized)"
-   },
-   "0x8ddb97556f6ae98b4d408c56b167139fe1cbe3e8": {
-    "symbol": "Con",
-    "ticker": "C",
-    "name": "Citigroup (Ondo Tokenized)"
-   },
-   "0xc2f65e745fd13af1d00d5c81dd33f762fb81c264": {
-    "symbol": "CAMTon",
-    "ticker": "CAMT",
-    "name": "Camtek (Ondo Tokenized)"
    },
    "0x812fc2943371c952c6c8daf99fe665eb0e40cd27": {
     "symbol": "CAPRon",
@@ -484,45 +209,20 @@
     "ticker": "CAT",
     "name": "Caterpillar (Ondo Tokenized)"
    },
-   "0x441a4d4fc23f17f4cf23e3d60f12d2bd6f176728": {
-    "symbol": "CBRSon",
-    "ticker": "CBRS",
-    "name": "Cerebras Systems (Ondo Tokenized)"
-   },
-   "0xa75f08b9a91439daac9cc7072857cc0a98cf527a": {
-    "symbol": "CCJon",
-    "ticker": "CCJ",
-    "name": "Cameco (Ondo Tokenized)"
-   },
    "0x65d84f0990b7394209d591380c2952c83d778aa3": {
     "symbol": "CEGon",
     "ticker": "CEG",
     "name": "Constellation Energy (Ondo Tokenized)"
-   },
-   "0x8b68b3d3173c406d2c5f4f2107d54e6562a23120": {
-    "symbol": "CEVAon",
-    "ticker": "CEVA",
-    "name": "CEVA (Ondo Tokenized)"
    },
    "0xdcd4536508060dab8f43c334b3a6c72c39528da5": {
     "symbol": "CIBRon",
     "ticker": "CIBR",
     "name": "First Trust NASDAQ Cybersecurity ETF (Ondo Tokenized)"
    },
-   "0x89a9f7114be6b220fae645ba0cbb720889867415": {
-    "symbol": "CIENon",
-    "ticker": "CIEN",
-    "name": "Ciena (Ondo Tokenized)"
-   },
    "0xdad07d0ca26ed4109bc00893dbee3ed4ce8ce2a4": {
     "symbol": "CIFRon",
     "ticker": "CIFR",
     "name": "Cipher Mining (Ondo Tokenized)"
-   },
-   "0xac38a6608868e2f487d7993ea7339c69e5ab077b": {
-    "symbol": "CLFon",
-    "ticker": "CLF",
-    "name": "Cleveland-Cliffs (Ondo Tokenized)"
    },
    "0x4ef383f521e803863a33fca8f3f861e53ef9ef9b": {
     "symbol": "CLOAon",
@@ -533,11 +233,6 @@
     "symbol": "CLOIon",
     "ticker": "CLOI",
     "name": "VanEck CLO ETF (Ondo Tokenized)"
-   },
-   "0x7b695132b165cb6703f0212bbb1e91a782526156": {
-    "symbol": "CLSon",
-    "ticker": "CLS",
-    "name": "Celestica (Ondo Tokenized)"
    },
    "0xaed5985afc12aa09d87f55b4b1e6bc3b8f7b0208": {
     "symbol": "CMGon",
@@ -554,10 +249,15 @@
     "ticker": "COHR",
     "name": "Coherent (Ondo Tokenized)"
    },
-   "0x58ce0de0ced164f2aeab5fcf81d67f3c61cb562c": {
-    "symbol": "COHUon",
-    "ticker": "COHU",
-    "name": "Cohu (Ondo Tokenized)"
+   "0xf8589b526fdd65f7f301c605a6e04f0f1b4b3620": {
+    "symbol": "COINon",
+    "ticker": "COIN",
+    "name": "Coinbase (Ondo Tokenized)"
+   },
+   "0x8ddb97556f6ae98b4d408c56b167139fe1cbe3e8": {
+    "symbol": "Con",
+    "ticker": "C",
+    "name": "Citigroup (Ondo Tokenized)"
    },
    "0x0d586b51a90dc999f9bb6a0506da7f034a1d3a2e": {
     "symbol": "COPon",
@@ -569,20 +269,10 @@
     "ticker": "COPX",
     "name": "Global X Copper Miners ETF (Ondo Tokenized)"
    },
-   "0x23def658ea0b4081161d9ab8fdfeef5345bcafbd": {
-    "symbol": "COROon",
-    "ticker": "CORO",
-    "name": "iShares International Country Rotation Active ETF (Ondo Tokenized)"
-   },
-   "0x25ed86472cf3012607dc6576c58e6432968255c2": {
-    "symbol": "CORZon",
-    "ticker": "CORZ",
-    "name": "Core Scientific (Ondo Tokenized)"
-   },
-   "0x0888edfec4c0a66fce074796cf4f6509c00f6c49": {
-    "symbol": "CPERon",
-    "ticker": "CPER",
-    "name": "US Copper Index Fund (Ondo Tokenized)"
+   "0x34375f826fd3dd4e15f883d4f4786bb45eb705ac": {
+    "symbol": "COSTon",
+    "ticker": "COST",
+    "name": "Costco (Ondo Tokenized)"
    },
    "0x19904bc04c09e5d29ed216ddd105bdf103a0ba2d": {
     "symbol": "CPNGon",
@@ -593,11 +283,6 @@
     "symbol": "CRCLon",
     "ticker": "CRCL",
     "name": "Circle Internet Group (Ondo Tokenized)"
-   },
-   "0xf157481bebd0c0686780fd0f61806c900a6137e8": {
-    "symbol": "CRDOon",
-    "ticker": "CRDO",
-    "name": "Credo Technology Group Holding (Ondo Tokenized)"
    },
    "0xd04a2bb053277721a8321d7441eed5b42fdf7250": {
     "symbol": "CRMon",
@@ -624,6 +309,11 @@
     "ticker": "CVNA",
     "name": "Carvana (Ondo Tokenized)"
    },
+   "0xd3113a0ad20a46f6a662c63fe8e637f7713e59c7": {
+    "symbol": "CVXon",
+    "ticker": "CVX",
+    "name": "Chevron (Ondo Tokenized)"
+   },
    "0x7567c2a46bce46373b454682f3d95e6535bde144": {
     "symbol": "DASHon",
     "ticker": "DASH",
@@ -639,55 +329,25 @@
     "ticker": "DE",
     "name": "Deere (Ondo Tokenized)"
    },
-   "0xf26518958935654878de15be7bc79a26971583ba": {
-    "symbol": "DELLon",
-    "ticker": "DELL",
-    "name": "Dell Technologies (Ondo Tokenized)"
-   },
    "0x1cd89241b26fcdc421fd02907d6504c8abbfe1bc": {
     "symbol": "DGRWon",
     "ticker": "DGRW",
     "name": "WisdomTree US Quality Dividend Growth Fund (Ondo Tokenized)"
    },
-   "0x09f5a6ee1b46787dd252827e40502c4980a0285d": {
-    "symbol": "DGXXon",
-    "ticker": "DGXX",
-    "name": "Digi Power X (Ondo Tokenized)"
+   "0xeee9eee593cb8f7946260b4066cba7907f40acfa": {
+    "symbol": "DISon",
+    "ticker": "DIS",
+    "name": "Disney (Ondo Tokenized)"
    },
    "0x70bd780076e25d087ed9c35f4e4a540522abe8cf": {
     "symbol": "DNNon",
     "ticker": "DNN",
     "name": "Denison Mines (Ondo Tokenized)"
    },
-   "0x087b5761b161429013d41ea54cd2fb6022a21564": {
-    "symbol": "DRAMon",
-    "ticker": "DRAM",
-    "name": "Roundhill Memory ETF (Ondo Tokenized)"
-   },
-   "0x2a0a317660f497d4c4836d1ef5faf5970e69437b": {
-    "symbol": "DRSon",
-    "ticker": "DRS",
-    "name": "Leonardo DRS (Ondo Tokenized)"
-   },
-   "0xec4c1944682b8c7ba6c825e9a8b2b32cb5ecace5": {
-    "symbol": "DTCRon",
-    "ticker": "DTCR",
-    "name": "Global X Data Center & Digital Infrastructure ETF (Ondo Tokenized)"
-   },
-   "0x96a1b43c8146e6d1f6e66b226a3c520cbe3d8a50": {
-    "symbol": "DYNFon",
-    "ticker": "DYNF",
-    "name": "iShares US Equity Factor Rotation Active ETF (Ondo Tokenized)"
-   },
    "0x551f8db0da800c910e12cf991eac306714481685": {
     "symbol": "ECHon",
     "ticker": "ECH",
     "name": "iShares MSCI Chile ETF (Ondo Tokenized)"
-   },
-   "0x660ab35be0f102a1d4d4b60a96ac3abfd345e038": {
-    "symbol": "ECOon",
-    "ticker": "ECO",
-    "name": "Okeanis Eco Tankers (Ondo Tokenized)"
    },
    "0x00c81d35eddf44c75d4db9e07bdcdc236eb0ebcf": {
     "symbol": "EEMon",
@@ -699,21 +359,6 @@
     "ticker": "EFA",
     "name": "iShares MSCI EAFE ETF (Ondo Tokenized)"
    },
-   "0x40375e3dd70232eaf264706e5662b90a079e3d31": {
-    "symbol": "EFVon",
-    "ticker": "EFV",
-    "name": "iShares MSCI EAFE Value ETF (Ondo Tokenized)"
-   },
-   "0x60b273bdf00a9a52238ca706257f61efc55bdee0": {
-    "symbol": "EMRon",
-    "ticker": "EMR",
-    "name": "Emerson Electric (Ondo Tokenized)"
-   },
-   "0x5397cb3f1e419050d9d7160756de0f4ed4f5f898": {
-    "symbol": "ENBon",
-    "ticker": "ENB",
-    "name": "Enbridge (Ondo Tokenized)"
-   },
    "0x5a9d924fc336a5ec8cf3b1909aa660533b50b015": {
     "symbol": "ENLVon",
     "ticker": "ENLV",
@@ -724,20 +369,10 @@
     "ticker": "ENPH",
     "name": "Enphase Energy (Ondo Tokenized)"
    },
-   "0xfb4a89a077b9020c7101b1af760beb708f37a416": {
-    "symbol": "ENTGon",
-    "ticker": "ENTG",
-    "name": "Entegris (Ondo Tokenized)"
-   },
    "0xe4e12c9cec3e8cae405202a97f66afa695075fa0": {
     "symbol": "EQIXon",
     "ticker": "EQIX",
     "name": "Equinix (Ondo Tokenized)"
-   },
-   "0x9a1c88ac479906a7f03e76605b15b72df10d8e51": {
-    "symbol": "EQTon",
-    "ticker": "EQT",
-    "name": "EQT (Ondo Tokenized)"
    },
    "0x04b16ff1f9673146f68aa5d5f57aa45adcf068e1": {
     "symbol": "ETHAon",
@@ -748,11 +383,6 @@
     "symbol": "ETNon",
     "ticker": "ETN",
     "name": "Eaton (Ondo Tokenized)"
-   },
-   "0x93eb8376ec73dd07f46ba7ae1ee9b0bbd937ad93": {
-    "symbol": "EUHYon",
-    "ticker": "EUHY",
-    "name": "iShares Euro High Yield Corporate Bond USD Hedged ETF (Ondo Tokenized)"
    },
    "0x82715299f3f132fb85f3de1f7e8fafd3d79f3eb5": {
     "symbol": "EWJon",
@@ -773,21 +403,6 @@
     "symbol": "EXODon",
     "ticker": "EXOD",
     "name": "Exodus Movement (Ondo Tokenized)"
-   },
-   "0x1eada1306df72a5607827416c1a1307d7056dfff": {
-    "symbol": "EXTRon",
-    "ticker": "EXTR",
-    "name": "Extreme Networks (Ondo Tokenized)"
-   },
-   "0xb1aba049c42b6fe811766eba61f51f11c57acc4b": {
-    "symbol": "Fon",
-    "ticker": "F",
-    "name": "Ford Motor (Ondo Tokenized)"
-   },
-   "0x47bfe4921bd74c66c6b0c35c517abdfb5e3bafb3": {
-    "symbol": "FCELon",
-    "ticker": "FCEL",
-    "name": "FuelCell Energy (Ondo Tokenized)"
    },
    "0xe3b17e6d290a0f28bd32af4064637057627004d5": {
     "symbol": "FCXon",
@@ -814,40 +429,20 @@
     "ticker": "FIGR",
     "name": "Figure Technology Solutions (Ondo Tokenized)"
    },
-   "0x102138be022f8d142bcb817f7264921d65209608": {
-    "symbol": "FLEXon",
-    "ticker": "FLEX",
-    "name": "Flex (Ondo Tokenized)"
-   },
    "0x240eb4859b4537d250cf784cc758c404da5fe4bd": {
     "symbol": "FLHYon",
     "ticker": "FLHY",
     "name": "Franklin High Yield Corporate ETF (Ondo Tokenized)"
-   },
-   "0xf1a96d4b591e446445600789d60c73dd636b357c": {
-    "symbol": "FLNCon",
-    "ticker": "FLNC",
-    "name": "Fluence Energy (Ondo Tokenized)"
    },
    "0x48187890d16aee64798e02c5bed510f4db5694a9": {
     "symbol": "FLQLon",
     "ticker": "FLQL",
     "name": "Franklin US Large Cap Multifactor Index ETF (Ondo Tokenized)"
    },
-   "0xa1daab37da2a29a1ec721922b55962eb8b481001": {
-    "symbol": "FNon",
-    "ticker": "FN",
-    "name": "Fabrinet (Ondo Tokenized)"
-   },
-   "0xd678f3f86436ee298d28a3c414c367adfed65337": {
-    "symbol": "FORMon",
-    "ticker": "FORM",
-    "name": "FormFactor (Ondo Tokenized)"
-   },
-   "0xd8daffd168651470cd5397a5d670dd5f8e4b02f5": {
-    "symbol": "FPSon",
-    "ticker": "FPS",
-    "name": "Forgent Power Solutions (Ondo Tokenized)"
+   "0xb1aba049c42b6fe811766eba61f51f11c57acc4b": {
+    "symbol": "Fon",
+    "ticker": "F",
+    "name": "Ford Motor (Ondo Tokenized)"
    },
    "0x54b92fd77229269ff6484942c123cca72f2d6fec": {
     "symbol": "FSOLon",
@@ -869,45 +464,30 @@
     "ticker": "FXI",
     "name": "iShares China Large-Cap ETF (Ondo Tokenized)"
    },
-   "0x5d1a9d8aa362a6424b65fcb601e52fefce5b4efa": {
-    "symbol": "GDon",
-    "ticker": "GD",
-    "name": "General Dynamics (Ondo Tokenized)"
+   "0x817942d5de16092656568e9f67f54ccb462f8989": {
+    "symbol": "GEMIon",
+    "ticker": "GEMI",
+    "name": "Gemini Space Station (Ondo Tokenized)"
    },
    "0x5151a22421ed4277f1e4ca4785a07b035d548a36": {
     "symbol": "GEon",
     "ticker": "GE",
     "name": "General Electric (Ondo Tokenized)"
    },
-   "0x817942d5de16092656568e9f67f54ccb462f8989": {
-    "symbol": "GEMIon",
-    "ticker": "GEMI",
-    "name": "Gemini Space Station (Ondo Tokenized)"
-   },
    "0x2aea1d415d45ccf3eabe565d45dcaf4ea2035b9c": {
     "symbol": "GEVon",
     "ticker": "GEV",
     "name": "GE Vernova (Ondo Tokenized)"
    },
-   "0xaff6b836d3ebd29aeb0c8b840add04ef79d79678": {
-    "symbol": "GFSon",
-    "ticker": "GFS",
-    "name": "GlobalFoundries (Ondo Tokenized)"
-   },
-   "0x8dd51e233e2344498f876c231a3bd962e9750a6c": {
-    "symbol": "GGOVon",
-    "ticker": "GGOV",
-    "name": "iShares Global Government Bond USD Hedged Active ETF (Ondo Tokenized)"
+   "0xfa9a1e901085e269f6d428f79cd5252d8b919344": {
+    "symbol": "GLDon",
+    "ticker": "GLD",
+    "name": "SPDR Gold Shares (Ondo Tokenized)"
    },
    "0x15580092796f69825cff4738cac55d05d41eaa42": {
     "symbol": "GLTRon",
     "ticker": "GLTR",
     "name": "abrdn Physical Precious Metals Basket Shares ETF (Ondo Tokenized)"
-   },
-   "0x25a4dbae9a0cd8c75656d6b50ffdf4900cc20d8f": {
-    "symbol": "GLWon",
-    "ticker": "GLW",
-    "name": "Corning (Ondo Tokenized)"
    },
    "0xf98b89825233808cd37706a53d2b4ae3e359d442": {
     "symbol": "GLXYon",
@@ -919,15 +499,10 @@
     "ticker": "GME",
     "name": "GameStop (Ondo Tokenized)"
    },
-   "0x237c9f794edaaa0071cdf64a41c25eb76771754b": {
-    "symbol": "GNRCon",
-    "ticker": "GNRC",
-    "name": "Generac Holdings (Ondo Tokenized)"
-   },
-   "0x817f1f6780f99bcaac394a59cb0261962df5da8b": {
-    "symbol": "GOOGon",
-    "ticker": "GOOG",
-    "name": "Alphabet Class C (Ondo Tokenized)"
+   "0x091fc7778e6932d4009b087b191d1ee3bac5729a": {
+    "symbol": "GOOGLon",
+    "ticker": "GOOGL",
+    "name": "Alphabet Class A (Ondo Tokenized)"
    },
    "0xab2f74804c022c5249d52e743af4340e42f5f3b6": {
     "symbol": "GRABon",
@@ -944,95 +519,30 @@
     "ticker": "GS",
     "name": "Goldman Sachs (Ondo Tokenized)"
    },
-   "0x7a18bb5fd6ba6343180afdcf6dc406ef17f7fc04": {
-    "symbol": "HALon",
-    "ticker": "HAL",
-    "name": "Halliburton (Ondo Tokenized)"
-   },
    "0x31dabf49e4bc1af1456c1819cb6a2562154e92f3": {
     "symbol": "HDon",
     "ticker": "HD",
     "name": "Home Depot (Ondo Tokenized)"
-   },
-   "0x4dc8dcee22a56feeca930dff45581aa9a14d5e05": {
-    "symbol": "HIIon",
-    "ticker": "HII",
-    "name": "Huntington Ingalls Industries (Ondo Tokenized)"
    },
    "0x4693f6f5ef257381a28afd0673e64d8b32d5c6ad": {
     "symbol": "HIMSon",
     "ticker": "HIMS",
     "name": "Hims & Hers Health (Ondo Tokenized)"
    },
-   "0x6cf3b84f0ba4d86d9f6987812a11db2c447d9483": {
-    "symbol": "HIMXon",
-    "ticker": "HIMX",
-    "name": "Himax Technologies (Ondo Tokenized)"
-   },
-   "0x3f19a16a401a6af05150479ccb76ef2fb57b0df3": {
-    "symbol": "HIVEon",
-    "ticker": "HIVE",
-    "name": "HIVE Digital Technologies (Ondo Tokenized)"
-   },
-   "0xff6f45b2d761cde4dab7f5d7a1a5f691f52f3bc3": {
-    "symbol": "HLITon",
-    "ticker": "HLIT",
-    "name": "Harmonic (Ondo Tokenized)"
-   },
    "0x19601179a60f55ff6636f5d1a8b6671053bd60a8": {
     "symbol": "HOODon",
     "ticker": "HOOD",
     "name": "Robinhood Markets (Ondo Tokenized)"
-   },
-   "0x492e678c1ea048c70edc635047cdbb87ff5362a2": {
-    "symbol": "HPEon",
-    "ticker": "HPE",
-    "name": "Hewlett Packard Enterprise (Ondo Tokenized)"
-   },
-   "0x847ef23a3f99af79a185ce033e1664165b846eea": {
-    "symbol": "HSAIon",
-    "ticker": "HSAI",
-    "name": "Hesai Group (Ondo Tokenized)"
-   },
-   "0xb18c6a83490dddbc9a83b011173b5b2fb5dc1272": {
-    "symbol": "HTZon",
-    "ticker": "HTZ",
-    "name": "Hertz Global Holdings (Ondo Tokenized)"
-   },
-   "0x1c42c07257f936a7c4f84b8d756c95817e23631a": {
-    "symbol": "HUBBon",
-    "ticker": "HUBB",
-    "name": "Hubbell (Ondo Tokenized)"
-   },
-   "0x3a82f1c847cc55e52e597fd81c63a812c6722541": {
-    "symbol": "HUTon",
-    "ticker": "HUT",
-    "name": "Hut 8 (Ondo Tokenized)"
-   },
-   "0x97b2fd5fc2f3e0dfd72d45734e360961528b6c63": {
-    "symbol": "HYDBon",
-    "ticker": "HYDB",
-    "name": "iShares High Yield Systematic Bond ETF (Ondo Tokenized)"
    },
    "0x0dae81a905b645a3d1e67129b89cd0acda224e9a": {
     "symbol": "HYGon",
     "ticker": "HYG",
     "name": "iBoxx $ High Yield Corporate Bond ETF (Ondo Tokenized)"
    },
-   "0x85b53a9344884ae428e0e15f05a1819d280d4be7": {
-    "symbol": "HYGWon",
-    "ticker": "HYGW",
-    "name": "iShares High Yield Corporate Bond BuyWrite Strategy ETF (Ondo Tokenized)"
-   },
    "0x75e9d68e99e76714ed1a7663ab48ba3aabd7a6c5": {
     "symbol": "HYSon",
     "ticker": "HYS",
     "name": "PIMCO 0-5 Year High Yield Corporate Bond Index ETF (Ondo Tokenized)"
-   },
-   "0x879fc0d8dfdb13b4af3513d9838f82c4df8f57e8": {
-    "symbol": "IALTon",
-    "ticker": "IALT",
-    "name": "iShares Systematic Alternatives Active ETF (Ondo Tokenized)"
    },
    "0xcb2a0f46f67dc4c58a316f1c008edef5c2311795": {
     "symbol": "IAUon",
@@ -1049,55 +559,25 @@
     "ticker": "IBM",
     "name": "IBM (Ondo Tokenized)"
    },
-   "0xfb836dc42ebdff6aa8db9339336899061d1c4f3f": {
-    "symbol": "ICHRon",
-    "ticker": "ICHR",
-    "name": "Ichor Holdings (Ondo Tokenized)"
-   },
-   "0x5fb339393773414039295ea97a92614fed85d556": {
-    "symbol": "IDEFon",
-    "ticker": "IDEF",
-    "name": "iShares Defense Industrials Active ETF (Ondo Tokenized)"
+   "0x918008c3d29496c37b478b611967beaca365af36": {
+    "symbol": "IEFAon",
+    "ticker": "IEFA",
+    "name": "iShares Core MSCI EAFE ETF (Ondo Tokenized)"
    },
    "0xa486a0a05250e8621ba3b26c3bbc517145eba619": {
     "symbol": "IEFon",
     "ticker": "IEF",
     "name": "iShares 7-10 Year Treasury Bond ETF (Ondo Tokenized)"
    },
-   "0x918008c3d29496c37b478b611967beaca365af36": {
-    "symbol": "IEFAon",
-    "ticker": "IEFA",
-    "name": "iShares Core MSCI EAFE ETF (Ondo Tokenized)"
-   },
-   "0x4e07b55e62f443859706e03aea0b3fe3a1bfea8b": {
-    "symbol": "IEIon",
-    "ticker": "IEI",
-    "name": "iShares 3-7 Year Treasury Bond ETF (Ondo Tokenized)"
-   },
    "0x22092c94a91d019ad15536725598b0a6be0a73c0": {
     "symbol": "IEMGon",
     "ticker": "IEMG",
     "name": "iShares Core MSCI Emerging Markets ETF (Ondo Tokenized)"
    },
-   "0x9e609e96b688927aa49dcd9758e2081f0c48ccab": {
-    "symbol": "IGEBon",
-    "ticker": "IGEB",
-    "name": "iShares Investment Grade Systematic Bond ETF (Ondo Tokenized)"
-   },
-   "0xa046c2f0a1ac0a0e8829efc12163ae892ceafac2": {
-    "symbol": "IGVon",
-    "ticker": "IGV",
-    "name": "iShares Expanded Tech-Software ETF (Ondo Tokenized)"
-   },
    "0x167e93a849a0cc479769132552b99aa1cfa0948c": {
     "symbol": "IJHon",
     "ticker": "IJH",
     "name": "iShares Core S&P MidCap ETF (Ondo Tokenized)"
-   },
-   "0x9609f804fd90440dd3f4afa1e0a4d57dfd580ce8": {
-    "symbol": "IJSon",
-    "ticker": "IJS",
-    "name": "iShares S&P Small-Cap 600 Value ETF (Ondo Tokenized)"
    },
    "0x5e24db6de4c21e2c8f9e81bacfcedfbac2dee4aa": {
     "symbol": "INCEon",
@@ -1108,21 +588,6 @@
     "symbol": "INDAon",
     "ticker": "INDA",
     "name": "iShares MSCI India ETF (Ondo Tokenized)"
-   },
-   "0x517a25e696421c88218b43cbb7ea0f873b6973a6": {
-    "symbol": "INODon",
-    "ticker": "INOD",
-    "name": "Innodata (Ondo Tokenized)"
-   },
-   "0x790cfb394b1f399a3543ba1f835dde114a387eeb": {
-    "symbol": "INROon",
-    "ticker": "INRO",
-    "name": "iShares US Industry Rotation Active ETF (Ondo Tokenized)"
-   },
-   "0xe3316f5372559768e14bc7ffe983891a742987e7": {
-    "symbol": "INSWon",
-    "ticker": "INSW",
-    "name": "International Seaways (Ondo Tokenized)"
    },
    "0xa528caaa2f96090e379d43f90834c75df54d6e74": {
     "symbol": "INTCon",
@@ -1138,11 +603,6 @@
     "symbol": "IONQon",
     "ticker": "IONQ",
     "name": "IonQ (Ondo Tokenized)"
-   },
-   "0x3ce678692a60fb5f31963b05cb158f0ce0ff1736": {
-    "symbol": "IRDMon",
-    "ticker": "IRDM",
-    "name": "Iridium Communications (Ondo Tokenized)"
    },
    "0x8fd70ee385f470c8d6fda2d93a4e49c849bac6a6": {
     "symbol": "IRENon",
@@ -1174,40 +634,35 @@
     "ticker": "IWF",
     "name": "iShares Russell 1000 Growth ETF (Ondo Tokenized)"
    },
+   "0x500eafc69b68acd6f27064f9b75f1c7d91cc4d9f": {
+    "symbol": "IWMon",
+    "ticker": "IWM",
+    "name": "iShares Russell 2000 ETF (Ondo Tokenized)"
+   },
    "0xf54b94ea21e1da5d51ef00fd4502225e5394f874": {
     "symbol": "IWNon",
     "ticker": "IWN",
     "name": "iShares Russell 2000 Value ETF (Ondo Tokenized)"
-   },
-   "0xbeeef4361f6603edacef5205b343c6bb6473a099": {
-    "symbol": "IYWon",
-    "ticker": "IYW",
-    "name": "iShares US Technology ETF (Ondo Tokenized)"
    },
    "0x84719a1082ed487c7eeac7d69885e3cc2009ea78": {
     "symbol": "JAAAon",
     "ticker": "JAAA",
     "name": "Janus Henderson AAA CLO ETF (Ondo Tokenized)"
    },
-   "0x8d941ebb4921f8d43cfa65233b14a547f96559fc": {
-    "symbol": "JBLon",
-    "ticker": "JBL",
-    "name": "Jabil (Ondo Tokenized)"
-   },
    "0xe92be960ae64f6a914ca77014cac9e56de7f36c1": {
     "symbol": "JDon",
     "ticker": "JD",
     "name": "JD.com (Ondo Tokenized)"
    },
-   "0x5e3ca19c533c8c0381eac5319624596557c279ed": {
-    "symbol": "KEELon",
-    "ticker": "KEEL",
-    "name": "Keel Infrastructure (Ondo Tokenized)"
+   "0xd1f799cb9f5d0a02951b0755beced6c43882712f": {
+    "symbol": "JNJon",
+    "ticker": "JNJ",
+    "name": "Johnson & Johnson (Ondo Tokenized)"
    },
-   "0x3de956d959726c448649354c6fbca92b82dc5ed7": {
-    "symbol": "KEYSon",
-    "ticker": "KEYS",
-    "name": "Keysight Technologies (Ondo Tokenized)"
+   "0x317bf42b43a394860718266dec445dcc9fd9da49": {
+    "symbol": "JPMon",
+    "ticker": "JPM",
+    "name": "JPMorgan Chase (Ondo Tokenized)"
    },
    "0xfc263946439b0d802bf4c5a6fcd34e2885259f91": {
     "symbol": "KLACon",
@@ -1219,50 +674,25 @@
     "ticker": "KO",
     "name": "Coca-Cola (Ondo Tokenized)"
    },
-   "0xed5615c5280e897241b9e4f019562a581cd49390": {
-    "symbol": "KOPNon",
-    "ticker": "KOPN",
-    "name": "Kopin (Ondo Tokenized)"
-   },
    "0x7437203800140ba7d9081dde8cef09ee40e3bf03": {
     "symbol": "KWEBon",
     "ticker": "KWEB",
     "name": "KraneShares CSI China Internet ETF (Ondo Tokenized)"
-   },
-   "0x476a2cad3197df68186b61bc36296e8d3d2d1b85": {
-    "symbol": "LASRon",
-    "ticker": "LASR",
-    "name": "nLIGHT (Ondo Tokenized)"
-   },
-   "0x43807bf4ce06f4fbb4fa8deac37bf274aea324da": {
-    "symbol": "LECOon",
-    "ticker": "LECO",
-    "name": "Lincoln Electric (Ondo Tokenized)"
-   },
-   "0x653156b9a46e21906dddc82414871bbdb0261319": {
-    "symbol": "LEMBon",
-    "ticker": "LEMB",
-    "name": "iShares J.P. Morgan EM Local Currency Bond ETF (Ondo Tokenized)"
-   },
-   "0x9810beac9af3c30d14cfb61cdd557e160f60fd50": {
-    "symbol": "LIon",
-    "ticker": "LI",
-    "name": "Li Auto (Ondo Tokenized)"
    },
    "0xe1743616f705954620aa351465c8885fbde5a8a9": {
     "symbol": "LINon",
     "ticker": "LIN",
     "name": "Linde plc (Ondo Tokenized)"
    },
-   "0xfd7778d5d4e804b5b512471df36d60c465199a52": {
-    "symbol": "LITon",
-    "ticker": "LIT",
-    "name": "Global X Lithium & Battery Tech ETF (Ondo Tokenized)"
+   "0x9810beac9af3c30d14cfb61cdd557e160f60fd50": {
+    "symbol": "LIon",
+    "ticker": "LI",
+    "name": "Li Auto (Ondo Tokenized)"
    },
-   "0x0facafb97ffdba3cae88512070af49bd30674cd9": {
-    "symbol": "LITEon",
-    "ticker": "LITE",
-    "name": "Lumentum Holdings (Ondo Tokenized)"
+   "0x341d31b2be1fee9c00e395a62ba41837f4322eed": {
+    "symbol": "LLYon",
+    "ticker": "LLY",
+    "name": "Eli Lilly (Ondo Tokenized)"
    },
    "0xd09f7b75b9659b864c6f82bb00ff096f9d277998": {
     "symbol": "LMTon",
@@ -1274,30 +704,15 @@
     "ticker": "LOW",
     "name": "Lowe's (Ondo Tokenized)"
    },
-   "0x6ad19e0a57cfea0bc521a12c6c82372852842933": {
-    "symbol": "LPTHon",
-    "ticker": "LPTH",
-    "name": "LightPath Technologies (Ondo Tokenized)"
-   },
    "0x35895a1fa1aff7fb3204fb01257409fd75acb24c": {
     "symbol": "LRCXon",
     "ticker": "LRCX",
     "name": "Lam Research (Ondo Tokenized)"
    },
-   "0x80f03abcb2bd85237740dd69f87d2f5de3909012": {
-    "symbol": "LSCCon",
-    "ticker": "LSCC",
-    "name": "Lattice Semiconductor (Ondo Tokenized)"
-   },
    "0xa3b7b7cfeb023a6c4f444f5ca9a3fc85809ece15": {
     "symbol": "LUNRon",
     "ticker": "LUNR",
     "name": "Intuitive Machines (Ondo Tokenized)"
-   },
-   "0x8ac67002282eea816afa0160d22a8d27f05ba07b": {
-    "symbol": "LWLGon",
-    "ticker": "LWLG",
-    "name": "Lightwave Logic (Ondo Tokenized)"
    },
    "0x25ffda07f585c39848db6573e533d7585679c52d": {
     "symbol": "MAon",
@@ -1309,30 +724,20 @@
     "ticker": "MARA",
     "name": "MARA Holdings (Ondo Tokenized)"
    },
-   "0xcc977b493f52b4b6b6a0c3594530f2baee565e96": {
-    "symbol": "MBLYon",
-    "ticker": "MBLY",
-    "name": "Mobileye Global (Ondo Tokenized)"
-   },
    "0x995add4ba29a628a57930a8a185c62ca044ec090": {
     "symbol": "MCDon",
     "ticker": "MCD",
     "name": "McDonald's (Ondo Tokenized)"
-   },
-   "0x89c37104afcee9a72187e05d960a1e09763a126e": {
-    "symbol": "MEIon",
-    "ticker": "MEI",
-    "name": "Methode Electronics (Ondo Tokenized)"
    },
    "0x60a8f8e05200ff73afde9e2cae819bf1605f0bdd": {
     "symbol": "MELIon",
     "ticker": "MELI",
     "name": "MercadoLibre (Ondo Tokenized)"
    },
-   "0xd41699aa1bfc1c5f172c27f387372bd30717a5db": {
-    "symbol": "MKSIon",
-    "ticker": "MKSI",
-    "name": "MKS Inc. (Ondo Tokenized)"
+   "0xd7df5863a3e742f0c767768cdfcb63f09e0422f6": {
+    "symbol": "METAon",
+    "ticker": "META",
+    "name": "Meta Platforms (Ondo Tokenized)"
    },
    "0x4baf4dc56cf6a525a0874e25cc6372a6a8915135": {
     "symbol": "MPon",
@@ -1354,15 +759,15 @@
     "ticker": "MRVL",
     "name": "Marvell Technology (Ondo Tokenized)"
    },
+   "0x6bfe75d1ad432050ea973c3a3dcd88f02e2444c3": {
+    "symbol": "MSFTon",
+    "ticker": "MSFT",
+    "name": "Microsoft (Ondo Tokenized)"
+   },
    "0x7313ea16493b2f55054df0131a3a14b043ec8992": {
     "symbol": "MSTRon",
     "ticker": "MSTR",
     "name": "MicroStrategy (Ondo Tokenized)"
-   },
-   "0x1dcd320c5d7b84cd407437c58d56cbbdd0d9d8f3": {
-    "symbol": "MTSIon",
-    "ticker": "MTSI",
-    "name": "MACOM Technology Solutions Holdings (Ondo Tokenized)"
    },
    "0xf49046aae76eaeb7ffd3ef116ce0f7cd0f52d93e": {
     "symbol": "MTZon",
@@ -1374,30 +779,10 @@
     "ticker": "MU",
     "name": "Micron Technology (Ondo Tokenized)"
    },
-   "0x5cb7671740877723c9ad55348a751d7b57052e07": {
-    "symbol": "MXLon",
-    "ticker": "MXL",
-    "name": "MaxLinear (Ondo Tokenized)"
-   },
-   "0x93b83111c54aa3993b2de5fccd4c70b26c522d5d": {
-    "symbol": "MYRGon",
-    "ticker": "MYRG",
-    "name": "MYR Group (Ondo Tokenized)"
-   },
-   "0x33f3df3cea2a8c4828e88f30be932850cf749739": {
-    "symbol": "NATon",
-    "ticker": "NAT",
-    "name": "Nordic American Tankers (Ondo Tokenized)"
-   },
    "0xee268780473e7a0e47bac41547c6e01512555a16": {
     "symbol": "NBISon",
     "ticker": "NBIS",
     "name": "Nebius Group (Ondo Tokenized)"
-   },
-   "0x031d85943ba7ca0304323195e7086a76c35366fb": {
-    "symbol": "NEARon",
-    "ticker": "NEAR",
-    "name": "iShares Short Duration Bond Active ETF (Ondo Tokenized)"
    },
    "0xe9d43f7e6b2237e8873a7003b3f43c6b03160be5": {
     "symbol": "NEEon",
@@ -1409,10 +794,10 @@
     "ticker": "NEM",
     "name": "Newmont (Ondo Tokenized)"
    },
-   "0xfeb0793eea97585eb3a541f3fd53450d225b2b87": {
-    "symbol": "NETon",
-    "ticker": "NET",
-    "name": "Cloudflare (Ondo Tokenized)"
+   "0x7048f5227b032326cc8dbc53cf3fddd947a2c757": {
+    "symbol": "NFLXon",
+    "ticker": "NFLX",
+    "name": "Netflix (Ondo Tokenized)"
    },
    "0xe23f03d2907cdc38a10f6ccdc1a157bf1afe51de": {
     "symbol": "NIKLon",
@@ -1429,20 +814,10 @@
     "ticker": "NKE",
     "name": "Nike (Ondo Tokenized)"
    },
-   "0x3c276dd9f9eab5510f9eafd3a6ea54879b27ca3d": {
-    "symbol": "NNEon",
-    "ticker": "NNE",
-    "name": "NANO Nuclear Energy (Ondo Tokenized)"
-   },
    "0x4d3442d884202584f1729bca20db05472b886b52": {
     "symbol": "NOCon",
     "ticker": "NOC",
     "name": "Northrop Grumman (Ondo Tokenized)"
-   },
-   "0xe9518cb0010c717db69001f1418eff9e97330137": {
-    "symbol": "NOKon",
-    "ticker": "NOK",
-    "name": "Nokia (Ondo Tokenized)"
    },
    "0xeb19c13c54b1cd48afc62f6503375e92d5f1e856": {
     "symbol": "NOWon",
@@ -1454,60 +829,35 @@
     "ticker": "NTES",
     "name": "NetEase (Ondo Tokenized)"
    },
-   "0x2155f5344ba7763f80420de617af41e56de0552b": {
-    "symbol": "NUEon",
-    "ticker": "NUE",
-    "name": "Nucor (Ondo Tokenized)"
-   },
-   "0x8a5f83a4b3ad2b9604f53c4ddf8dce1329f9d433": {
-    "symbol": "NVMIon",
-    "ticker": "NVMI",
-    "name": "Nova (Ondo Tokenized)"
+   "0xa9ee28c80f960b889dfbd1902055218cba016f75": {
+    "symbol": "NVDAon",
+    "ticker": "NVDA",
+    "name": "NVIDIA (Ondo Tokenized)"
    },
    "0x08a513779f46ffb7a34f16094a94016d010128a8": {
     "symbol": "NVOon",
     "ticker": "NVO",
     "name": "Novo Nordisk (Ondo Tokenized)"
    },
-   "0x484ce83bb55b50d70236c7d1e29e0ba7524f905b": {
-    "symbol": "NVTon",
-    "ticker": "NVT",
-    "name": "nVent Electric (Ondo Tokenized)"
-   },
-   "0xb56b7c2f9988448790b0f78697f405ab5e8597e6": {
-    "symbol": "NVTSon",
-    "ticker": "NVTS",
-    "name": "Navitas Semiconductor (Ondo Tokenized)"
-   },
    "0x31d6011023d6c7695efc29bb016830f3f36de40a": {
     "symbol": "OIHon",
     "ticker": "OIH",
     "name": "VanEck Oil Services ETF (Ondo Tokenized)"
-   },
-   "0x4321366277d4a6e170f1f28148c93e8c47636c14": {
-    "symbol": "OIIon",
-    "ticker": "OII",
-    "name": "Oceaneering International (Ondo Tokenized)"
    },
    "0xaf6c03acf72355ce98d0741302b78870b376428c": {
     "symbol": "OKLOon",
     "ticker": "OKLO",
     "name": "Oklo (Ondo Tokenized)"
    },
-   "0xb35a9eab5d25282f4e668798b629a9294e9a47aa": {
-    "symbol": "ONon",
-    "ticker": "ON",
-    "name": "ON Semiconductor (Ondo Tokenized)"
-   },
    "0xd85d4ce29b4ca361ff72ef0e53d6236e334c5db6": {
     "symbol": "ONDSon",
     "ticker": "ONDS",
     "name": "Ondas Holdings (Ondo Tokenized)"
    },
-   "0x2f79d36184dfe7968c9d23f87cae1ab72447c1e5": {
-    "symbol": "ONTOon",
-    "ticker": "ONTO",
-    "name": "Onto Innovation (Ondo Tokenized)"
+   "0xb35a9eab5d25282f4e668798b629a9294e9a47aa": {
+    "symbol": "ONon",
+    "ticker": "ON",
+    "name": "ON Semiconductor (Ondo Tokenized)"
    },
    "0xa09699fc0cbb1f85128450a0ff6a3c4d3a7e7b9b": {
     "symbol": "OPENon",
@@ -1519,11 +869,6 @@
     "ticker": "OPRA",
     "name": "Opera (Ondo Tokenized)"
    },
-   "0x2bc97b1c5f83f080798ee9e38da5fbf621454fcf": {
-    "symbol": "ORBXon",
-    "ticker": "ORBX",
-    "name": "Global X Space Tech ETF (Ondo Tokenized)"
-   },
    "0x03e4bd1ea53f1da84513da0319d1f03dd1bbcf93": {
     "symbol": "ORCLon",
     "ticker": "ORCL",
@@ -1533,11 +878,6 @@
     "symbol": "OSCRon",
     "ticker": "OSCR",
     "name": "Oscar Health (Ondo Tokenized)"
-   },
-   "0x30033a17ea24e90631532582a1917c64afbf87af": {
-    "symbol": "OUSTon",
-    "ticker": "OUST",
-    "name": "Ouster (Ondo Tokenized)"
    },
    "0x01b5a4ac600be98448dbefbb78bcdf38262552cc": {
     "symbol": "OXYon",
@@ -1579,11 +919,6 @@
     "ticker": "PDD",
     "name": "PDD Holdings (Ondo Tokenized)"
    },
-   "0x2144d620e3471441b12bf256e01a09eaa5ea7f12": {
-    "symbol": "PENGon",
-    "ticker": "PENG",
-    "name": "Penguin Solutions (Ondo Tokenized)"
-   },
    "0xf99f8f3a95257d82006183bd524efa7aacc9ef7a": {
     "symbol": "PEPon",
     "ticker": "PEP",
@@ -1604,50 +939,25 @@
     "ticker": "PINS",
     "name": "Pinterest (Ondo Tokenized)"
    },
-   "0xf9015e0b3ab4ddd216f522d6150db826c9be83f8": {
-    "symbol": "PLon",
-    "ticker": "PL",
-    "name": "Planet Labs (Ondo Tokenized)"
+   "0x9351abd19f42101dd36025e495b98e910b255d78": {
+    "symbol": "PLTRon",
+    "ticker": "PLTR",
+    "name": "Palantir Technologies (Ondo Tokenized)"
    },
    "0x4752ae8f910b25e64e4406eaad50c1b4e8de7e6d": {
     "symbol": "PLUGon",
     "ticker": "PLUG",
     "name": "Plug Power (Ondo Tokenized)"
    },
-   "0x5417b7cfdb8a187004067297ebf1491c8d6d5c09": {
-    "symbol": "POWIon",
-    "ticker": "POWI",
-    "name": "Power Integrations (Ondo Tokenized)"
-   },
-   "0xd381aec27daaccc87f102ff4ad6652f8b5f20ba0": {
-    "symbol": "POWLon",
-    "ticker": "POWL",
-    "name": "Powell Industries (Ondo Tokenized)"
-   },
    "0x3ec23f52f6573fc0587a0631dd8c3b107f6bcb35": {
     "symbol": "PPLTon",
     "ticker": "PPLT",
     "name": "abrdn Physical Platinum Shares ETF (Ondo Tokenized)"
    },
-   "0xd60b0276640a693ece55660afac0383ca6433882": {
-    "symbol": "PRIMon",
-    "ticker": "PRIM",
-    "name": "Primoris Services (Ondo Tokenized)"
-   },
    "0x3802dc739ef9e226f36421a9c15efa519153bbbe": {
     "symbol": "PSQon",
     "ticker": "PSQ",
     "name": "ProShares Short QQQ (Ondo Tokenized)"
-   },
-   "0x89cc700f308a4c59889fbf3286216554c53b0601": {
-    "symbol": "PURRon",
-    "ticker": "PURR",
-    "name": "Hyperliquid Strategies (Ondo Tokenized)"
-   },
-   "0x2418c2e1ae3b8d767594b3974d32610743f88155": {
-    "symbol": "PWRon",
-    "ticker": "PWR",
-    "name": "Quanta Services (Ondo Tokenized)"
    },
    "0x374d03a6c0d5bd4be0a5117ebe1b49d52ac8a53f": {
     "symbol": "PYPLon",
@@ -1664,25 +974,15 @@
     "ticker": "QCOM",
     "name": "Qualcomm (Ondo Tokenized)"
    },
-   "0xbc34d36b70e5a256f3d16f9ca9d3ca3838f6cc4f": {
-    "symbol": "QLTAon",
-    "ticker": "QLTA",
-    "name": "iShares Aaa - A Rated Corporate Bond ETF (Ondo Tokenized)"
-   },
-   "0x467c7cf9af95765c1bd6542ffd516bf9603a19b9": {
-    "symbol": "QTUMon",
-    "ticker": "QTUM",
-    "name": "Defiance Quantum ETF (Ondo Tokenized)"
+   "0x0cde6936d305d5b34667fc46425e852efd73559a": {
+    "symbol": "QQQon",
+    "ticker": "QQQ",
+    "name": "Invesco QQQ (Ondo Tokenized)"
    },
    "0x82e07c1017032cfd889b1ca81ebe722c4d4de825": {
     "symbol": "QUBTon",
     "ticker": "QUBT",
     "name": "Quantum Computing (Ondo Tokenized)"
-   },
-   "0x64e023411215c3b75b9f339b7b77f179cd04c527": {
-    "symbol": "QYLDon",
-    "ticker": "QYLD",
-    "name": "Global X NASDAQ 100 Covered Call ETF (Ondo Tokenized)"
    },
    "0x4da12f47578ef89c76179b760c778e70b668f80b": {
     "symbol": "RDDTon",
@@ -1724,35 +1024,10 @@
     "ticker": "RKLB",
     "name": "Rocket Lab (Ondo Tokenized)"
    },
-   "0x49ccb157c77afe5f264c35f0e9178a98d77815ab": {
-    "symbol": "RMBSon",
-    "ticker": "RMBS",
-    "name": "Rambus (Ondo Tokenized)"
-   },
-   "0x95f7423c51eab71cbd00ca855b0b2b2153f14184": {
-    "symbol": "ROKon",
-    "ticker": "ROK",
-    "name": "Rockwell Automation (Ondo Tokenized)"
-   },
    "0x44fde2c6bc2c2b54962c69fcef57a2a50121dbd7": {
     "symbol": "RTXon",
     "ticker": "RTX",
     "name": "RTX (Ondo Tokenized)"
-   },
-   "0xcb6d74aff24afc94514727ee0fcda6bb6b64f3f9": {
-    "symbol": "RXRXon",
-    "ticker": "RXRX",
-    "name": "Recursion Pharmaceuticals (Ondo Tokenized)"
-   },
-   "0x111f6f2b9f1c5f3ec841690e1deec606086727da": {
-    "symbol": "SAPon",
-    "ticker": "SAP",
-    "name": "SAP (Ondo Tokenized)"
-   },
-   "0x732823512ba98d1bcde471ca023ee2a0c9f117b7": {
-    "symbol": "SATAon",
-    "ticker": "SATA",
-    "name": "Strive Preferred (Ondo Tokenized)"
    },
    "0x99e01f02d66455bb106d91d469c9eaf6ab4904f6": {
     "symbol": "SBETon",
@@ -1774,11 +1049,6 @@
     "ticker": "SCHW",
     "name": "Charles Schwab (Ondo Tokenized)"
    },
-   "0xb0d7d4b65a654d43f91272bb94e011ce6812a2ef": {
-    "symbol": "SECUon",
-    "ticker": "SECU",
-    "name": "iShares Securitized Income Active ETF (Ondo Tokenized)"
-   },
    "0x8755c5c39b1aa9053a83ac731242a2cf4d04b0fe": {
     "symbol": "SEDGon",
     "ticker": "SEDG",
@@ -1788,11 +1058,6 @@
     "symbol": "SGOVon",
     "ticker": "SGOV",
     "name": "iShares 0-3 Month Treasury Bond ETF (Ondo Tokenized)"
-   },
-   "0xe5ca1585c6053ee891027fd0a2548cb3b27d7f01": {
-    "symbol": "SHLDon",
-    "ticker": "SHLD",
-    "name": "Global X Defense Tech ETF (Ondo Tokenized)"
    },
    "0x43d0b380c33cd004a6a69abd61843881a2de4113": {
     "symbol": "SHOPon",
@@ -1804,21 +1069,6 @@
     "ticker": "SHY",
     "name": "iShares 1-3 Year Treasury Bond ETF (Ondo Tokenized)"
    },
-   "0x6a4c1b7aa18638fac4c8e0d1961405e27c25baf1": {
-    "symbol": "SILon",
-    "ticker": "SIL",
-    "name": "Global X Silver Miners ETF (Ondo Tokenized)"
-   },
-   "0x4268f2bfb23a7496504aa5ed1ee325248586299f": {
-    "symbol": "SKHYon",
-    "ticker": "SKHY",
-    "name": "SK Hynix (Ondo Tokenized)"
-   },
-   "0xfadde620010736a5074a4269894cb52b0a9a91de": {
-    "symbol": "SLBon",
-    "ticker": "SLB",
-    "name": "SLB (Ondo Tokenized)"
-   },
    "0x8b872732b07be325a8803cdb480d9d20b6f8d11b": {
     "symbol": "SLVon",
     "ticker": "SLV",
@@ -1828,11 +1078,6 @@
     "symbol": "SMCIon",
     "ticker": "SMCI",
     "name": "Super Micro Computer (Ondo Tokenized)"
-   },
-   "0xf4b674d4e33c36f8db4b928a5eec4e1f87b386e3": {
-    "symbol": "SMRon",
-    "ticker": "SMR",
-    "name": "NuScale Power (Ondo Tokenized)"
    },
    "0xf325884d9bcac457271fe7f7b6be1765348fcca2": {
     "symbol": "SNAPon",
@@ -1849,45 +1094,25 @@
     "ticker": "SNOW",
     "name": "Snowflake (Ondo Tokenized)"
    },
-   "0xd7a6353a23ed2c4fcac29a63cbbe3f65ffef41f5": {
-    "symbol": "SOon",
-    "ticker": "SO",
-    "name": "Southern (Ondo Tokenized)"
-   },
    "0x71507068e98049cba81e9bbc8d901e4a2f4222eb": {
     "symbol": "SOFIon",
     "ticker": "SOFI",
     "name": "SoFi Technologies (Ondo Tokenized)"
+   },
+   "0xd7a6353a23ed2c4fcac29a63cbbe3f65ffef41f5": {
+    "symbol": "SOon",
+    "ticker": "SO",
+    "name": "Southern (Ondo Tokenized)"
    },
    "0xedcf71b2e2217064038adcb54a3c3a5fc3488ef1": {
     "symbol": "SOUNon",
     "ticker": "SOUN",
     "name": "SoundHound AI (Ondo Tokenized)"
    },
-   "0xb943c8a0d77b656daf5244da060d647fd9152289": {
-    "symbol": "SOXLon",
-    "ticker": "SOXL",
-    "name": "Direxion Daily Semi Bull 3X ETF (Ondo Tokenized)"
-   },
-   "0x15688f10470dfddcb4e2d60cd2acfd3ec418317a": {
-    "symbol": "SOXQon",
-    "ticker": "SOXQ",
-    "name": "Invesco PHLX Semiconductor ETF (Ondo Tokenized)"
-   },
-   "0x335dd4112704f108b5ddd8f8a44bd9ed68522a80": {
-    "symbol": "SOXSon",
-    "ticker": "SOXS",
-    "name": "Direxion Daily Semi Bear 3X ETF (Ondo Tokenized)"
-   },
    "0x2a3cbf64c8181db4a25d41d4d7a7db9984c59dac": {
     "symbol": "SOXXon",
     "ticker": "SOXX",
     "name": "iShares Semiconductor ETF (Ondo Tokenized)"
-   },
-   "0xd0a58bc9d88d3ff48c0294cb7e45937d0e41a928": {
-    "symbol": "SPCXon",
-    "ticker": "SPCX",
-    "name": "SpaceX (Ondo Tokenized)"
    },
    "0x55b370b704240a914f42b5bbb3195431c031f9f8": {
     "symbol": "SPGIon",
@@ -1899,25 +1124,15 @@
     "ticker": "SPOT",
     "name": "Spotify (Ondo Tokenized)"
    },
+   "0x6a708ead771238919d85930b5a0f10454e1c331a": {
+    "symbol": "SPYon",
+    "ticker": "SPY",
+    "name": "SPDR S&P 500 ETF (Ondo Tokenized)"
+   },
    "0x17515b68378d86c38f394c666e79907da05dcba9": {
     "symbol": "SQQQon",
     "ticker": "SQQQ",
     "name": "ProShares UltraPro Short QQQ (Ondo Tokenized)"
-   },
-   "0x90eaa91af0b4559f1f270258bb5cddfafbb62da9": {
-    "symbol": "STLDon",
-    "ticker": "STLD",
-    "name": "Steel Dynamics (Ondo Tokenized)"
-   },
-   "0x8b46599e0e80a34f37e97df58e741ca904cdfabd": {
-    "symbol": "STMon",
-    "ticker": "STM",
-    "name": "STMicroelectronics (Ondo Tokenized)"
-   },
-   "0x4b1c9087a6fe265a36fbf2c591b0986fe1115f50": {
-    "symbol": "STNGon",
-    "ticker": "STNG",
-    "name": "Scorpio Tankers (Ondo Tokenized)"
    },
    "0x71e9dc9debc18650bd2342b93623b88c2ad00c89": {
     "symbol": "STRCon",
@@ -1929,50 +1144,10 @@
     "ticker": "STX",
     "name": "Seagate (Ondo Tokenized)"
    },
-   "0x7bd821eaad82cb92c1ea64dac1f3bb2e787e959a": {
-    "symbol": "SWKSon",
-    "ticker": "SWKS",
-    "name": "Skyworks Solutions (Ondo Tokenized)"
-   },
-   "0xc79fc7af952c8b41c6b7b7657dd24f44f7c10f2a": {
-    "symbol": "SYMon",
-    "ticker": "SYM",
-    "name": "Symbotic (Ondo Tokenized)"
-   },
-   "0xebe1408a7cce4f38de15467e5139c3d82e4641f8": {
-    "symbol": "SYSBon",
-    "ticker": "SYSB",
-    "name": "iShares Systematic Bond ETF (Ondo Tokenized)"
-   },
-   "0x4255279af47cf10efb9a5c8839f90170f4ef759f": {
-    "symbol": "Ton",
-    "ticker": "T",
-    "name": "AT&T (Ondo Tokenized)"
-   },
-   "0xdb69becc323fec440ca8eb0c3564802e77ce2827": {
-    "symbol": "TASKon",
-    "ticker": "TASK",
-    "name": "TaskUs (Ondo Tokenized)"
-   },
    "0x6459303f58244ff1e7a42b90aa3782dfb6ca6969": {
     "symbol": "TCOMon",
     "ticker": "TCOM",
     "name": "Trip.com Group (Ondo Tokenized)"
-   },
-   "0x5c50ffd365c852f5e72bfbc2c1ae621e2aca5ece": {
-    "symbol": "TELon",
-    "ticker": "TEL",
-    "name": "TE Connectivity (Ondo Tokenized)"
-   },
-   "0x686f8264625fe4e51f520db856003a4dd52a49ff": {
-    "symbol": "TENon",
-    "ticker": "TEN",
-    "name": "Tsakos Energy Navigation (Ondo Tokenized)"
-   },
-   "0x6f040fc3061374304bddbfdae9d688d7c868c785": {
-    "symbol": "TERon",
-    "ticker": "TER",
-    "name": "Teradyne (Ondo Tokenized)"
    },
    "0x2ac26ec236df5d1d2ad1a6dd4e448a90e45dc35d": {
     "symbol": "TIPon",
@@ -2004,65 +1179,40 @@
     "ticker": "TMUS",
     "name": "T-Mobile US (Ondo Tokenized)"
    },
-   "0x2bbf5ab85f9ceb595dd785db15cc9f2931c6ea64": {
-    "symbol": "TNKon",
-    "ticker": "TNK",
-    "name": "Teekay Tankers (Ondo Tokenized)"
+   "0x4255279af47cf10efb9a5c8839f90170f4ef759f": {
+    "symbol": "Ton",
+    "ticker": "T",
+    "name": "AT&T (Ondo Tokenized)"
    },
    "0xe42cfb20e00912409b77a602b5bdcff3c7acc5f4": {
     "symbol": "TQQQon",
     "ticker": "TQQQ",
     "name": "ProShares UltraPro QQQ (Ondo Tokenized)"
    },
-   "0x343324170c91c4d8cf4d439b3e5a619f50621ae7": {
-    "symbol": "TSEMon",
-    "ticker": "TSEM",
-    "name": "Tower Semiconductor (Ondo Tokenized)"
+   "0x2494b603319d4d9f9715c9f4496d9e0364b59d93": {
+    "symbol": "TSLAon",
+    "ticker": "TSLA",
+    "name": "Tesla (Ondo Tokenized)"
    },
    "0xc37042a7a4fa510d8884a433762ab87257b91965": {
     "symbol": "TSMon",
     "ticker": "TSM",
     "name": "Taiwan Semiconductor Manufacturing (Ondo Tokenized)"
    },
-   "0x0afa28a7ac4e44b1f771515c200f4d67b1f5e8d0": {
-    "symbol": "TTon",
-    "ticker": "TT",
-    "name": "Trane Technologies (Ondo Tokenized)"
-   },
-   "0xf400b05ad5a791c65acc3f905e5ade5f1b653c8c": {
-    "symbol": "TTMIon",
-    "ticker": "TTMI",
-    "name": "TTM Technologies (Ondo Tokenized)"
-   },
    "0xca3a5c955f1f01f20aacf9501b03e4aa235e478b": {
     "symbol": "TXNon",
     "ticker": "TXN",
     "name": "Texas Instruments (Ondo Tokenized)"
-   },
-   "0xf8919fe7d586b11d0a900e987c4a41bc6c3195f5": {
-    "symbol": "UAMYon",
-    "ticker": "UAMY",
-    "name": "United States Antimony (Ondo Tokenized)"
    },
    "0xde9d6036fca870f7efc5a82722ae694c371ac909": {
     "symbol": "UBERon",
     "ticker": "UBER",
     "name": "Uber (Ondo Tokenized)"
    },
-   "0xb78ccbcd9dce42d4fa5fdc835cb6a1aa1095a3b5": {
-    "symbol": "UCTTon",
-    "ticker": "UCTT",
-    "name": "Ultra Clean Holdings (Ondo Tokenized)"
-   },
    "0xe7ddf606841ee278a30e5c90486681e68ddd8cbf": {
     "symbol": "UECon",
     "ticker": "UEC",
     "name": "Uranium Energy (Ondo Tokenized)"
-   },
-   "0x318ddd4d03d84a40cf44772385a0cfb3d4394049": {
-    "symbol": "UMCon",
-    "ticker": "UMC",
-    "name": "United Microelectronics (Ondo Tokenized)"
    },
    "0xa5351c9bf08055e03642b6b8649a0f7e895501bf": {
     "symbol": "UNGon",
@@ -2084,70 +1234,30 @@
     "ticker": "URA",
     "name": "Global X Uranium ETF (Ondo Tokenized)"
    },
-   "0xca626a74420aaaf285987da23d829f9159ab867c": {
-    "symbol": "URNMon",
-    "ticker": "URNM",
-    "name": "Sprott Uranium Miners ETF (Ondo Tokenized)"
-   },
-   "0x2206e07410a8fe9ef595e7184b2e9d160fdb7211": {
-    "symbol": "USARon",
-    "ticker": "USAR",
-    "name": "USA Rare Earth (Ondo Tokenized)"
-   },
    "0xf4fd75764a5c086fb12f822be2ca318b3a362dc3": {
     "symbol": "USFRon",
     "ticker": "USFR",
     "name": "WisdomTree Floating Rate Treasury Fund (Ondo Tokenized)"
-   },
-   "0xc992e5f8da1b99cb941b0a259be9014cffe89ccf": {
-    "symbol": "USHYon",
-    "ticker": "USHY",
-    "name": "iShares Broad USD High Yield Corporate Bond ETF (Ondo Tokenized)"
    },
    "0x94174e3d1335db402dd03a092f7aa7ac2cb32be4": {
     "symbol": "USOon",
     "ticker": "USO",
     "name": "United States Oil Fund (Ondo Tokenized)"
    },
-   "0xd2c06fef2ca2375a9c7ceb4abca9dbc2ab6af981": {
-    "symbol": "UUUUon",
-    "ticker": "UUUU",
-    "name": "Energy Fuels (Ondo Tokenized)"
-   },
-   "0xc8206bb42ec019f7e7ea060ed887e9f5bb53cbb0": {
-    "symbol": "VCXon",
-    "ticker": "VCX",
-    "name": "Fundrise Innovation Fund (Ondo Tokenized)"
-   },
-   "0x9e23662f540c6bc117adf91230730d9b2fdf5643": {
-    "symbol": "VDEon",
-    "ticker": "VDE",
-    "name": "Vanguard Energy ETF (Ondo Tokenized)"
-   },
    "0x1d2eaaf0ae00382893aa4318bd88d1cd0e9b858a": {
     "symbol": "VFSon",
     "ticker": "VFS",
     "name": "VinFast Auto (Ondo Tokenized)"
-   },
-   "0xa59469d91563caeeddd2ffc731f41215e7b691ef": {
-    "symbol": "VICRon",
-    "ticker": "VICR",
-    "name": "Vicor (Ondo Tokenized)"
    },
    "0x10b58a3d9dcec59bb1c3bf6b9c9414eafce711c9": {
     "symbol": "VNQon",
     "ticker": "VNQ",
     "name": "Vanguard Real Estate ETF (Ondo Tokenized)"
    },
-   "0xad8920afa9d158f5ebab77c9ffcad650d72e473d": {
-    "symbol": "VPGon",
-    "ticker": "VPG",
-    "name": "Vishay Precision Group (Ondo Tokenized)"
-   },
-   "0x37ff203ac221313b620d047eddd7bd6f68d656a6": {
-    "symbol": "VRSNon",
-    "ticker": "VRSN",
-    "name": "VeriSign (Ondo Tokenized)"
+   "0x1cde419fae0ef7f7931ae3e29e5f411c8c5e5fa1": {
+    "symbol": "Von",
+    "ticker": "V",
+    "name": "Visa (Ondo Tokenized)"
    },
    "0x9cea8a7be1ab0320b709d368ad60d8500f55995f": {
     "symbol": "VRTon",
@@ -2158,11 +1268,6 @@
     "symbol": "VRTXon",
     "ticker": "VRTX",
     "name": "Vertex Pharmaceuticals (Ondo Tokenized)"
-   },
-   "0x821aef7d0f4347bb9ea6f293a98b19d823eef0c5": {
-    "symbol": "VSHon",
-    "ticker": "VSH",
-    "name": "Vishay Intertechnology (Ondo Tokenized)"
    },
    "0xf2c24c47805f4f72d3919c8674bfdd401505794b": {
     "symbol": "VSTon",
@@ -2184,310 +1289,1351 @@
     "ticker": "VZ",
     "name": "Verizon (Ondo Tokenized)"
    },
-   "0x82436bae31ae373258ba567f32087eefc32189f2": {
-    "symbol": "WCCon",
-    "ticker": "WCC",
-    "name": "WESCO International (Ondo Tokenized)"
-   },
    "0xceb29848d04ad3cb46e1fe8e45b82ffac39d797d": {
     "symbol": "WDCon",
     "ticker": "WDC",
     "name": "Western Digital (Ondo Tokenized)"
-   },
-   "0x79ed7f4d9668e8e7aaadd12a711d19064840b9a5": {
-    "symbol": "WENon",
-    "ticker": "WEN",
-    "name": "Wendy's (Ondo Tokenized)"
    },
    "0x629520dee1620def11596f84e85de9f1ff653012": {
     "symbol": "WFCon",
     "ticker": "WFC",
     "name": "Wells Fargo (Ondo Tokenized)"
    },
-   "0xb3d1a5f9bf92f18da643f2ada2f2cdfdae67e9d1": {
-    "symbol": "WLKon",
-    "ticker": "WLK",
-    "name": "Westlake (Ondo Tokenized)"
-   },
    "0xce0466bae0e867239719dc386ca84b1f3efe6914": {
     "symbol": "WMon",
     "ticker": "WM",
     "name": "Waste Management (Ondo Tokenized)"
    },
-   "0x7b7abd762a400c9768cdeeef3c01dae39e0b8427": {
-    "symbol": "WMBon",
-    "ticker": "WMB",
-    "name": "Williams (Ondo Tokenized)"
-   },
-   "0x55b56cc2cdcbc2c58668f72663be7599a46ed79f": {
-    "symbol": "WOLFon",
-    "ticker": "WOLF",
-    "name": "Wolfspeed (Ondo Tokenized)"
-   },
-   "0x50e66edb7d0b79ee988f098754a27afaa643b4f5": {
-    "symbol": "WSon",
-    "ticker": "WS",
-    "name": "Worthington Steel (Ondo Tokenized)"
+   "0xa7d1e886acf66ec0656df2decb4b7c893a3bab4c": {
+    "symbol": "WMTon",
+    "ticker": "WMT",
+    "name": "Walmart (Ondo Tokenized)"
    },
    "0xad56701d9e57957e28e546db7db508a16d4f86cc": {
     "symbol": "WULFon",
     "ticker": "WULF",
     "name": "Terawulf (Ondo Tokenized)"
    },
-   "0xce128edcf46b281b7df8880867b74e11b055e8e7": {
-    "symbol": "WYFIon",
-    "ticker": "WYFI",
-    "name": "WhiteFiber (Ondo Tokenized)"
-   },
-   "0x1fe12abdf560c753acbc63533519d74801e04958": {
-    "symbol": "XYLDon",
-    "ticker": "XYLD",
-    "name": "Global X S&P 500 Covered Call ETF (Ondo Tokenized)"
+   "0x4d209d275e3492ac08497a7a42915899c4dd5e86": {
+    "symbol": "XOMon",
+    "ticker": "XOM",
+    "name": "Exxon Mobil (Ondo Tokenized)"
    },
    "0xe778a2e5d953c82eb9475cf3b87654226a867344": {
     "symbol": "XYZon",
     "ticker": "XYZ",
     "name": "Block (Ondo Tokenized)"
    },
+   "0x25a4dbae9a0cd8c75656d6b50ffdf4900cc20d8f": {
+    "symbol": "GLWon",
+    "ticker": "GLW",
+    "name": "Corning (Ondo Tokenized)"
+   },
+   "0x0facafb97ffdba3cae88512070af49bd30674cd9": {
+    "symbol": "LITEon",
+    "ticker": "LITE",
+    "name": "Lumentum Holdings (Ondo Tokenized)"
+   },
+   "0x149bda9e7251dc36f536d1fe7f92a5ea203f4f3d": {
+    "symbol": "AAOIon",
+    "ticker": "AAOI",
+    "name": "Applied Optoelectronics (Ondo Tokenized)"
+   },
+   "0x0c50323af81d5c33822c6add256fb9093d42bc74": {
+    "symbol": "AXTIon",
+    "ticker": "AXTI",
+    "name": "AXT (Ondo Tokenized)"
+   },
+   "0x484ce83bb55b50d70236c7d1e29e0ba7524f905b": {
+    "symbol": "NVTon",
+    "ticker": "NVT",
+    "name": "nVent Electric (Ondo Tokenized)"
+   },
+   "0x476a2cad3197df68186b61bc36296e8d3d2d1b85": {
+    "symbol": "LASRon",
+    "ticker": "LASR",
+    "name": "nLIGHT (Ondo Tokenized)"
+   },
+   "0xd678f3f86436ee298d28a3c414c367adfed65337": {
+    "symbol": "FORMon",
+    "ticker": "FORM",
+    "name": "FormFactor (Ondo Tokenized)"
+   },
+   "0xd41699aa1bfc1c5f172c27f387372bd30717a5db": {
+    "symbol": "MKSIon",
+    "ticker": "MKSI",
+    "name": "MKS Inc. (Ondo Tokenized)"
+   },
+   "0xfb836dc42ebdff6aa8db9339336899061d1c4f3f": {
+    "symbol": "ICHRon",
+    "ticker": "ICHR",
+    "name": "Ichor Holdings (Ondo Tokenized)"
+   },
+   "0xdce0957e22f7baf2aa1a50d854e03cee6f215004": {
+    "symbol": "AEHRon",
+    "ticker": "AEHR",
+    "name": "Aehr Test Systems (Ondo Tokenized)"
+   },
+   "0xc2f65e745fd13af1d00d5c81dd33f762fb81c264": {
+    "symbol": "CAMTon",
+    "ticker": "CAMT",
+    "name": "Camtek (Ondo Tokenized)"
+   },
+   "0x55b56cc2cdcbc2c58668f72663be7599a46ed79f": {
+    "symbol": "WOLFon",
+    "ticker": "WOLF",
+    "name": "Wolfspeed (Ondo Tokenized)"
+   },
+   "0x5417b7cfdb8a187004067297ebf1491c8d6d5c09": {
+    "symbol": "POWIon",
+    "ticker": "POWI",
+    "name": "Power Integrations (Ondo Tokenized)"
+   },
+   "0x5c50ffd365c852f5e72bfbc2c1ae621e2aca5ece": {
+    "symbol": "TELon",
+    "ticker": "TEL",
+    "name": "TE Connectivity (Ondo Tokenized)"
+   },
+   "0x1c42c07257f936a7c4f84b8d756c95817e23631a": {
+    "symbol": "HUBBon",
+    "ticker": "HUBB",
+    "name": "Hubbell (Ondo Tokenized)"
+   },
+   "0x50e66edb7d0b79ee988f098754a27afaa643b4f5": {
+    "symbol": "WSon",
+    "ticker": "WS",
+    "name": "Worthington Steel (Ondo Tokenized)"
+   },
+   "0xafaa2087093b7b396adab8216506d9066c6a6f13": {
+    "symbol": "ATKRon",
+    "ticker": "ATKR",
+    "name": "Atkore (Ondo Tokenized)"
+   },
+   "0xfeb0793eea97585eb3a541f3fd53450d225b2b87": {
+    "symbol": "NETon",
+    "ticker": "NET",
+    "name": "Cloudflare (Ondo Tokenized)"
+   },
+   "0x2206e07410a8fe9ef595e7184b2e9d160fdb7211": {
+    "symbol": "USARon",
+    "ticker": "USAR",
+    "name": "USA Rare Earth (Ondo Tokenized)"
+   },
+   "0x6cf3b84f0ba4d86d9f6987812a11db2c447d9483": {
+    "symbol": "HIMXon",
+    "ticker": "HIMX",
+    "name": "Himax Technologies (Ondo Tokenized)"
+   },
+   "0x5cb7671740877723c9ad55348a751d7b57052e07": {
+    "symbol": "MXLon",
+    "ticker": "MXL",
+    "name": "MaxLinear (Ondo Tokenized)"
+   },
+   "0x2f79d36184dfe7968c9d23f87cae1ab72447c1e5": {
+    "symbol": "ONTOon",
+    "ticker": "ONTO",
+    "name": "Onto Innovation (Ondo Tokenized)"
+   },
+   "0x30033a17ea24e90631532582a1917c64afbf87af": {
+    "symbol": "OUSTon",
+    "ticker": "OUST",
+    "name": "Ouster (Ondo Tokenized)"
+   },
+   "0x6f040fc3061374304bddbfdae9d688d7c868c785": {
+    "symbol": "TERon",
+    "ticker": "TER",
+    "name": "Teradyne (Ondo Tokenized)"
+   },
+   "0xe9518cb0010c717db69001f1418eff9e97330137": {
+    "symbol": "NOKon",
+    "ticker": "NOK",
+    "name": "Nokia (Ondo Tokenized)"
+   },
+   "0xf9015e0b3ab4ddd216f522d6150db826c9be83f8": {
+    "symbol": "PLon",
+    "ticker": "PL",
+    "name": "Planet Labs (Ondo Tokenized)"
+   },
+   "0x5397cb3f1e419050d9d7160756de0f4ed4f5f898": {
+    "symbol": "ENBon",
+    "ticker": "ENB",
+    "name": "Enbridge (Ondo Tokenized)"
+   },
+   "0x93b83111c54aa3993b2de5fccd4c70b26c522d5d": {
+    "symbol": "MYRGon",
+    "ticker": "MYRG",
+    "name": "MYR Group (Ondo Tokenized)"
+   },
+   "0xfb4a89a077b9020c7101b1af760beb708f37a416": {
+    "symbol": "ENTGon",
+    "ticker": "ENTG",
+    "name": "Entegris (Ondo Tokenized)"
+   },
+   "0x492e678c1ea048c70edc635047cdbb87ff5362a2": {
+    "symbol": "HPEon",
+    "ticker": "HPE",
+    "name": "Hewlett Packard Enterprise (Ondo Tokenized)"
+   },
+   "0xc43ae29afe58bf90da6fe3edd570c2e735fb2850": {
+    "symbol": "BOTon",
+    "ticker": "BOT",
+    "name": "RoboStrategy (Ondo Tokenized)"
+   },
+   "0x55b8cc618c4209a97250dff926d3d708814d36aa": {
+    "symbol": "AOSLon",
+    "ticker": "AOSL",
+    "name": "Alpha and Omega Semiconductor (Ondo Tokenized)"
+   },
+   "0x17d03ae104a9d12e9e5794efb109b817dd7f3404": {
+    "symbol": "BEon",
+    "ticker": "BE",
+    "name": "Bloom Energy (Ondo Tokenized)"
+   },
+   "0xf4b674d4e33c36f8db4b928a5eec4e1f87b386e3": {
+    "symbol": "SMRon",
+    "ticker": "SMR",
+    "name": "NuScale Power (Ondo Tokenized)"
+   },
+   "0x8b46599e0e80a34f37e97df58e741ca904cdfabd": {
+    "symbol": "STMon",
+    "ticker": "STM",
+    "name": "STMicroelectronics (Ondo Tokenized)"
+   },
+   "0x9a1c88ac479906a7f03e76605b15b72df10d8e51": {
+    "symbol": "EQTon",
+    "ticker": "EQT",
+    "name": "EQT (Ondo Tokenized)"
+   },
+   "0x111f6f2b9f1c5f3ec841690e1deec606086727da": {
+    "symbol": "SAPon",
+    "ticker": "SAP",
+    "name": "SAP (Ondo Tokenized)"
+   },
+   "0x7b7abd762a400c9768cdeeef3c01dae39e0b8427": {
+    "symbol": "WMBon",
+    "ticker": "WMB",
+    "name": "Williams (Ondo Tokenized)"
+   },
+   "0x3c276dd9f9eab5510f9eafd3a6ea54879b27ca3d": {
+    "symbol": "NNEon",
+    "ticker": "NNE",
+    "name": "NANO Nuclear Energy (Ondo Tokenized)"
+   },
+   "0xf1a96d4b591e446445600789d60c73dd636b357c": {
+    "symbol": "FLNCon",
+    "ticker": "FLNC",
+    "name": "Fluence Energy (Ondo Tokenized)"
+   },
+   "0x441a4d4fc23f17f4cf23e3d60f12d2bd6f176728": {
+    "symbol": "CBRSon",
+    "ticker": "CBRS",
+    "name": "Cerebras Systems (Ondo Tokenized)"
+   },
+   "0xf26518958935654878de15be7bc79a26971583ba": {
+    "symbol": "DELLon",
+    "ticker": "DELL",
+    "name": "Dell Technologies (Ondo Tokenized)"
+   },
+   "0x343324170c91c4d8cf4d439b3e5a619f50621ae7": {
+    "symbol": "TSEMon",
+    "ticker": "TSEM",
+    "name": "Tower Semiconductor (Ondo Tokenized)"
+   },
+   "0x89a9f7114be6b220fae645ba0cbb720889867415": {
+    "symbol": "CIENon",
+    "ticker": "CIEN",
+    "name": "Ciena (Ondo Tokenized)"
+   },
+   "0xa1daab37da2a29a1ec721922b55962eb8b481001": {
+    "symbol": "FNon",
+    "ticker": "FN",
+    "name": "Fabrinet (Ondo Tokenized)"
+   },
+   "0x1161989389a991532dce453d04d6346c2581c907": {
+    "symbol": "ARQQon",
+    "ticker": "ARQQ",
+    "name": "Arqit Quantum (Ondo Tokenized)"
+   },
+   "0x573e11cc667a8e5be0c7af2410403371088d3d0d": {
+    "symbol": "ALABon",
+    "ticker": "ALAB",
+    "name": "Astera Labs (Ondo Tokenized)"
+   },
+   "0xf157481bebd0c0686780fd0f61806c900a6137e8": {
+    "symbol": "CRDOon",
+    "ticker": "CRDO",
+    "name": "Credo Technology Group Holding (Ondo Tokenized)"
+   },
+   "0x1dcd320c5d7b84cd407437c58d56cbbdd0d9d8f3": {
+    "symbol": "MTSIon",
+    "ticker": "MTSI",
+    "name": "MACOM Technology Solutions Holdings (Ondo Tokenized)"
+   },
+   "0x8ac67002282eea816afa0160d22a8d27f05ba07b": {
+    "symbol": "LWLGon",
+    "ticker": "LWLG",
+    "name": "Lightwave Logic (Ondo Tokenized)"
+   },
+   "0x2144d620e3471441b12bf256e01a09eaa5ea7f12": {
+    "symbol": "PENGon",
+    "ticker": "PENG",
+    "name": "Penguin Solutions (Ondo Tokenized)"
+   },
+   "0x47bfe4921bd74c66c6b0c35c517abdfb5e3bafb3": {
+    "symbol": "FCELon",
+    "ticker": "FCEL",
+    "name": "FuelCell Energy (Ondo Tokenized)"
+   },
+   "0xad8920afa9d158f5ebab77c9ffcad650d72e473d": {
+    "symbol": "VPGon",
+    "ticker": "VPG",
+    "name": "Vishay Precision Group (Ondo Tokenized)"
+   },
+   "0x6ad19e0a57cfea0bc521a12c6c82372852842933": {
+    "symbol": "LPTHon",
+    "ticker": "LPTH",
+    "name": "LightPath Technologies (Ondo Tokenized)"
+   },
+   "0x95f7423c51eab71cbd00ca855b0b2b2153f14184": {
+    "symbol": "ROKon",
+    "ticker": "ROK",
+    "name": "Rockwell Automation (Ondo Tokenized)"
+   },
+   "0xcc977b493f52b4b6b6a0c3594530f2baee565e96": {
+    "symbol": "MBLYon",
+    "ticker": "MBLY",
+    "name": "Mobileye Global (Ondo Tokenized)"
+   },
+   "0x66a1409fe303d00209202933e3d31ee43aaab39d": {
+    "symbol": "AURon",
+    "ticker": "AUR",
+    "name": "Aurora Innovation (Ondo Tokenized)"
+   },
+   "0x7b695132b165cb6703f0212bbb1e91a782526156": {
+    "symbol": "CLSon",
+    "ticker": "CLS",
+    "name": "Celestica (Ondo Tokenized)"
+   },
+   "0xed5615c5280e897241b9e4f019562a581cd49390": {
+    "symbol": "KOPNon",
+    "ticker": "KOPN",
+    "name": "Kopin (Ondo Tokenized)"
+   },
+   "0x237c9f794edaaa0071cdf64a41c25eb76771754b": {
+    "symbol": "GNRCon",
+    "ticker": "GNRC",
+    "name": "Generac Holdings (Ondo Tokenized)"
+   },
+   "0x0afa28a7ac4e44b1f771515c200f4d67b1f5e8d0": {
+    "symbol": "TTon",
+    "ticker": "TT",
+    "name": "Trane Technologies (Ondo Tokenized)"
+   },
+   "0xc8206bb42ec019f7e7ea060ed887e9f5bb53cbb0": {
+    "symbol": "VCXon",
+    "ticker": "VCX",
+    "name": "Fundrise Innovation Fund (Ondo Tokenized)"
+   },
+   "0xaff6b836d3ebd29aeb0c8b840add04ef79d79678": {
+    "symbol": "GFSon",
+    "ticker": "GFS",
+    "name": "GlobalFoundries (Ondo Tokenized)"
+   },
+   "0xd2c06fef2ca2375a9c7ceb4abca9dbc2ab6af981": {
+    "symbol": "UUUUon",
+    "ticker": "UUUU",
+    "name": "Energy Fuels (Ondo Tokenized)"
+   },
+   "0x2418c2e1ae3b8d767594b3974d32610743f88155": {
+    "symbol": "PWRon",
+    "ticker": "PWR",
+    "name": "Quanta Services (Ondo Tokenized)"
+   },
+   "0x25ed86472cf3012607dc6576c58e6432968255c2": {
+    "symbol": "CORZon",
+    "ticker": "CORZ",
+    "name": "Core Scientific (Ondo Tokenized)"
+   },
+   "0x3a82f1c847cc55e52e597fd81c63a812c6722541": {
+    "symbol": "HUTon",
+    "ticker": "HUT",
+    "name": "Hut 8 (Ondo Tokenized)"
+   },
+   "0xa59469d91563caeeddd2ffc731f41215e7b691ef": {
+    "symbol": "VICRon",
+    "ticker": "VICR",
+    "name": "Vicor (Ondo Tokenized)"
+   },
+   "0x70afc3a600f843d2018df16b0b316e4bc9c603e9": {
+    "symbol": "APHon",
+    "ticker": "APH",
+    "name": "Amphenol (Ondo Tokenized)"
+   },
+   "0xd381aec27daaccc87f102ff4ad6652f8b5f20ba0": {
+    "symbol": "POWLon",
+    "ticker": "POWL",
+    "name": "Powell Industries (Ondo Tokenized)"
+   },
+   "0xac38a6608868e2f487d7993ea7339c69e5ab077b": {
+    "symbol": "CLFon",
+    "ticker": "CLF",
+    "name": "Cleveland-Cliffs (Ondo Tokenized)"
+   },
+   "0xa75f08b9a91439daac9cc7072857cc0a98cf527a": {
+    "symbol": "CCJon",
+    "ticker": "CCJ",
+    "name": "Cameco (Ondo Tokenized)"
+   },
+   "0xb56b7c2f9988448790b0f78697f405ab5e8597e6": {
+    "symbol": "NVTSon",
+    "ticker": "NVTS",
+    "name": "Navitas Semiconductor (Ondo Tokenized)"
+   },
+   "0xd41829dec8b51119176ee0a6b73bc8b2718546a9": {
+    "symbol": "BRLNon",
+    "ticker": "BRLN",
+    "name": "iShares Floating Rate Loan Active ETF (Ondo Tokenized)"
+   },
+   "0x9e609e96b688927aa49dcd9758e2081f0c48ccab": {
+    "symbol": "IGEBon",
+    "ticker": "IGEB",
+    "name": "iShares Investment Grade Systematic Bond ETF (Ondo Tokenized)"
+   },
+   "0xbc34d36b70e5a256f3d16f9ca9d3ca3838f6cc4f": {
+    "symbol": "QLTAon",
+    "ticker": "QLTA",
+    "name": "iShares Aaa - A Rated Corporate Bond ETF (Ondo Tokenized)"
+   },
+   "0x6860a2f969a8133a23421ddce21397995139d7e8": {
+    "symbol": "BRHYon",
+    "ticker": "BRHY",
+    "name": "iShares High Yield Active ETF (Ondo Tokenized)"
+   },
+   "0x398ae5b33505f121c359f22b300fbcfa81db79ae": {
+    "symbol": "BLCRon",
+    "ticker": "BLCR",
+    "name": "iShares Large Cap Core Active ETF (Ondo Tokenized)"
+   },
+   "0x790cfb394b1f399a3543ba1f835dde114a387eeb": {
+    "symbol": "INROon",
+    "ticker": "INRO",
+    "name": "iShares US Industry Rotation Active ETF (Ondo Tokenized)"
+   },
+   "0x96a1b43c8146e6d1f6e66b226a3c520cbe3d8a50": {
+    "symbol": "DYNFon",
+    "ticker": "DYNF",
+    "name": "iShares US Equity Factor Rotation Active ETF (Ondo Tokenized)"
+   },
+   "0x2659dd96def34ced3679901e5500779be297fe5a": {
+    "symbol": "BAIon",
+    "ticker": "BAI",
+    "name": "iShares A.I. Innovation and Tech Active ETF (Ondo Tokenized)"
+   },
+   "0x23def658ea0b4081161d9ab8fdfeef5345bcafbd": {
+    "symbol": "COROon",
+    "ticker": "CORO",
+    "name": "iShares International Country Rotation Active ETF (Ondo Tokenized)"
+   },
+   "0x463196cc72cbad2d1ac1896cde0766bfbbd64443": {
+    "symbol": "BRTRon",
+    "ticker": "BRTR",
+    "name": "iShares Total Return Active ETF (Ondo Tokenized)"
+   },
+   "0x879fc0d8dfdb13b4af3513d9838f82c4df8f57e8": {
+    "symbol": "IALTon",
+    "ticker": "IALT",
+    "name": "iShares Systematic Alternatives Active ETF (Ondo Tokenized)"
+   },
+   "0x4321366277d4a6e170f1f28148c93e8c47636c14": {
+    "symbol": "OIIon",
+    "ticker": "OII",
+    "name": "Oceaneering International (Ondo Tokenized)"
+   },
+   "0x3ce678692a60fb5f31963b05cb158f0ce0ff1736": {
+    "symbol": "IRDMon",
+    "ticker": "IRDM",
+    "name": "Iridium Communications (Ondo Tokenized)"
+   },
+   "0x2a0a317660f497d4c4836d1ef5faf5970e69437b": {
+    "symbol": "DRSon",
+    "ticker": "DRS",
+    "name": "Leonardo DRS (Ondo Tokenized)"
+   },
+   "0x4dc8dcee22a56feeca930dff45581aa9a14d5e05": {
+    "symbol": "HIIon",
+    "ticker": "HII",
+    "name": "Huntington Ingalls Industries (Ondo Tokenized)"
+   },
+   "0x5d1a9d8aa362a6424b65fcb601e52fefce5b4efa": {
+    "symbol": "GDon",
+    "ticker": "GD",
+    "name": "General Dynamics (Ondo Tokenized)"
+   },
+   "0x9e23662f540c6bc117adf91230730d9b2fdf5643": {
+    "symbol": "VDEon",
+    "ticker": "VDE",
+    "name": "Vanguard Energy ETF (Ondo Tokenized)"
+   },
+   "0xca626a74420aaaf285987da23d829f9159ab867c": {
+    "symbol": "URNMon",
+    "ticker": "URNM",
+    "name": "Sprott Uranium Miners ETF (Ondo Tokenized)"
+   },
+   "0x0888edfec4c0a66fce074796cf4f6509c00f6c49": {
+    "symbol": "CPERon",
+    "ticker": "CPER",
+    "name": "US Copper Index Fund (Ondo Tokenized)"
+   },
+   "0xa2a97e3d6140e8ccd058f3b84230f3e1a349b1a3": {
+    "symbol": "AGon",
+    "ticker": "AG",
+    "name": "First Majestic Silver (Ondo Tokenized)"
+   },
+   "0xfadde620010736a5074a4269894cb52b0a9a91de": {
+    "symbol": "SLBon",
+    "ticker": "SLB",
+    "name": "SLB (Ondo Tokenized)"
+   },
+   "0x7a18bb5fd6ba6343180afdcf6dc406ef17f7fc04": {
+    "symbol": "HALon",
+    "ticker": "HAL",
+    "name": "Halliburton (Ondo Tokenized)"
+   },
+   "0x467c7cf9af95765c1bd6542ffd516bf9603a19b9": {
+    "symbol": "QTUMon",
+    "ticker": "QTUM",
+    "name": "Defiance Quantum ETF (Ondo Tokenized)"
+   },
+   "0x7bd821eaad82cb92c1ea64dac1f3bb2e787e959a": {
+    "symbol": "SWKSon",
+    "ticker": "SWKS",
+    "name": "Skyworks Solutions (Ondo Tokenized)"
+   },
+   "0x318ddd4d03d84a40cf44772385a0cfb3d4394049": {
+    "symbol": "UMCon",
+    "ticker": "UMC",
+    "name": "United Microelectronics (Ondo Tokenized)"
+   },
+   "0x8d941ebb4921f8d43cfa65233b14a547f96559fc": {
+    "symbol": "JBLon",
+    "ticker": "JBL",
+    "name": "Jabil (Ondo Tokenized)"
+   },
+   "0x102138be022f8d142bcb817f7264921d65209608": {
+    "symbol": "FLEXon",
+    "ticker": "FLEX",
+    "name": "Flex (Ondo Tokenized)"
+   },
+   "0x15688f10470dfddcb4e2d60cd2acfd3ec418317a": {
+    "symbol": "SOXQon",
+    "ticker": "SOXQ",
+    "name": "Invesco PHLX Semiconductor ETF (Ondo Tokenized)"
+   },
+   "0xb943c8a0d77b656daf5244da060d647fd9152289": {
+    "symbol": "SOXLon",
+    "ticker": "SOXL",
+    "name": "Direxion Daily Semi Bull 3X ETF (Ondo Tokenized)"
+   },
+   "0x335dd4112704f108b5ddd8f8a44bd9ed68522a80": {
+    "symbol": "SOXSon",
+    "ticker": "SOXS",
+    "name": "Direxion Daily Semi Bear 3X ETF (Ondo Tokenized)"
+   },
+   "0xb78ccbcd9dce42d4fa5fdc835cb6a1aa1095a3b5": {
+    "symbol": "UCTTon",
+    "ticker": "UCTT",
+    "name": "Ultra Clean Holdings (Ondo Tokenized)"
+   },
+   "0xf2e14fce9259c8a7903c4be5326058ae2d004fc7": {
+    "symbol": "ACLSon",
+    "ticker": "ACLS",
+    "name": "Axcelis Technologies (Ondo Tokenized)"
+   },
+   "0x58ce0de0ced164f2aeab5fcf81d67f3c61cb562c": {
+    "symbol": "COHUon",
+    "ticker": "COHU",
+    "name": "Cohu (Ondo Tokenized)"
+   },
+   "0x3de956d959726c448649354c6fbca92b82dc5ed7": {
+    "symbol": "KEYSon",
+    "ticker": "KEYS",
+    "name": "Keysight Technologies (Ondo Tokenized)"
+   },
+   "0xa046c2f0a1ac0a0e8829efc12163ae892ceafac2": {
+    "symbol": "IGVon",
+    "ticker": "IGV",
+    "name": "iShares Expanded Tech-Software ETF (Ondo Tokenized)"
+   },
+   "0x37ff203ac221313b620d047eddd7bd6f68d656a6": {
+    "symbol": "VRSNon",
+    "ticker": "VRSN",
+    "name": "VeriSign (Ondo Tokenized)"
+   },
+   "0x821aef7d0f4347bb9ea6f293a98b19d823eef0c5": {
+    "symbol": "VSHon",
+    "ticker": "VSH",
+    "name": "Vishay Intertechnology (Ondo Tokenized)"
+   },
+   "0x89c37104afcee9a72187e05d960a1e09763a126e": {
+    "symbol": "MEIon",
+    "ticker": "MEI",
+    "name": "Methode Electronics (Ondo Tokenized)"
+   },
+   "0x49ccb157c77afe5f264c35f0e9178a98d77815ab": {
+    "symbol": "RMBSon",
+    "ticker": "RMBS",
+    "name": "Rambus (Ondo Tokenized)"
+   },
+   "0xae922b6cc2371b6dce592a82fac15ef890a7d467": {
+    "symbol": "AIPon",
+    "ticker": "AIP",
+    "name": "Arteris (Ondo Tokenized)"
+   },
+   "0x1eada1306df72a5607827416c1a1307d7056dfff": {
+    "symbol": "EXTRon",
+    "ticker": "EXTR",
+    "name": "Extreme Networks (Ondo Tokenized)"
+   },
+   "0xce128edcf46b281b7df8880867b74e11b055e8e7": {
+    "symbol": "WYFIon",
+    "ticker": "WYFI",
+    "name": "WhiteFiber (Ondo Tokenized)"
+   },
+   "0x09f5a6ee1b46787dd252827e40502c4980a0285d": {
+    "symbol": "DGXXon",
+    "ticker": "DGXX",
+    "name": "Digi Power X (Ondo Tokenized)"
+   },
+   "0x3a562836afb1026f5d7a6b6da1125d27fdfee372": {
+    "symbol": "BTDRon",
+    "ticker": "BTDR",
+    "name": "Bitdeer Technologies (Ondo Tokenized)"
+   },
+   "0x5e3ca19c533c8c0381eac5319624596557c279ed": {
+    "symbol": "KEELon",
+    "ticker": "KEEL",
+    "name": "Keel Infrastructure (Ondo Tokenized)"
+   },
+   "0x3f19a16a401a6af05150479ccb76ef2fb57b0df3": {
+    "symbol": "HIVEon",
+    "ticker": "HIVE",
+    "name": "HIVE Digital Technologies (Ondo Tokenized)"
+   },
+   "0xf400b05ad5a791c65acc3f905e5ade5f1b653c8c": {
+    "symbol": "TTMIon",
+    "ticker": "TTMI",
+    "name": "TTM Technologies (Ondo Tokenized)"
+   },
+   "0xd60b0276640a693ece55660afac0383ca6433882": {
+    "symbol": "PRIMon",
+    "ticker": "PRIM",
+    "name": "Primoris Services (Ondo Tokenized)"
+   },
+   "0x43807bf4ce06f4fbb4fa8deac37bf274aea324da": {
+    "symbol": "LECOon",
+    "ticker": "LECO",
+    "name": "Lincoln Electric (Ondo Tokenized)"
+   },
+   "0x7a5bd36047a9d15c90fa79b0654de8dd9d6ebbb1": {
+    "symbol": "AMEon",
+    "ticker": "AME",
+    "name": "AMETEK (Ondo Tokenized)"
+   },
+   "0xd8daffd168651470cd5397a5d670dd5f8e4b02f5": {
+    "symbol": "FPSon",
+    "ticker": "FPS",
+    "name": "Forgent Power Solutions (Ondo Tokenized)"
+   },
+   "0x82436bae31ae373258ba567f32087eefc32189f2": {
+    "symbol": "WCCon",
+    "ticker": "WCC",
+    "name": "WESCO International (Ondo Tokenized)"
+   },
+   "0x472f46c5d7409c82234701eff7d4dda4c28b5a93": {
+    "symbol": "BWETon",
+    "ticker": "BWET",
+    "name": "Breakwave Tanker Shipping ETF (Ondo Tokenized)"
+   },
+   "0x4b1c9087a6fe265a36fbf2c591b0986fe1115f50": {
+    "symbol": "STNGon",
+    "ticker": "STNG",
+    "name": "Scorpio Tankers (Ondo Tokenized)"
+   },
+   "0x2bbf5ab85f9ceb595dd785db15cc9f2931c6ea64": {
+    "symbol": "TNKon",
+    "ticker": "TNK",
+    "name": "Teekay Tankers (Ondo Tokenized)"
+   },
+   "0xe3316f5372559768e14bc7ffe983891a742987e7": {
+    "symbol": "INSWon",
+    "ticker": "INSW",
+    "name": "International Seaways (Ondo Tokenized)"
+   },
+   "0x686f8264625fe4e51f520db856003a4dd52a49ff": {
+    "symbol": "TENon",
+    "ticker": "TEN",
+    "name": "Tsakos Energy Navigation (Ondo Tokenized)"
+   },
+   "0x33f3df3cea2a8c4828e88f30be932850cf749739": {
+    "symbol": "NATon",
+    "ticker": "NAT",
+    "name": "Nordic American Tankers (Ondo Tokenized)"
+   },
+   "0x660ab35be0f102a1d4d4b60a96ac3abfd345e038": {
+    "symbol": "ECOon",
+    "ticker": "ECO",
+    "name": "Okeanis Eco Tankers (Ondo Tokenized)"
+   },
+   "0xb3d1a5f9bf92f18da643f2ada2f2cdfdae67e9d1": {
+    "symbol": "WLKon",
+    "ticker": "WLK",
+    "name": "Westlake (Ondo Tokenized)"
+   },
+   "0x2155f5344ba7763f80420de617af41e56de0552b": {
+    "symbol": "NUEon",
+    "ticker": "NUE",
+    "name": "Nucor (Ondo Tokenized)"
+   },
+   "0x90eaa91af0b4559f1f270258bb5cddfafbb62da9": {
+    "symbol": "STLDon",
+    "ticker": "STLD",
+    "name": "Steel Dynamics (Ondo Tokenized)"
+   },
+   "0x80f03abcb2bd85237740dd69f87d2f5de3909012": {
+    "symbol": "LSCCon",
+    "ticker": "LSCC",
+    "name": "Lattice Semiconductor (Ondo Tokenized)"
+   },
+   "0x8b68b3d3173c406d2c5f4f2107d54e6562a23120": {
+    "symbol": "CEVAon",
+    "ticker": "CEVA",
+    "name": "CEVA (Ondo Tokenized)"
+   },
+   "0x60b273bdf00a9a52238ca706257f61efc55bdee0": {
+    "symbol": "EMRon",
+    "ticker": "EMR",
+    "name": "Emerson Electric (Ondo Tokenized)"
+   },
+   "0xc79fc7af952c8b41c6b7b7657dd24f44f7c10f2a": {
+    "symbol": "SYMon",
+    "ticker": "SYM",
+    "name": "Symbotic (Ondo Tokenized)"
+   },
+   "0xdb69becc323fec440ca8eb0c3564802e77ce2827": {
+    "symbol": "TASKon",
+    "ticker": "TASK",
+    "name": "TaskUs (Ondo Tokenized)"
+   },
+   "0x517a25e696421c88218b43cbb7ea0f873b6973a6": {
+    "symbol": "INODon",
+    "ticker": "INOD",
+    "name": "Innodata (Ondo Tokenized)"
+   },
+   "0x847ef23a3f99af79a185ce033e1664165b846eea": {
+    "symbol": "HSAIon",
+    "ticker": "HSAI",
+    "name": "Hesai Group (Ondo Tokenized)"
+   },
+   "0xf8919fe7d586b11d0a900e987c4a41bc6c3195f5": {
+    "symbol": "UAMYon",
+    "ticker": "UAMY",
+    "name": "United States Antimony (Ondo Tokenized)"
+   },
+   "0x941e3a7a6fc97b094c63a0348367cf90d93ff090": {
+    "symbol": "ALOYon",
+    "ticker": "ALOY",
+    "name": "REalloys (Ondo Tokenized)"
+   },
+   "0xc5efd0c3a8ff6d9816da7b56625ab4c398eb9e08": {
+    "symbol": "ACMRon",
+    "ticker": "ACMR",
+    "name": "ACM Research (Ondo Tokenized)"
+   },
+   "0x8a5f83a4b3ad2b9604f53c4ddf8dce1329f9d433": {
+    "symbol": "NVMIon",
+    "ticker": "NVMI",
+    "name": "Nova (Ondo Tokenized)"
+   },
+   "0xb84e150a1d18380cfeeebcde8756368dd489a1a3": {
+    "symbol": "AMKRon",
+    "ticker": "AMKR",
+    "name": "Amkor Technology (Ondo Tokenized)"
+   },
+   "0x0b61036b5182a29a228d8ed9e647a16f62bad1bc": {
+    "symbol": "AAONon",
+    "ticker": "AAON",
+    "name": "AAON (Ondo Tokenized)"
+   },
+   "0xff6f45b2d761cde4dab7f5d7a1a5f691f52f3bc3": {
+    "symbol": "HLITon",
+    "ticker": "HLIT",
+    "name": "Harmonic (Ondo Tokenized)"
+   },
+   "0x087b5761b161429013d41ea54cd2fb6022a21564": {
+    "symbol": "DRAMon",
+    "ticker": "DRAM",
+    "name": "Roundhill Memory ETF (Ondo Tokenized)"
+   },
+   "0x2b08f1c28cb1ede3b11d397929f00215fa97ecfa": {
+    "symbol": "ARGTon",
+    "ticker": "ARGT",
+    "name": "Global X MSCI Argentina ETF (Ondo Tokenized)"
+   },
+   "0x89cc700f308a4c59889fbf3286216554c53b0601": {
+    "symbol": "PURRon",
+    "ticker": "PURR",
+    "name": "Hyperliquid Strategies (Ondo Tokenized)"
+   },
+   "0xe5ca1585c6053ee891027fd0a2548cb3b27d7f01": {
+    "symbol": "SHLDon",
+    "ticker": "SHLD",
+    "name": "Global X Defense Tech ETF (Ondo Tokenized)"
+   },
+   "0xb42f5597eadd424de67b46fe5d1ec4b61367a4e5": {
+    "symbol": "BOTZon",
+    "ticker": "BOTZ",
+    "name": "Global X Robotics & Artificial Intelligence ETF (Ondo Tokenized)"
+   },
+   "0xfd7778d5d4e804b5b512471df36d60c465199a52": {
+    "symbol": "LITon",
+    "ticker": "LIT",
+    "name": "Global X Lithium & Battery Tech ETF (Ondo Tokenized)"
+   },
+   "0xec4c1944682b8c7ba6c825e9a8b2b32cb5ecace5": {
+    "symbol": "DTCRon",
+    "ticker": "DTCR",
+    "name": "Global X Data Center & Digital Infrastructure ETF (Ondo Tokenized)"
+   },
+   "0x2bc97b1c5f83f080798ee9e38da5fbf621454fcf": {
+    "symbol": "ORBXon",
+    "ticker": "ORBX",
+    "name": "Global X Space Tech ETF (Ondo Tokenized)"
+   },
+   "0x93eb8376ec73dd07f46ba7ae1ee9b0bbd937ad93": {
+    "symbol": "EUHYon",
+    "ticker": "EUHY",
+    "name": "iShares Euro High Yield Corporate Bond USD Hedged ETF (Ondo Tokenized)"
+   },
+   "0x653156b9a46e21906dddc82414871bbdb0261319": {
+    "symbol": "LEMBon",
+    "ticker": "LEMB",
+    "name": "iShares J.P. Morgan EM Local Currency Bond ETF (Ondo Tokenized)"
+   },
+   "0x5fb339393773414039295ea97a92614fed85d556": {
+    "symbol": "IDEFon",
+    "ticker": "IDEF",
+    "name": "iShares Defense Industrials Active ETF (Ondo Tokenized)"
+   },
+   "0x8dd51e233e2344498f876c231a3bd962e9750a6c": {
+    "symbol": "GGOVon",
+    "ticker": "GGOV",
+    "name": "iShares Global Government Bond USD Hedged Active ETF (Ondo Tokenized)"
+   },
+   "0x64e023411215c3b75b9f339b7b77f179cd04c527": {
+    "symbol": "QYLDon",
+    "ticker": "QYLD",
+    "name": "Global X NASDAQ 100 Covered Call ETF (Ondo Tokenized)"
+   },
+   "0x6a4c1b7aa18638fac4c8e0d1961405e27c25baf1": {
+    "symbol": "SILon",
+    "ticker": "SIL",
+    "name": "Global X Silver Miners ETF (Ondo Tokenized)"
+   },
+   "0x333932f15e6e14f4a630163d3224548a721ddfa4": {
+    "symbol": "AIQon",
+    "ticker": "AIQ",
+    "name": "Global X Artificial Intelligence & Technology ETF (Ondo Tokenized)"
+   },
+   "0x2291e5361f4ef7bb0d6703377bf497bfe4325152": {
+    "symbol": "BKCHon",
+    "ticker": "BKCH",
+    "name": "Global X Blockchain ETF (Ondo Tokenized)"
+   },
+   "0x40375e3dd70232eaf264706e5662b90a079e3d31": {
+    "symbol": "EFVon",
+    "ticker": "EFV",
+    "name": "iShares MSCI EAFE Value ETF (Ondo Tokenized)"
+   },
+   "0x9609f804fd90440dd3f4afa1e0a4d57dfd580ce8": {
+    "symbol": "IJSon",
+    "ticker": "IJS",
+    "name": "iShares S&P Small-Cap 600 Value ETF (Ondo Tokenized)"
+   },
+   "0xbeeef4361f6603edacef5205b343c6bb6473a099": {
+    "symbol": "IYWon",
+    "ticker": "IYW",
+    "name": "iShares US Technology ETF (Ondo Tokenized)"
+   },
+   "0x1fe12abdf560c753acbc63533519d74801e04958": {
+    "symbol": "XYLDon",
+    "ticker": "XYLD",
+    "name": "Global X S&P 500 Covered Call ETF (Ondo Tokenized)"
+   },
+   "0x03f09e2ef6e64d804a5579e21e7b519db174cf54": {
+    "symbol": "BILon",
+    "ticker": "BIL",
+    "name": "SPDR Bloomberg 1-3 Month T-Bill ETF (Ondo Tokenized)"
+   },
+   "0x4e07b55e62f443859706e03aea0b3fe3a1bfea8b": {
+    "symbol": "IEIon",
+    "ticker": "IEI",
+    "name": "iShares 3-7 Year Treasury Bond ETF (Ondo Tokenized)"
+   },
    "0x4277d20430e901092e259ba9cf7164c37077aaf1": {
     "symbol": "YEARon",
     "ticker": "YEAR",
     "name": "AB Ultra Short Income ETF (Ondo Tokenized)"
-   }
-  },
-  "bstock": {
-   "0x33e7317e17838fee56b10fe8d0b9ca6ca3090c95": {
-    "symbol": "CRWVB",
-    "ticker": "CRWV",
-    "name": "CoreWeave (bStocks)"
    },
-   "0xd97d097a89113fa59b76c572e5b2eb647e8eefaf": {
-    "symbol": "SOXLB",
-    "ticker": "SOXL",
-    "name": "Semicon Bull 3X ETF (bStocks)"
+   "0x732823512ba98d1bcde471ca023ee2a0c9f117b7": {
+    "symbol": "SATAon",
+    "ticker": "SATA",
+    "name": "Strive Preferred (Ondo Tokenized)"
    },
-   "0x0735d9904b7e34e6fe39b0f66e00c111b3f2b681": {
-    "symbol": "INTWB",
-    "ticker": "INTW",
-    "name": "GraniteShares 2X Long INTC ETF (bStocks)"
-   },
-   "0x1ffad32d69c5fead99f88c25ca0191edc3757636": {
-    "symbol": "KORUB",
-    "ticker": "KORU",
-    "name": "South Korea Bull 3X ETF (bStocks)"
-   },
-   "0x64748bea17b6d19e242adf20425de2440c656142": {
-    "symbol": "LITEB",
-    "ticker": "LITE",
-    "name": "Lumentum (bStocks)"
-   },
-   "0x9bdc8b470dbf89dbcb123587c6f5e49cca3463be": {
-    "symbol": "AXTIB",
-    "ticker": "AXTI",
-    "name": "AXT (bStocks)"
-   },
-   "0x10343ef7da3301493d7ecb647d68a288c6c1db2f": {
-    "symbol": "AAOIB",
-    "ticker": "AAOI",
-    "name": "Applied Optoelectronics (bStocks)"
-   },
-   "0xd42a79ebb7f527f40faecd196ffb47ad5e8d6f8c": {
-    "symbol": "ARMB",
-    "ticker": "ARM",
-    "name": "ARM (bStocks)"
-   },
-   "0x0bb3fa77e0809f42948e435f04883c25415e8263": {
-    "symbol": "MUUB",
-    "ticker": "MUU",
-    "name": "Direxion MU Bull 2X ETF (bStocks)"
-   },
-   "0xd721c192d612db77621df57a9fab38418033c02e": {
-    "symbol": "QNTB",
-    "ticker": "QNT",
-    "name": "Quantinuum (bStocks)"
-   },
-   "0x7c26a12f20507e2cee22ceebed9e88fda47f866c": {
-    "symbol": "MVLLB",
-    "ticker": "MVLL",
-    "name": "GraniteShares 2X Long MRVL ETF (bStocks)"
-   },
-   "0xe614e2fc6c787035ff51f452e8e826bfd32d5283": {
-    "symbol": "INTCB",
-    "ticker": "INTC",
-    "name": "Intel (bStocks)"
-   },
-   "0x76682c454467b3a1150ad8b6a92fc5ee2c21d7ed": {
-    "symbol": "AVGOB",
-    "ticker": "AVGO",
-    "name": "Broadcom (bStocks)"
-   },
-   "0xca750ef65f295bbecd685abf54e82caf297bdb61": {
-    "symbol": "SKHYB",
-    "ticker": "SKHY",
-    "name": "SK Hynix (bStocks)"
-   },
-   "0x5b1910eaad6450e50f816082aa078c41f10c292f": {
-    "symbol": "TSLAB",
-    "ticker": "TSLA",
-    "name": "Tesla (bStocks)"
-   },
-   "0x93862d63fd9fd488b1328e9b47717d75e994a84b": {
-    "symbol": "DRAMB",
-    "ticker": "DRAM",
-    "name": "Roundhill Memory ETF (bStocks)"
-   },
-   "0xc8da12cbcce7c45180692a6420b0076e03a5179a": {
-    "symbol": "RKLBB",
-    "ticker": "RKLB",
-    "name": "Rocket Lab (bStocks)"
-   },
-   "0x462b5f13b7c7748279358962925c5de83bb9e598": {
-    "symbol": "TQQQB",
-    "ticker": "TQQQ",
-    "name": "ProShares UltraPro QQQ (bStocks)"
-   },
-   "0x75fd4cf6f8392e41e70391d60c90c0d5211603a1": {
-    "symbol": "AMDB",
-    "ticker": "AMD",
-    "name": "Advanced Micro Devices (bStocks)"
-   },
-   "0x7c4d7a180d737dd5a70d8065a90e6746a69c37ea": {
-    "symbol": "NOKB",
-    "ticker": "NOK",
-    "name": "Nokia (bStocks)"
-   },
-   "0x740e075cbbea22a082b9d6679e65e82767875b6a": {
-    "symbol": "GLWB",
-    "ticker": "GLW",
-    "name": "Corning (bStocks)"
-   },
-   "0xebe29695f8047c13d36e7a790ca8c1b239ffad1c": {
-    "symbol": "WDCB",
-    "ticker": "WDC",
-    "name": "Western Digital (bStocks)"
-   },
-   "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699": {
-    "symbol": "MUB",
-    "ticker": "MU",
-    "name": "Micron Technology (bStocks)"
-   },
-   "0xbe82f76637dba2c114c41df856c2c51e522e2cb8": {
-    "symbol": "EWYB",
-    "ticker": "EWY",
-    "name": "iShares MSCI South Korea ETF (bStocks)"
-   },
-   "0x16cd4fe7e8880ecc3ba222795229e20489fc2c76": {
-    "symbol": "MRVLB",
-    "ticker": "MRVL",
-    "name": "Marvell Technology (bStocks)"
-   },
-   "0x9e82e3da8f1115b73d24bb24113ab836ffdab6b6": {
-    "symbol": "SNXXB",
-    "ticker": "SNXX",
-    "name": "Tradr 2X Long SNDK ETF (bStocks)"
-   },
-   "0x02fca66c1d1afb4e2a7884261eb00f63598a7436": {
-    "symbol": "NVDAB",
-    "ticker": "NVDA",
-    "name": "NVIDIA (bStocks)"
-   },
-   "0x5f7a56e877b9130608bf8be962621011182fefe1": {
-    "symbol": "QCOMB",
-    "ticker": "QCOM",
-    "name": "Qualcomm (bStocks)"
-   },
-   "0xab78b89b5bb00236be0b4b20704cbfa04efc711c": {
-    "symbol": "TSMB",
-    "ticker": "TSM",
-    "name": "TSMC (bStocks)"
-   },
-   "0xa394dcea3fd3847fd793afbfd163e2e3858b7c65": {
-    "symbol": "HOODB",
-    "ticker": "HOOD",
-    "name": "Robinhood (bStocks)"
-   },
-   "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb": {
-    "symbol": "SNDKB",
-    "ticker": "SNDK",
-    "name": "SanDisk (bStocks)"
-   },
-   "0x205812cdbed920aff76c6580abd681a46d11efc7": {
-    "symbol": "QQQB",
-    "ticker": "QQQ",
-    "name": "Invesco QQQ Trust (bStocks)"
-   },
-   "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8": {
-    "symbol": "SPYB",
-    "ticker": "SPY",
-    "name": "SPY (bStocks)"
-   },
-   "0xe256bc2a4f5297f8ba6f043f180a46300ecbcbb1": {
-    "symbol": "NBISB",
-    "ticker": "NBIS",
-    "name": "Nebius (bStocks)"
-   },
-   "0x4684d9887fc1c71cba7bab8e88835cec217eb598": {
-    "symbol": "ORCLB",
-    "ticker": "ORCL",
-    "name": "Oracle (bStocks)"
-   },
-   "0x0ca5d51d0277bd006fd9607d3e560785ebad8222": {
-    "symbol": "PLTRB",
-    "ticker": "PLTR",
-    "name": "Palantir (bStocks)"
-   },
-   "0x80106cb3ead06659a5ad19df39d9b4733863b9b0": {
-    "symbol": "MSFTB",
-    "ticker": "MSFT",
-    "name": "Microsoft (bStocks)"
-   },
-   "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1": {
-    "symbol": "SPCXB",
+   "0xd0a58bc9d88d3ff48c0294cb7e45937d0e41a928": {
+    "symbol": "SPCXon",
     "ticker": "SPCX",
-    "name": "SpaceX (bStocks)"
+    "name": "SpaceX (Ondo Tokenized)"
    },
-   "0xfa273b076feb8c0fb34e554ae341082323d016a3": {
-    "symbol": "IBMB",
-    "ticker": "IBM",
-    "name": "IBM (bStocks)"
+   "0x4268f2bfb23a7496504aa5ed1ee325248586299f": {
+    "symbol": "SKHYon",
+    "ticker": "SKHY",
+    "name": "SK Hynix (Ondo Tokenized)"
    },
-   "0x585bde7c54abb5ccd7791f923d6c2187635f3952": {
-    "symbol": "COINB",
-    "ticker": "COIN",
-    "name": "Coinbase (bStocks)"
+   "0xebe1408a7cce4f38de15467e5139c3d82e4641f8": {
+    "symbol": "SYSBon",
+    "ticker": "SYSB",
+    "name": "iShares Systematic Bond ETF (Ondo Tokenized)"
    },
-   "0x4ef9d3062c7f6eba4aae4990c5036598c6eff4ec": {
-    "symbol": "BABAB",
-    "ticker": "BABA",
-    "name": "Alibaba (bStocks)"
+   "0xb0d7d4b65a654d43f91272bb94e011ce6812a2ef": {
+    "symbol": "SECUon",
+    "ticker": "SECU",
+    "name": "iShares Securitized Income Active ETF (Ondo Tokenized)"
    },
-   "0xe81c6bb0266cd68b4f17278531dd03ea1f12da4e": {
-    "symbol": "CBRSB",
-    "ticker": "CBRS",
-    "name": "Cerebras (bStocks)"
+   "0x85b53a9344884ae428e0e15f05a1819d280d4be7": {
+    "symbol": "HYGWon",
+    "ticker": "HYGW",
+    "name": "iShares High Yield Corporate Bond BuyWrite Strategy ETF (Ondo Tokenized)"
    },
-   "0x3f53de71c126bdabae20f9cd64848d317f6c3238": {
-    "symbol": "GOOGLB",
-    "ticker": "GOOGL",
-    "name": "Alphabet (bStocks)"
+   "0xcb6d74aff24afc94514727ee0fcda6bb6b64f3f9": {
+    "symbol": "RXRXon",
+    "ticker": "RXRX",
+    "name": "Recursion Pharmaceuticals (Ondo Tokenized)"
    },
-   "0x7425889fe94f9d693e8daefe88bcced6acfef4c0": {
-    "symbol": "METAB",
-    "ticker": "META",
-    "name": "Meta (bStocks)"
+   "0xb18c6a83490dddbc9a83b011173b5b2fb5dc1272": {
+    "symbol": "HTZon",
+    "ticker": "HTZ",
+    "name": "Hertz Global Holdings (Ondo Tokenized)"
    },
-   "0xe87afb3076aeb0f9b14e368de8145ae6a2826a14": {
-    "symbol": "MSTRB",
-    "ticker": "MSTR",
-    "name": "Strategy (bStocks)"
+   "0x79ed7f4d9668e8e7aaadd12a711d19064840b9a5": {
+    "symbol": "WENon",
+    "ticker": "WEN",
+    "name": "Wendy's (Ondo Tokenized)"
    },
-   "0x80f3d493ebce97e343c53d29a137942416b4ffc0": {
-    "symbol": "CRCLB",
-    "ticker": "CRCL",
-    "name": "Circle Internet Group (bStocks)"
+   "0x97b2fd5fc2f3e0dfd72d45734e360961528b6c63": {
+    "symbol": "HYDBon",
+    "ticker": "HYDB",
+    "name": "iShares High Yield Systematic Bond ETF (Ondo Tokenized)"
+   },
+   "0xc992e5f8da1b99cb941b0a259be9014cffe89ccf": {
+    "symbol": "USHYon",
+    "ticker": "USHY",
+    "name": "iShares Broad USD High Yield Corporate Bond ETF (Ondo Tokenized)"
+   },
+   "0x031d85943ba7ca0304323195e7086a76c35366fb": {
+    "symbol": "NEARon",
+    "ticker": "NEAR",
+    "name": "iShares Short Duration Bond Active ETF (Ondo Tokenized)"
+   },
+   "0x817f1f6780f99bcaac394a59cb0261962df5da8b": {
+    "symbol": "GOOGon",
+    "ticker": "GOOG",
+    "name": "Alphabet Class C (Ondo Tokenized)"
+   },
+   "0xbb8c10f7e828e3279df8cc3397a5212f845c509b": {
+    "symbol": "AIon",
+    "ticker": "AI",
+    "name": "C3.ai (Ondo Tokenized)"
+   },
+   "0x7b5d01d315485280e6c4fe620405fb9c2e226a33": {
+    "symbol": "ZJANon",
+    "ticker": "ZJAN",
+    "name": "Innovator ZJAN ETF (Ondo Tokenized)"
+   },
+   "0x6e2be4514b705c9fad357e6e556c67c710190bb9": {
+    "symbol": "ZFEBon",
+    "ticker": "ZFEB",
+    "name": "Innovator ZFEB ETF (Ondo Tokenized)"
+   },
+   "0xc83075d19dfba5fb16dfcc7e1901127797b41804": {
+    "symbol": "ZMARon",
+    "ticker": "ZMAR",
+    "name": "Innovator ZMAR ETF (Ondo Tokenized)"
+   },
+   "0x7c2494b59500aeb76eb942579a0f2c080da4bda0": {
+    "symbol": "ZAPRon",
+    "ticker": "ZAPR",
+    "name": "Innovator ZAPR ETF (Ondo Tokenized)"
+   },
+   "0xb41d89c61aa53097184e2f47abcb23cc15ac266e": {
+    "symbol": "ZMAYon",
+    "ticker": "ZMAY",
+    "name": "Innovator ZMAY ETF (Ondo Tokenized)"
+   },
+   "0xc5337e92bb8ec00722985f85287c928961bd82df": {
+    "symbol": "ZJUNon",
+    "ticker": "ZJUN",
+    "name": "Innovator ZJUN ETF (Ondo Tokenized)"
+   },
+   "0x16b384878990f94fe3a6a18e5e46a5eff1a50a08": {
+    "symbol": "ZJULon",
+    "ticker": "ZJUL",
+    "name": "Innovator ZJUL ETF (Ondo Tokenized)"
+   },
+   "0x11b664414291512f3b13c7127768ba16fbea35a5": {
+    "symbol": "ZAUGon",
+    "ticker": "ZAUG",
+    "name": "Innovator ZAUG ETF (Ondo Tokenized)"
+   },
+   "0x2c4846bb54b2d232d89f9ce763005f0861c72921": {
+    "symbol": "ZSEPon",
+    "ticker": "ZSEP",
+    "name": "Innovator ZSEP ETF (Ondo Tokenized)"
+   },
+   "0x4f1a7e696e2550fffd3c241ffafa3cfbe603078a": {
+    "symbol": "ZOCTon",
+    "ticker": "ZOCT",
+    "name": "Innovator ZOCT ETF (Ondo Tokenized)"
+   },
+   "0xb041e45025ef1d3d149f37b984191faf9af55dea": {
+    "symbol": "ZNOVon",
+    "ticker": "ZNOV",
+    "name": "Innovator ZNOV ETF (Ondo Tokenized)"
+   },
+   "0xb5f44eb9e3f97254fe9fe4bbb20a32d683fdc529": {
+    "symbol": "ZDEKon",
+    "ticker": "ZDEK",
+    "name": "Innovator ZDEK ETF (Ondo Tokenized)"
+   },
+   "0x820f09c2ebe7852e14a1310008bf7af4d29d4f09": {
+    "symbol": "TWSTon",
+    "ticker": "TWST",
+    "name": "Twist Bioscience Corporation (Ondo Tokenized)"
+   },
+   "0xac0919d699ee1725d30d5ced86cfd553c33dc36a": {
+    "symbol": "INSMon",
+    "ticker": "INSM",
+    "name": "Insmed Incorporated (Ondo Tokenized)"
+   },
+   "0x56bb3f07ab727d9a68c77eb132bcbbf294177222": {
+    "symbol": "ERASon",
+    "ticker": "ERAS",
+    "name": "Erasca, Inc. (Ondo Tokenized)"
+   },
+   "0x0f3931104d9ce770fe33b1032bedf32d67273fe0": {
+    "symbol": "BNTXon",
+    "ticker": "BNTX",
+    "name": "BioNTech SE (Ondo Tokenized)"
+   },
+   "0x6a28d66cd0db1730c1227465f03848e295a34b21": {
+    "symbol": "PTGXon",
+    "ticker": "PTGX",
+    "name": "Protagonist Therapeutics, Inc. (Ondo Tokenized)"
+   },
+   "0x452248f839755c7b777bbc0f6aa49d7f05eb8020": {
+    "symbol": "NTRAon",
+    "ticker": "NTRA",
+    "name": "Natera, Inc. (Ondo Tokenized)"
+   },
+   "0x14315f0dd6765935ebd9642242aa4f52cb975fef": {
+    "symbol": "BMRNon",
+    "ticker": "BMRN",
+    "name": "BioMarin Pharmaceutical Inc. (Ondo Tokenized)"
+   },
+   "0x71c63cb88cc3538437560cd1f87daca82db0fc79": {
+    "symbol": "ROIVon",
+    "ticker": "ROIV",
+    "name": "Roivant Sciences Ltd. (Ondo Tokenized)"
+   },
+   "0xa3e7b4ee9ae8dfe8c9eb7e4e58fdb042f6d179f9": {
+    "symbol": "BITAon",
+    "ticker": "BITA",
+    "name": "iShares Bitcoin Premium Income ETF (Ondo Tokenized)"
+   },
+   "0x80d672ea969ea634345618312c8ccf4322f0675c": {
+    "symbol": "ASSTon",
+    "ticker": "ASST",
+    "name": "Strive (Ondo Tokenized)"
+   },
+   "0x3a5cc5222ea69bcb47cbeb5da2427568244a1f69": {
+    "symbol": "SATSon",
+    "ticker": "SATS",
+    "name": "Strive SATS Preferred (Ondo Tokenized)"
+   },
+   "0x3f41bcf043a07ca9dc734f24b0a77c01cbfa0e8d": {
+    "symbol": "CAIon",
+    "ticker": "CAI",
+    "name": "Caris Life Sciences Inc (Ondo Tokenized)"
    }
   },
   "xstock": {
+   "0x9bbe6aea725215fac44f523260b3373b78661299": {
+    "symbol": "MWHx",
+    "ticker": "MWH",
+    "name": "SOLV Energy xStock",
+    "halted": false
+   },
+   "0xc9e5a5df9aeb1f36801a90e4179fb785b6566564": {
+    "symbol": "USOx",
+    "ticker": "USO",
+    "name": "United States Oil Fund xStock",
+    "halted": false
+   },
+   "0x108db3b073343753b0ccdd0bd902abf6376dcac8": {
+    "symbol": "SKDDx",
+    "ticker": "SKDD",
+    "name": "GraniteShares 2x Short SK Hynix Daily ETF xStock",
+    "halted": false
+   },
+   "0xc2ce8233bafa9724f6eab3435dfa96cda89bbe76": {
+    "symbol": "LYBx",
+    "ticker": "LYB",
+    "name": "LyondellBasell Industries xStock",
+    "halted": false
+   },
+   "0xc1ccf97dcd79e0edeaeb5cd80416ac243a4fbe52": {
+    "symbol": "XBIx",
+    "ticker": "XBI",
+    "name": "State Street SPDR S&P Biotech ETF xStock",
+    "halted": false
+   },
+   "0xac54c338c18550333ff84525e05510304354b33d": {
+    "symbol": "FLUTx",
+    "ticker": "FLUT",
+    "name": "Flutter Entertainment xStock",
+    "halted": false
+   },
+   "0xe3a094d72085157e9f69ac700a451a8af3c2d631": {
+    "symbol": "RAMx",
+    "ticker": "RAM",
+    "name": "Roundhill T-REX 2X Long DRAM Daily Target ETF xStock",
+    "halted": false
+   },
+   "0xf71728c13b2cf61191f23f7ebda2d5b897eccaba": {
+    "symbol": "INFQx",
+    "ticker": "INFQ",
+    "name": "Infleqtion xStock",
+    "halted": false
+   },
+   "0x4ef07a41093ace58af54ca91346477553d686033": {
+    "symbol": "SHLDx",
+    "ticker": "SHLD",
+    "name": "Global X Defense Tech ETF xStock",
+    "halted": false
+   },
+   "0x8345cf29bd9e883ebf4c6d4e03dc8e38b0f00459": {
+    "symbol": "BGx",
+    "ticker": "BG",
+    "name": "Bunge Global xStock",
+    "halted": false
+   },
+   "0xa2068b4664f252c282669c62f590e99dadd614f7": {
+    "symbol": "JAZZx",
+    "ticker": "JAZZ",
+    "name": "Jazz Pharmaceuticals xStock",
+    "halted": false
+   },
+   "0x6f659d89c556a3a2701e17ee05a47a2dc394825f": {
+    "symbol": "SKUUx",
+    "ticker": "SKUU",
+    "name": "GraniteShares 2x Long SK Hynix Daily ETF xStock",
+    "halted": false
+   },
+   "0x1b697167c29e146ad0eab857e57269114789049e": {
+    "symbol": "OUSTx",
+    "ticker": "OUST",
+    "name": "Ouster xStock",
+    "halted": false
+   },
+   "0xc8bba78e7f607ac0b45b1e12b6c661ea3854f45e": {
+    "symbol": "FIGRx",
+    "ticker": "FIGR",
+    "name": "Figure Technology Solutions xStock",
+    "halted": false
+   },
+   "0x8e8428921ef1f11668bc71d434a3c4ab2e2c79da": {
+    "symbol": "ARQQx",
+    "ticker": "ARQQ",
+    "name": "Arqit Quantum xStock",
+    "halted": false
+   },
+   "0x0e60b9d0f3f62f8f429dea2179e8d6b62bd127f0": {
+    "symbol": "WTWx",
+    "ticker": "WTW",
+    "name": "Willis Towers Watson xStock",
+    "halted": false
+   },
+   "0x5a0b3434151e0f2d23608c949505a62e436aae86": {
+    "symbol": "PDDx",
+    "ticker": "PDD",
+    "name": "PDD xStock",
+    "halted": false
+   },
+   "0x0a7b870a1f09553c141cec33a764f1494b57ee61": {
+    "symbol": "PENGx",
+    "ticker": "PENG",
+    "name": "Penguin Solutions xStock",
+    "halted": false
+   },
+   "0x8e6f462beb0f109a9fcbced65ca96e0b3e1fafcd": {
+    "symbol": "FWDIx",
+    "ticker": "FWDI",
+    "name": "Forward Industries xStock",
+    "halted": false
+   },
+   "0xe8ff2d2b9fd5099b70e535a53feb83048cf798f2": {
+    "symbol": "SQQQx",
+    "ticker": "SQQQ",
+    "name": "ProShares UltraPro Short QQQ xStock",
+    "halted": false
+   },
+   "0x4b1e8e2e9256cb35b5fe59fa63ae0f0fdc2b9b72": {
+    "symbol": "SPXCx",
+    "ticker": "SPXC",
+    "name": "SPX Technologies xStock",
+    "halted": false
+   },
+   "0x6fe11d98a4518a7d40c1b6f240d201ffdfe41aa3": {
+    "symbol": "PBx",
+    "ticker": "PB",
+    "name": "Prosperity Bancshares xStock",
+    "halted": false
+   },
+   "0x24df90239fc5ff49e5409f2eac3d902e6685071c": {
+    "symbol": "CAPRx",
+    "ticker": "CAPR",
+    "name": "Capricor Therapeutics xStock",
+    "halted": false
+   },
+   "0x0e1b86000443b74bc515e2e9ef780d0bb05b4e27": {
+    "symbol": "DOCSx",
+    "ticker": "DOCS",
+    "name": "Doximity xStock",
+    "halted": false
+   },
+   "0xab401aa3321ee1d3dd83ee664061605202b317f6": {
+    "symbol": "PNRx",
+    "ticker": "PNR",
+    "name": "Pentair xStock",
+    "halted": false
+   },
+   "0x1814b734c5868dad190ddcc0aca4f59da235ce76": {
+    "symbol": "RKTx",
+    "ticker": "RKT",
+    "name": "Rocket Companies xStock",
+    "halted": false
+   },
+   "0xb0c3e2929aa09c4c56009aafa5514ba475c1288d": {
+    "symbol": "SPCHx",
+    "ticker": "SPCH",
+    "name": "Leverage Shares 2X Long SPCX Daily ETF xStock",
+    "halted": false
+   },
+   "0x9867a1cc080e7cb772a8a2303cafa07ee11eb716": {
+    "symbol": "CHYMx",
+    "ticker": "CHYM",
+    "name": "Chime Financial xStock",
+    "halted": false
+   },
+   "0x8277c95a559bd1669b13e376c783fecacf05cc9b": {
+    "symbol": "UWMCx",
+    "ticker": "UWMC",
+    "name": "UWM xStock",
+    "halted": false
+   },
+   "0xbd8ee984ca75475161d38facbec2749276012737": {
+    "symbol": "NVDLx",
+    "ticker": "NVDL",
+    "name": "GraniteShares 2x Long NVDA Daily ETF xStock",
+    "halted": false
+   },
+   "0xec3288372ddec8c1e4d8dd42753d8b3882343d85": {
+    "symbol": "AMCx",
+    "ticker": "AMC",
+    "name": "AMC Entertainment xStock",
+    "halted": false
+   },
+   "0xc96553ea003e5fed062c081baf759f7087fab858": {
+    "symbol": "GPROx",
+    "ticker": "GPRO",
+    "name": "GoPro xStock",
+    "halted": false
+   },
+   "0xe6adef0cdf6ed5cd1bd8b9b0aa206d29c14b2ae0": {
+    "symbol": "CRDOx",
+    "ticker": "CRDO",
+    "name": "Credo Technology xStock",
+    "halted": false
+   },
+   "0xe419752d5496f3f212e0bb909fa847b7aad62bcd": {
+    "symbol": "DTMx",
+    "ticker": "DTM",
+    "name": "DT Midstream xStock",
+    "halted": false
+   },
+   "0x118bc7580d2ff916ce09c85e07f17d3223b75311": {
+    "symbol": "RPRXx",
+    "ticker": "RPRX",
+    "name": "Royalty Pharma xStock",
+    "halted": false
+   },
+   "0x0529d8cd345dffa96f0c7b9b5eeaee70833e1a74": {
+    "symbol": "GRMNx",
+    "ticker": "GRMN",
+    "name": "Garmin xStock",
+    "halted": false
+   },
+   "0x91f714040beef35ebcf952b538508aca47598ce6": {
+    "symbol": "ANx",
+    "ticker": "AN",
+    "name": "AutoNation xStock",
+    "halted": false
+   },
+   "0xef14e2ecba99e303c18759e5b71acfaac91212de": {
+    "symbol": "NUx",
+    "ticker": "NU",
+    "name": "Nu xStock",
+    "halted": false
+   },
+   "0x3bdc0a42d9e1c64e9a95f0f3c4515b486b466360": {
+    "symbol": "BILIx",
+    "ticker": "BILI",
+    "name": "Bilibili xStock",
+    "halted": false
+   },
+   "0xa416520fa325b5c3f1ea30fc622a040385c2ff15": {
+    "symbol": "CCLx",
+    "ticker": "CCL",
+    "name": "Carnival xStock",
+    "halted": false
+   },
+   "0x81886fe9544987376ef9ed6f85381d879ae927b0": {
+    "symbol": "EWTx",
+    "ticker": "EWT",
+    "name": "iShares MSCI Taiwan ETF xStock",
+    "halted": false
+   },
+   "0xffb1cbdc7370cd439e15a4f6c9fadbdb930f35a5": {
+    "symbol": "ACGLx",
+    "ticker": "ACGL",
+    "name": "Arch Capital xStock",
+    "halted": false
+   },
+   "0xb84fb44fd817b38bad5690c7a3f260434c723a4c": {
+    "symbol": "STEx",
+    "ticker": "STE",
+    "name": "Steris xStock",
+    "halted": false
+   },
    "0x992e84d083796090791b30de34f3de3ed34ba9ee": {
     "symbol": "CBx",
     "ticker": "CB",
@@ -3046,16 +3192,16 @@
     "name": "Liberty Global xStock",
     "halted": false
    },
-   "0x913bb975959d1326dc68f780d092d62e016ca263": {
-    "symbol": "KDx",
-    "ticker": "KD",
-    "name": "Kyndryl xStock",
-    "halted": false
-   },
    "0xca91181190e45f4a7688c0ef2aa80c7e1d44eab6": {
     "symbol": "LOARx",
     "ticker": "LOAR",
     "name": "Loar xStock",
+    "halted": false
+   },
+   "0x913bb975959d1326dc68f780d092d62e016ca263": {
+    "symbol": "KDx",
+    "ticker": "KD",
+    "name": "Kyndryl xStock",
     "halted": false
    },
    "0x3d87a5ff781b08b137452630c01bf26feb2a39b2": {
@@ -4312,16 +4458,16 @@
     "name": "Avantor xStock",
     "halted": false
    },
-   "0x8f8e996d2e047a62bca2386f616a812ce9397f93": {
-    "symbol": "MHKx",
-    "ticker": "MHK",
-    "name": "Mohawk Industries xStock",
-    "halted": false
-   },
    "0x8adae461ed488928ad63069e756770b537b425da": {
     "symbol": "TTEKx",
     "ticker": "TTEK",
     "name": "Tetra Tech xStock",
+    "halted": false
+   },
+   "0x8f8e996d2e047a62bca2386f616a812ce9397f93": {
+    "symbol": "MHKx",
+    "ticker": "MHK",
+    "name": "Mohawk Industries xStock",
     "halted": false
    },
    "0x07a53b98deaa9d7244341d05a3aecfb31d4f7026": {
@@ -6608,7 +6754,7 @@
     "symbol": "CKAHx",
     "ticker": "1113",
     "name": "CK Asset xStock",
-    "halted": true
+    "halted": false
    },
    "0xfd09e7d3cf7fc3a3a5f1f89f80ec65794a0bfed0": {
     "symbol": "CKINFx",
@@ -8420,7 +8566,7 @@
     "symbol": "KVUEx",
     "ticker": "KVUE",
     "name": "Kenvue xStock",
-    "halted": false
+    "halted": true
    },
    "0xa77d35039b95c50278477f393eb6c4edd3811dbb": {
     "symbol": "RVMDx",
@@ -9644,7 +9790,7 @@
     "symbol": "ENHAx",
     "ticker": "ENHA",
     "name": "Enhanced Group xStock",
-    "halted": false
+    "halted": true
    },
    "0x299c95eb52bfd5bc98d924bce17197b64864589b": {
     "symbol": "EWYx",
@@ -10733,196 +10879,716 @@
     "halted": false
    }
   },
-  "bstockSource": "catalog",
+  "bstock": {
+   "0x33e7317e17838fee56b10fe8d0b9ca6ca3090c95": {
+    "symbol": "CRWVB",
+    "ticker": "CRWV",
+    "name": "CoreWeave (bStocks)"
+   },
+   "0xd97d097a89113fa59b76c572e5b2eb647e8eefaf": {
+    "symbol": "SOXLB",
+    "ticker": "SOXL",
+    "name": "Semicon Bull 3X ETF (bStocks)"
+   },
+   "0x0735d9904b7e34e6fe39b0f66e00c111b3f2b681": {
+    "symbol": "INTWB",
+    "ticker": "INTW",
+    "name": "GraniteShares 2X Long INTC ETF (bStocks)"
+   },
+   "0x1ffad32d69c5fead99f88c25ca0191edc3757636": {
+    "symbol": "KORUB",
+    "ticker": "KORU",
+    "name": "South Korea Bull 3X ETF (bStocks)"
+   },
+   "0x64748bea17b6d19e242adf20425de2440c656142": {
+    "symbol": "LITEB",
+    "ticker": "LITE",
+    "name": "Lumentum (bStocks)"
+   },
+   "0x9bdc8b470dbf89dbcb123587c6f5e49cca3463be": {
+    "symbol": "AXTIB",
+    "ticker": "AXTI",
+    "name": "AXT (bStocks)"
+   },
+   "0x10343ef7da3301493d7ecb647d68a288c6c1db2f": {
+    "symbol": "AAOIB",
+    "ticker": "AAOI",
+    "name": "Applied Optoelectronics (bStocks)"
+   },
+   "0xd42a79ebb7f527f40faecd196ffb47ad5e8d6f8c": {
+    "symbol": "ARMB",
+    "ticker": "ARM",
+    "name": "ARM (bStocks)"
+   },
+   "0x0bb3fa77e0809f42948e435f04883c25415e8263": {
+    "symbol": "MUUB",
+    "ticker": "MUU",
+    "name": "Direxion MU Bull 2X ETF (bStocks)"
+   },
+   "0xd721c192d612db77621df57a9fab38418033c02e": {
+    "symbol": "QNTB",
+    "ticker": "QNT",
+    "name": "Quantinuum (bStocks)"
+   },
+   "0x7c26a12f20507e2cee22ceebed9e88fda47f866c": {
+    "symbol": "MVLLB",
+    "ticker": "MVLL",
+    "name": "GraniteShares 2X Long MRVL ETF (bStocks)"
+   },
+   "0xe614e2fc6c787035ff51f452e8e826bfd32d5283": {
+    "symbol": "INTCB",
+    "ticker": "INTC",
+    "name": "Intel (bStocks)"
+   },
+   "0x76682c454467b3a1150ad8b6a92fc5ee2c21d7ed": {
+    "symbol": "AVGOB",
+    "ticker": "AVGO",
+    "name": "Broadcom (bStocks)"
+   },
+   "0xca750ef65f295bbecd685abf54e82caf297bdb61": {
+    "symbol": "SKHYB",
+    "ticker": "SKHY",
+    "name": "SK Hynix (bStocks)"
+   },
+   "0x5b1910eaad6450e50f816082aa078c41f10c292f": {
+    "symbol": "TSLAB",
+    "ticker": "TSLA",
+    "name": "Tesla (bStocks)"
+   },
+   "0x93862d63fd9fd488b1328e9b47717d75e994a84b": {
+    "symbol": "DRAMB",
+    "ticker": "DRAM",
+    "name": "Roundhill Memory ETF (bStocks)"
+   },
+   "0xc8da12cbcce7c45180692a6420b0076e03a5179a": {
+    "symbol": "RKLBB",
+    "ticker": "RKLB",
+    "name": "Rocket Lab (bStocks)"
+   },
+   "0x462b5f13b7c7748279358962925c5de83bb9e598": {
+    "symbol": "TQQQB",
+    "ticker": "TQQQ",
+    "name": "ProShares UltraPro QQQ (bStocks)"
+   },
+   "0x75fd4cf6f8392e41e70391d60c90c0d5211603a1": {
+    "symbol": "AMDB",
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices (bStocks)"
+   },
+   "0x7c4d7a180d737dd5a70d8065a90e6746a69c37ea": {
+    "symbol": "NOKB",
+    "ticker": "NOK",
+    "name": "Nokia (bStocks)"
+   },
+   "0x740e075cbbea22a082b9d6679e65e82767875b6a": {
+    "symbol": "GLWB",
+    "ticker": "GLW",
+    "name": "Corning (bStocks)"
+   },
+   "0xebe29695f8047c13d36e7a790ca8c1b239ffad1c": {
+    "symbol": "WDCB",
+    "ticker": "WDC",
+    "name": "Western Digital (bStocks)"
+   },
+   "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699": {
+    "symbol": "MUB",
+    "ticker": "MU",
+    "name": "Micron Technology (bStocks)"
+   },
+   "0xbe82f76637dba2c114c41df856c2c51e522e2cb8": {
+    "symbol": "EWYB",
+    "ticker": "EWY",
+    "name": "iShares MSCI South Korea ETF (bStocks)"
+   },
+   "0x16cd4fe7e8880ecc3ba222795229e20489fc2c76": {
+    "symbol": "MRVLB",
+    "ticker": "MRVL",
+    "name": "Marvell Technology (bStocks)"
+   },
+   "0x9e82e3da8f1115b73d24bb24113ab836ffdab6b6": {
+    "symbol": "SNXXB",
+    "ticker": "SNXX",
+    "name": "Tradr 2X Long SNDK ETF (bStocks)"
+   },
+   "0x02fca66c1d1afb4e2a7884261eb00f63598a7436": {
+    "symbol": "NVDAB",
+    "ticker": "NVDA",
+    "name": "NVIDIA (bStocks)"
+   },
+   "0x5f7a56e877b9130608bf8be962621011182fefe1": {
+    "symbol": "QCOMB",
+    "ticker": "QCOM",
+    "name": "Qualcomm (bStocks)"
+   },
+   "0xab78b89b5bb00236be0b4b20704cbfa04efc711c": {
+    "symbol": "TSMB",
+    "ticker": "TSM",
+    "name": "TSMC (bStocks)"
+   },
+   "0xa394dcea3fd3847fd793afbfd163e2e3858b7c65": {
+    "symbol": "HOODB",
+    "ticker": "HOOD",
+    "name": "Robinhood (bStocks)"
+   },
+   "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb": {
+    "symbol": "SNDKB",
+    "ticker": "SNDK",
+    "name": "SanDisk (bStocks)"
+   },
+   "0x205812cdbed920aff76c6580abd681a46d11efc7": {
+    "symbol": "QQQB",
+    "ticker": "QQQ",
+    "name": "Invesco QQQ Trust (bStocks)"
+   },
+   "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8": {
+    "symbol": "SPYB",
+    "ticker": "SPY",
+    "name": "SPY (bStocks)"
+   },
+   "0xe256bc2a4f5297f8ba6f043f180a46300ecbcbb1": {
+    "symbol": "NBISB",
+    "ticker": "NBIS",
+    "name": "Nebius (bStocks)"
+   },
+   "0x4684d9887fc1c71cba7bab8e88835cec217eb598": {
+    "symbol": "ORCLB",
+    "ticker": "ORCL",
+    "name": "Oracle (bStocks)"
+   },
+   "0x0ca5d51d0277bd006fd9607d3e560785ebad8222": {
+    "symbol": "PLTRB",
+    "ticker": "PLTR",
+    "name": "Palantir (bStocks)"
+   },
+   "0x80106cb3ead06659a5ad19df39d9b4733863b9b0": {
+    "symbol": "MSFTB",
+    "ticker": "MSFT",
+    "name": "Microsoft (bStocks)"
+   },
+   "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1": {
+    "symbol": "SPCXB",
+    "ticker": "SPCX",
+    "name": "SpaceX (bStocks)"
+   },
+   "0xfa273b076feb8c0fb34e554ae341082323d016a3": {
+    "symbol": "IBMB",
+    "ticker": "IBM",
+    "name": "IBM (bStocks)"
+   },
+   "0x585bde7c54abb5ccd7791f923d6c2187635f3952": {
+    "symbol": "COINB",
+    "ticker": "COIN",
+    "name": "Coinbase (bStocks)"
+   },
+   "0x4ef9d3062c7f6eba4aae4990c5036598c6eff4ec": {
+    "symbol": "BABAB",
+    "ticker": "BABA",
+    "name": "Alibaba (bStocks)"
+   },
+   "0xe81c6bb0266cd68b4f17278531dd03ea1f12da4e": {
+    "symbol": "CBRSB",
+    "ticker": "CBRS",
+    "name": "Cerebras (bStocks)"
+   },
+   "0x3f53de71c126bdabae20f9cd64848d317f6c3238": {
+    "symbol": "GOOGLB",
+    "ticker": "GOOGL",
+    "name": "Alphabet (bStocks)"
+   },
+   "0x7425889fe94f9d693e8daefe88bcced6acfef4c0": {
+    "symbol": "METAB",
+    "ticker": "META",
+    "name": "Meta (bStocks)"
+   },
+   "0xe87afb3076aeb0f9b14e368de8145ae6a2826a14": {
+    "symbol": "MSTRB",
+    "ticker": "MSTR",
+    "name": "Strategy (bStocks)"
+   },
+   "0x80f3d493ebce97e343c53d29a137942416b4ffc0": {
+    "symbol": "CRCLB",
+    "ticker": "CRCL",
+    "name": "Circle Internet Group (bStocks)"
+   }
+  },
+  "bstockSource": "not_checked",
   "spotPairs": {
-   "CRWVB": {
+   "BNB": {
     "status": "TRADING",
-    "group": null
+    "group": "f6280e3cce"
    },
-   "SOXLB": {
-    "status": "TRADING",
-    "group": null
+   "USDSB": {
+    "status": "BREAK",
+    "group": "80a215db9b"
    },
-   "INTWB": {
+   "DGB": {
     "status": "TRADING",
-    "group": null
+    "group": "68ff6af2a3"
    },
-   "KORUB": {
+   "TRB": {
     "status": "TRADING",
-    "group": null
+    "group": "f6280e3cce"
    },
-   "LITEB": {
+   "CKB": {
     "status": "TRADING",
-    "group": null
+    "group": "8c3ce7a2b9"
    },
-   "AXTIB": {
+   "SHIB": {
     "status": "TRADING",
-    "group": null
+    "group": "f6280e3cce"
    },
-   "AAOIB": {
-    "status": "TRADING",
-    "group": null
+   "MOB": {
+    "status": "BREAK",
+    "group": "e311c91f9d"
    },
-   "ARMB": {
-    "status": "TRADING",
-    "group": null
+   "PHB": {
+    "status": "BREAK",
+    "group": "69b1ac460c"
    },
-   "MUUB": {
-    "status": "TRADING",
-    "group": null
+   "VIB": {
+    "status": "BREAK",
+    "group": "bf145e2095"
    },
-   "QNTB": {
-    "status": "TRADING",
-    "group": null
+   "AMB": {
+    "status": "BREAK",
+    "group": "205e48f979"
    },
-   "MVLLB": {
+   "ARB": {
     "status": "TRADING",
-    "group": null
+    "group": "f6280e3cce"
    },
-   "INTCB": {
+   "BB": {
     "status": "TRADING",
-    "group": null
+    "group": "54e3c6a594"
    },
-   "AVGOB": {
+   "YB": {
     "status": "TRADING",
-    "group": null
-   },
-   "SKHYB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "TSLAB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "DRAMB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "RKLBB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "TQQQB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "AMDB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "NOKB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "GLWB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "WDCB": {
-    "status": "TRADING",
-    "group": null
+    "group": "fd03738c1e"
    },
    "MUB": {
     "status": "TRADING",
-    "group": null
-   },
-   "EWYB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "MRVLB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "SNXXB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "NVDAB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "QCOMB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "TSMB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "HOODB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "SNDKB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "QQQB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "SPYB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "NBISB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "ORCLB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "PLTRB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "MSFTB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "SPCXB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "IBMB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "COINB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "BABAB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "CBRSB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "GOOGLB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "METAB": {
-    "status": "TRADING",
-    "group": null
-   },
-   "MSTRB": {
-    "status": "TRADING",
-    "group": null
+    "group": "1a57c8f8d3"
    },
    "CRCLB": {
     "status": "TRADING",
-    "group": null
+    "group": "1a57c8f8d3"
+   },
+   "NVDAB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SNDKB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "TSLAB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SPCXB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AMDB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "EWYB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "INTCB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MSTRB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "LITEB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "METAB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MSFTB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "PLTRB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "QQQB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "CBRSB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "COINB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "DRAMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "GLWB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "GOOGLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "NBISB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "QCOMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SOXLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SPYB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "WDCB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SKHYB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AAOIB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ARMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AVGOB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BABAB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "HOODB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "IBMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MRVLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "NOKB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "TSMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "RKLBB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AXTIB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "CRWVB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "INTWB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "KORUB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MUUB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MVLLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ORCLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "QNTB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SNXXB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "TQQQB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AAPLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AMATB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AMZNB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BEB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "DELLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "FLNCB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "GSB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "PYPLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SMHB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SOXSB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ASMLB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ASTSB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BMNRB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "COHRB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "CRDOB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "IRENB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "NFLXB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SMCIB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "USARB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ALABB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "GMEB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "DJTB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "CRWDB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MRNAB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SQQQB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "STXB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "CRMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "HIMSB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BNCB": {
+    "status": "TRADING",
+    "group": "97e90ef214"
+   },
+   "GPROB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "RDDTB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AGPUB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "AMCB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "CYPHB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ADBEB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "FWDIB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "HPEB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "PDDB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SHAZB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "WENB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "ZMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "USDEB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SECZB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "LLYB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "JPMB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BBB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "MDBB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "PENGB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "UVXYB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BOTB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "KSTRB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "TMFB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "VSTB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BRKBB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "APPB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "BSPB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "GEVB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SKDDB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
+   },
+   "SKUUB": {
+    "status": "TRADING",
+    "group": "1a57c8f8d3"
    }
   }
  },
  "observation": {
-  "observedAt": "2026-11-13T14:38:12.197Z",
+  "observedAt": "2026-11-14T12:16:23.409Z",
   "source": "upstream",
   "ondo": {
    "0x02d608506ca0048d0d991a11f1e7fb8cad1e44f8": {
