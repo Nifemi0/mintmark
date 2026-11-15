@@ -1,7 +1,7 @@
 {
- "date": "2026-11-14",
+ "date": "2026-11-15",
  "baseline": {
-  "observedAt": "2026-11-13T14:38:12.197Z",
+  "observedAt": "2026-11-14T12:16:23.409Z",
   "source": "upstream",
   "ondo": {
    "0x02d608506ca0048d0d991a11f1e7fb8cad1e44f8": {
@@ -11588,7 +11588,7 @@
   }
  },
  "observation": {
-  "observedAt": "2026-11-14T12:16:23.409Z",
+  "observedAt": "2026-11-15T12:48:19.963Z",
   "source": "upstream",
   "ondo": {
    "0x02d608506ca0048d0d991a11f1e7fb8cad1e44f8": {
