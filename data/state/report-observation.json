@@ -1,7 +1,7 @@
 {
- "date": "2026-11-16",
+ "date": "2026-11-17",
  "baseline": {
-  "observedAt": "2026-11-15T12:48:19.963Z",
+  "observedAt": "2026-11-16T13:44:41.662Z",
   "source": "upstream",
   "ondo": {
    "0x02d608506ca0048d0d991a11f1e7fb8cad1e44f8": {
@@ -11588,7 +11588,7 @@
   }
  },
  "observation": {
-  "observedAt": "2026-11-16T13:44:41.662Z",
+  "observedAt": "2026-11-17T14:34:37.114Z",
   "source": "upstream",
   "ondo": {
    "0x02d608506ca0048d0d991a11f1e7fb8cad1e44f8": {
@@ -14083,16 +14083,16 @@
     "name": "ProShares UltraPro Short QQQ xStock",
     "halted": false
    },
-   "0x4b1e8e2e9256cb35b5fe59fa63ae0f0fdc2b9b72": {
-    "symbol": "SPXCx",
-    "ticker": "SPXC",
-    "name": "SPX Technologies xStock",
-    "halted": false
-   },
    "0x6fe11d98a4518a7d40c1b6f240d201ffdfe41aa3": {
     "symbol": "PBx",
     "ticker": "PB",
     "name": "Prosperity Bancshares xStock",
+    "halted": false
+   },
+   "0x4b1e8e2e9256cb35b5fe59fa63ae0f0fdc2b9b72": {
+    "symbol": "SPXCx",
+    "ticker": "SPXC",
+    "name": "SPX Technologies xStock",
     "halted": false
    },
    "0x24df90239fc5ff49e5409f2eac3d902e6685071c": {
@@ -14327,12 +14327,6 @@
     "symbol": "XPOFx",
     "ticker": "XPOF",
     "name": "Xponential Fitness xStock",
-    "halted": false
-   },
-   "0xa61fc4916ae408e499b025217f7bf12f54ef27b4": {
-    "symbol": "IEPx",
-    "ticker": "IEP",
-    "name": "Icahn Enterprises xStock",
     "halted": false
    },
    "0x36fc8077cf0790783ed866e6c34971b46f68b6d6": {
@@ -14779,16 +14773,16 @@
     "name": "Liberty Global xStock",
     "halted": false
    },
-   "0xca91181190e45f4a7688c0ef2aa80c7e1d44eab6": {
-    "symbol": "LOARx",
-    "ticker": "LOAR",
-    "name": "Loar xStock",
-    "halted": false
-   },
    "0x913bb975959d1326dc68f780d092d62e016ca263": {
     "symbol": "KDx",
     "ticker": "KD",
     "name": "Kyndryl xStock",
+    "halted": false
+   },
+   "0xca91181190e45f4a7688c0ef2aa80c7e1d44eab6": {
+    "symbol": "LOARx",
+    "ticker": "LOAR",
+    "name": "Loar xStock",
     "halted": false
    },
    "0x3d87a5ff781b08b137452630c01bf26feb2a39b2": {
@@ -15019,16 +15013,16 @@
     "name": "SLM xStock",
     "halted": false
    },
-   "0x716e60e6c3daf2bf6d13a2e3d25d3409a22f1ad3": {
-    "symbol": "GNTXx",
-    "ticker": "GNTX",
-    "name": "Gentex xStock",
-    "halted": false
-   },
    "0x2018e0a021d03501f7aebf092145a349d2c71b1d": {
     "symbol": "LPXx",
     "ticker": "LPX",
     "name": "Louisiana-Pacific xStock",
+    "halted": false
+   },
+   "0x716e60e6c3daf2bf6d13a2e3d25d3409a22f1ad3": {
+    "symbol": "GNTXx",
+    "ticker": "GNTX",
+    "name": "Gentex xStock",
     "halted": false
    },
    "0xad7ce25a80127278349b599fd32e5a1ce00d3816": {
