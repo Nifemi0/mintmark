@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { readFile, mkdir, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -5,6 +6,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const records = JSON.parse(await readFile(path.join(root, 'data', 'ondo-bsc.json'), 'utf8')).records;
 const directory = path.join(root, 'public', 'logos');
+// --missing downloads only logos not already saved (used by the daily refresh).
+const onlyMissing = process.argv.includes('--missing');
+const sourcesPath = path.join(directory, 'sources.json');
+const previous = onlyMissing && existsSync(sourcesPath) ? JSON.parse(await readFile(sourcesPath, 'utf8')).images ?? [] : [];
+const todo = onlyMissing ? records.filter((record) => !existsSync(path.join(directory, `${record.underlyingTicker}.png`))) : records;
 await mkdir(directory, { recursive: true });
 
 async function saveLogo(record) {
@@ -33,19 +39,20 @@ async function saveLogo(record) {
 }
 
 const results = [], failures = [];
-for (let offset = 0; offset < records.length; offset += 8) {
-  const batch = await Promise.allSettled(records.slice(offset, offset + 8).map(saveLogo));
+for (let offset = 0; offset < todo.length; offset += 8) {
+  const batch = await Promise.allSettled(todo.slice(offset, offset + 8).map(saveLogo));
   for (const result of batch) {
     if (result.status === 'fulfilled') results.push(result.value);
     else failures.push(result.reason.message);
   }
-  if ((offset + 8) % 80 === 0 || offset + 8 >= records.length) {
-    console.log(`Downloaded ${results.length}/${records.length} issuer logos`);
+  if ((offset + 8) % 80 === 0 || offset + 8 >= todo.length) {
+    console.log(`Downloaded ${results.length}/${todo.length} issuer logos`);
   }
 }
 await writeFile(path.join(directory, 'sources.json'), JSON.stringify({
   description: 'Ondo-published token images for visual recognition. Chain and exact contract remain the identity evidence.',
-  generatedAt: new Date().toISOString(), images: results, failures,
+  generatedAt: new Date().toISOString(),
+  images: [...previous.filter((item) => !results.some((r) => r.ticker === item.ticker)), ...results].sort((a, b) => a.ticker.localeCompare(b.ticker)), failures,
 }, null, 2) + '\n');
 if (failures.length) throw new Error(`Could not download ${failures.length} logos: ${failures.slice(0, 5).join('; ')}`);
-console.log(`Saved all ${results.length} issuer logos to public/logos`);
+console.log(`Saved ${results.length} of ${todo.length} needed issuer logos to public/logos`);

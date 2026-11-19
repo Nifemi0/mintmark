@@ -268,6 +268,8 @@ function renderFeatured() {
 
 function renderStatus(payload) {
   snapshotStatus.textContent = `${Number(payload.catalogTotal ?? payload.total).toLocaleString('en-US')} BSC records · 3 providers · catalog snapshot ${dateLabel(payload.snapshotAt)}`;
+  const homeCount = document.querySelector('#home-count');
+  if (homeCount) homeCount.textContent = Number(payload.catalogTotal ?? payload.total).toLocaleString('en-US');
   document.querySelectorAll('.footer-status span').forEach((status) => {
     const count = Number(payload.catalogTotal ?? payload.total).toLocaleString('en-US');
     status.innerHTML = `<strong>Registry online</strong>${escapeHtml(count)} checked BSC contracts · updated ${escapeHtml(new Date(payload.snapshotAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }))}`;

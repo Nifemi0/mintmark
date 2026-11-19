@@ -31,13 +31,30 @@ jobs:
       - name: Decide whether the report needs a person
         id: check
         run: node scripts/report-decision.mjs
+      - name: Refresh the catalog on a normal day
+        if: steps.check.outputs.decision == 'publish'
+        id: refresh
+        env:
+          OC_API_KEY: ${{ secrets.OC_API_KEY }}
+          OC_SECRET_KEY: ${{ secrets.OC_SECRET_KEY }}
+        run: |
+          # Ondo, xStocks and Binance Spot are public; bStocks refresh only with Binance keys.
+          # Any failure, a large drop, or a failing check keeps the committed catalog.
+          if npm run sync && node scripts/sync-logos.mjs --missing && node scripts/check-catalog-change.mjs && npm test && npm run check:release; then
+            echo "refreshed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Catalog refresh held back; the committed catalog stays."
+            git checkout -- data/catalog.json data/ondo-bsc.json data/registry-history.json data/binance-spot.json public/logos
+            git clean -fdq -- public/logos
+            echo "refreshed=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Commit the report
         run: |
           git config user.name "Nifemi0"
           git config user.email "Nifemi0@github.com"
-          git add data/reports data/state
+          git add data/reports data/state data/catalog.json data/ondo-bsc.json data/registry-history.json data/binance-spot.json public/logos
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
-          git commit -m "Daily report ${{ steps.check.outputs.date }}"
+          git commit -m "Daily report ${{ steps.check.outputs.date }}${{ steps.refresh.outputs.refreshed == 'true' && ' and catalog refresh' || '' }}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
         id: commit
       - name: Publish a normal report

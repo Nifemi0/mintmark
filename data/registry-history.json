@@ -157489,6 +157489,27 @@
             "explorerUrl": "https://bscscan.com/token/0xa61fc4916ae408e499b025217f7bf12f54ef27b4",
             "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/IEPx"
           }
+        },
+        {
+          "version": 2,
+          "kind": "removed_from_catalog",
+          "observedAt": "2026-11-19T22:29:53.355Z",
+          "sourceUrl": null,
+          "reviewMethod": "Automated catalog comparison; removal does not prove the issuer retired the token",
+          "changes": [],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xa61fc4916ae408e499b025217f7bf12f54ef27b4",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "IEPx",
+            "tokenName": "Icahn Enterprises xStock",
+            "underlyingTicker": "IEP",
+            "companyName": "Icahn Enterprises",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xa61fc4916ae408e499b025217f7bf12f54ef27b4",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/IEPx"
+          }
         }
       ]
     },
@@ -187053,6 +187074,87 @@
             "assetType": "Stock",
             "explorerUrl": "https://bscscan.com/token/0xb84fb44fd817b38bad5690c7a3f260434c723a4c",
             "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/STEx"
+          }
+        }
+      ]
+    },
+    "56:0x15ed7af704c569b0d0908b3df73128700e68551d": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-11-19T22:29:53.355Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x15ed7af704c569b0d0908b3df73128700e68551d"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "URNMx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Sprott Uranium Miners ETF xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "URNM"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Sprott Uranium Miners ETF"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "ETF"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x15ed7af704c569b0d0908b3df73128700e68551d"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/URNMx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x15ed7af704c569b0d0908b3df73128700e68551d",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "URNMx",
+            "tokenName": "Sprott Uranium Miners ETF xStock",
+            "underlyingTicker": "URNM",
+            "companyName": "Sprott Uranium Miners ETF",
+            "assetType": "ETF",
+            "explorerUrl": "https://bscscan.com/token/0x15ed7af704c569b0d0908b3df73128700e68551d",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/URNMx"
           }
         }
       ]

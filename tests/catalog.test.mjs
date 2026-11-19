@@ -28,7 +28,7 @@ test('combined catalog has distinct checked identities from all three providers'
     ['AAPL', ['ondo', 'xstock']],
   ]) {
     const products = records.filter((record) => record.underlyingTicker === ticker);
-    assert.deepEqual(products.map((record) => record.platformId), expectedProviders);
+    for (const provider of expectedProviders) assert.ok(products.some((record) => record.platformId === provider), `${ticker} lost its ${provider} product`);
     assert.equal(new Set(products.map((record) => record.contractAddress)).size, products.length);
     for (const product of products) assert.match(product.issuerTermsUrl, /^https:\/\//);
   }

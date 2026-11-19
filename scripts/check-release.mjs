@@ -35,7 +35,7 @@ for (const [ticker, providers] of [
   ['AAPL', ['ondo', 'xstock']],
 ]) {
   const products = records.filter((record) => record.underlyingTicker === ticker);
-  if (JSON.stringify(products.map((record) => record.platformId)) !== JSON.stringify(providers)) violations.push(`${ticker} provider coverage changed`);
+  for (const provider of providers) if (!products.some((record) => record.platformId === provider)) violations.push(`${ticker} lost its ${provider} product`);
   for (const product of products) {
     if (!/^https:\/\//.test(product.issuerTermsUrl ?? '')) violations.push(`${ticker} legal-document link missing`);
   }

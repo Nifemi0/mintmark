@@ -51,6 +51,22 @@
       "destination": "/reports.html"
     },
     {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/v1",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/v1/:path*",
+      "destination": "/api/index"
+    },
+    {
       "source": "/api/:path*",
       "destination": "/api/index"
     }

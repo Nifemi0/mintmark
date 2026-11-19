@@ -10,7 +10,7 @@ Source code: https://github.com/Nifemi0/mintmark
 
 - Search by company name, public ticker, token symbol, category, keyword, or exact BSC contract.
 - Compare distinct Ondo, bStocks, and xStocks products without treating a shared stock ticker as one token.
-- Inspect 1,937 checked records: 474 Ondo, 46 bStocks, and 1,417 xStocks.
+- Inspect every checked record across Ondo, bStocks, and xStocks; `/v1/health` gives the current count per provider.
 - Open shareable comparisons with `/?q=NVDA#registry` and exact records with `/?q=NVDA&record=56%3A0x...#record`.
 - Review exact-contract token-market coverage from Binance when available: price, 24-hour change, reported volume, reported liquidity, holders, and transaction activity.
 - Binance Spot routes appear only for bStocks records whose exact SYMBOL/USDT pair was listed with status TRADING in Binance Spot `exchangeInfo` at the last `npm run sync:spot`; the check and its time are stored in `data/binance-spot.json`. A record can also show a detected BNB Chain DEX pool; when both exist, both routes are shown. Ondo and xStocks trading routes remain unavailable until Mintmark can verify an exact venue. Mintmark links out to the venue; it does not place orders.
@@ -49,3 +49,4 @@ The catalog is a dated snapshot. Contract checks establish contract responses, n
 - Daily report: `/reports` shows what changed upstream each day (new, removed, changed, and halted tokens; Binance Spot pair changes; unconfirmed bStocks candidates). JSON: `/api/reports` (index) and `/api/daily-report?date=YYYY-MM-DD` (omit `date` for the latest). RSS: `/api/reports/feed.xml`. A report lists provider observations; registry records change only after review.
 - Contract check: `/api/contract-check?address=0x…` reads an unregistered contract's onchain symbol and name and lists registered products it could be mistaken for.
 - Catalog export: `/api/catalog.json` and `/api/catalog.csv` return the full reviewed catalog, one row per exact BSC contract.
+- Public API v1 (stable, CORS-enabled, no key): `GET /v1/tokens/56/{address}`, `POST /v1/tokens/lookup` (up to 100 addresses), `GET /v1/tokens?q=`, `GET /v1/companies/{ticker}`, `GET /v1/check/56/{address}`, `GET /v1/reports/latest`. OpenAPI: `/openapi.json`. Terms: `/terms`.

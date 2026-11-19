@@ -1,127 +1,7 @@
 {
   "description": "Ondo-published token images for visual recognition. Chain and exact contract remain the identity evidence.",
-  "generatedAt": "2026-11-13T14:39:00.710Z",
+  "generatedAt": "2026-11-19T22:31:03.015Z",
   "images": [
-    {
-      "ticker": "AAPL",
-      "url": "https://cdn.ondo.finance/tokens/logos/aaplon_160x160.png",
-      "bytes": 4128
-    },
-    {
-      "ticker": "NVDA",
-      "url": "https://cdn.ondo.finance/tokens/logos/nvdaon_160x160.png",
-      "bytes": 5398
-    },
-    {
-      "ticker": "MSFT",
-      "url": "https://cdn.ondo.finance/tokens/logos/msfton_160x160.png",
-      "bytes": 3347
-    },
-    {
-      "ticker": "GOOGL",
-      "url": "https://cdn.ondo.finance/tokens/logos/googlon_160x160.png",
-      "bytes": 5260
-    },
-    {
-      "ticker": "META",
-      "url": "https://cdn.ondo.finance/tokens/logos/metaon_160x160.png",
-      "bytes": 5267
-    },
-    {
-      "ticker": "AMD",
-      "url": "https://cdn.ondo.finance/tokens/logos/amdon_160x160.png",
-      "bytes": 4488
-    },
-    {
-      "ticker": "PLTR",
-      "url": "https://cdn.ondo.finance/tokens/logos/pltron_160x160.png",
-      "bytes": 4901
-    },
-    {
-      "ticker": "JPM",
-      "url": "https://cdn.ondo.finance/tokens/logos/jpmon_160x160.png",
-      "bytes": 4323
-    },
-    {
-      "ticker": "V",
-      "url": "https://cdn.ondo.finance/tokens/logos/von_160x160.png",
-      "bytes": 4980
-    },
-    {
-      "ticker": "COIN",
-      "url": "https://cdn.ondo.finance/tokens/logos/coinon_160x160.png",
-      "bytes": 4725
-    },
-    {
-      "ticker": "AMZN",
-      "url": "https://cdn.ondo.finance/tokens/logos/amznon_160x160.png",
-      "bytes": 4958
-    },
-    {
-      "ticker": "TSLA",
-      "url": "https://cdn.ondo.finance/tokens/logos/tslaon_160x160.png",
-      "bytes": 4823
-    },
-    {
-      "ticker": "WMT",
-      "url": "https://cdn.ondo.finance/tokens/logos/wmton_160x160.png",
-      "bytes": 5193
-    },
-    {
-      "ticker": "COST",
-      "url": "https://cdn.ondo.finance/tokens/logos/coston_160x160.png",
-      "bytes": 5459
-    },
-    {
-      "ticker": "DIS",
-      "url": "https://cdn.ondo.finance/tokens/logos/dison_160x160.png",
-      "bytes": 4841
-    },
-    {
-      "ticker": "NFLX",
-      "url": "https://cdn.ondo.finance/tokens/logos/nflxon_160x160.png",
-      "bytes": 4280
-    },
-    {
-      "ticker": "LLY",
-      "url": "https://cdn.ondo.finance/tokens/logos/llyon_160x160.png",
-      "bytes": 5724
-    },
-    {
-      "ticker": "JNJ",
-      "url": "https://cdn.ondo.finance/tokens/logos/jnjon_160x160.png",
-      "bytes": 4980
-    },
-    {
-      "ticker": "XOM",
-      "url": "https://cdn.ondo.finance/tokens/logos/xomon_160x160.png",
-      "bytes": 4507
-    },
-    {
-      "ticker": "CVX",
-      "url": "https://cdn.ondo.finance/tokens/logos/cvxon_160x160.png",
-      "bytes": 4235
-    },
-    {
-      "ticker": "SPY",
-      "url": "https://cdn.ondo.finance/tokens/logos/spyon_160x160.png",
-      "bytes": 5121
-    },
-    {
-      "ticker": "QQQ",
-      "url": "https://cdn.ondo.finance/tokens/logos/qqqon_160x160.png",
-      "bytes": 6312
-    },
-    {
-      "ticker": "IWM",
-      "url": "https://cdn.ondo.finance/tokens/logos/iwmon_160x160.png",
-      "bytes": 5111
-    },
-    {
-      "ticker": "GLD",
-      "url": "https://cdn.ondo.finance/tokens/logos/gldon_160x160.png",
-      "bytes": 4699
-    },
     {
       "ticker": "AAL",
       "url": "https://cdn.ondo.finance/tokens/logos/aalon_160x160.png",
@@ -136,6 +16,11 @@
       "ticker": "AAON",
       "url": "https://cdn.ondo.finance/tokens/logos/aaonon_160x160.png",
       "bytes": 6287
+    },
+    {
+      "ticker": "AAPL",
+      "url": "https://cdn.ondo.finance/tokens/logos/aaplon_160x160.png",
+      "bytes": 4128
     },
     {
       "ticker": "ABBV",
@@ -238,6 +123,11 @@
       "bytes": 4599
     },
     {
+      "ticker": "AMD",
+      "url": "https://cdn.ondo.finance/tokens/logos/amdon_160x160.png",
+      "bytes": 4488
+    },
+    {
       "ticker": "AME",
       "url": "https://cdn.ondo.finance/tokens/logos/ameon_160x160.png",
       "bytes": 5773
@@ -251,6 +141,11 @@
       "ticker": "AMKR",
       "url": "https://cdn.ondo.finance/tokens/logos/amkron_160x160.png",
       "bytes": 6207
+    },
+    {
+      "ticker": "AMZN",
+      "url": "https://cdn.ondo.finance/tokens/logos/amznon_160x160.png",
+      "bytes": 4958
     },
     {
       "ticker": "ANET",
@@ -583,6 +478,11 @@
       "bytes": 6178
     },
     {
+      "ticker": "COIN",
+      "url": "https://cdn.ondo.finance/tokens/logos/coinon_160x160.png",
+      "bytes": 4725
+    },
+    {
       "ticker": "COP",
       "url": "https://cdn.ondo.finance/tokens/logos/copon_160x160.png",
       "bytes": 3830
@@ -601,6 +501,11 @@
       "ticker": "CORZ",
       "url": "https://cdn.ondo.finance/tokens/logos/corzon_160x160.png",
       "bytes": 6184
+    },
+    {
+      "ticker": "COST",
+      "url": "https://cdn.ondo.finance/tokens/logos/coston_160x160.png",
+      "bytes": 5459
     },
     {
       "ticker": "CPER",
@@ -648,6 +553,11 @@
       "bytes": 5419
     },
     {
+      "ticker": "CVX",
+      "url": "https://cdn.ondo.finance/tokens/logos/cvxon_160x160.png",
+      "bytes": 4235
+    },
+    {
       "ticker": "DASH",
       "url": "https://cdn.ondo.finance/tokens/logos/dashon_160x160.png",
       "bytes": 3790
@@ -676,6 +586,11 @@
       "ticker": "DGXX",
       "url": "https://cdn.ondo.finance/tokens/logos/dgxxon_160x160.png",
       "bytes": 5411
+    },
+    {
+      "ticker": "DIS",
+      "url": "https://cdn.ondo.finance/tokens/logos/dison_160x160.png",
+      "bytes": 4841
     },
     {
       "ticker": "DNN",
@@ -928,6 +843,11 @@
       "bytes": 5899
     },
     {
+      "ticker": "GLD",
+      "url": "https://cdn.ondo.finance/tokens/logos/gldon_160x160.png",
+      "bytes": 4699
+    },
+    {
       "ticker": "GLTR",
       "url": "https://cdn.ondo.finance/tokens/logos/gltron_160x160.png",
       "bytes": 7705
@@ -956,6 +876,11 @@
       "ticker": "GOOG",
       "url": "https://cdn.ondo.finance/tokens/logos/googon_160x160.png",
       "bytes": 6088
+    },
+    {
+      "ticker": "GOOGL",
+      "url": "https://cdn.ondo.finance/tokens/logos/googlon_160x160.png",
+      "bytes": 5260
     },
     {
       "ticker": "GRAB",
@@ -1208,6 +1133,11 @@
       "bytes": 5111
     },
     {
+      "ticker": "IWM",
+      "url": "https://cdn.ondo.finance/tokens/logos/iwmon_160x160.png",
+      "bytes": 5111
+    },
+    {
       "ticker": "IWN",
       "url": "https://cdn.ondo.finance/tokens/logos/iwnon_160x160.png",
       "bytes": 5111
@@ -1231,6 +1161,16 @@
       "ticker": "JD",
       "url": "https://cdn.ondo.finance/tokens/logos/jdon_160x160.png",
       "bytes": 4711
+    },
+    {
+      "ticker": "JNJ",
+      "url": "https://cdn.ondo.finance/tokens/logos/jnjon_160x160.png",
+      "bytes": 4980
+    },
+    {
+      "ticker": "JPM",
+      "url": "https://cdn.ondo.finance/tokens/logos/jpmon_160x160.png",
+      "bytes": 4323
     },
     {
       "ticker": "KEEL",
@@ -1298,6 +1238,11 @@
       "bytes": 5497
     },
     {
+      "ticker": "LLY",
+      "url": "https://cdn.ondo.finance/tokens/logos/llyon_160x160.png",
+      "bytes": 5724
+    },
+    {
       "ticker": "LMT",
       "url": "https://cdn.ondo.finance/tokens/logos/lmton_160x160.png",
       "bytes": 4906
@@ -1363,6 +1308,11 @@
       "bytes": 6363
     },
     {
+      "ticker": "META",
+      "url": "https://cdn.ondo.finance/tokens/logos/metaon_160x160.png",
+      "bytes": 5267
+    },
+    {
       "ticker": "MKSI",
       "url": "https://cdn.ondo.finance/tokens/logos/mksion_160x160.png",
       "bytes": 5830
@@ -1386,6 +1336,11 @@
       "ticker": "MRVL",
       "url": "https://cdn.ondo.finance/tokens/logos/mrvlon_160x160.png",
       "bytes": 3854
+    },
+    {
+      "ticker": "MSFT",
+      "url": "https://cdn.ondo.finance/tokens/logos/msfton_160x160.png",
+      "bytes": 3347
     },
     {
       "ticker": "MSTR",
@@ -1448,6 +1403,11 @@
       "bytes": 5658
     },
     {
+      "ticker": "NFLX",
+      "url": "https://cdn.ondo.finance/tokens/logos/nflxon_160x160.png",
+      "bytes": 4280
+    },
+    {
       "ticker": "NIKL",
       "url": "https://cdn.ondo.finance/tokens/logos/niklon_160x160.png",
       "bytes": 4698
@@ -1496,6 +1456,11 @@
       "ticker": "NUE",
       "url": "https://cdn.ondo.finance/tokens/logos/nueon_160x160.png",
       "bytes": 5465
+    },
+    {
+      "ticker": "NVDA",
+      "url": "https://cdn.ondo.finance/tokens/logos/nvdaon_160x160.png",
+      "bytes": 5398
     },
     {
       "ticker": "NVMI",
@@ -1648,6 +1613,11 @@
       "bytes": 6947
     },
     {
+      "ticker": "PLTR",
+      "url": "https://cdn.ondo.finance/tokens/logos/pltron_160x160.png",
+      "bytes": 4901
+    },
+    {
       "ticker": "PLUG",
       "url": "https://cdn.ondo.finance/tokens/logos/plugon_160x160.png",
       "bytes": 4865
@@ -1711,6 +1681,11 @@
       "ticker": "QLTA",
       "url": "https://cdn.ondo.finance/tokens/logos/qltaon_160x160.png",
       "bytes": 5899
+    },
+    {
+      "ticker": "QQQ",
+      "url": "https://cdn.ondo.finance/tokens/logos/qqqon_160x160.png",
+      "bytes": 6312
     },
     {
       "ticker": "QTUM",
@@ -1953,6 +1928,11 @@
       "bytes": 5540
     },
     {
+      "ticker": "SPY",
+      "url": "https://cdn.ondo.finance/tokens/logos/spyon_160x160.png",
+      "bytes": 5121
+    },
+    {
       "ticker": "SQQQ",
       "url": "https://cdn.ondo.finance/tokens/logos/sqqqon_160x160.png",
       "bytes": 5578
@@ -2073,6 +2053,11 @@
       "bytes": 5867
     },
     {
+      "ticker": "TSLA",
+      "url": "https://cdn.ondo.finance/tokens/logos/tslaon_160x160.png",
+      "bytes": 4823
+    },
+    {
       "ticker": "TSM",
       "url": "https://cdn.ondo.finance/tokens/logos/tsmon_160x160.png",
       "bytes": 4759
@@ -2171,6 +2156,11 @@
       "ticker": "UUUU",
       "url": "https://cdn.ondo.finance/tokens/logos/uuuuon_160x160.png",
       "bytes": 6331
+    },
+    {
+      "ticker": "V",
+      "url": "https://cdn.ondo.finance/tokens/logos/von_160x160.png",
+      "bytes": 4980
     },
     {
       "ticker": "VCX",
@@ -2278,6 +2268,11 @@
       "bytes": 6819
     },
     {
+      "ticker": "WMT",
+      "url": "https://cdn.ondo.finance/tokens/logos/wmton_160x160.png",
+      "bytes": 5193
+    },
+    {
       "ticker": "WOLF",
       "url": "https://cdn.ondo.finance/tokens/logos/wolfon_160x160.png",
       "bytes": 5657
@@ -2296,6 +2291,11 @@
       "ticker": "WYFI",
       "url": "https://cdn.ondo.finance/tokens/logos/wyfion_160x160.png",
       "bytes": 5706
+    },
+    {
+      "ticker": "XOM",
+      "url": "https://cdn.ondo.finance/tokens/logos/xomon_160x160.png",
+      "bytes": 4507
     },
     {
       "ticker": "XYLD",

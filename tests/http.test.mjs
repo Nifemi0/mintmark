@@ -9,19 +9,20 @@ test('deployment entry serves the front end, catalog health, logos, and xStocks 
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   try {
     const base = `http://127.0.0.1:${server.address().port}`;
+    const total = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url), 'utf8')).records.length;
     const page = await fetch(base);
     assert.equal(page.status, 200);
     assert.match(await page.text(), /Every token has a/);
 
     const health = await fetch(`${base}/api/health`).then((response) => response.json());
     assert.equal(health.status, 'ok');
-    assert.equal(health.count, 1937);
+    assert.equal(health.count, total);
     assert.ok(health.checkedAt);
 
     const firstPage = await fetch(`${base}/api/records`).then((response) => response.json());
     assert.equal(firstPage.records.length, 50);
-    assert.equal(firstPage.total, 1937);
-    assert.equal(firstPage.catalogTotal, 1937);
+    assert.equal(firstPage.total, total);
+    assert.equal(firstPage.catalogTotal, total);
     assert.equal(firstPage.hasMore, true);
 
     const secondPage = await fetch(`${base}/api/records?limit=10&offset=10`).then((response) => response.json());
@@ -47,7 +48,7 @@ test('deployment entry serves the front end, catalog health, logos, and xStocks 
 
     const docs = await fetch(`${base}/docs`);
     assert.equal(docs.status, 200);
-    assert.match(await docs.text(), /Public API/);
+    assert.match(await docs.text(), /Integrate · API v1/);
 
     const snapshot = JSON.parse(await readFile(new URL('../data/catalog.json', import.meta.url)));
     const xstock = snapshot.records.find((record) => record.platformId === 'xstock' && record.underlyingTicker === 'NVDA');

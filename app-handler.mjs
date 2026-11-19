@@ -11,6 +11,7 @@ import { spotRouteFor } from './spot.mjs';
 import { isReportDate, renderRss } from './daily-report.mjs';
 import { readTokenIdentity, findLookalikes, lookalikeVerdict } from './lookalike.mjs';
 import { exportRows, toCsv } from './catalog-export.mjs';
+import { API_VERSION, ApiError, MAX_LOOKUP, parseChainId, parseAddress, tokenView, lookupTokens, pendingProvider, searchView, companyView, createRateLimiter } from './api-v1.mjs';
 const contractCheckCache = new Map();
 
 const root = path.dirname(fileURLToPath(import.meta.url));
@@ -107,7 +108,7 @@ async function currentRecords() {
 }
 
 function sendJson(response, status, body) {
-  response.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' });
+  response.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'access-control-allow-origin': '*' });
   response.end(JSON.stringify(body));
 }
 
@@ -143,6 +144,9 @@ const staticFiles = new Map([
   ['/reports/', ['reports.html', 'text/html; charset=utf-8']],
   ['/reports.js', ['reports.js', 'text/javascript; charset=utf-8']],
   ['/nav.js', ['nav.js', 'text/javascript; charset=utf-8']],
+  ['/openapi.json', ['openapi.json', 'application/json; charset=utf-8']],
+  ['/terms', ['terms.html', 'text/html; charset=utf-8']],
+  ['/terms/', ['terms.html', 'text/html; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/favicon.svg', ['favicon.svg', 'image/svg+xml']],
@@ -151,9 +155,152 @@ const staticFiles = new Map([
   ['/sitemap.xml', ['sitemap.xml', 'application/xml; charset=utf-8']],
 ]);
 
+// A contract a provider published after the last registry review is genuine
+// but not yet a registry record; say so instead of treating it as unknown.
+async function checkContract(address) {
+  const registered = baseRecords.find((record) => record.contractAddress === address);
+  if (registered) return { address, verdict: 'registered', record: registered };
+  const pending = pendingProvider(address, latestObservation);
+  if (pending) return { address, verdict: 'pending_review', provider: pending.provider, published: { symbol: pending.symbol, name: pending.name, ticker: pending.ticker }, observedAt: pending.observedAt };
+  const cached = contractCheckCache.get(address);
+  if (cached && Date.now() < cached.until) return cached.value;
+  const identity = await readTokenIdentity(address);
+  const lookalikes = findLookalikes(baseRecords, identity);
+  const value = { address, verdict: lookalikeVerdict(identity, lookalikes), onchain: identity, lookalikes, checkedAt: new Date().toISOString() };
+  if (contractCheckCache.size > 500) contractCheckCache.clear();
+  contractCheckCache.set(address, { until: Date.now() + 600000, value });
+  return value;
+}
+
+// ---- Public API v1 -------------------------------------------------------
+const rateLimit = createRateLimiter({ limit: 120, windowMs: 60000 });
+const CORS = {
+  'access-control-allow-origin': '*',
+  'access-control-allow-methods': 'GET, POST, OPTIONS',
+  'access-control-allow-headers': 'content-type',
+  'access-control-max-age': '86400',
+};
+const CACHE = {
+  catalog: 'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+  report: 'public, max-age=300, s-maxage=600, stale-while-revalidate=3600',
+  check: 'public, max-age=60, s-maxage=600',
+  none: 'no-store',
+};
+
+function clientKey(request) {
+  return String(request.headers['x-forwarded-for'] ?? request.socket?.remoteAddress ?? 'unknown').split(',')[0].trim();
+}
+
+function sendV1(response, status, body, cache, limit) {
+  const headers = { ...CORS, 'content-type': 'application/json; charset=utf-8', 'cache-control': cache, 'x-mintmark-api-version': API_VERSION };
+  if (limit) Object.assign(headers, { 'x-ratelimit-limit': String(limit.limit), 'x-ratelimit-remaining': String(limit.remaining), 'x-ratelimit-reset': String(limit.reset) });
+  response.writeHead(status, headers);
+  response.end(JSON.stringify(body));
+}
+
+function v1Error(response, error, limit) {
+  const known = error instanceof ApiError;
+  if (!known) console.error('v1 request failed:', error.message);
+  sendV1(response, known ? error.status : 500, { error: { code: known ? error.code : 'internal_error', message: known ? error.message : 'Mintmark could not complete this request.' } }, CACHE.none, limit);
+}
+
+async function readBody(request, maxBytes = 32768) {
+  let size = 0;
+  const chunks = [];
+  for await (const chunk of request) {
+    size += chunk.length;
+    if (size > maxBytes) throw new ApiError(413, 'body_too_large', 'Request body must be 32 KB or smaller.');
+    chunks.push(chunk);
+  }
+  try { return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}'); }
+  catch { throw new ApiError(400, 'invalid_json', 'Request body must be valid JSON.'); }
+}
+
+const meta = () => ({ apiVersion: API_VERSION, catalogSnapshotAt: snapshot.generatedAt, docs: 'https://mintmark.nuvixes.studio/docs#integrate' });
+
+async function handleV1(request, response, url) {
+  if (request.method === 'OPTIONS') { response.writeHead(204, CORS); response.end(); return; }
+  const limit = rateLimit(clientKey(request));
+  if (!limit.allowed) {
+    response.setHeader?.('retry-after', String(Math.max(1, limit.reset - Math.floor(Date.now() / 1000))));
+    return v1Error(response, new ApiError(429, 'rate_limited', `Limit is ${limit.limit} requests a minute per client. Use POST /v1/tokens/lookup for many addresses.`), limit);
+  }
+  try {
+    const parts = url.pathname.replace(/\/+$/, '').split('/').slice(2).map((part) => { try { return decodeURIComponent(part); } catch { throw new ApiError(400, 'invalid_path', 'The URL path is not valid.'); } });
+    const [resource, a, b] = parts;
+    const method = request.method;
+    const allow = (expected) => { if (method !== expected) throw new ApiError(405, 'method_not_allowed', `Use ${expected} for this endpoint.`); };
+
+    if (!resource) {
+      allow('GET');
+      return sendV1(response, 200, { meta: meta(), endpoints: [
+        'GET /v1/health', 'GET /v1/tokens?q=&provider=&limit=&offset=', 'GET /v1/tokens/{chainId}/{address}',
+        `POST /v1/tokens/lookup  {"addresses": [up to ${MAX_LOOKUP}]}`, 'GET /v1/companies/{ticker}',
+        'GET /v1/check/{chainId}/{address}', 'GET /v1/reports', 'GET /v1/reports/latest', 'GET /v1/reports/{date}',
+      ], openapi: 'https://mintmark.nuvixes.studio/openapi.json' }, CACHE.catalog, limit);
+    }
+    if (resource === 'health' && !a) {
+      allow('GET');
+      const providers = snapshot.source?.providers ?? {};
+      return sendV1(response, 200, { status: 'ok', meta: meta(), tokens: baseRecords.length,
+        providers: Object.fromEntries(Object.entries(providers).map(([id, p]) => [id, { tokens: p.count, checkedAt: p.checkedAt ?? snapshot.generatedAt }])),
+        latestReport: (await readReportFile('index.json'))?.reports?.[0]?.date ?? null }, CACHE.none, limit);
+    }
+    if (resource === 'tokens' && a === 'lookup' && !b) {
+      allow('POST');
+      const body = await readBody(request);
+      return sendV1(response, 200, { meta: meta(), results: lookupTokens(body.addresses, baseRecords, latestObservation) }, CACHE.none, limit);
+    }
+    if (resource === 'tokens' && !a) {
+      allow('GET');
+      const view = searchView(baseRecords, Object.fromEntries(url.searchParams), searchRecords);
+      return sendV1(response, 200, { meta: meta(), ...view }, CACHE.catalog, limit);
+    }
+    if (resource === 'tokens' && a && b && parts.length === 3) {
+      allow('GET');
+      parseChainId(a);
+      const address = parseAddress(b);
+      const record = baseRecords.find((item) => item.contractAddress === address);
+      if (record) return sendV1(response, 200, { meta: meta(), token: tokenView(record) }, CACHE.catalog, limit);
+      const pending = pendingProvider(address, latestObservation);
+      if (pending) return sendV1(response, 404, { error: { code: 'pending_review', message: `${pending.provider} published this contract as ${pending.symbol}; it is not a reviewed registry record yet.` }, published: pending }, CACHE.catalog, limit);
+      throw new ApiError(404, 'not_registered', 'This contract is not in the Mintmark registry. GET /v1/check/56/{address} reads it onchain and lists look-alikes.');
+    }
+    if (resource === 'companies' && a && !b) {
+      allow('GET');
+      return sendV1(response, 200, { meta: meta(), company: companyView(baseRecords, a) }, CACHE.catalog, limit);
+    }
+    if (resource === 'check' && a && b && parts.length === 3) {
+      allow('GET');
+      parseChainId(a);
+      const address = parseAddress(b);
+      let result;
+      try { result = await checkContract(address); }
+      catch (error) { throw new ApiError(502, 'chain_unavailable', `The BSC contract could not be read: ${error.message}`); }
+      const body = result.verdict === 'registered' ? { verdict: 'registered', address, token: tokenView(result.record) } : result;
+      return sendV1(response, 200, { meta: meta(), ...body }, CACHE.check, limit);
+    }
+    if (resource === 'reports') {
+      allow('GET');
+      const index = await readReportFile('index.json');
+      if (!a) return sendV1(response, 200, { meta: meta(), reports: index?.reports ?? [] }, CACHE.report, limit);
+      const date = a === 'latest' ? index?.reports?.[0]?.date : a;
+      if (!date) throw new ApiError(404, 'report_not_found', 'No daily report has been published yet.');
+      if (!isReportDate(date)) throw new ApiError(400, 'invalid_date', 'Use a report date in YYYY-MM-DD format, or latest.');
+      const report = await readReportFile(`${date}.json`);
+      if (!report) throw new ApiError(404, 'report_not_found', `No daily report for ${date}.`);
+      return sendV1(response, 200, { meta: meta(), report }, CACHE.report, limit);
+    }
+    throw new ApiError(404, 'not_found', 'Unknown v1 endpoint. GET /v1 lists them.');
+  } catch (error) {
+    return v1Error(response, error, limit);
+  }
+}
+
 export default async function handleRequest(request, response) {
   try {
     const url = new URL(request.url, `http://${request.headers.host ?? 'localhost'}`);
+    if (url.pathname === '/v1' || url.pathname.startsWith('/v1/')) return await handleV1(request, response, url);
     if (request.method !== 'GET') return sendJson(response, 405, { error: 'Method not allowed' });
     if (url.pathname === '/api/health') return sendJson(response, 200, {
       status: 'ok', count: baseRecords.length, snapshotAt: snapshot.generatedAt,
@@ -192,25 +339,9 @@ export default async function handleRequest(request, response) {
     if (url.pathname === '/api/contract-check') {
       const address = normalizeAddress(url.searchParams.get('address'));
       if (!address) return sendJson(response, 400, { error: 'Enter a complete 0x BSC contract address.' });
-      const registered = baseRecords.find((record) => record.contractAddress === address);
-      if (registered) return sendJson(response, 200, { address, verdict: 'registered', record: directoryRecord(registered) });
-      // A contract a provider published after the last registry review is genuine
-      // but not yet a registry record; say so instead of treating it as unknown.
-      const pendingProvider = ['ondo', 'bstock', 'xstock'].find((provider) => latestObservation?.[provider]?.[address]);
-      if (pendingProvider) {
-        const published = latestObservation[pendingProvider][address];
-        return sendJson(response, 200, { address, verdict: 'pending_review', provider: { ondo: 'Ondo', bstock: 'bStocks', xstock: 'xStocks' }[pendingProvider],
-          published: { symbol: published.symbol, name: published.name, ticker: published.ticker }, observedAt: latestObservation.observedAt });
-      }
-      const cached = contractCheckCache.get(address);
-      if (cached && Date.now() < cached.until) return sendJson(response, 200, cached.value);
       try {
-        const identity = await readTokenIdentity(address);
-        const lookalikes = findLookalikes(baseRecords, identity);
-        const value = { address, verdict: lookalikeVerdict(identity, lookalikes), onchain: identity, lookalikes, checkedAt: new Date().toISOString() };
-        if (contractCheckCache.size > 500) contractCheckCache.clear();
-        contractCheckCache.set(address, { until: Date.now() + 600000, value });
-        return sendJson(response, 200, value);
+        const result = await checkContract(address);
+        return sendJson(response, 200, result.verdict === 'registered' ? { address, verdict: 'registered', record: directoryRecord(result.record) } : result);
       } catch (error) {
         return sendJson(response, 502, { error: `The BSC contract could not be read: ${error.message}` });
       }
