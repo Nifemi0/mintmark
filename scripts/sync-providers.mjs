@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { getRwaTokens, hasBinanceCredentials } from '../binance.mjs';
+import { getBstockRows } from '../bstock-source.mjs';
 import { normalizeRecords, identityKey } from '../registry.mjs';
 import { evolveRegistryHistory } from '../history.mjs';
 
@@ -138,13 +138,14 @@ function makeRecord(candidate, chain, observedAt) {
 async function main() {
   // bStocks are only published through Binance's signed RWA API. Without
   // credentials, keep the last reviewed bStocks records and their check times.
-  const bstockLive = hasBinanceCredentials();
+  // bStocks come from Binance directly where allowed, else through the production relay.
+  // If neither answers, keep the last reviewed bStocks records and their check times.
   const previous = JSON.parse(await readFile(path.join(root, 'data', 'catalog.json'), 'utf8'));
-  if (!bstockLive) console.warn('Binance credentials not set: keeping the existing bStocks records unchanged.');
-  const chain = await json(rpcUrl, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_chainId', params: [] }) });
-  if (chain.result !== '0x38') throw new Error('RPC is not BSC mainnet');
+  const bstockSource = await getBstockRows().catch((error) => { console.warn(`${error.message}: keeping the existing bStocks records unchanged.`); return null; });
+  const bstockLive = Boolean(bstockSource);
+  if (bstockLive) console.log(`bStocks: ${bstockSource.rows.length} rows via ${bstockSource.via}`);
   const [binance, xstocks, ondo] = await Promise.all([
-    bstockLive ? getRwaTokens() : Promise.resolve({ rows: [] }), xstockAssets(), readFile(path.join(root, 'data', 'ondo-bsc.json'), 'utf8').then(JSON.parse),
+    Promise.resolve({ rows: bstockSource?.rows ?? [] }), xstockAssets(), readFile(path.join(root, 'data', 'ondo-bsc.json'), 'utf8').then(JSON.parse),
   ]);
   const observedAt = new Date().toISOString();
   const candidates = [

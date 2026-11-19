@@ -11,6 +11,7 @@ import { spotRouteFor } from './spot.mjs';
 import { isReportDate, renderRss } from './daily-report.mjs';
 import { readTokenIdentity, findLookalikes, lookalikeVerdict } from './lookalike.mjs';
 import { exportRows, toCsv } from './catalog-export.mjs';
+import { bstockRowsOnly } from './bstock-source.mjs';
 import { API_VERSION, ApiError, MAX_LOOKUP, parseChainId, parseAddress, tokenView, lookupTokens, pendingProvider, searchView, companyView, createRateLimiter } from './api-v1.mjs';
 const contractCheckCache = new Map();
 
@@ -42,6 +43,18 @@ const siteUrl = 'https://mintmark.nuvixes.studio';
 async function readReportFile(name) {
   const file = path.join(reportsDir, name);
   return existsSync(file) ? JSON.parse(await readFile(file, 'utf8')) : null;
+}
+
+// bStocks identity rows relayed from Cape Town for syncs that run where Binance
+// refuses requests. Cached for an hour so the relay barely touches Binance.
+let bstockRelayCache = { until: 0, value: null };
+async function bstockRelay() {
+  if (bstockRelayCache.value && Date.now() < bstockRelayCache.until) return bstockRelayCache.value;
+  const { rows, observedAt } = await getRwaTokens();
+  const value = { observedAt, rows: bstockRowsOnly(rows) };
+  if (!value.rows.length) throw new Error('Binance returned no bStocks rows');
+  bstockRelayCache = { until: Date.now() + 3600000, value };
+  return value;
 }
 
 let binanceCache = { until: 0, result: null, promise: null };
@@ -344,6 +357,17 @@ export default async function handleRequest(request, response) {
         return sendJson(response, 200, result.verdict === 'registered' ? { address, verdict: 'registered', record: directoryRecord(result.record) } : result);
       } catch (error) {
         return sendJson(response, 502, { error: `The BSC contract could not be read: ${error.message}` });
+      }
+    }
+    if (url.pathname === '/api/sync/bstocks') {
+      if (!hasBinanceCredentials()) return sendJson(response, 503, { error: 'Binance credentials are not configured on this deployment.' });
+      try {
+        const value = await bstockRelay();
+        response.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'public, max-age=300, s-maxage=3600', 'access-control-allow-origin': '*' });
+        response.end(JSON.stringify({ source: 'Binance RWA token list, BNB Smart Chain, bStocks rows only', ...value }));
+        return;
+      } catch (error) {
+        return sendJson(response, 502, { error: `bStocks rows unavailable: ${error.message}` });
       }
     }
     if (url.pathname === '/api/records') {

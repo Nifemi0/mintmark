@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { parseCsv, decodeAbiString } from './sync-ondo.mjs';
-import { getRwaTokens, hasBinanceCredentials } from '../binance.mjs';
+import { getBstockRows } from '../bstock-source.mjs';
 import { SPOT_EXCHANGE_INFO_URL } from '../spot.mjs';
 import { buildReport, catalogObservation, upsertIndex } from '../daily-report.mjs';
 
@@ -63,11 +63,10 @@ async function observeXstocks() {
 }
 
 async function observeBstocks() {
-  if (!hasBinanceCredentials()) return { source: 'not_checked', tokens: {} };
   let rows;
-  // Binance refuses some hosting regions; report bStocks as not checked instead of failing.
-  try { ({ rows } = await getRwaTokens()); }
-  catch (error) { console.warn(`Binance RWA list unavailable: ${error.message}`); return { source: 'not_checked', tokens: {} }; }
+  // Direct where Binance allows it, else the production relay; otherwise not checked.
+  try { ({ rows } = await getBstockRows()); }
+  catch (error) { console.warn(error.message); return { source: 'not_checked', tokens: {} }; }
   const tokens = {};
   for (const row of rows) {
     if (row.platformId !== 'bstock' || String(row.binanceChainId) !== '56' || !ADDRESS.test(row.tokenContractAddress ?? '')) continue;

@@ -115,3 +115,23 @@ test('OpenAPI file references resolve and every documented endpoint is served', 
     }
   }
 });
+
+test('bStocks source keeps only BSC bStocks identity fields and falls back to the relay', async () => {
+  const { bstockRowsOnly, getBstockRows } = await import('../bstock-source.mjs');
+  const rows = [
+    { platformId: 'bstock', binanceChainId: '56', tokenContractAddress: '0xa', tokenSymbol: 'AAPLB', tokenName: 'Apple', underlyingTicker: 'AAPL', underlyingName: 'Apple', tokenLogoUrl: 'x', price: '1' },
+    { platformId: 'ondo', binanceChainId: '56', tokenContractAddress: '0xb' },
+    { platformId: 'bstock', binanceChainId: '1', tokenContractAddress: '0xc' },
+  ];
+  const only = bstockRowsOnly(rows);
+  assert.equal(only.length, 1);
+  assert.equal(only[0].tokenSymbol, 'AAPLB');
+  assert.ok(!('price' in only[0]));
+  const relay = async (url) => ({ ok: true, json: async () => ({ observedAt: 't', rows }) , url });
+  const viaRelay = await getBstockRows({ env: {}, fetchImpl: relay });
+  assert.equal(viaRelay.via, 'relay');
+  assert.equal(viaRelay.rows.length, 1);
+  await assert.rejects(getBstockRows({ env: {}, fetchImpl: async () => ({ ok: false, status: 502 }) }), /relay: bStocks relay returned HTTP 502/);
+  const unconfigured = await call('GET', '/api/sync/bstocks');
+  assert.equal(unconfigured.status, 503);
+});
