@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "reports": [
     {
+      "date": "2026-11-19",
+      "generatedAt": "2026-11-19T14:29:34.650Z",
+      "headline": "1 halted, 7 possible bStocks listings on Binance Spot.",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "halts": 1,
+        "spot": 0,
+        "bstockCandidates": 7
+      }
+    },
+    {
       "date": "2026-11-18",
       "generatedAt": "2026-11-18T14:10:40.701Z",
       "headline": "No upstream changes since the last report.",
