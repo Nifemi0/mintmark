@@ -1,0 +1,46 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Inter Display,44,&H00F2F6F2,&H00F2F6F2,&H64000000,&H64000000,0,0,0,0,100,100,0,0,3,14,0,2,80,80,44,1
+Style: Top,Inter Display,44,&H00F2F6F2,&H00F2F6F2,&H64000000,&H64000000,0,0,0,0,100,100,0,0,3,14,0,8,80,80,36,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.90,0:00:02.67,Top,,0,0,0,,Tokenized stocks are here.
+Dialogue: 0,0:00:02.69,0:00:04.59,Top,,0,0,0,,Almost two thousand of them,
+Dialogue: 0,0:00:04.61,0:00:06.07,Top,,0,0,0,,on BNB Chain alone.
+Dialogue: 0,0:00:06.35,0:00:08.63,Cap,,0,0,0,,But one ticker can mean many tokens.
+Dialogue: 0,0:00:08.95,0:00:11.13,Cap,,0,0,0,,Different issuers. Different contracts.
+Dialogue: 0,0:00:11.15,0:00:13.00,Cap,,0,0,0,,And sometimes... a fake.
+Dialogue: 0,0:00:14.35,0:00:16.30,Cap,,0,0,0,,A ticker is not an identity.
+Dialogue: 0,0:00:17.85,0:00:18.98,Cap,,0,0,0,,Meet Mintmark.
+Dialogue: 0,0:00:19.00,0:00:20.95,Cap,,0,0,0,,Every token has a paper trail.
+Dialogue: 0,0:00:22.60,0:00:24.83,Cap,,0,0,0,,Search any company, fund, or ticker,
+Dialogue: 0,0:00:24.85,0:00:27.00,Cap,,0,0,0,,and see every product behind it.
+Dialogue: 0,0:00:27.40,0:00:29.45,Cap,,0,0,0,,Ondo, bStocks, and xStocks.
+Dialogue: 0,0:00:29.47,0:00:31.69,Cap,,0,0,0,,Each by its exact contract.
+Dialogue: 0,0:00:33.90,0:00:35.68,Cap,,0,0,0,,Every claim carries its proof.
+Dialogue: 0,0:00:35.90,0:00:37.12,Cap,,0,0,0,,What we read onchain.
+Dialogue: 0,0:00:37.14,0:00:38.65,Cap,,0,0,0,,What the issuer published.
+Dialogue: 0,0:00:38.67,0:00:39.88,Cap,,0,0,0,,What others reported.
+Dialogue: 0,0:00:39.90,0:00:41.76,Cap,,0,0,0,,And what no one has verified.
+Dialogue: 0,0:00:43.60,0:00:44.71,Cap,,0,0,0,,Paste any contract.
+Dialogue: 0,0:00:44.73,0:00:47.32,Cap,,0,0,0,,If it's pretending to be something it's not,
+Dialogue: 0,0:00:47.34,0:00:48.67,Cap,,0,0,0,,Mintmark catches it.
+Dialogue: 0,0:00:50.60,0:00:51.47,Top,,0,0,0,,Every morning,
+Dialogue: 0,0:00:51.49,0:00:53.46,Top,,0,0,0,,Mintmark checks every provider,
+Dialogue: 0,0:00:53.48,0:00:56.08,Top,,0,0,0,,and publishes what changed. New listings,
+Dialogue: 0,0:00:56.10,0:00:57.53,Top,,0,0,0,,halts, and removals.
+Dialogue: 0,0:00:58.80,0:01:00.98,Cap,,0,0,0,,Building a wallet, a lending market,
+Dialogue: 0,0:01:01.00,0:01:02.31,Cap,,0,0,0,,or a portfolio app?
+Dialogue: 0,0:01:02.70,0:01:05.40,Cap,,0,0,0,,One call checks a hundred contracts. Free,
+Dialogue: 0,0:01:05.42,0:01:07.65,Cap,,0,0,0,,open, and built to be relied on.
+Dialogue: 0,0:01:08.60,0:01:10.38,Cap,,0,0,0,,See what a wallet really holds,
+Dialogue: 0,0:01:10.40,0:01:13.10,Cap,,0,0,0,,and where a verified market actually trades.
+Dialogue: 0,0:01:15.20,0:01:16.14,Cap,,0,0,0,,Mintmark.
+Dialogue: 0,0:01:16.50,0:01:18.47,Cap,,0,0,0,,Know the token before you trust it.
