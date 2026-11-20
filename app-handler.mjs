@@ -120,8 +120,8 @@ async function currentRecords() {
   return binanceCache.promise;
 }
 
-function sendJson(response, status, body) {
-  response.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'access-control-allow-origin': '*' });
+function sendJson(response, status, body, cache = 'no-store') {
+  response.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': cache, 'access-control-allow-origin': '*' });
   response.end(JSON.stringify(body));
 }
 
@@ -380,12 +380,13 @@ export default async function handleRequest(request, response) {
       const offset = Number.isFinite(requestedOffset) ? Math.max(requestedOffset, 0) : 0;
       const matched = searchRecords(records, query);
       const page = matched.slice(offset, offset + limit);
+      // Public catalog data: let the CDN serve repeat requests for a few minutes.
       return sendJson(response, 200, {
         records: page.map(directoryRecord), query, offset, limit,
         total: matched.length, catalogTotal: records.length, hasMore: offset + page.length < matched.length,
         snapshotAt: snapshot.generatedAt, checkedAt: new Date().toISOString(),
         providers: snapshot.source.providers, binance,
-      });
+      }, 'public, max-age=60, s-maxage=300, stale-while-revalidate=600');
     }
     if (url.pathname === '/api/record') {
       const key = url.searchParams.get('key') ?? '';

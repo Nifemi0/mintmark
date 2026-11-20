@@ -111,3 +111,5 @@
 .product-back{top:-22px}@media(max-width:1050px){.product-back{top:-14px}}.hero-product{margin-top:22px}
 .docs-h3{font:700 16px var(--display);letter-spacing:-.02em;margin:26px 0 8px}.docs-pre{margin:10px 0 0;padding:14px 16px;border-radius:11px;background:#132019;color:#dbe8dd;overflow-x:auto;font:12px/1.6 var(--mono)}.docs-pre code{white-space:pre}.docs-list{margin:22px 0 0;padding-left:18px;color:#56655a;font-size:14px;line-height:1.7}.docs-list li{margin-bottom:6px}
 .api-codes{display:flex;flex-direction:column;gap:6px}
+/* Phone tap targets: standalone links get at least 44px of height to tap. */
+@media(max-width:750px){.dark-foot a,.sheet-bottom a,.home-flow article a,.browse-heading button,.docs-footer a,.report-row a,.access-route-reference{display:inline-flex;align-items:center;min-height:44px}.docs-content p a.docs-inline-link{display:inline-flex;align-items:center;min-height:32px}}

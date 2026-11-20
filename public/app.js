@@ -424,17 +424,21 @@ async function checkUnknownContract(address) {
 async function loadRecords(query = '') {
   const current = ++requestId;
   try {
+    // First page tells the total; the remaining pages load in parallel.
     const pageSize = 250;
-    const pages = [];
-    let offset = 0;
-    let payload;
-    do {
+    const fetchPage = async (offset) => {
       const response = await fetch(`/api/records?q=${encodeURIComponent(query)}&limit=${pageSize}&offset=${offset}`);
-      payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || 'Registry request failed');
-      pages.push(...payload.records);
-      offset += payload.records.length;
-    } while (payload.hasMore && payload.records.length);
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error || 'Registry request failed');
+      return body;
+    };
+    let payload = await fetchPage(0);
+    const pages = [...payload.records];
+    if (payload.hasMore && payload.records.length) {
+      const offsets = [];
+      for (let offset = payload.records.length; offset < payload.total; offset += pageSize) offsets.push(offset);
+      for (const rest of await Promise.all(offsets.map(fetchPage))) pages.push(...rest.records);
+    }
     payload = { ...payload, records: pages, total: pages.length };
     if (current !== requestId) return;
     if (!query) {
@@ -655,6 +659,12 @@ const initialParams = new URLSearchParams(location.search);
 const initialQuery = (initialParams.get('q') || '').slice(0, 120);
 directoryQuery.value = initialQuery;
 heroQuery.value = initialQuery;
-await loadRecords(initialQuery);
+// Wallet and method pages never show the catalog: fetch one record for the
+// registry status instead of downloading every record.
+if (document.body.classList.contains('wallet-page') || document.body.classList.contains('method-page')) {
+  fetch('/api/records?limit=1').then((response) => response.json()).then((payload) => renderStatus(payload)).catch(() => {});
+} else {
+  await loadRecords(initialQuery);
+}
 const directKey = initialParams.get('record');
 if (directKey) await openRecord(directKey);
