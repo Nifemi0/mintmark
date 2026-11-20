@@ -12,7 +12,8 @@
     "sync:logos": "node scripts/sync-logos.mjs",
     "check:freshness": "node scripts/check-freshness.mjs",
     "check:release": "node scripts/check-release.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check:live": "node scripts/check-live.mjs"
   },
   "engines": {
     "node": "22.x"
