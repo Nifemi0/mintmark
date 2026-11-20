@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-20",
+  "generatedAt": "2026-11-20T14:06:28.049Z",
+  "baseline": {
+    "since": "2026-11-19T14:29:34.650Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-19"
+  },
+  "catalogSnapshotAt": "2026-11-19T22:47:52.626Z",
+  "bstockSource": "binance_rwa",
+  "headline": "1 new token, 1 resumed.",
+  "summary": {
+    "added": 1,
+    "removed": 0,
+    "changed": 0,
+    "halts": 1,
+    "spot": 1,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1417,
+        "added": 1,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 0,
+      "changed": 0,
+      "halts": 1
+    }
+  },
+  "added": [
+    {
+      "provider": "xstock",
+      "address": "0x15ed7af704c569b0d0908b3df73128700e68551d",
+      "symbol": "URNMx",
+      "ticker": "URNM",
+      "name": "Sprott Uranium Miners ETF xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "URNMx",
+        "name": "Sprott Uranium Miners ETF xStock"
+      }
+    }
+  ],
+  "removed": [],
+  "changed": [],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0xe1435b2f302edf42ae84a306a5e1948b270b6ccb",
+      "symbol": "BITXx",
+      "ticker": "BITX",
+      "halted": false
+    }
+  ],
+  "spot": [
+    {
+      "base": "SNDKB",
+      "pair": "SNDKBUSDT",
+      "from": "TRADING",
+      "to": "BREAK"
+    }
+  ],
+  "bstockCandidates": [],
+  "productUpdates": []
+}

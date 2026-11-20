@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "reports": [
     {
+      "date": "2026-11-20",
+      "generatedAt": "2026-11-20T14:06:28.049Z",
+      "headline": "1 new token, 1 resumed.",
+      "summary": {
+        "added": 1,
+        "removed": 0,
+        "changed": 0,
+        "halts": 1,
+        "spot": 1,
+        "bstockCandidates": 0
+      }
+    },
+    {
       "date": "2026-11-19",
       "generatedAt": "2026-11-19T14:29:34.650Z",
       "headline": "1 halted, 7 possible bStocks listings on Binance Spot.",
