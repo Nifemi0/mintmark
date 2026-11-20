@@ -43,14 +43,14 @@ def impact(big=1.0):
     f = 55 * np.exp(-t * 3) + 28
     sub = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 1.6)
     crack = lp(rng.standard_normal(len(t)), 3500) * np.exp(-t * 18)
-    return verb(sub * 0.9 + crack * 0.45 * big, 0.35)
+    return verb(sub * 0.9 + crack * 0.05 * big, 0.3)
 def riser(d):
     t = t_arr(d); n = rng.standard_normal(len(t)); out = np.zeros(len(t)); step = int(0.05 * SR)
     for i in range(0, len(t), step):
         p = i / len(t); c = 300 + p ** 2 * 7000
         out[i:i + step] = bp(n[i:i + step + 400], c * 0.7, min(c * 1.4, 20000))[: len(out[i:i + step])]
     tone = saw(110 * 2 ** (t / d * 2), t) * 0.15
-    return (out * 0.6 + lp(tone, 2500)) * (t / d) ** 2.2
+    return lp(tone, 1800) * 0.6 * (t / d) ** 2.2
 def whoosh(d=0.7):
     t = t_arr(d); n = rng.standard_normal(len(t)); out = np.zeros(len(t)); step = int(0.02 * SR)
     for i in range(0, len(t), step):
@@ -119,16 +119,14 @@ place(riser(1.2), 0.25, 0.5)
 for t0 in np.arange(2.6, 21.7, BEAT / 2):
     s = bass(33, BEAT / 2 * 0.9, 0.22); place(lp(s, 200 + 2200 * min(1, (t0 - 2.6) / 12)), t0)
 place(pad(F, 5.0, 1600, 0.09), 6.3); place(pad(Dm, 3.3, 1700, 0.09), 8.7)
-place(riser(0.65), 11.6, 0.55); place(glitch(1.2), 12.42, 0.9, pan=0.2)
+place(riser(0.65), 11.6, 0.55); place(glitch(1.2), 12.42, 0.4, pan=0.2)
 place(pad(E, 2.0, 2200, 0.11), 12.45)
 for i, w in enumerate([14.25, 14.5, 14.75, 15.0, 15.25, 15.55]): place(tom(), w, 0.55 + 0.05 * i, pan=(-0.2 + 0.08 * i))
 place(riser(1.2), 14.7, 0.5)
-place(whoosh(0.9), 15.85, 0.18)
 place(pad([45, 52, 57, 60, 64], 6.5, 2600, 0.12), 17.8)  # logo bloom
 arp([57, 60, 64, 67], 17.85, 21.6, 0.3125, 0.06)
 # Impacts in the opening (film time)
 for at, big in [(1.42, 1.2), (6.3, 0.8), (12.45, 1.0), (17.8, 1.3)]: place(impact(big), at, 0.75)
-place(whoosh(0.9), 21.75, 0.18)
 
 # Act two groove from 22.2: Am F C G, two bars each
 prog = [Am, F, C, G]
@@ -159,14 +157,13 @@ while t0 < 73.8:
     t0 += BEAT; beat += 1
 
 # Act two sound design
-for at in [43.3, 68.3]: place(whoosh(0.9), at - 0.1, 0.15)
 for i in range(6): place(tick(), 23.0 + i * 0.15, 1.0, pan=0.1)
 place(impact(0.6), 24.1, 0.5)
 for at in [27.55, 28.2, 28.95]: place(blip(1100), at, 0.8)
 for at in [36.05, 37.3, 38.8, 40.1]: place(stamp(), at, 0.85)
 for at in [43.95]: place(tick(), at, 1.2)
 place(riser(1.8), 45.8, 0.4)
-place(glitch(1.0), 47.6, 0.9, pan=-0.2); place(impact(1.0), 47.6, 0.7)
+place(glitch(1.0), 47.6, 0.4, pan=-0.2); place(impact(1.0), 47.6, 0.7)
 for i in range(6): place(blip(900 + i * 80), 50.9 + i * 0.22, 0.35)
 for at in [55.0, 55.95, 56.65]: place(blip(1400), at, 0.8)
 for at in [59.35, 60.15, 61.3]: place(blip(1000), at, 0.7)
