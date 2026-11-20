@@ -124,7 +124,7 @@ place(pad(E, 2.0, 2200, 0.11), 12.45)
 for i, w in enumerate([14.25, 14.5, 14.75, 15.0, 15.25, 15.55]): place(tom(), w, 0.55 + 0.05 * i, pan=(-0.2 + 0.08 * i))
 place(riser(1.2), 14.7, 0.5)
 place(pad([45, 52, 57, 60, 64], 6.5, 2600, 0.12), 17.8)  # logo bloom
-arp([57, 60, 64, 67], 17.85, 21.6, 0.3125, 0.06)
+arp([57, 60, 64, 67], 17.85, 21.6, 0.625, 0.025, 1800)
 # Impacts in the opening (film time)
 for at, big in [(1.42, 1.2), (6.3, 0.8), (12.45, 1.0), (17.8, 1.3)]: place(impact(big), at, 0.75)
 
@@ -142,7 +142,6 @@ while t0 < 74.0:
     root = ROOT[id(ch)]
     for b in range(int(round(d / (BEAT / 2)))):
         place(bass(root if b % 4 != 3 else root + 7, BEAT / 2 * 0.85, 0.2 if sec != 'tension' else 0.12), t0 + b * BEAT / 2)
-    if sec == 'lift': arp(ch, t0, t0 + d, BEAT / 2, 0.03, 2200)
     if sec == 'tension': arp([m + 12 for m in ch], t0, t0 + d, BEAT / 4, 0.03 + 0.02 * (t0 - 43.3) / 7, 2000 + 300 * (t0 - 43.3))
     t0 += 2 * bar; k += 1
 # drums
@@ -170,13 +169,12 @@ for at in [59.35, 60.15, 61.3]: place(blip(1000), at, 0.7)
 for x in np.arange(62.55, 63.4, 0.035): place(tick(), x, 0.7, pan=0.15)
 place(impact(0.7), 63.45, 0.55)
 for at in [65.2, 65.9, 66.6]: place(stamp(), at, 0.6)
-for i in range(4): place(blip(1300), 69.2 + i * 0.2, 0.5)
 place(riser(1.3), 72.7, 0.45)
 # Outro
 place(riser(1.1), 74.1, 0.6)
 place(impact(1.4), 75.2, 0.85)
 place(pad([45, 52, 57, 60, 64, 69], 7.6, 2400, 0.13), 75.2)
-arp([57, 60, 64, 69], 75.3, 81.5, 0.3125, 0.05)
+arp([57, 60, 64, 69], 75.3, 81.5, 0.625, 0.022, 1800)
 for i in range(23): place(tick(), 78.6 + i * 0.048, 0.6)
 
 # ---------- duck music under the voice ----------
