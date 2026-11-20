@@ -94,9 +94,10 @@ def tom():
 def pad(chord, d, cutoff=1400, gain=0.12):
     t = t_arr(d); s = np.zeros(len(t))
     for m in chord:
-        for det in (-0.12, -0.04, 0.04, 0.12):
-            s += saw(note(m) * 2 ** (det / 12), t + rng.uniform(0, 1))
-    s = lp(s / (len(chord) * 4), cutoff, 2)
+        for det in (-0.06, 0.06):
+            ph = rng.uniform(0, 1)
+            s += 2 * np.abs(saw(note(m) * 2 ** (det / 12), t + ph)) - 1
+    s = lp(s / (len(chord) * 2), min(cutoff, 1100), 2)
     a = min(1.2, d / 3); e = np.minimum(1, t / a) * np.minimum(1, (d - t) / min(1.0, d / 3))
     return s * e * gain
 def bass(m, d, gain=0.32):
@@ -122,12 +123,12 @@ place(riser(0.65), 11.6, 0.55); place(glitch(1.2), 12.42, 0.9, pan=0.2)
 place(pad(E, 2.0, 2200, 0.11), 12.45)
 for i, w in enumerate([14.25, 14.5, 14.75, 15.0, 15.25, 15.55]): place(tom(), w, 0.55 + 0.05 * i, pan=(-0.2 + 0.08 * i))
 place(riser(1.2), 14.7, 0.5)
-place(whoosh(0.8), 15.85, 0.6)
+place(whoosh(0.9), 15.85, 0.18)
 place(pad([45, 52, 57, 60, 64], 6.5, 2600, 0.12), 17.8)  # logo bloom
 arp([57, 60, 64, 67], 17.85, 21.6, 0.3125, 0.06)
 # Impacts in the opening (film time)
 for at, big in [(1.42, 1.2), (6.3, 0.8), (12.45, 1.0), (17.8, 1.3)]: place(impact(big), at, 0.75)
-for at in [8.7, 13.9, 21.75]: place(whoosh(0.7), at, 0.55, pan=0.1)
+place(whoosh(0.9), 21.75, 0.18)
 
 # Act two groove from 22.2: Am F C G, two bars each
 prog = [Am, F, C, G]
@@ -143,22 +144,22 @@ while t0 < 74.0:
     root = ROOT[id(ch)]
     for b in range(int(round(d / (BEAT / 2)))):
         place(bass(root if b % 4 != 3 else root + 7, BEAT / 2 * 0.85, 0.2 if sec != 'tension' else 0.12), t0 + b * BEAT / 2)
-    if sec == 'lift': arp(ch, t0, t0 + d, BEAT / 4, 0.045, 4000)
+    if sec == 'lift': arp(ch, t0, t0 + d, BEAT / 2, 0.03, 2200)
     if sec == 'tension': arp([m + 12 for m in ch], t0, t0 + d, BEAT / 4, 0.03 + 0.02 * (t0 - 43.3) / 7, 2000 + 300 * (t0 - 43.3))
     t0 += 2 * bar; k += 1
 # drums
 t0 = start; beat = 0
 while t0 < 73.8:
     sec = 'groove' if t0 < 43.3 else 'tension' if t0 < 50.3 else 'lift'
-    if sec != 'tension' or beat % 4 == 0: place(kick(), t0, 0.55)
-    if sec != 'tension' and beat % 2 == 1: place(clap(), t0, 0.32)
-    if sec == 'groove': place(hat(), t0 + BEAT / 2, 0.5, pan=0.3)
+    if sec != 'tension' or beat % 4 == 0: place(kick(), t0, 0.38)
+    if sec != 'tension' and beat % 2 == 1: place(clap(), t0, 0.16)
+    if sec == 'groove': place(hat(), t0 + BEAT / 2, 0.22, pan=0.3)
     if sec == 'lift':
-        for q in range(4): place(hat(q == 2), t0 + q * BEAT / 4, 0.42 if q % 2 else 0.28, pan=0.3)
+        for q in range(2): place(hat(False), t0 + q * BEAT / 2, 0.2, pan=0.3)
     t0 += BEAT; beat += 1
 
 # Act two sound design
-for at in [22.2, 33.5, 43.3, 50.3, 58.4, 68.3]: place(whoosh(0.75), at - 0.1, 0.55, pan=-0.1)
+for at in [43.3, 68.3]: place(whoosh(0.9), at - 0.1, 0.15)
 for i in range(6): place(tick(), 23.0 + i * 0.15, 1.0, pan=0.1)
 place(impact(0.6), 24.1, 0.5)
 for at in [27.55, 28.2, 28.95]: place(blip(1100), at, 0.8)
