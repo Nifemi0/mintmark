@@ -278,8 +278,7 @@ function shake(t) {
   return { x, y, r };
 }
 
-window.FILM_DURATION = 16;
-window.renderFrame = (t) => {
+const renderOpening = (t) => {
   if (!MARK.x) measureMark();
   const frame = Math.round(t * 60);
   drawParticles(t);
@@ -382,7 +381,43 @@ window.renderFrame = (t) => {
   $('turb').setAttribute('seed', String(frame % 97));
   $('grain').style.transform = `translate(${(hash(frame) - 0.5) * 40}px, ${(hash(frame + 1) - 0.5) * 40}px)`;
 };
-window.renderFrame(0);
+
+// Film time -> opening time: stretches and holds so the opening's beats land
+// on the voice-over (audio/cues.json). Pairs are [film seconds, opening seconds].
+const WARP = [[0, 0], [2.6, 2.6], [6.3, 5.0], [8.7, 6.6], [11.6, 8.3], [12.25, 8.55], [13.9, 10.2], [15.9, 12.2], [19.7, 16.0], [23, 16.0]];
+function warp(T) {
+  for (let i = 1; i < WARP.length; i++) {
+    const [a0, b0] = WARP[i - 1], [a1, b1] = WARP[i];
+    if (T <= a1) return b0 + (b1 - b0) * clamp((T - a0) / (a1 - a0));
+  }
+  return WARP[WARP.length - 1][1];
+}
+window.FILM_DURATION = 83;
+window.renderFrame = (T) => {
+  const world = $('world');
+  if (T < 22.4) {
+    $('txt').style.display = 'block';
+    renderOpening(warp(T));
+    // zoom through the logo into the next act
+    const out = easeInExpo(span(T, 21.7, 22.4));
+    world.style.transform += ` scale(${1 + out * 1.6})`;
+    world.style.opacity = (1 - out).toFixed(3);
+    world.style.filter = out > 0.01 ? `blur(${(out * 18).toFixed(2)}px)` : 'none';
+  } else {
+    world.style.opacity = 1; world.style.filter = 'none'; world.style.transform = 'none';
+    ['txt', 'cards3d', 'words'].forEach((id) => { $(id).style.display = 'none'; });
+    $('logoLayer').style.display = 'none';
+    ['wipe'].forEach((id) => { $(id).style.left = '-170%'; });
+    ['flash', 'redflash', 'scan'].forEach((id) => { $(id).style.opacity = 0; });
+    const c = $('fx').getContext('2d'); c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, 1920, 1080);
+    const f = Math.round(T * 60);
+    $('turb').setAttribute('seed', String(f % 97));
+    $('grain').style.transform = `translate(${(hash(f) - 0.5) * 40}px, ${(hash(f + 1) - 0.5) * 40}px)`;
+  }
+  if (window.renderAct2) window.renderAct2(T);
+};
 </script>
+<script src="scenes2.js"></script>
+<script>window.renderFrame(0);</script>
 </body>
 </html>
