@@ -596,11 +596,6 @@ walletForm.addEventListener('submit', (event) => {
   lookupWallet(walletAddress.value.trim());
 });
 
-document.querySelector('#wallet-example').addEventListener('click', () => {
-  walletAddress.value = '0x73d8bd54f7cf5fab43fe4ef40a62d390644946db';
-  lookupWallet(walletAddress.value);
-});
-
 walletResult.addEventListener('click', (event) => {
   const holding = event.target.closest('[data-wallet-key]');
   if (holding) openRecord(holding.dataset.walletKey);

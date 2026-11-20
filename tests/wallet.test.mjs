@@ -7,7 +7,7 @@ import { getKnownTokenBalances } from '../binance.mjs';
 
 const snapshot = JSON.parse(await readFile(new URL('../data/ondo-bsc.json', import.meta.url), 'utf8'));
 const records = normalizeRecords(snapshot.records);
-const address = '0x73d8bd54f7cf5fab43fe4ef40a62d390644946db';
+const address = '0x1111111111111111111111111111111111111111';
 
 test('wallet holdings match exact chain and contract even when symbols coincide', () => {
   const token = records[0];

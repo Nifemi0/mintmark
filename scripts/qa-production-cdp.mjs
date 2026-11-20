@@ -190,7 +190,9 @@ await fill('#wallet-address', '0x123');
 await domClick('#wallet-form button[type="submit"]');
 await waitFor(`document.querySelector('#wallet-result').textContent.includes('complete 0x')`);
 results.invalidWallet = await evaluate(`document.querySelector('#wallet-result').textContent.trim()`);
-await domClick('#wallet-example');
+// Valid-address flow: an empty address (no supported holdings), so no real person's wallet is shown.
+await fill('#wallet-address', '0x000000000000000000000000000000000000dEaD');
+await domClick('#wallet-form button[type="submit"]');
 await waitFor(`document.querySelector('#wallet-result').textContent.includes('supported holding') || document.querySelector('#wallet-result').textContent.includes('No supported holdings')`, 20000);
 results.walletExample = await evaluate(`({ text: document.querySelector('#wallet-result').textContent.trim().slice(0, 240), error: document.querySelector('#wallet-result').classList.contains('report-error') })`);
 

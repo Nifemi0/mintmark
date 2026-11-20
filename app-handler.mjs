@@ -187,6 +187,13 @@ async function checkContract(address) {
 
 // ---- Public API v1 -------------------------------------------------------
 const rateLimit = createRateLimiter({ limit: 120, windowMs: 60000 });
+// Site endpoints: tight limits where a call spends the Binance quota or a BSC
+// RPC call, a generous one elsewhere (one page view loads the catalog in ~8 calls).
+const siteLimits = [
+  { match: (p) => p === '/api/wallet' || p === '/api/report', limiter: createRateLimiter({ limit: 20, windowMs: 60000 }) },
+  { match: (p) => p === '/api/contract-check' || p === '/api/sync/bstocks', limiter: createRateLimiter({ limit: 30, windowMs: 60000 }) },
+  { match: (p) => p.startsWith('/api/'), limiter: createRateLimiter({ limit: 300, windowMs: 60000 }) },
+];
 const CORS = {
   'access-control-allow-origin': '*',
   'access-control-allow-methods': 'GET, POST, OPTIONS',
@@ -315,6 +322,14 @@ export default async function handleRequest(request, response) {
     const url = new URL(request.url, `http://${request.headers.host ?? 'localhost'}`);
     if (url.pathname === '/v1' || url.pathname.startsWith('/v1/')) return await handleV1(request, response, url);
     if (request.method !== 'GET') return sendJson(response, 405, { error: 'Method not allowed' });
+    const siteLimit = siteLimits.find((rule) => rule.match(url.pathname));
+    if (siteLimit) {
+      const verdict = siteLimit.limiter(clientKey(request));
+      if (!verdict.allowed) {
+        response.setHeader?.('retry-after', String(Math.max(1, verdict.reset - Math.floor(Date.now() / 1000))));
+        return sendJson(response, 429, { code: 'rate_limited', error: `Too many requests; the limit is ${verdict.limit} a minute. Please wait a moment.` });
+      }
+    }
     if (url.pathname === '/api/health') return sendJson(response, 200, {
       status: 'ok', count: baseRecords.length, snapshotAt: snapshot.generatedAt,
       checkedAt: new Date().toISOString(), binanceConfigured: hasBinanceCredentials(),

@@ -135,3 +135,13 @@ test('bStocks source keeps only BSC bStocks identity fields and falls back to th
   const unconfigured = await call('GET', '/api/sync/bstocks');
   assert.equal(unconfigured.status, 503);
 });
+
+test('site endpoints that spend the Binance quota are rate limited per client', async () => {
+  const headers = { 'x-forwarded-for': '10.9.9.9' };
+  const statuses = [];
+  for (let i = 0; i < 22; i++) statuses.push((await call('GET', '/api/wallet?address=0x' + '1'.repeat(40), undefined, headers)).status);
+  assert.ok(statuses.slice(0, 20).every((s) => s !== 429), 'first 20 allowed');
+  assert.deepEqual(statuses.slice(20), [429, 429]);
+  const other = await call('GET', '/api/health', undefined, headers);
+  assert.equal(other.status, 200, 'a separate, larger limit applies to other site endpoints');
+});

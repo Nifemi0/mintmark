@@ -1,6 +1,6 @@
 # Mintmark — three-phase build plan
 
-**Target:** BNB Hack: Tokenized Stocks Edition. Submissions lock **11 October 2026 at 12:00 UTC (13:00 in Lagos)**. The working product must center a supported tokenized stock on **BSC mainnet** and use at least one Binance Web3 API module. [Official brief](https://www.bnbchain.org/en/hackathons/tokenized-stocks).
+**Target:** BNB Hack: Tokenized Stocks Edition. Submissions lock **11 October 2026 at 12:00 UTC**. The working product must center a supported tokenized stock on **BSC mainnet** and use at least one Binance Web3 API module. [Official brief](https://www.bnbchain.org/en/hackathons/tokenized-stocks).
 
 **Product promise:** Search a company and compare its BSC token products by exact contract, provider, terms, and evidence. Binance data appears where an exact-contract source exists; missing data stays unavailable.
 
