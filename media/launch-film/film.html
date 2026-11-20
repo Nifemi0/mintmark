@@ -7,254 +7,380 @@
 <script src="data.js"></script>
 <style>
   :root {
-    --bg: #0b1310; --bg2: #13201a; --card: #15221c; --line: #2a3d33;
-    --ink: #f2f6f2; --muted: #93a797; --quiet: #5f7466; --mint: #8fc497; --mint-deep: #4f8a5a;
-    --warn: #e08a5c; --warn-bg: #2a1912; --gold: #f3ba2f;
+    --bg: #070d0a; --card: #121d18; --line: #2b4035;
+    --ink: #f2f6f2; --muted: #93a797; --quiet: #5f7466; --mint: #8fc497; --mint2: #b9e6bf;
+    --warn: #ff8a5c; --warn-bg: #2a130c; --gold: #f3ba2f;
     --display: 'Space Grotesk', sans-serif; --body: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; }
-  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; color: var(--ink); font-family: var(--body);
-    background: radial-gradient(1200px 800px at 70% 75%, #1a2c24 0, #0f1a15 45%, var(--bg) 75%); }
-  .scene { position: absolute; inset: 0; display: none; }
-  .abs { position: absolute; }
-  .center { left: 50%; top: 50%; transform: translate(-50%, -50%); }
-  .chars { display: inline-block; white-space: pre; }
-  .ch { display: inline-block; will-change: transform; }
-  .mask { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 0.04em 0.08em; }
-  #grain { position: absolute; inset: -20%; width: 140%; height: 140%; pointer-events: none; opacity: .09; mix-blend-mode: overlay; }
-  #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%); }
+  #stage { position: absolute; inset: 0; overflow: hidden; color: var(--ink); font-family: var(--body); background: var(--bg); }
+  #world { position: absolute; inset: 0; transform-origin: 50% 50%; }
+  canvas { position: absolute; inset: 0; }
+  .layer { position: absolute; inset: 0; pointer-events: none; }
+  .t { position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap; will-change: transform, opacity, filter; }
+  .slam { font: 700 210px/1 var(--display); letter-spacing: -0.05em; }
+  .mid { font: 700 120px/1 var(--display); letter-spacing: -0.045em; }
+  .kicker { font: 500 24px var(--mono); letter-spacing: .32em; text-transform: uppercase; color: var(--mint); white-space: pre; }
+  .legend { position: absolute; left: 0; right: 0; bottom: 70px; display: flex; justify-content: center; gap: 70px; font: 500 26px var(--mono); letter-spacing: .14em; }
+  .legend span { white-space: pre; }
 
-  /* Scene 1: cold open */
-  .flood { position: absolute; inset: -200px -40px; display: flex; justify-content: space-between; }
-  .flood-col { display: flex; flex-direction: column; gap: 26px; font: 500 30px var(--mono); color: #6f8a77; letter-spacing: .02em; }
-  .flood-col span { display: block; }
-  .rule { position: absolute; left: 50%; top: 540px; height: 2px; background: var(--mint); transform: translateX(-50%); }
-  .headline { position: absolute; left: 0; right: 0; text-align: center; font: 700 168px/1 var(--display); letter-spacing: -0.045em; }
-  .hero-sym { position: absolute; font: 600 104px/1 var(--display); letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
-  .hero-sym small { display: block; margin-top: 18px; font: 500 26px var(--mono); letter-spacing: .08em; color: var(--mint); text-transform: uppercase; }
-
-  /* Scene 2: the problem */
-  .s2-title { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 600 72px/1.05 var(--display); letter-spacing: -0.035em; }
-  .card { position: absolute; top: 310px; width: 400px; height: 440px; border-radius: 26px; background: var(--card); border: 1.5px solid var(--line); padding: 34px 34px; }
-  .card .pill { display: inline-block; padding: 9px 16px; border-radius: 99px; background: #1f3229; color: var(--mint); font: 500 20px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-  .card .sym { margin-top: 30px; font: 600 72px/1 var(--display); letter-spacing: -0.03em; }
-  .card .lbl { margin-top: 34px; font: 500 17px var(--mono); color: var(--quiet); letter-spacing: .1em; text-transform: uppercase; }
-  .card .addr { margin-top: 10px; font: 500 25px var(--mono); color: var(--ink); white-space: nowrap; min-height: 32px; }
-  .card .iss { margin-top: 24px; font: 400 21px var(--body); color: var(--muted); }
-  .card .ok { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); font: 500 20px var(--body); color: var(--mint); }
-  .card.fake { border-color: var(--warn); background: var(--warn-bg); }
-  .card.fake .pill { background: #3b2016; color: var(--warn); }
+  /* 3D cards */
+  #cards3d { position: absolute; inset: 0; perspective: 1400px; perspective-origin: 50% 45%; }
+  .card { position: absolute; left: 50%; top: 50%; width: 390px; height: 470px; margin: -215px 0 0 -195px; padding: 32px; border-radius: 30px; background: linear-gradient(160deg, #18271f, #0f1813);
+    border: 1.5px solid var(--line); padding: 36px; transform-style: preserve-3d; box-shadow: 0 40px 120px rgba(0,0,0,.55); }
+  .card .pill { display: inline-block; padding: 10px 18px; border-radius: 99px; background: #1f3229; color: var(--mint); font: 500 21px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+  .card .sym { margin-top: 34px; font: 700 80px/1 var(--display); letter-spacing: -0.035em; }
+  .card .lbl { margin-top: 38px; font: 500 17px var(--mono); color: var(--quiet); letter-spacing: .14em; text-transform: uppercase; }
+  .card .addr { margin-top: 12px; font: 500 24px var(--mono); white-space: pre; }
+  .card .iss { margin-top: 26px; font: 400 22px var(--body); color: var(--muted); }
+  .card .ok { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); font: 500 21px var(--body); color: var(--mint); }
+  .card .glow { position: absolute; inset: -1px; border-radius: 30px; box-shadow: 0 0 0 2px var(--mint), 0 0 60px rgba(143,196,151,.45); opacity: 0; }
+  .card.fake { border-color: var(--warn); background: linear-gradient(160deg, #331a10, #1c0e08); }
+  .card.fake .pill { background: #4a2416; color: var(--warn); }
   .card.fake .ok { color: var(--warn); border-top-color: #5a3324; }
-  .s2-big { position: absolute; left: 0; right: 0; top: 470px; text-align: center; font: 700 132px/1 var(--display); letter-spacing: -0.045em; }
+  .stamp { position: absolute; right: -14px; top: 300px; padding: 14px 26px; border: 5px solid var(--warn); border-radius: 14px; color: var(--warn);
+    font: 700 46px var(--display); letter-spacing: .04em; text-transform: uppercase; background: rgba(42,19,12,.9); white-space: nowrap; opacity: 0; }
 
-  /* Scene 3: logo */
-  .logo-wrap { position: absolute; left: 50%; top: 455px; display: flex; align-items: center; gap: 54px; transform: translate(-50%, -50%); }
-  .mark { width: 190px; height: 190px; border-radius: 58px; background: #fff; display: grid; place-items: center; }
-  .wordmark { font: 700 172px/1 var(--display); letter-spacing: -0.055em; }
-  .tagline { position: absolute; left: 0; right: 0; top: 650px; text-align: center; font: 400 46px var(--body); color: var(--muted); }
-  .tagline .hl { position: relative; color: var(--ink); }
-  .tagline .uline { position: absolute; left: 0; bottom: -10px; height: 4px; border-radius: 4px; background: var(--mint); }
+  /* words */
+  #words { position: absolute; left: 0; right: 0; top: 50%; display: none; justify-content: center; gap: 34px; transform: translateY(-50%); font: 700 124px/1 var(--display); letter-spacing: -0.05em; }
+  #words span { display: inline-block; will-change: transform, opacity, filter; }
+  #words .accent { color: var(--mint); }
+
+  /* wipe + flash */
+  #wipe { position: absolute; top: -40%; bottom: -40%; width: 140%; left: -170%; background: linear-gradient(90deg, var(--mint) 0, var(--mint2) 60%, #fff 100%); transform: skewX(-18deg); }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; mix-blend-mode: screen; }
+  #redflash { position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(255,90,50,.55), rgba(255,60,30,0) 60%); opacity: 0; }
+
+  /* logo */
+  #logoLayer { display: none; }
+  #logo { position: absolute; left: 50%; top: 455px; display: flex; align-items: center; gap: 56px; transform: translate(-50%, -50%); perspective: 900px; }
+  .mark { width: 190px; height: 190px; border-radius: 58px; background: #fff; display: grid; place-items: center; opacity: 0; }
+  #wordmark { font: 700 176px/1 var(--display); letter-spacing: -0.055em; display: flex; }
+  #wordmark span { display: inline-block; transform-origin: 50% 100%; opacity: 0; background: linear-gradient(100deg, #f2f6f2 0%, #f2f6f2 40%, #ffffff 48%, #b9e6bf 52%, #f2f6f2 60%, #f2f6f2 100%);
+    background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; }
+  #tagline { position: absolute; left: 0; right: 0; top: 655px; text-align: center; font: 400 48px var(--body); color: var(--muted); opacity: 0; }
+  #tagline .hl { position: relative; color: var(--ink); }
+  #uline { position: absolute; left: 0; bottom: -12px; height: 5px; border-radius: 5px; background: var(--mint); width: 0; }
+
+  #grain { position: absolute; inset: -20%; width: 140%; height: 140%; pointer-events: none; opacity: .1; mix-blend-mode: overlay; }
+  #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.65) 100%); }
+  #scan { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 2px, transparent 2px 5px); opacity: 0; }
 </style>
 </head>
 <body>
 <div id="stage">
-  <!-- Scene 1 -->
-  <div class="scene" id="s1">
-    <div class="flood" id="flood"></div>
-    <div class="abs" id="s1-scrim" style="inset:0;background:radial-gradient(ellipse 820px 300px at 50% 50%, rgba(8,14,11,.92), rgba(8,14,11,0))"></div>
-    <div class="rule" id="s1-rule"></div>
-    <div class="headline" id="s1-h1" style="top:440px"></div>
-    <div class="headline" id="s1-h2" style="top:250px"></div>
-    <div class="hero-sym" id="s1-a"></div>
-    <div class="hero-sym" id="s1-b"></div>
-    <div class="hero-sym" id="s1-c"></div>
-  </div>
-  <!-- Scene 2 -->
-  <div class="scene" id="s2">
-    <div class="s2-title" id="s2-title"></div>
-    <div id="s2-cards"></div>
-    <div class="s2-big" id="s2-big"></div>
-  </div>
-  <!-- Scene 3 -->
-  <div class="scene" id="s3">
-    <div class="logo-wrap" id="s3-logo">
-      <div class="mark" id="s3-mark">
-        <svg width="104" height="104" viewBox="0 0 104 104"><circle id="s3-ring" cx="52" cy="52" r="38" fill="none" stroke="#111a18" stroke-width="15" stroke-linecap="butt" transform="rotate(-25 52 52)"/></svg>
-      </div>
-      <div class="wordmark" id="s3-word"></div>
+  <div id="world">
+    <canvas id="fx" width="1920" height="1080"></canvas>
+    <div class="layer" id="txt">
+      <div class="t kicker" id="k1" style="top:640px"></div>
+      <div class="t slam" id="count" style="top:420px"></div>
+      <div class="t mid" id="oneTicker" style="top:150px">One ticker.</div>
+      <div class="legend" id="legend"><span id="lg1"></span><span id="lg2"></span><span id="lg3"></span></div>
+      <div class="t mid" id="three" style="top:70px">Three different contracts.</div>
     </div>
-    <div class="tagline" id="s3-tag">Every token has a <span class="hl" id="s3-hl">paper trail.<span class="uline" id="s3-uline"></span></span></div>
+    <div id="cards3d"></div>
+    <div id="words"><span>A</span><span>ticker</span><span>is</span><span>not</span><span>an</span><span class="accent">identity.</span></div>
+    <div class="layer" id="logoLayer">
+      <div id="logo">
+        <div class="mark" id="mark"><svg width="104" height="104" viewBox="0 0 104 104"><circle id="ring" cx="52" cy="52" r="38" fill="none" stroke="#0b130f" stroke-width="15" transform="rotate(-25 52 52)"/></svg></div>
+        <div id="wordmark"></div>
+      </div>
+      <div id="tagline">Every token has a <span class="hl">paper trail.<span id="uline"></span></span></div>
+    </div>
   </div>
-
-  <svg id="grain" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence id="turb" type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+  <div id="redflash"></div>
+  <div id="wipe"></div>
+  <div id="flash"></div>
+  <div id="scan"></div>
+  <svg id="grain" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence id="turb" type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
   <div id="vignette"></div>
 </div>
 
 <script>
 const D = window.FILM_DATA;
 const $ = (id) => document.getElementById(id);
-
-// ---- timing helpers ----
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const span = (t, a, b) => clamp((t - a) / (b - a));
 const lerp = (a, b, p) => a + (b - a) * p;
 const easeOutExpo = (p) => (p >= 1 ? 1 : 1 - Math.pow(2, -10 * p));
+const easeInExpo = (p) => (p <= 0 ? 0 : Math.pow(2, 10 * p - 10));
 const easeInOutCubic = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+const easeInOutExpo = (p) => (p <= 0 ? 0 : p >= 1 ? 1 : p < 0.5 ? Math.pow(2, 20 * p - 10) / 2 : (2 - Math.pow(2, -20 * p + 10)) / 2);
 const easeOutCubic = (p) => 1 - Math.pow(1 - p, 3);
 const easeInCubic = (p) => p * p * p;
-const easeOutBack = (p) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+const easeOutBack = (p) => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
 const hash = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 const short = (a) => `${a.slice(0, 12)}…${a.slice(-8)}`;
-
-// Split text into per-character spans inside a mask.
-function splitChars(el, text) {
-  el.innerHTML = '';
-  const mask = document.createElement('span'); mask.className = 'mask';
-  const wrap = document.createElement('span'); wrap.className = 'chars';
-  for (const c of text) { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; wrap.appendChild(s); }
-  mask.appendChild(wrap); el.appendChild(mask);
-  return [...wrap.children];
-}
-// Characters rise in from below the mask, then optionally leave upward.
-function charsInOut(chars, t, tin, tout, stagger = 0.028, dur = 0.7) {
-  chars.forEach((c, i) => {
-    const pin = easeOutExpo(span(t, tin + i * stagger, tin + i * stagger + dur));
-    const pout = tout == null ? 0 : easeInCubic(span(t, tout + i * stagger * 0.6, tout + i * stagger * 0.6 + 0.45));
-    c.style.transform = `translateY(${(1 - pin) * 110 - pout * 110}%)`;
-  });
-}
-
-// ---- scene 1 setup ----
-const COLS = 13, PER_COL = 34;
-const flood = $('flood');
-const colEls = [];
-for (let c = 0; c < COLS; c++) {
-  const col = document.createElement('div'); col.className = 'flood-col';
-  for (let r = 0; r < PER_COL; r++) {
-    const s = document.createElement('span');
-    s.textContent = D.symbols[(c * 31 + r * 7) % D.symbols.length];
-    s.style.opacity = (0.25 + hash(c * 100 + r) * 0.75).toFixed(2);
-    col.appendChild(s);
+const GLYPHS = '0123456789abcdef#$%&@*+=/<>';
+// Scrambled characters resolve into the final text, left to right.
+function scramble(text, p, frame, seed = 0) {
+  let out = '';
+  for (let i = 0; i < text.length; i++) {
+    const reveal = i / text.length;
+    if (p >= reveal + 0.12 || text[i] === ' ' || text[i] === '…') out += text[i];
+    else if (p > reveal - 0.25) out += GLYPHS[Math.floor(hash(frame * 13 + i * 7 + seed) * GLYPHS.length)];
+    else out += ' ';
   }
-  flood.appendChild(col); colEls.push(col);
+  return out;
 }
-const s1h1 = splitChars($('s1-h1'), 'Same ticker.');
-const s1h2 = splitChars($('s1-h2'), 'Different tokens.');
-const heroSyms = ['s1-a', 's1-b', 's1-c'].map((id, i) => {
-  const el = $(id); const n = D.nvda[i];
-  el.innerHTML = `${n.symbol}<small>${n.provider}</small>`;
-  return el;
-});
+// A slam: oversized and blurred, landing at 1x with a hard stop.
+function slam(el, t, t0, tout, { from = 1.9, dur = 0.42, outDur = 0.35 } = {}) {
+  const p = easeOutExpo(span(t, t0, t0 + dur));
+  const o = tout == null ? 0 : easeInExpo(span(t, tout, tout + outDur));
+  const s = lerp(from, 1, p) * (1 + o * 0.6);
+  el.style.opacity = (span(t, t0, t0 + 0.08) * (1 - o)).toFixed(3);
+  el.style.transform = `scale(${s.toFixed(4)})`;
+  el.style.filter = `blur(${((1 - p) * 18 + o * 22).toFixed(2)}px)`;
+}
 
-// ---- scene 2 setup ----
-const s2title = splitChars($('s2-title'), 'One company. Three separate contracts.');
-const s2big = splitChars($('s2-big'), 'A ticker is not an identity.');
-const FAKE = { symbol: 'NVDAon', provider: 'Look-alike', address: '0x9d41b7e2a0c35e8b1f04d6a27c935f12c8e3a1d7', issuer: 'No provider record' };
-const cardData = [...D.nvda, FAKE];
+// ---------------- particles: one per registry token ----------------
+const N = D.total;
+const cv = $('fx'), ctx = cv.getContext('2d');
+const COLORS = { ondo: [143, 196, 151], bstock: [243, 186, 47], xstock: [206, 226, 211] };
+const P = [];
+for (let i = 0; i < N; i++) {
+  const prov = i < D.counts.ondo ? 'ondo' : i < D.counts.ondo + D.counts.bstock ? 'bstock' : 'xstock';
+  P.push({ a: hash(i * 3.1) * Math.PI * 2, r: Math.sqrt(hash(i * 7.7 + 1)), s: hash(i * 1.3 + 5), c: COLORS[prov] });
+}
+const HERO = [20, D.counts.ondo + 12, D.counts.ondo + D.counts.bstock + 600]; // one token per provider
+const COLS = 61, GAP = 26;
+const gridPos = (i) => ({ x: 960 + ((i % COLS) - (COLS - 1) / 2) * GAP, y: 540 + (Math.floor(i / COLS) - 15.5) * GAP - 20 });
+const vortexPos = (p, t) => {
+  const r = p.r * 520 + 30;
+  const ang = p.a + p.r * 5.2 + t * (1.4 - p.r * 0.9);
+  return { x: 960 + Math.cos(ang) * r * 1.25, y: 540 + Math.sin(ang) * r * 0.66 };
+};
+// Logo mark outline: the rounded square (rotated -8deg) and the inner ring arc.
+const MARK = { x: 0, y: 0 };
+function logoPoint(i) {
+  const k = i / N;
+  if (k < 0.72) {
+    const u = k / 0.72, side = 190, rad = 58, straight = side - 2 * rad, half = side / 2, q = Math.PI / 2 * rad;
+    let d = u * (4 * straight + 4 * q), x, y;
+    if (d < straight) { x = -half + rad + d; y = -half; }
+    else if ((d -= straight) < q) { const a = -Math.PI / 2 + d / rad; x = half - rad + Math.cos(a) * rad; y = -half + rad + Math.sin(a) * rad; }
+    else if ((d -= q) < straight) { x = half; y = -half + rad + d; }
+    else if ((d -= straight) < q) { const a = d / rad; x = half - rad + Math.cos(a) * rad; y = half - rad + Math.sin(a) * rad; }
+    else if ((d -= q) < straight) { x = half - rad - d; y = half; }
+    else if ((d -= straight) < q) { const a = Math.PI / 2 + d / rad; x = -half + rad + Math.cos(a) * rad; y = half - rad + Math.sin(a) * rad; }
+    else if ((d -= q) < straight) { x = -half; y = half - rad - d; }
+    else { d -= straight; const a = Math.PI + d / rad; x = -half + rad + Math.cos(a) * rad; y = -half + rad + Math.sin(a) * rad; }
+    const rot = -8 * Math.PI / 180;
+    return { x: MARK.x + x * Math.cos(rot) - y * Math.sin(rot), y: MARK.y + x * Math.sin(rot) + y * Math.cos(rot) };
+  }
+  const u = (k - 0.72) / 0.28;
+  const a = (-25 + 90 + u * 270) * Math.PI / 180, rr = 38 * (104 / 104);
+  return { x: MARK.x + Math.cos(a) * rr, y: MARK.y + Math.sin(a) * rr };
+}
+
+function camera(t) {
+  let s = lerp(1.6, 1, easeOutExpo(span(t, 1.4, 2.6)));
+  s *= 1 + 0.12 * easeInOutCubic(span(t, 1.8, 3.3)) - 0.12 * easeInOutCubic(span(t, 3.3, 4.6));
+  const rot = 7 * easeInOutCubic(span(t, 1.6, 3.3)) - 7 * easeInOutCubic(span(t, 3.3, 4.8));
+  s *= 1 - 0.1 * easeInOutCubic(span(t, 5.0, 6.0));
+  s *= 1 + easeInExpo(span(t, 6.0, 6.7)) * 5;
+  return { s, rot: rot * Math.PI / 180, cx: 960, cy: 540 + 6 * Math.sin(t * 0.9) };
+}
+
+function drawParticles(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, 1920, 1080);
+  const inLogo = t >= 12.6;
+  const cam = inLogo ? { s: 1, rot: 0, cx: 960, cy: 540 } : camera(t);
+  ctx.translate(960, 540); ctx.rotate(cam.rot); ctx.scale(cam.s, cam.s); ctx.translate(-cam.cx, -cam.cy);
+  // perspective floor grid during the opening
+  const floorA = span(t, 0.6, 1.2) * (1 - span(t, 2.4, 3.2));
+  if (floorA > 0 && !inLogo) {
+    ctx.save(); ctx.strokeStyle = 'rgba(143,196,151,0.5)'; ctx.lineWidth = 1.2;
+    const horizon = 560, vp = 960;
+    ctx.globalAlpha = floorA * 0.5;
+    for (let k = -18; k <= 18; k++) { ctx.beginPath(); ctx.moveTo(vp + k * 14, horizon); ctx.lineTo(vp + k * 260, 1300); ctx.stroke(); }
+    const off = (t * 1.6) % 1;
+    for (let k = 0; k < 14; k++) { const z = (k + off) / 14; const y = horizon + Math.pow(z, 2.2) * 760; ctx.globalAlpha = floorA * 0.5 * z; ctx.beginPath(); ctx.moveTo(-200, y); ctx.lineTo(2120, y); ctx.stroke(); }
+    ctx.restore();
+  }
+  // the opening line
+  const lineP = easeInOutExpo(span(t, 0.35, 1.1)), lineOut = span(t, 1.35, 1.6);
+  if (lineP > 0 && lineOut < 1) {
+    ctx.save(); ctx.globalAlpha = 1 - lineOut; ctx.fillStyle = '#b9e6bf';
+    ctx.shadowColor = 'rgba(143,196,151,.9)'; ctx.shadowBlur = 30;
+    ctx.fillRect(960 - lineP * 820, 538, lineP * 1640, 4); ctx.restore();
+  }
+  const dot0 = easeOutBack(span(t, 0.05, 0.4)) * (1 - span(t, 0.35, 0.5));
+  if (dot0 > 0) { ctx.fillStyle = '#b9e6bf'; ctx.beginPath(); ctx.arc(960, 540, 10 * dot0, 0, Math.PI * 2); ctx.fill(); }
+
+  if (t < 1.35) return;
+  const gridDim = 1 - 0.85 * easeInOutCubic(span(t, 5.0, 5.8));
+  const fadeAll = 1 - span(t, 6.45, 6.75);
+  const logoIn = span(t, 12.6, 12.9), logoOut = 1 - span(t, 14.3, 14.9);
+  for (let i = 0; i < N; i++) {
+    const p = P[i];
+    let x, y, size = 2.6 + p.s * 1.8, alpha = 0.85;
+    if (!inLogo) {
+      const burst = easeOutExpo(span(t, 1.4 + p.s * 0.2, 2.5 + p.s * 0.2));
+      const v = vortexPos(p, t);
+      x = lerp(960, v.x, burst); y = lerp(540, v.y, burst);
+      const g = gridPos(i), gq = easeInOutExpo(span(t, 3.3 + (i / N) * 0.9, 4.4 + (i / N) * 0.9));
+      x = lerp(x, g.x, gq); y = lerp(y, g.y, gq);
+      size = lerp(size, 5.5, gq);
+      alpha = lerp(0.85, 0.95, gq) * gridDim;
+      const h = HERO.indexOf(i);
+      if (h >= 0) {
+        const hp = easeInOutExpo(span(t, 5.0, 5.9));
+        x = lerp(x, 960 + (h - 1) * 120, hp); y = lerp(y, 560, hp);
+        size = lerp(size, 34, hp); alpha = 1;
+      }
+      alpha *= fadeAll;
+    } else {
+      const lq = easeInOutExpo(span(t, 12.7 + p.s * 0.35, 13.9 + p.s * 0.35));
+      const lp = logoPoint(i);
+      x = lerp(hash(i * 9.1) * 2200 - 140, lp.x, lq); y = lerp(hash(i * 4.3) * 1300 - 110, lp.y, lq);
+      size = lerp(2.4, 3.2, lq); alpha = logoIn * logoOut;
+    }
+    if (alpha <= 0.01) continue;
+    const [r, gc, b] = p.c;
+    ctx.fillStyle = `rgb(${r},${gc},${b})`;
+    ctx.globalAlpha = alpha * 0.22; ctx.fillRect(x - size * 1.6, y - size * 1.6, size * 3.2, size * 3.2);
+    ctx.globalAlpha = alpha; ctx.fillRect(x - size / 2, y - size / 2, size, size);
+  }
+  ctx.globalAlpha = 1;
+}
+
+// ---------------- DOM setup ----------------
+const cardData = [...D.nvda, { symbol: 'NVDAon', provider: 'Look-alike', address: '0x9d41b7e2a0c35e8b1f04d6a27c935f12c8e3a1d7', issuer: 'No provider record' }];
 const cards = cardData.map((n, i) => {
   const el = document.createElement('div'); el.className = 'card' + (i === 3 ? ' fake' : '');
-  el.innerHTML = `<span class="pill">${n.provider}</span><div class="sym">${n.symbol}</div><div class="lbl">Exact contract</div><div class="addr"></div><div class="iss">${n.issuer}</div><div class="ok">${i === 3 ? '✕ Not a registered product' : '✓ Checked on BNB Chain'}</div>`;
-  $('s2-cards').appendChild(el);
-  return { el, addr: el.querySelector('.addr'), ok: el.querySelector('.ok'), full: short(n.address) };
+  el.innerHTML = `<div class="glow"></div><span class="pill">${n.provider}</span><div class="sym">${n.symbol}</div><div class="lbl">Exact contract</div><div class="addr"></div><div class="iss">${n.issuer}</div><div class="ok">${i === 3 ? '✕ Not a registered product' : '✓ Checked on BNB Chain'}</div>${i === 3 ? '<div class="stamp">Not registered</div>' : ''}`;
+  $('cards3d').appendChild(el);
+  return { el, addr: el.querySelector('.addr'), glow: el.querySelector('.glow'), stamp: el.querySelector('.stamp'), full: short(n.address) };
 });
+const words = [...$('words').children];
+$('wordmark').innerHTML = [...'mintmark'].map((c) => `<span>${c}</span>`).join('');
+const wm = [...$('wordmark').children];
+const ring = $('ring'); const RING = 2 * Math.PI * 38; ring.setAttribute('stroke-dasharray', `${RING}`);
+function measureMark() {
+  const layer = $('logoLayer'); const prev = layer.style.display;
+  layer.style.display = 'block';
+  const b = $('mark').getBoundingClientRect();
+  MARK.x = b.left + b.width / 2; MARK.y = b.top + b.height / 2;
+  layer.style.display = prev;
+}
 
-// ---- scene 3 setup ----
-const s3word = splitChars($('s3-word'), 'mintmark');
-const ring = $('s3-ring'); const RING = 2 * Math.PI * 38;
-ring.setAttribute('stroke-dasharray', `${RING}`);
-
-// ---- scenes ----
-const scenes = [
-  { id: 's1', start: 0, end: 8.2, update(t) {
-    // A rule draws across, the ticker flood rises behind it.
-    const rp = easeInOutCubic(span(t, 0.1, 0.9));
-    $('s1-rule').style.width = `${rp * 1400}px`;
-    $('s1-rule').style.opacity = 1 - span(t, 1.0, 1.6);
-    const floodIn = easeOutCubic(span(t, 0.5, 1.8));
-    const floodOut = easeInCubic(span(t, 4.3, 5.4));
-    flood.style.opacity = (floodIn * (1 - floodOut) * 0.85).toFixed(3);
-    colEls.forEach((col, c) => {
-      const speed = 70 + hash(c) * 90;
-      col.style.transform = `translateY(${-((t * speed + hash(c + 7) * 400) % 600)}px)`;
-    });
-    flood.style.filter = `blur(${(floodOut * 6).toFixed(2)}px)`;
-    $('s1-scrim').style.opacity = (easeOutCubic(span(t, 1.2, 1.9)) * (1 - span(t, 4.2, 4.8))).toFixed(3);
-    charsInOut(s1h1, t, 1.5, 4.2);
-    // Three real tokens fly in from the flood into one row.
-    const xs = [-560, 0, 560];
-    heroSyms.forEach((el, i) => {
-      const p = easeOutExpo(span(t, 4.5 + i * 0.12, 5.9 + i * 0.12));
-      const sx = (hash(i + 3) - 0.5) * 1500, sy = (hash(i + 9) - 0.5) * 900;
-      const x = lerp(sx, xs[i], p), y = lerp(sy, 120, p);
-      const out = easeInCubic(span(t, 7.4, 8.2));
-      el.style.left = '960px'; el.style.top = '540px';
-      el.style.opacity = (span(t, 4.5 + i * 0.12, 5.0 + i * 0.12) * (1 - out)).toFixed(3);
-      el.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y - out * 40}px)) scale(${lerp(0.55, 1, p)})`;
-    });
-    charsInOut(s1h2, t, 5.5, 7.4);
-  } },
-  { id: 's2', start: 7.9, end: 20.2, update(t) {
-    charsInOut(s2title, t, 0.3, 7.6, 0.018);
-    const layout3 = [-432, 0, 432], layout4 = [-648, -216, 216, 648];
-    const regroup = easeInOutCubic(span(t, 5.0, 6.1));
-    const recede = easeInOutCubic(span(t, 7.8, 9.0));
-    const exit = easeInCubic(span(t, 11.6, 12.3));
-    cards.forEach((c, i) => {
-      const enter = easeOutExpo(span(t, 0.2 + i * 0.14, 1.4 + i * 0.14));
-      let x = i < 3 ? lerp(layout3[i], layout4[i], regroup) : layout4[3];
-      let y = (1 - enter) * 120;
-      let opacity = enter;
-      if (i === 3) {
-        // The look-alike arrives with a glitch, then settles.
-        const fin = easeOutExpo(span(t, 5.4, 6.4));
-        x = lerp(layout4[3] + 260, layout4[3], fin);
-        y = 0; opacity = fin;
-        const g = span(t, 5.4, 7.0);
-        if (g > 0 && g < 1) {
-          const k = Math.floor(t * 30);
-          const amp = (1 - g) * 18;
-          x += (hash(k) - 0.5) * amp * 2;
-          c.el.style.textShadow = `${(hash(k + 1) - 0.5) * amp}px 0 rgba(255,60,60,.8), ${(hash(k + 2) - 0.5) * -amp}px 0 rgba(60,220,255,.8)`;
-          c.el.style.clipPath = hash(k + 3) > 0.6 ? `inset(${Math.floor(hash(k + 4) * 60)}% 0 ${Math.floor(hash(k + 5) * 30)}% 0)` : 'none';
-        } else { c.el.style.textShadow = 'none'; c.el.style.clipPath = 'none'; }
-      }
-      const scale = 1 - recede * 0.06;
-      c.el.style.left = `${960 - 200 + x}px`;
-      c.el.style.opacity = (opacity * (1 - recede * 0.78) * (1 - exit)).toFixed(3);
-      c.el.style.filter = `blur(${(recede * 7).toFixed(2)}px)`;
-      c.el.style.transform = `translateY(${y + recede * 30}px) scale(${scale})`;
-      // Contract addresses type on, one character at a time.
-      const tp = span(t, (i === 3 ? 5.9 : 1.4 + i * 0.35), (i === 3 ? 6.6 : 2.8 + i * 0.35));
-      const n = Math.round(tp * c.full.length);
-      c.addr.textContent = c.full.slice(0, n) + (tp > 0 && tp < 1 ? '▍' : '');
-      c.ok.style.opacity = span(t, i === 3 ? 6.5 : 3.2 + i * 0.2, i === 3 ? 6.9 : 3.6 + i * 0.2);
-    });
-    charsInOut(s2big, t, 8.4, 11.6, 0.022);
-  } },
-  { id: 's3', start: 20.0, end: 26.0, update(t) {
-    const pm = easeOutBack(span(t, 0.25, 1.15));
-    $('s3-mark').style.transform = `rotate(${lerp(-48, -8, easeOutCubic(span(t, 0.25, 1.3)))}deg) scale(${pm})`;
-    ring.setAttribute('stroke-dashoffset', `${RING * (1 - 0.75 * easeInOutCubic(span(t, 0.7, 1.7)))}`);
-    charsInOut(s3word, t, 0.9, null, 0.045, 0.8);
-    const tg = easeOutExpo(span(t, 1.9, 2.9));
-    $('s3-tag').style.opacity = tg; $('s3-tag').style.transform = `translateY(${(1 - tg) * 26}px)`;
-    $('s3-uline').style.width = `${easeInOutCubic(span(t, 2.6, 3.5)) * 100}%`;
-    const push = easeInOutCubic(span(t, 0, 6));
-    $('s3').style.transform = `scale(${1 + push * 0.035})`;
-    $('s3').style.opacity = 1 - easeInCubic(span(t, 5.3, 6.0));
-  } },
-];
-
-window.FILM_DURATION = 26;
-window.renderFrame = (time) => {
-  for (const s of scenes) {
-    const el = $(s.id);
-    if (time >= s.start && time <= s.end) { el.style.display = 'block'; s.update(time - s.start); }
-    else el.style.display = 'none';
+const IMPACTS = [1.42, 2.0, 5.02, 6.75, 8.75, 10.55, 10.8, 11.05, 11.3, 11.55, 11.85];
+function shake(t) {
+  let x = 0, y = 0, r = 0;
+  for (const ti of IMPACTS) {
+    const d = t - ti; if (d < 0 || d > 0.5) continue;
+    const a = Math.exp(-d * 9) * (ti === 8.75 ? 26 : 12), k = Math.floor(t * 60);
+    x += (hash(k + ti * 10) - 0.5) * a; y += (hash(k + ti * 20 + 1) - 0.5) * a; r += (hash(k + ti * 30 + 2) - 0.5) * a * 0.04;
   }
-  $('turb').setAttribute('seed', String(Math.floor(time * 24) % 97));
-  $('grain').style.transform = `translate(${(hash(Math.floor(time * 24)) - 0.5) * 40}px, ${(hash(Math.floor(time * 24) + 1) - 0.5) * 40}px)`;
+  return { x, y, r };
+}
+
+window.FILM_DURATION = 16;
+window.renderFrame = (t) => {
+  if (!MARK.x) measureMark();
+  const frame = Math.round(t * 60);
+  drawParticles(t);
+
+  // count-up slam: 1,937 tokens.
+  $('count').textContent = `${Math.round(easeOutCubic(span(t, 1.45, 2.6)) * N).toLocaleString('en-US')} tokens.`;
+  slam($('count'), t, 1.42, 3.05, { from: 2.6, dur: 0.5 });
+  $('k1').style.opacity = (span(t, 2.1, 2.4) * (1 - span(t, 3.0, 3.3))).toFixed(3);
+  $('k1').textContent = scramble('One registry for tokenized stocks', span(t, 2.0, 2.8), frame);
+  // provider legend scrambles in under the grid
+  [['ONDO', D.counts.ondo, '#8fc497'], ['BSTOCKS', D.counts.bstock, '#f3ba2f'], ['XSTOCKS', D.counts.xstock, '#cee2d3']].forEach(([name, n, col], i) => {
+    const el = $(`lg${i + 1}`);
+    el.textContent = scramble(`${name}  ${n.toLocaleString('en-US')}`, span(t, 4.0 + i * 0.15, 4.7 + i * 0.15), frame, i * 50);
+    el.style.color = col; el.style.opacity = (span(t, 4.0, 4.2) * (1 - span(t, 5.0, 5.4))).toFixed(3);
+  });
+  slam($('oneTicker'), t, 5.0, 6.2, { from: 1.6 });
+
+  // cards fly out of depth into a 3D row
+  const cardsOn = t >= 6.5 && t < 11.0;
+  $('cards3d').style.display = cardsOn ? 'block' : 'none';
+  slam($('three'), t, 6.75, 10.2, { from: 1.5 });
+  if (cardsOn) {
+    const xs3 = [-440, 0, 440], xs4 = [-645, -215, 215, 645];
+    const regroup = easeInOutExpo(span(t, 8.3, 8.9));
+    const blast = easeInExpo(span(t, 10.2, 10.8));
+    cards.forEach((c, i) => {
+      const p = easeOutExpo(span(t, 6.55 + i * 0.12, 7.6 + i * 0.12));
+      let x = i < 3 ? lerp(xs3[i], xs4[i], regroup) : xs4[3];
+      let z = lerp(-1600, 0, p), ry = lerp(i === 0 ? 70 : i === 2 ? -70 : 0, 0, p), rx = lerp(35, 0, p), rz = 0, y = 40;
+      let op = span(t, 6.55 + i * 0.12, 6.9 + i * 0.12);
+      if (i === 3) {
+        const f = easeOutExpo(span(t, 8.55, 9.0));
+        x = lerp(1500, xs4[3], f); z = lerp(600, 0, f); ry = lerp(-60, 0, f); rx = 0; rz = lerp(25, 0, easeOutBack(span(t, 8.55, 9.2))); op = span(t, 8.55, 8.6);
+        const g = span(t, 8.75, 9.9);
+        if (g > 0 && g < 1) {
+          const k = Math.floor(t * 60), amp = (1 - g) * 22;
+          x += (hash(k) - 0.5) * amp * 2;
+          c.el.style.textShadow = `${(hash(k + 1) - 0.5) * amp}px 0 rgba(255,40,60,.9), ${(hash(k + 2) - 0.5) * -amp}px 0 rgba(40,230,255,.9)`;
+          c.el.style.clipPath = hash(k + 3) > 0.55 ? `inset(${Math.floor(hash(k + 4) * 55)}% -60px ${Math.floor(hash(k + 5) * 35)}% -60px)` : 'none';
+        } else { c.el.style.textShadow = 'none'; c.el.style.clipPath = 'none'; }
+        const sp = easeOutBack(span(t, 9.35, 9.75));
+        c.stamp.style.opacity = span(t, 9.35, 9.45); c.stamp.style.transform = `rotate(${lerp(-24, -8, sp)}deg) scale(${lerp(2.4, 1, sp)})`;
+      }
+      // everything blasts toward the camera before the statement
+      z += blast * (900 + i * 150); y += blast * (i - 1.5) * 60; op *= 1 - easeInCubic(span(t, 10.35, 10.75));
+      c.el.style.opacity = op.toFixed(3);
+      c.el.style.filter = `blur(${(blast * 14).toFixed(2)}px)`;
+      c.el.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
+      const ap = span(t, i === 3 ? 8.85 : 7.2 + i * 0.18, i === 3 ? 9.4 : 8.0 + i * 0.18);
+      c.addr.textContent = scramble(c.full, ap, frame, i * 99);
+      c.glow.style.opacity = i < 3 ? (span(t, 7.9 + i * 0.18, 8.05 + i * 0.18) * (1 - span(t, 8.2 + i * 0.18, 8.7 + i * 0.18))).toFixed(3) : 0;
+    });
+  }
+
+  // word-by-word statement
+  const wOn = t >= 10.45 && t < 12.7;
+  $('words').style.display = wOn ? 'flex' : 'none';
+  if (wOn) {
+    const starts = [10.55, 10.8, 11.05, 11.3, 11.55, 11.85];
+    words.forEach((w, i) => {
+      const p = easeOutExpo(span(t, starts[i], starts[i] + 0.3));
+      w.style.opacity = span(t, starts[i], starts[i] + 0.05);
+      w.style.transform = `translateY(${(1 - p) * -40}px) scale(${lerp(2.2, 1, p)})`;
+      w.style.filter = `blur(${((1 - p) * 16).toFixed(2)}px)`;
+    });
+    const out = easeInExpo(span(t, 12.25, 12.6));
+    $('words').style.transform = `translateY(-50%) scale(${1 + out * 0.5})`;
+    $('words').style.opacity = 1 - out;
+  }
+
+  // diagonal wipe into the logo
+  $('wipe').style.left = `${lerp(-170, 130, easeInOutExpo(span(t, 12.2, 12.9)))}%`;
+
+  // logo: particles assemble the mark, then it solidifies
+  const logoOn = t >= 12.6;
+  $('logoLayer').style.display = logoOn ? 'block' : 'none';
+  if (logoOn) {
+    const solid = easeOutBack(span(t, 14.1, 14.6));
+    $('mark').style.opacity = span(t, 14.1, 14.3);
+    $('mark').style.transform = `rotate(-8deg) scale(${lerp(0.82, 1, solid)})`;
+    ring.setAttribute('stroke-dashoffset', `${RING * (1 - 0.75 * easeInOutCubic(span(t, 14.3, 14.9)))}`);
+    wm.forEach((c, i) => {
+      const p = easeOutExpo(span(t, 14.25 + i * 0.05, 14.95 + i * 0.05));
+      c.style.opacity = span(t, 14.25 + i * 0.05, 14.35 + i * 0.05);
+      c.style.transform = `rotateX(${lerp(-95, 0, p)}deg) translateY(${(1 - p) * 40}px)`;
+      c.style.backgroundPosition = `${lerp(100, -50, easeInOutCubic(span(t, 15.0, 15.8)))}% 0`;
+    });
+    const tg = easeOutExpo(span(t, 15.0, 15.7));
+    $('tagline').style.opacity = tg; $('tagline').style.transform = `translateY(${(1 - tg) * 30}px)`;
+    $('uline').style.width = `${easeInOutCubic(span(t, 15.4, 16.0)) * 100}%`;
+  }
+
+  // camera shake, flashes, scanlines, grain
+  const sh = shake(t);
+  $('world').style.transform = `translate(${sh.x.toFixed(2)}px, ${sh.y.toFixed(2)}px) rotate(${sh.r.toFixed(3)}deg)`;
+  const fl = Math.max(...[1.42, 6.62, 10.55].map((ti) => (t >= ti && t < ti + 0.3 ? Math.exp(-(t - ti) * 14) : 0)));
+  $('flash').style.opacity = (fl * 0.55).toFixed(3);
+  $('redflash').style.opacity = (t >= 8.75 && t < 9.5 ? Math.exp(-(t - 8.75) * 5) : 0).toFixed(3);
+  $('scan').style.opacity = (t >= 8.6 && t < 10.0 ? 1 - span(t, 9.4, 10.0) : 0).toFixed(3);
+  $('turb').setAttribute('seed', String(frame % 97));
+  $('grain').style.transform = `translate(${(hash(frame) - 0.5) * 40}px, ${(hash(frame + 1) - 0.5) * 40}px)`;
 };
 window.renderFrame(0);
 </script>
