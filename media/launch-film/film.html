@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mintmark launch film</title>
+<link rel="stylesheet" href="fonts.css">
+<script src="data.js"></script>
+<style>
+  :root {
+    --bg: #0b1310; --bg2: #13201a; --card: #15221c; --line: #2a3d33;
+    --ink: #f2f6f2; --muted: #93a797; --quiet: #5f7466; --mint: #8fc497; --mint-deep: #4f8a5a;
+    --warn: #e08a5c; --warn-bg: #2a1912; --gold: #f3ba2f;
+    --display: 'Space Grotesk', sans-serif; --body: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; color: var(--ink); font-family: var(--body);
+    background: radial-gradient(1200px 800px at 70% 75%, #1a2c24 0, #0f1a15 45%, var(--bg) 75%); }
+  .scene { position: absolute; inset: 0; display: none; }
+  .abs { position: absolute; }
+  .center { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .chars { display: inline-block; white-space: pre; }
+  .ch { display: inline-block; will-change: transform; }
+  .mask { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 0.04em 0.08em; }
+  #grain { position: absolute; inset: -20%; width: 140%; height: 140%; pointer-events: none; opacity: .09; mix-blend-mode: overlay; }
+  #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%); }
+
+  /* Scene 1: cold open */
+  .flood { position: absolute; inset: -200px -40px; display: flex; justify-content: space-between; }
+  .flood-col { display: flex; flex-direction: column; gap: 26px; font: 500 30px var(--mono); color: #6f8a77; letter-spacing: .02em; }
+  .flood-col span { display: block; }
+  .rule { position: absolute; left: 50%; top: 540px; height: 2px; background: var(--mint); transform: translateX(-50%); }
+  .headline { position: absolute; left: 0; right: 0; text-align: center; font: 700 168px/1 var(--display); letter-spacing: -0.045em; }
+  .hero-sym { position: absolute; font: 600 104px/1 var(--display); letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
+  .hero-sym small { display: block; margin-top: 18px; font: 500 26px var(--mono); letter-spacing: .08em; color: var(--mint); text-transform: uppercase; }
+
+  /* Scene 2: the problem */
+  .s2-title { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 600 72px/1.05 var(--display); letter-spacing: -0.035em; }
+  .card { position: absolute; top: 310px; width: 400px; height: 440px; border-radius: 26px; background: var(--card); border: 1.5px solid var(--line); padding: 34px 34px; }
+  .card .pill { display: inline-block; padding: 9px 16px; border-radius: 99px; background: #1f3229; color: var(--mint); font: 500 20px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+  .card .sym { margin-top: 30px; font: 600 72px/1 var(--display); letter-spacing: -0.03em; }
+  .card .lbl { margin-top: 34px; font: 500 17px var(--mono); color: var(--quiet); letter-spacing: .1em; text-transform: uppercase; }
+  .card .addr { margin-top: 10px; font: 500 25px var(--mono); color: var(--ink); white-space: nowrap; min-height: 32px; }
+  .card .iss { margin-top: 24px; font: 400 21px var(--body); color: var(--muted); }
+  .card .ok { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); font: 500 20px var(--body); color: var(--mint); }
+  .card.fake { border-color: var(--warn); background: var(--warn-bg); }
+  .card.fake .pill { background: #3b2016; color: var(--warn); }
+  .card.fake .ok { color: var(--warn); border-top-color: #5a3324; }
+  .s2-big { position: absolute; left: 0; right: 0; top: 470px; text-align: center; font: 700 132px/1 var(--display); letter-spacing: -0.045em; }
+
+  /* Scene 3: logo */
+  .logo-wrap { position: absolute; left: 50%; top: 455px; display: flex; align-items: center; gap: 54px; transform: translate(-50%, -50%); }
+  .mark { width: 190px; height: 190px; border-radius: 58px; background: #fff; display: grid; place-items: center; }
+  .wordmark { font: 700 172px/1 var(--display); letter-spacing: -0.055em; }
+  .tagline { position: absolute; left: 0; right: 0; top: 650px; text-align: center; font: 400 46px var(--body); color: var(--muted); }
+  .tagline .hl { position: relative; color: var(--ink); }
+  .tagline .uline { position: absolute; left: 0; bottom: -10px; height: 4px; border-radius: 4px; background: var(--mint); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- Scene 1 -->
+  <div class="scene" id="s1">
+    <div class="flood" id="flood"></div>
+    <div class="abs" id="s1-scrim" style="inset:0;background:radial-gradient(ellipse 820px 300px at 50% 50%, rgba(8,14,11,.92), rgba(8,14,11,0))"></div>
+    <div class="rule" id="s1-rule"></div>
+    <div class="headline" id="s1-h1" style="top:440px"></div>
+    <div class="headline" id="s1-h2" style="top:250px"></div>
+    <div class="hero-sym" id="s1-a"></div>
+    <div class="hero-sym" id="s1-b"></div>
+    <div class="hero-sym" id="s1-c"></div>
+  </div>
+  <!-- Scene 2 -->
+  <div class="scene" id="s2">
+    <div class="s2-title" id="s2-title"></div>
+    <div id="s2-cards"></div>
+    <div class="s2-big" id="s2-big"></div>
+  </div>
+  <!-- Scene 3 -->
+  <div class="scene" id="s3">
+    <div class="logo-wrap" id="s3-logo">
+      <div class="mark" id="s3-mark">
+        <svg width="104" height="104" viewBox="0 0 104 104"><circle id="s3-ring" cx="52" cy="52" r="38" fill="none" stroke="#111a18" stroke-width="15" stroke-linecap="butt" transform="rotate(-25 52 52)"/></svg>
+      </div>
+      <div class="wordmark" id="s3-word"></div>
+    </div>
+    <div class="tagline" id="s3-tag">Every token has a <span class="hl" id="s3-hl">paper trail.<span class="uline" id="s3-uline"></span></span></div>
+  </div>
+
+  <svg id="grain" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence id="turb" type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+  <div id="vignette"></div>
+</div>
+
+<script>
+const D = window.FILM_DATA;
+const $ = (id) => document.getElementById(id);
+
+// ---- timing helpers ----
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const span = (t, a, b) => clamp((t - a) / (b - a));
+const lerp = (a, b, p) => a + (b - a) * p;
+const easeOutExpo = (p) => (p >= 1 ? 1 : 1 - Math.pow(2, -10 * p));
+const easeInOutCubic = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+const easeOutCubic = (p) => 1 - Math.pow(1 - p, 3);
+const easeInCubic = (p) => p * p * p;
+const easeOutBack = (p) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+const hash = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+const short = (a) => `${a.slice(0, 12)}…${a.slice(-8)}`;
+
+// Split text into per-character spans inside a mask.
+function splitChars(el, text) {
+  el.innerHTML = '';
+  const mask = document.createElement('span'); mask.className = 'mask';
+  const wrap = document.createElement('span'); wrap.className = 'chars';
+  for (const c of text) { const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; wrap.appendChild(s); }
+  mask.appendChild(wrap); el.appendChild(mask);
+  return [...wrap.children];
+}
+// Characters rise in from below the mask, then optionally leave upward.
+function charsInOut(chars, t, tin, tout, stagger = 0.028, dur = 0.7) {
+  chars.forEach((c, i) => {
+    const pin = easeOutExpo(span(t, tin + i * stagger, tin + i * stagger + dur));
+    const pout = tout == null ? 0 : easeInCubic(span(t, tout + i * stagger * 0.6, tout + i * stagger * 0.6 + 0.45));
+    c.style.transform = `translateY(${(1 - pin) * 110 - pout * 110}%)`;
+  });
+}
+
+// ---- scene 1 setup ----
+const COLS = 13, PER_COL = 34;
+const flood = $('flood');
+const colEls = [];
+for (let c = 0; c < COLS; c++) {
+  const col = document.createElement('div'); col.className = 'flood-col';
+  for (let r = 0; r < PER_COL; r++) {
+    const s = document.createElement('span');
+    s.textContent = D.symbols[(c * 31 + r * 7) % D.symbols.length];
+    s.style.opacity = (0.25 + hash(c * 100 + r) * 0.75).toFixed(2);
+    col.appendChild(s);
+  }
+  flood.appendChild(col); colEls.push(col);
+}
+const s1h1 = splitChars($('s1-h1'), 'Same ticker.');
+const s1h2 = splitChars($('s1-h2'), 'Different tokens.');
+const heroSyms = ['s1-a', 's1-b', 's1-c'].map((id, i) => {
+  const el = $(id); const n = D.nvda[i];
+  el.innerHTML = `${n.symbol}<small>${n.provider}</small>`;
+  return el;
+});
+
+// ---- scene 2 setup ----
+const s2title = splitChars($('s2-title'), 'One company. Three separate contracts.');
+const s2big = splitChars($('s2-big'), 'A ticker is not an identity.');
+const FAKE = { symbol: 'NVDAon', provider: 'Look-alike', address: '0x9d41b7e2a0c35e8b1f04d6a27c935f12c8e3a1d7', issuer: 'No provider record' };
+const cardData = [...D.nvda, FAKE];
+const cards = cardData.map((n, i) => {
+  const el = document.createElement('div'); el.className = 'card' + (i === 3 ? ' fake' : '');
+  el.innerHTML = `<span class="pill">${n.provider}</span><div class="sym">${n.symbol}</div><div class="lbl">Exact contract</div><div class="addr"></div><div class="iss">${n.issuer}</div><div class="ok">${i === 3 ? '✕ Not a registered product' : '✓ Checked on BNB Chain'}</div>`;
+  $('s2-cards').appendChild(el);
+  return { el, addr: el.querySelector('.addr'), ok: el.querySelector('.ok'), full: short(n.address) };
+});
+
+// ---- scene 3 setup ----
+const s3word = splitChars($('s3-word'), 'mintmark');
+const ring = $('s3-ring'); const RING = 2 * Math.PI * 38;
+ring.setAttribute('stroke-dasharray', `${RING}`);
+
+// ---- scenes ----
+const scenes = [
+  { id: 's1', start: 0, end: 8.2, update(t) {
+    // A rule draws across, the ticker flood rises behind it.
+    const rp = easeInOutCubic(span(t, 0.1, 0.9));
+    $('s1-rule').style.width = `${rp * 1400}px`;
+    $('s1-rule').style.opacity = 1 - span(t, 1.0, 1.6);
+    const floodIn = easeOutCubic(span(t, 0.5, 1.8));
+    const floodOut = easeInCubic(span(t, 4.3, 5.4));
+    flood.style.opacity = (floodIn * (1 - floodOut) * 0.85).toFixed(3);
+    colEls.forEach((col, c) => {
+      const speed = 70 + hash(c) * 90;
+      col.style.transform = `translateY(${-((t * speed + hash(c + 7) * 400) % 600)}px)`;
+    });
+    flood.style.filter = `blur(${(floodOut * 6).toFixed(2)}px)`;
+    $('s1-scrim').style.opacity = (easeOutCubic(span(t, 1.2, 1.9)) * (1 - span(t, 4.2, 4.8))).toFixed(3);
+    charsInOut(s1h1, t, 1.5, 4.2);
+    // Three real tokens fly in from the flood into one row.
+    const xs = [-560, 0, 560];
+    heroSyms.forEach((el, i) => {
+      const p = easeOutExpo(span(t, 4.5 + i * 0.12, 5.9 + i * 0.12));
+      const sx = (hash(i + 3) - 0.5) * 1500, sy = (hash(i + 9) - 0.5) * 900;
+      const x = lerp(sx, xs[i], p), y = lerp(sy, 120, p);
+      const out = easeInCubic(span(t, 7.4, 8.2));
+      el.style.left = '960px'; el.style.top = '540px';
+      el.style.opacity = (span(t, 4.5 + i * 0.12, 5.0 + i * 0.12) * (1 - out)).toFixed(3);
+      el.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y - out * 40}px)) scale(${lerp(0.55, 1, p)})`;
+    });
+    charsInOut(s1h2, t, 5.5, 7.4);
+  } },
+  { id: 's2', start: 7.9, end: 20.2, update(t) {
+    charsInOut(s2title, t, 0.3, 7.6, 0.018);
+    const layout3 = [-432, 0, 432], layout4 = [-648, -216, 216, 648];
+    const regroup = easeInOutCubic(span(t, 5.0, 6.1));
+    const recede = easeInOutCubic(span(t, 7.8, 9.0));
+    const exit = easeInCubic(span(t, 11.6, 12.3));
+    cards.forEach((c, i) => {
+      const enter = easeOutExpo(span(t, 0.2 + i * 0.14, 1.4 + i * 0.14));
+      let x = i < 3 ? lerp(layout3[i], layout4[i], regroup) : layout4[3];
+      let y = (1 - enter) * 120;
+      let opacity = enter;
+      if (i === 3) {
+        // The look-alike arrives with a glitch, then settles.
+        const fin = easeOutExpo(span(t, 5.4, 6.4));
+        x = lerp(layout4[3] + 260, layout4[3], fin);
+        y = 0; opacity = fin;
+        const g = span(t, 5.4, 7.0);
+        if (g > 0 && g < 1) {
+          const k = Math.floor(t * 30);
+          const amp = (1 - g) * 18;
+          x += (hash(k) - 0.5) * amp * 2;
+          c.el.style.textShadow = `${(hash(k + 1) - 0.5) * amp}px 0 rgba(255,60,60,.8), ${(hash(k + 2) - 0.5) * -amp}px 0 rgba(60,220,255,.8)`;
+          c.el.style.clipPath = hash(k + 3) > 0.6 ? `inset(${Math.floor(hash(k + 4) * 60)}% 0 ${Math.floor(hash(k + 5) * 30)}% 0)` : 'none';
+        } else { c.el.style.textShadow = 'none'; c.el.style.clipPath = 'none'; }
+      }
+      const scale = 1 - recede * 0.06;
+      c.el.style.left = `${960 - 200 + x}px`;
+      c.el.style.opacity = (opacity * (1 - recede * 0.78) * (1 - exit)).toFixed(3);
+      c.el.style.filter = `blur(${(recede * 7).toFixed(2)}px)`;
+      c.el.style.transform = `translateY(${y + recede * 30}px) scale(${scale})`;
+      // Contract addresses type on, one character at a time.
+      const tp = span(t, (i === 3 ? 5.9 : 1.4 + i * 0.35), (i === 3 ? 6.6 : 2.8 + i * 0.35));
+      const n = Math.round(tp * c.full.length);
+      c.addr.textContent = c.full.slice(0, n) + (tp > 0 && tp < 1 ? '▍' : '');
+      c.ok.style.opacity = span(t, i === 3 ? 6.5 : 3.2 + i * 0.2, i === 3 ? 6.9 : 3.6 + i * 0.2);
+    });
+    charsInOut(s2big, t, 8.4, 11.6, 0.022);
+  } },
+  { id: 's3', start: 20.0, end: 26.0, update(t) {
+    const pm = easeOutBack(span(t, 0.25, 1.15));
+    $('s3-mark').style.transform = `rotate(${lerp(-48, -8, easeOutCubic(span(t, 0.25, 1.3)))}deg) scale(${pm})`;
+    ring.setAttribute('stroke-dashoffset', `${RING * (1 - 0.75 * easeInOutCubic(span(t, 0.7, 1.7)))}`);
+    charsInOut(s3word, t, 0.9, null, 0.045, 0.8);
+    const tg = easeOutExpo(span(t, 1.9, 2.9));
+    $('s3-tag').style.opacity = tg; $('s3-tag').style.transform = `translateY(${(1 - tg) * 26}px)`;
+    $('s3-uline').style.width = `${easeInOutCubic(span(t, 2.6, 3.5)) * 100}%`;
+    const push = easeInOutCubic(span(t, 0, 6));
+    $('s3').style.transform = `scale(${1 + push * 0.035})`;
+    $('s3').style.opacity = 1 - easeInCubic(span(t, 5.3, 6.0));
+  } },
+];
+
+window.FILM_DURATION = 26;
+window.renderFrame = (time) => {
+  for (const s of scenes) {
+    const el = $(s.id);
+    if (time >= s.start && time <= s.end) { el.style.display = 'block'; s.update(time - s.start); }
+    else el.style.display = 'none';
+  }
+  $('turb').setAttribute('seed', String(Math.floor(time * 24) % 97));
+  $('grain').style.transform = `translate(${(hash(Math.floor(time * 24)) - 0.5) * 40}px, ${(hash(Math.floor(time * 24) + 1) - 0.5) * 40}px)`;
+};
+window.renderFrame(0);
+</script>
+</body>
+</html>
