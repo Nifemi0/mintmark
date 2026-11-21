@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-21",
+  "generatedAt": "2026-11-21T13:31:31.558Z",
+  "baseline": {
+    "since": "2026-11-20T14:06:28.049Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-20"
+  },
+  "catalogSnapshotAt": "2026-11-20T14:07:47.126Z",
+  "bstockSource": "binance_rwa",
+  "headline": "1 halted.",
+  "summary": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0,
+    "halts": 1,
+    "spot": 1,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1417,
+        "added": 0,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 0,
+      "changed": 0,
+      "halts": 1
+    }
+  },
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0x4cbf89ed7bb30b8a860fa86d3c96e9c72931299b",
+      "symbol": "TBLLx",
+      "ticker": "TBLL",
+      "halted": true
+    }
+  ],
+  "spot": [
+    {
+      "base": "SNDKB",
+      "pair": "SNDKBUSDT",
+      "from": "BREAK",
+      "to": "TRADING"
+    }
+  ],
+  "bstockCandidates": [],
+  "productUpdates": []
+}
