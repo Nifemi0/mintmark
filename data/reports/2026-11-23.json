@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "generatedAt": "2026-11-23T16:06:29.079Z",
+  "baseline": {
+    "since": "2026-11-22T13:25:32.975Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-22"
+  },
+  "catalogSnapshotAt": "2026-11-22T13:26:56.793Z",
+  "bstockSource": "binance_rwa",
+  "headline": "No upstream changes since the last report.",
+  "summary": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0,
+    "halts": 0,
+    "spot": 0,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1417,
+        "added": 0,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 0,
+      "changed": 0,
+      "halts": 0
+    }
+  },
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "halts": [],
+  "spot": [],
+  "bstockCandidates": [],
+  "productUpdates": []
+}
