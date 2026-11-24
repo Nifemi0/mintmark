@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-24",
+  "generatedAt": "2026-11-24T15:57:29.318Z",
+  "baseline": {
+    "since": "2026-11-23T16:06:29.079Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-23"
+  },
+  "catalogSnapshotAt": "2026-11-23T16:07:41.046Z",
+  "bstockSource": "binance_rwa",
+  "headline": "1 halted, 2 resumed, 1 token no longer listed.",
+  "summary": {
+    "added": 0,
+    "removed": 1,
+    "changed": 0,
+    "halts": 3,
+    "spot": 0,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1416,
+        "added": 0,
+        "removed": 1
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 1,
+      "changed": 0,
+      "halts": 3
+    }
+  },
+  "added": [],
+  "removed": [
+    {
+      "provider": "xstock",
+      "address": "0x3481a7c02a9b467630e77a7cce91a25396414c6d",
+      "symbol": "FGDLx",
+      "ticker": "FGDL",
+      "name": "Franklin Responsibly Sourced Gold ETF xStock",
+      "halted": false
+    }
+  ],
+  "changed": [],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0x41778f4f36b2dd8fd27c55043154ba7a3df18d83",
+      "symbol": "CITICx",
+      "ticker": "267",
+      "halted": false
+    },
+    {
+      "provider": "xstock",
+      "address": "0xeffb95e636d05af4cd4464428ca9e874baedc750",
+      "symbol": "KPTIx",
+      "ticker": "KPTI",
+      "halted": true
+    },
+    {
+      "provider": "xstock",
+      "address": "0x4cbf89ed7bb30b8a860fa86d3c96e9c72931299b",
+      "symbol": "TBLLx",
+      "ticker": "TBLL",
+      "halted": false
+    }
+  ],
+  "spot": [],
+  "bstockCandidates": [],
+  "productUpdates": []
+}

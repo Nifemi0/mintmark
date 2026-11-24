@@ -142234,6 +142234,27 @@
             "explorerUrl": "https://bscscan.com/token/0x3481a7c02a9b467630e77a7cce91a25396414c6d",
             "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/FGDLx"
           }
+        },
+        {
+          "version": 3,
+          "kind": "removed_from_catalog",
+          "observedAt": "2026-11-24T15:59:03.992Z",
+          "sourceUrl": null,
+          "reviewMethod": "Automated catalog comparison; removal does not prove the issuer retired the token",
+          "changes": [],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x3481a7c02a9b467630e77a7cce91a25396414c6d",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "FGDLx",
+            "tokenName": "Franklin Responsibly Sourced Gold ETF xStock",
+            "underlyingTicker": "FGDL",
+            "companyName": "Franklin Responsibly Sourced Gold ETF",
+            "assetType": "ETF",
+            "explorerUrl": "https://bscscan.com/token/0x3481a7c02a9b467630e77a7cce91a25396414c6d",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/FGDLx"
+          }
         }
       ]
     },

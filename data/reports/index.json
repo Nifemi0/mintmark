@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "reports": [
     {
+      "date": "2026-11-24",
+      "generatedAt": "2026-11-24T15:57:29.318Z",
+      "headline": "1 halted, 2 resumed, 1 token no longer listed.",
+      "summary": {
+        "added": 0,
+        "removed": 1,
+        "changed": 0,
+        "halts": 3,
+        "spot": 0,
+        "bstockCandidates": 0
+      }
+    },
+    {
       "date": "2026-11-23",
       "generatedAt": "2026-11-23T16:06:29.079Z",
       "headline": "No upstream changes since the last report.",
