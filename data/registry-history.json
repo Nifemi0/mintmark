@@ -54106,6 +54106,33 @@
             "explorerUrl": "https://bscscan.com/token/0x37b6d8fd9bde71305c60f32aadb15462b48998e4",
             "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/MSGSx"
           }
+        },
+        {
+          "version": 3,
+          "kind": "changed",
+          "observedAt": "2026-11-25T15:45:52.343Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "underlyingTicker",
+              "from": "MSGS",
+              "to": "MSGK"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x37b6d8fd9bde71305c60f32aadb15462b48998e4",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "MSGSx",
+            "tokenName": "Madison Square Garden Sports xStock",
+            "underlyingTicker": "MSGK",
+            "companyName": "Madison Square Garden Sports",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x37b6d8fd9bde71305c60f32aadb15462b48998e4",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/MSGSx"
+          }
         }
       ]
     },

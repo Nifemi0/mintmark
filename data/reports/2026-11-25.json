@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-25",
+  "generatedAt": "2026-11-25T15:44:33.805Z",
+  "baseline": {
+    "since": "2026-11-24T15:57:29.318Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-24"
+  },
+  "catalogSnapshotAt": "2026-11-24T15:59:03.992Z",
+  "bstockSource": "binance_rwa",
+  "headline": "2 halted, 1 identity change.",
+  "summary": {
+    "added": 0,
+    "removed": 0,
+    "changed": 1,
+    "halts": 2,
+    "spot": 0,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1416,
+        "added": 0,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 0,
+      "changed": 1,
+      "halts": 2
+    }
+  },
+  "added": [],
+  "removed": [],
+  "changed": [
+    {
+      "provider": "xstock",
+      "address": "0x37b6d8fd9bde71305c60f32aadb15462b48998e4",
+      "symbol": "MSGSx",
+      "changes": [
+        {
+          "field": "ticker",
+          "from": "MSGS",
+          "to": "MSGK"
+        }
+      ]
+    }
+  ],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0x37b6d8fd9bde71305c60f32aadb15462b48998e4",
+      "symbol": "MSGSx",
+      "ticker": "MSGK",
+      "halted": true
+    },
+    {
+      "provider": "xstock",
+      "address": "0xa39c7a49348752e0748e95c05a09eccae7126f8c",
+      "symbol": "PLCEx",
+      "ticker": "PLCE",
+      "halted": true
+    }
+  ],
+  "spot": [],
+  "bstockCandidates": [],
+  "productUpdates": []
+}
