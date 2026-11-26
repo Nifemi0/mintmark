@@ -187206,6 +187206,330 @@
           }
         }
       ]
+    },
+    "56:0x2baed3ce1420b89150bb4b3b8d9099ed0126f4c3": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-11-26T15:26:43.442Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x2baed3ce1420b89150bb4b3b8d9099ed0126f4c3"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "POETx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "POET Technologies xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "POET"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "POET Technologies"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x2baed3ce1420b89150bb4b3b8d9099ed0126f4c3"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/POETx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x2baed3ce1420b89150bb4b3b8d9099ed0126f4c3",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "POETx",
+            "tokenName": "POET Technologies xStock",
+            "underlyingTicker": "POET",
+            "companyName": "POET Technologies",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x2baed3ce1420b89150bb4b3b8d9099ed0126f4c3",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/POETx"
+          }
+        }
+      ]
+    },
+    "56:0xca885d8fdd4565daa48707304076804762ba19a1": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-11-26T15:26:43.442Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xca885d8fdd4565daa48707304076804762ba19a1"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "FLYx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Firefly Aerospace xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "FLY"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Firefly Aerospace"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xca885d8fdd4565daa48707304076804762ba19a1"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/FLYx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xca885d8fdd4565daa48707304076804762ba19a1",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "FLYx",
+            "tokenName": "Firefly Aerospace xStock",
+            "underlyingTicker": "FLY",
+            "companyName": "Firefly Aerospace",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xca885d8fdd4565daa48707304076804762ba19a1",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/FLYx"
+          }
+        }
+      ]
+    },
+    "56:0xefd9e47a476168945f9542cdfd1d47bb5862a93f": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-11-26T15:26:43.442Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0xefd9e47a476168945f9542cdfd1d47bb5862a93f"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "RDWx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Redwire xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "RDW"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Redwire"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0xefd9e47a476168945f9542cdfd1d47bb5862a93f"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/RDWx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0xefd9e47a476168945f9542cdfd1d47bb5862a93f",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "RDWx",
+            "tokenName": "Redwire xStock",
+            "underlyingTicker": "RDW",
+            "companyName": "Redwire",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0xefd9e47a476168945f9542cdfd1d47bb5862a93f",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/RDWx"
+          }
+        }
+      ]
+    },
+    "56:0x437ccbbd339955b33ac6aa7a6e9fa83315db7039": {
+      "entries": [
+        {
+          "version": 1,
+          "kind": "added",
+          "observedAt": "2026-11-26T15:26:43.442Z",
+          "sourceUrl": "https://docs.xstocks.fi/apis/openapi/assets/list_public_assets",
+          "reviewMethod": "Automated comparison of provider-published identities and BSC RPC name, symbol, and bytecode",
+          "changes": [
+            {
+              "field": "chainId",
+              "from": null,
+              "to": "56"
+            },
+            {
+              "field": "contractAddress",
+              "from": null,
+              "to": "0x437ccbbd339955b33ac6aa7a6e9fa83315db7039"
+            },
+            {
+              "field": "issuer",
+              "from": null,
+              "to": "Backed Assets (JE) Limited"
+            },
+            {
+              "field": "platformId",
+              "from": null,
+              "to": "xstock"
+            },
+            {
+              "field": "symbol",
+              "from": null,
+              "to": "BTDRx"
+            },
+            {
+              "field": "tokenName",
+              "from": null,
+              "to": "Bitdeer Technologies xStock"
+            },
+            {
+              "field": "underlyingTicker",
+              "from": null,
+              "to": "BTDR"
+            },
+            {
+              "field": "companyName",
+              "from": null,
+              "to": "Bitdeer Technologies"
+            },
+            {
+              "field": "assetType",
+              "from": null,
+              "to": "Stock"
+            },
+            {
+              "field": "explorerUrl",
+              "from": null,
+              "to": "https://bscscan.com/token/0x437ccbbd339955b33ac6aa7a6e9fa83315db7039"
+            },
+            {
+              "field": "issuerAssetUrl",
+              "from": null,
+              "to": "https://api.xstocks.fi/api/v2/public/assets/BTDRx"
+            }
+          ],
+          "snapshot": {
+            "chainId": "56",
+            "contractAddress": "0x437ccbbd339955b33ac6aa7a6e9fa83315db7039",
+            "issuer": "Backed Assets (JE) Limited",
+            "platformId": "xstock",
+            "symbol": "BTDRx",
+            "tokenName": "Bitdeer Technologies xStock",
+            "underlyingTicker": "BTDR",
+            "companyName": "Bitdeer Technologies",
+            "assetType": "Stock",
+            "explorerUrl": "https://bscscan.com/token/0x437ccbbd339955b33ac6aa7a6e9fa83315db7039",
+            "issuerAssetUrl": "https://api.xstocks.fi/api/v2/public/assets/BTDRx"
+          }
+        }
+      ]
     }
   }
 }

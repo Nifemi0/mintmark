@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-26",
+  "generatedAt": "2026-11-26T15:25:22.891Z",
+  "baseline": {
+    "since": "2026-11-25T15:44:33.805Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-25"
+  },
+  "catalogSnapshotAt": "2026-11-25T15:45:52.343Z",
+  "bstockSource": "binance_rwa",
+  "headline": "4 new tokens, 1 resumed.",
+  "summary": {
+    "added": 4,
+    "removed": 0,
+    "changed": 0,
+    "halts": 1,
+    "spot": 0,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1420,
+        "added": 4,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 4,
+      "removed": 0,
+      "changed": 0,
+      "halts": 1
+    }
+  },
+  "added": [
+    {
+      "provider": "xstock",
+      "address": "0x437ccbbd339955b33ac6aa7a6e9fa83315db7039",
+      "symbol": "BTDRx",
+      "ticker": "BTDR",
+      "name": "Bitdeer Technologies xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "BTDRx",
+        "name": "Bitdeer Technologies xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xca885d8fdd4565daa48707304076804762ba19a1",
+      "symbol": "FLYx",
+      "ticker": "FLY",
+      "name": "Firefly Aerospace xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "FLYx",
+        "name": "Firefly Aerospace xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0x2baed3ce1420b89150bb4b3b8d9099ed0126f4c3",
+      "symbol": "POETx",
+      "ticker": "POET",
+      "name": "POET Technologies xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "POETx",
+        "name": "POET Technologies xStock"
+      }
+    },
+    {
+      "provider": "xstock",
+      "address": "0xefd9e47a476168945f9542cdfd1d47bb5862a93f",
+      "symbol": "RDWx",
+      "ticker": "RDW",
+      "name": "Redwire xStock",
+      "halted": false,
+      "onchain": {
+        "state": "checked",
+        "symbol": "RDWx",
+        "name": "Redwire xStock"
+      }
+    }
+  ],
+  "removed": [],
+  "changed": [],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0x37b6d8fd9bde71305c60f32aadb15462b48998e4",
+      "symbol": "MSGSx",
+      "ticker": "MSGK",
+      "halted": false
+    }
+  ],
+  "spot": [],
+  "bstockCandidates": [],
+  "productUpdates": []
+}
