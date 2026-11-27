@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mintmark ad</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f8f9f7; }
+  canvas { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  /* preload fonts */
+  .pre { position: absolute; opacity: 0; }
+</style>
+</head>
+<body>
+<span class="pre" style="font:700 20px 'Space Grotesk'">a</span>
+<span class="pre" style="font:600 20px 'Space Grotesk'">a</span>
+<span class="pre" style="font:500 20px 'Space Grotesk'">a</span>
+<span class="pre" style="font:400 20px 'DM Sans'">a</span>
+<span class="pre" style="font:500 20px 'DM Sans'">a</span>
+<span class="pre" style="font:700 20px 'DM Sans'">a</span>
+<span class="pre" style="font:400 20px 'DM Mono'">a</span>
+<span class="pre" style="font:500 20px 'DM Mono'">a</span>
+<canvas id="c0" width="1920" height="1080"></canvas>
+<canvas id="gl" width="1920" height="1080"></canvas>
+<canvas id="c1" width="1920" height="1080"></canvas>
+<script type="module" src="film.js"></script>
+</body>
+</html>
