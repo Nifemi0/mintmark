@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-27",
+  "generatedAt": "2026-11-27T15:12:10.977Z",
+  "baseline": {
+    "since": "2026-11-26T15:25:22.891Z",
+    "kind": "previous_report",
+    "previousReport": "2026-11-26"
+  },
+  "catalogSnapshotAt": "2026-11-26T15:26:43.442Z",
+  "bstockSource": "binance_rwa",
+  "headline": "1 halted.",
+  "summary": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0,
+    "halts": 1,
+    "spot": 0,
+    "bstockCandidates": 0,
+    "byProvider": {
+      "ondo": {
+        "live": 474,
+        "added": 0,
+        "removed": 0
+      },
+      "bstock": {
+        "live": 46,
+        "added": 0,
+        "removed": 0
+      },
+      "xstock": {
+        "live": 1420,
+        "added": 0,
+        "removed": 0
+      }
+    },
+    "pendingReview": {
+      "added": 0,
+      "removed": 0,
+      "changed": 0,
+      "halts": 1
+    }
+  },
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "halts": [
+    {
+      "provider": "xstock",
+      "address": "0xf51565240e667176c532db4139386e6a6e506d99",
+      "symbol": "FAAAx",
+      "ticker": "FAAA",
+      "halted": true
+    }
+  ],
+  "spot": [],
+  "bstockCandidates": [],
+  "productUpdates": []
+}
