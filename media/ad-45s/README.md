@@ -10,14 +10,17 @@ The ad tells the story of proving share ownership: the 1606 Amsterdam share, Edi
 - `act3.js`: provider braid, registry UI and seal, features, API, rewind, the line, logo.
 - `core.js`: easing, magic-move text, odometer roll, guilloche rosettes, painted strokes.
 - `gl3d.js`: three.js tapes and cards.
-- `score.py`: original score, synthesized (numpy/scipy).
+- `score.py`: original score, synthesized (numpy/scipy), one continuous track.
+- `scan.mjs` → `cues.json`: renders the timeline at 240 Hz and logs every typed letter, odometer tick, marker stroke and engraving.
+- `sfx.py`: sound design built from `cues.json` plus hand-placed hits (cards, stamps, seal, glitches, tape, keys).
+- `mix.py`: music + sound design with light ducking → `final_mix.wav`.
 - `assets/`: public-domain archive images from Wikimedia Commons (VOC share 1606, Edison stock ticker / NMAH, NYSE floor), turned into duotones by `prep.py`, plus the site's logos.
 
 Render (serve this folder over HTTP first, e.g. `python3 -m http.server 8765`):
 
 ```sh
 node render.mjs previews/silent.mp4 0 54 60 2   # 60 fps, 2-sample motion blur
-python3 score.py                                 # writes score.wav
-ffmpeg -i previews/silent.mp4 -i score.wav -map 0:v -map 1:a -c:v libx264 -crf 17 -c:a aac -b:a 256k \
+node scan.mjs && python3 score.py && python3 sfx.py && python3 mix.py   # writes final_mix.wav
+ffmpeg -i previews/silent.mp4 -i final_mix.wav -map 0:v -map 1:a -c:v libx264 -crf 17 -c:a aac -b:a 256k \
   -af "volume=<gain to -14 LUFS>dB,alimiter=limit=0.89" -shortest previews/mintmark-ad-54s.mp4
 ```

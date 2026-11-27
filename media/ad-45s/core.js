@@ -2,6 +2,14 @@
 // guilloche rosettes, painted marker strokes, image drawing.
 export const W = 1920, H = 1080, BPM = 100, BEAT = 60 / BPM;
 export const b = (n) => n * BEAT; // beat -> seconds
+// Sound-cue logger: a scan pass renders the timeline densely and records each
+// event the first time it happens, so the sound design lands on the exact frame.
+export const SFX = { on: false, t: 0, seen: new Set(), log: [] };
+export function cue(type, key, o = {}) {
+  if (!SFX.on || SFX.seen.has(key)) return;
+  SFX.seen.add(key); SFX.log.push({ t: +SFX.t.toFixed(4), type, ...o });
+}
+const panOf = (x) => Math.max(-1, Math.min(1, x / 960 - 1));
 export const C = {
   ink: '#18221c', dark: '#111a18', paper: '#f8f9f7', white: '#ffffff', lime: '#d8f36b', green: '#597960',
   mint: '#8fc497', pale: '#e7efe8', line: '#dce3db', muted: '#6d786e', warn: '#ff5a36', gold: '#f3ba2f',
@@ -80,6 +88,7 @@ export function rise(ctx, str, x, y, p, st = {}, stagger = 0.035, dur = 0.5) {
   for (let i = 0; i < n; i++) {
     const q = E.outQuint(cl((p * total - i * stagger) / dur));
     if (q <= 0) continue;
+    if (L.chars[i] !== ' ') cue('type', `r|${str}|${i}|${Math.round(y)}`, { pan: panOf(x0 + L.xs[i]), size: st.size });
     ctx.fillText(L.chars[i], x0 + L.xs[i], y + (1 - q) * st.size * 1.1);
   }
   ctx.restore();
@@ -96,6 +105,7 @@ export function fall(ctx, str, x, y, p, st = {}, stagger = 0.02, dur = 0.4) {
   ctx.beginPath(); ctx.rect(x0 - st.size, y - st.size * 1.05, L.width + st.size * 2, st.size * 1.38); ctx.clip();
   for (let i = 0; i < n; i++) {
     const q = E.inCubic(cl((p * total - i * stagger) / dur));
+    if (q > 0 && L.chars[i] !== ' ' && i % 2 === 0) cue('untype', `f|${str}|${i}|${Math.round(y)}`, { pan: panOf(x0 + L.xs[i]) });
     ctx.fillText(L.chars[i], x0 + L.xs[i], y - q * st.size * 1.1);
   }
   ctx.restore();
@@ -141,6 +151,7 @@ export function morph(ctx, A, Bs, p, x, y, st = {}, stB = null) {
   for (let i = 0; i < nOut; i++) {
     if (mA.has(i) || A[i] === ' ') continue;
     const q = E.inCubic(cl((p - (i / nOut) * 0.25) / 0.45));
+    if (q > 0) cue('untype', `ml|${A}|${Bs}|${i}`, { pan: panOf(xa + La.xs[i]) });
     draw(A[i], xa + La.xs[i], y - q * st.size * 0.45, 1 - q, q * 14, st.size, st.col, st.w);
   }
   // shared letters
@@ -154,6 +165,7 @@ export function morph(ctx, A, Bs, p, x, y, st = {}, stB = null) {
   for (let j = 0; j < nIn; j++) {
     if (mB.has(j) || Bs[j] === ' ') continue;
     const q = E.outQuint(cl((p - 0.38 - (j / nIn) * 0.25) / 0.45));
+    if (q > 0) cue('type', `ma|${A}|${Bs}|${j}`, { pan: panOf(xb + Lb.xs[j]), size: stB.size });
     draw(Bs[j], xb + Lb.xs[j], y + (1 - q) * stB.size * 0.45, q, (1 - q) * 14, stB.size, stB.col, stB.w);
   }
   void sizeNow;
@@ -177,6 +189,7 @@ export function roll(ctx, a, z, p, x, y, st = {}, spins = 1) {
     if (a === z) steps = 0;
     const v = q * steps;
     const k = Math.floor(v), f = v - k;
+    if (steps && k > 0) cue('tick', `k|${a}|${z}|${i}|${k}`, { pan: panOf(x0 + L.xs[i]) });
     const d0 = (da + k) % 10, d1 = (da + k + 1) % 10;
     const speed = Math.abs(Math.sin(Math.PI * q));
     const dx = x0 + L.xs[i];
@@ -209,6 +222,7 @@ export function rosettePts(R, o, k, N = 720) {
 export function rosette(ctx, cx, cy, R, o = {}) {
   const { L = 20, prog = 1, rot = 0, col = C.ink, lw = 1.5, alpha = 1, N = 720 } = o;
   if (prog <= 0 || alpha <= 0) return;
+  if (prog < 1) cue('engrave', `ro|${o.n}|${L}|${Math.floor(SFX.t / 4)}`, { pan: panOf(cx), dur: 0.9 });
   ctx.save();
   ctx.translate(cx, cy); ctx.rotate(rot);
   ctx.globalAlpha *= alpha;
@@ -245,6 +259,9 @@ function partial(pts, p) {
 export function paint(ctx, pts, p, o = {}) {
   const { col = C.lime, w = 18, alpha = 1, blend = 'source-over', seed = 1, rough = 1, taper = false } = o;
   if (p <= 0 || alpha <= 0) return;
+  { const k = `p|${seed}|${col}|${pts.length}|${blend}`;
+    cue('marker', k, { pan: panOf(pts[0][0]), w });
+    if (p >= 1) cue('markerEnd', k + '|e'); }
   const P = partial(pts, cl(p));
   if (P.length < 2) return;
   ctx.save();

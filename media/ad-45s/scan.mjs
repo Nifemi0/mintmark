@@ -1,0 +1,15 @@
+import { writeFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('playwright');
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
+page.on('pageerror', (e) => console.error('PAGEERROR', e.message));
+await page.goto('http://127.0.0.1:8765/film.html');
+await page.waitForFunction(() => window.READY === true);
+const t0 = Date.now();
+const log = await page.evaluate(() => window.scanCues(1 / 240));
+await writeFile('cues.json', JSON.stringify(log));
+const by = {}; for (const e of log) by[e.type] = (by[e.type] || 0) + 1;
+console.log(log.length, by, ((Date.now() - t0) / 1000).toFixed(0) + 's');
+await browser.close();

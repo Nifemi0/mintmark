@@ -1,4 +1,4 @@
-import { W, H, b, C, cl, seg, lerp, E, settle, rng, text, rise, fall, morph, roll, rosette, paint, loopPts, linePts, arrowPts, crossPts, img, rr, setFont, layout } from './core.js';
+import { SFX, W, H, b, C, cl, seg, lerp, E, settle, rng, text, rise, fall, morph, roll, rosette, paint, loopPts, linePts, arrowPts, crossPts, img, rr, setFont, layout } from './core.js';
 import * as G from './gl3d.js';
 import { act2 } from './act2.js';
 import { act3 } from './act3.js';
@@ -309,6 +309,7 @@ function act1(t) {
 /* ================= frame ================= */
 window.FILM_DURATION = DURATION;
 window.renderFrame = (t) => {
+  SFX.t = t;
   clear(c0); clear(c1);
   bg(c0, C.paper);
   for (const m of G.scene.children) if (m.isMesh || m.isGroup) m.visible = false;
@@ -316,6 +317,12 @@ window.renderFrame = (t) => {
   if (t < b(20.2)) act1(t);
   if (t >= b(19.9) && t < b(40.2)) act2(t, { c0, c1, IM, G });
   if (t >= b(39.9)) act3(t, { c0, c1, IM, G });
-  G.render();
+  if (!window.SCAN) G.render();
+};
+window.scanCues = (dt = 1 / 240) => {
+  window.SCAN = true; SFX.on = true; SFX.seen.clear(); SFX.log.length = 0;
+  for (let t = 0; t < DURATION; t += dt) window.renderFrame(t);
+  window.SCAN = false; SFX.on = false;
+  return SFX.log;
 };
 window.READY = true;

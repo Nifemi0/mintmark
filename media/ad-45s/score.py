@@ -160,7 +160,7 @@ for k in range(int((b(86) - b(2)) / (4 * BEAT))):
 for s_ in range(int((b(86) - b(2)) / (BEAT / 4))):
     ts = b(2) + s_ * BEAT / 4
     if s_ % 4 == 3: continue
-    loud = 0.07
+    loud = 0.04
     if b(10) <= ts < b(16) or b(26.6) <= ts < b(28) or b(60) <= ts < b(61.2) or b(68) <= ts < b(71): loud = 0.24
     add(tick(3000 + 400 * (s_ % 4)), ts, loud, 0.5 if s_ % 2 else -0.5)
 
@@ -173,10 +173,8 @@ add(impact(0.6), b(10), 0.45)        # 1867
 add(impact(0.6), b(16), 0.4)         # 2026
 riser(b(18), b(20), 'A2', 0.3)
 add(impact(0.9), b(20), 0.6)         # NVDA
-add(stamp(), b(35.5), 0.7)           # look-alike stamp
 riser(b(38), b(40), 'E2', 0.32)
 add(impact(0.9), b(40), 0.6)         # one registry
-add(stamp(), b(49), 0.8)             # seal
 for k_, nt in enumerate(['C5', 'E5', 'G5']): add(bell(nt, dur=1.4), b(64 + 0.25 * k_), 0.28, (k_ - 1) * 0.5)
 riser(b(75), b(78), 'C3', 0.35)
 add(impact(1.0), b(78), 0.8)         # logo lands
