@@ -31,7 +31,7 @@ def key(size=120, soft=False):
     thock = np.sin(2 * np.pi * f0 * t) * np.exp(-t * 55)
     click = filt(nz(n), 'band', [2500, 7500]) * np.exp(-t * 420)
     body = filt(nz(n), 'band', [700, 2000]) * np.exp(-t * 160)
-    x = thock * 0.9 + click * (0.5 if soft else 0.9) + body * 0.5
+    x = thock * 0.9 + click * (0.35 if soft else 0.8) + body * (0.2 if soft else 0.5)
     return x * rng.uniform(0.75, 1.0)
 def untype():
     n = int(0.05 * SR); t = tt(n)
@@ -90,6 +90,15 @@ def ring_click():
     n = int(0.08 * SR); t = tt(n)
     return np.sin(2 * np.pi * 1800 * t) * np.exp(-t * 80) * 0.5 + filt(nz(n), 'high', 3000) * np.exp(-t * 400) * 0.6
 
+# No swooshes: every noise-based sustained sound is silenced; only short clean hits remain.
+SILENT = lambda *a, **k: np.zeros(1)
+swipe = ribbon = whir = paper = SILENT
+def glitch(dur=0.32):  # three tight digital blips instead of a noise burst
+    x = np.zeros(int(0.2 * SR))
+    for i, f in enumerate([1760, 1320, 2640]):
+        bl = blip(f); j = int(i * 0.05 * SR); x[j:j + len(bl)] += bl * 0.6
+    return x
+
 # ---------- scanned events ----------
 cues = json.load(open('cues.json'))
 starts = {}
@@ -99,16 +108,14 @@ markers = [e for e in cues if e['type'] == 'marker']
 ends = [e for e in cues if e['type'] == 'markerEnd']
 for e in cues:
     t, ty, pan = e['t'], e['type'], e.get('pan', 0)
-    if ty == 'type': add(key(e.get('size', 120)), t, 0.32 if e.get('size', 120) >= 100 else 0.24, pan * 0.7)
-    elif ty == 'untype': add(untype(), t, 0.18, pan * 0.7)
-    elif ty == 'tick': add(tick(), t, 0.22, pan * 0.6)
-    elif ty == 'engrave': add(scratch(e.get('dur', 0.9), 3000, 9500, 45), t, 0.12, pan * 0.4)
+    if ty == 'type': add(key(e.get('size', 120), soft=True), t, 0.2, pan * 0.5)
+    elif ty == 'tick': add(tick(), t, 0.14, pan * 0.5)
 for m, en in zip(markers, ends):
     d = en['t'] - m['t']
     if d < 0.05: d = 0.38
     w = m.get('w', 20)
     lo, hi = (900, 3500) if w > 60 else (1500, 5200)
-    add(scratch(min(d, 1.2), lo, hi), m['t'], 0.22 if w > 60 else 0.26, m.get('pan', 0) * 0.6)
+    pass  # markers stay silent (scratches read as swooshes)
 
 # ---------- placed hits (by beat) ----------
 P = []  # (beat, sound, gain, pan)
