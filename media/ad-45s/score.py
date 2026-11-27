@@ -116,102 +116,74 @@ def stamp(g=1.0):
     x += 0.5 * filt(rng.standard_normal(n), 'band', [300, 1500]) * np.exp(-t * 35)
     return np.tanh(2 * x) * g
 
-# ---------- arrangement ----------
-CH = {  # chord tones for stabs, bass root
+# ---------- arrangement: one continuous track ----------
+CH = {
     'Am': (['A3', 'C4', 'E4', 'B4'], 'A1'), 'F': (['F3', 'A3', 'C4', 'E4'], 'F1'), 'C': (['G3', 'C4', 'E4', 'D5'], 'C2'),
-    'G': (['G3', 'B3', 'D4', 'A4'], 'G1'), 'Dm': (['D4', 'F4', 'A4', 'E5'], 'D2'), 'E': (['G#3', 'B3', 'E4', 'F#4'], 'E1'),
+    'G': (['G3', 'B3', 'D4', 'A4'], 'G1'),
 }
-def bars(t0, t1, prog):
-    out = []; t = t0; i = 0
-    while t < t1 - 1e-6:
-        out.append((t, prog[i % len(prog)])); t += 2.0; i += 1
-    return out
+PROG = ['Am', 'F', 'C', 'G']           # 2 s per chord, never stops
+def chord_at(t): return PROG[int(t // 2.0) % 4]
+def inten(t):                          # energy curve; sections only change how full it is
+    pts = [(0, 0.45), (1.0, 0.8), (9.5, 0.85), (10, 0.92), (19, 0.95), (20, 1.0), (34, 1.0), (36, 0.85), (38.5, 0.95), (39, 1.0), (43, 0.85), (45, 0.7)]
+    for (a, x), (z, y) in zip(pts, pts[1:]):
+        if a <= t <= z: return x + (y - x) * (t - a) / (z - a)
+    return pts[-1][1]
 
-def groove(t0, t1, prog, intensity=1.0, ticks=False, hats_open=False, half=False):
-    for (bt, ch) in bars(t0, t1, prog):
-        notes, root = CH[ch]
-        for k in range(4):
-            tb = bt + k * BEAT
-            if tb >= t1: break
-            if not half or k % 2 == 0: add(kick(), tb, 0.9 * intensity)
-            if k in (1, 3) and not half: add(clap(), tb, 0.55 * intensity, 0.1)
-            if half and k == 2: add(clap(), tb, 0.55 * intensity, 0.1)
-            for s in range(2):
-                th = tb + s * BEAT / 2
-                if th < t1: add(hat(hats_open and s == 1), th, (0.5 if s else 0.28) * intensity, 0.35)
-            # bass: off-beat eighths pumping
-            bn = root if k != 3 else root[:-1] + str(int(root[-1]) + 1)
-            add(bass(bn, BEAT / 2 - 0.02), tb + BEAT / 2, 0.55 * intensity)
-            if k == 0: add(bass(root, BEAT / 2 - 0.02), tb, 0.5 * intensity)
-        # chord stabs on the "and" of 2 and on 4 (syncopated, varies per bar)
-        for off in (1.5 * BEAT, 3 * BEAT + BEAT / 2):
-            if bt + off < t1: add(stab(notes, cutoff=2200 + 1800 * intensity), bt + off, 0.42 * intensity, -0.2)
-        if ticks:
-            for s in range(16):
-                ts = bt + s * BEAT / 4
-                if ts < t1 and (s % 3 != 2): add(tick(3000 + 400 * (s % 4)), ts, 0.30 + 0.12 * (s % 2), 0.5 if s % 2 else -0.5)
+# continuous pad: overlapping chord pads, cutoff rides the energy curve
+for k in range(23):
+    t0 = k * 2.0
+    notes, _ = CH[chord_at(t0)]
+    add(pad(notes, 2.5, cutoff=900 + 1500 * inten(t0), attack=0.35 if k else 1.0), t0 - (0.25 if k else 0), 0.30)
+# sub bass under everything from the first slam to the end
+for k in range(int((45 - 1.0) / BEAT)):
+    tb = 1.0 + k * BEAT
+    root = CH[chord_at(tb)][1]
+    add(bass(root, BEAT - 0.03), tb, 0.42 * inten(tb))
+    if tb < 43: add(bass(root[:-1] + str(int(root[-1]) + 1), BEAT / 2 - 0.02), tb + BEAT / 2, 0.32 * inten(tb))
+# drums: four-on-the-floor from 1.0 s to the logo, hats/claps continuous
+end_drums = b(86)
+for k in range(int((end_drums - 1.0) / BEAT)):
+    tb = 1.0 + k * BEAT
+    g = inten(tb)
+    add(kick(), tb, 0.9 * g)
+    if k % 2 == 1: add(clap(), tb, 0.5 * g, 0.1)
+    add(hat(), tb, 0.26 * g, 0.35)
+    add(hat(open_=(tb >= 10)), tb + BEAT / 2, 0.42 * g, 0.35)
+    if tb >= 20: add(hat(), tb + BEAT / 4, 0.16 * g, -0.35); add(hat(), tb + 3 * BEAT / 4, 0.16 * g, -0.35)
+# chord stabs: syncopated, every bar
+for k in range(int((b(86) - 1.0) / 2.0)):
+    bt = 1.0 + k * 2.0
+    notes, _ = CH[chord_at(bt)]
+    for off in (1.5 * BEAT, 3.5 * BEAT):
+        add(stab(notes, cutoff=2000 + 2200 * inten(bt)), bt + off, 0.36 * inten(bt), -0.2)
+# ticker motif runs quietly the whole time, louder in the telegraph section and on the counter
+for s_ in range(int((b(86) - 1.0) / (BEAT / 4))):
+    ts = 1.0 + s_ * BEAT / 4
+    if s_ % 4 == 3: continue
+    loud = 0.07
+    if 5.0 <= ts < 8.0 or 13.3 <= ts < 14.0 or 30.0 <= ts < 30.6 or 34.0 <= ts < 35.5: loud = 0.24
+    add(tick(3000 + 400 * (s_ % 4)), ts, loud, 0.5 if s_ % 2 else -0.5)
 
-# 0 - 1: engraving shimmer, building
-add(pad(['A3', 'E4', 'B4'], 1.2, cutoff=1800, attack=0.9), 0, 0.5)
-for s in range(8): add(tick(4200 + 200 * s), s * BEAT / 4, 0.12 + 0.03 * s, 0.6 if s % 2 else -0.6)
-riser(0.2, 1.0, 'A2', 0.25)
-add(impact(), b(2), 0.9)
-# 1 - 4.5: paper
-groove(b(2), b(9), ['Am', 'F', 'C', 'G'], 0.85)
-add(pad(['A3', 'C4', 'E4'], 3.5, cutoff=900), b(2), 0.25)
-# 4.5: drop-out + tonal lift, 5.0 hit (1867)
-riser(b(9), b(10), 'E3', 0.35)
-add(impact(0.8), b(10), 0.75)
-groove(b(10), b(16), ['Am', 'F', 'C', 'G'], 0.95, ticks=True)
-# 8.0: 2026 hit, halftone glitch stutter
-add(impact(0.9), b(16), 0.8)
-for k in range(6): add(stab(CH['Am'][0], dur=0.05, cutoff=5000), b(16) + k * BEAT / 4, 0.3, 0.3 if k % 2 else -0.3)
-groove(b(16.5), b(19.5), ['C', 'G'], 0.8, half=True)
-riser(b(18.5), b(20), 'A2', 0.35)
-# 10 - 20: NVDA, cards, counter, look-alikes
-add(impact(), b(20), 0.95)
-groove(b(20), b(32), ['Am', 'F', 'Dm', 'E'], 1.0, hats_open=True)
-for s in range(int((b(28) - b(26.6)) / (BEAT / 4))): add(tick(2600 + 60 * s), b(26.6) + s * BEAT / 4, 0.22 + 0.01 * s, 0.4 if s % 2 else -0.4)  # counter roll
-for k, tt in enumerate([b(29.75), b(30.25), b(30.75)]): add(stab(['A4', 'C5', 'E5'][k:k + 1] + ['A3'], dur=0.15, cutoff=4000), tt, 0.5, (k - 1) * 0.5)
-groove(b(32), b(38), ['Dm', 'E'], 0.9, half=True)
-add(pad(['D4', 'F4', 'A4', 'E5'], 3.0, cutoff=1100), b(32), 0.22)
-add(stamp(), b(35.5), 0.9)
-add(stab(['A#3', 'E4', 'G#4'], dur=0.3, cutoff=3000), b(35.25), 0.45)
-riser(b(38), b(40), 'E2', 0.45)
-add(pad(['E3', 'G#3', 'B3', 'D4'], 2.0, cutoff=900, attack=1.2), b(38), 0.35)
-for k in range(8): add(kick(0.6), b(38 + k * 0.5), 0.25 + 0.06 * k)
-# 20 - 34: the registry (bright)
-add(impact(), b(40), 1.0)
-groove(b(40), b(68), ['C', 'G', 'Am', 'F'], 1.05, hats_open=True)
-add(pad(['C4', 'E4', 'G4', 'D5'], 4.0, cutoff=1600), b(40), 0.25)
-for k in range(4): add(tick(3400), b(44.5) + k * BEAT / 4, 0.35, 0.2)  # typing NVDA
-add(stamp(), b(49), 1.0)
-for k in range(4): add(impact(0.5), b(52 + 2 * k), 0.4)  # feature changes
-for k in range(48): add(tick(3600 + (k % 3) * 300), b(60) + k * (b(1.2) / 48), 0.12, 0.3 if k % 2 else -0.3)  # terminal typing
-for k, nt in enumerate(['C5', 'E5', 'G5']): add(bell(nt, dur=1.4), b(64 + 0.25 * k), 0.35, (k - 1) * 0.5)  # three dots (single, not repeated)
-add(pad(['C4', 'E4', 'G4', 'B4', 'D5'], 2.0, cutoff=2400, attack=0.05), b(66), 0.3)
-# 34 - 36: rewind (tape-stop on the groove)
-seg = slice(int(b(60) * SR), int(b(64) * SR))
-src = (L[seg] + R[seg]) / 2
-n = int(b(4) * SR); tt = np.arange(n) / n
-speed = np.maximum(0.12, 1 - tt ** 1.4 * 0.88)
-pos = np.cumsum(speed); pos = (pos / pos[-1] * (len(src) - 1)).astype(int)[::-1]
-rew = filt(src[pos], 'low', 4000) * np.minimum(1, (1 - tt) / 0.1)
-add(rew, b(68), 0.55)
-for s in range(16): add(tick(2200 + 150 * s), b(68.2) + s * (b(3) / 16), 0.25, 0.5 if s % 2 else -0.5)  # year rolling back
-for k in range(4): add(kick(0.7), b(68 + k), 0.6)
-# 36 - 38: the line
-add(impact(0.7), b(72), 0.6)
-add(pad(['A3', 'C4', 'E4', 'B4'], 3.0, cutoff=1300, attack=0.2), b(72), 0.35)
-for k in range(6): add(kick(0.8), b(72 + k * 0.5), 0.45 + 0.05 * k)
-riser(b(75), b(78), 'C3', 0.5)
-for s in range(12): add(tick(4000 + 150 * s), b(75) + s * (b(1.5) / 12), 0.12, 0.6 if s % 2 else -0.6)  # rosette engraving
-# 39: logo lands
-add(impact(1.0), b(78), 1.0)
-add(kick(), b(78), 1.0)
-add(pad(['C3', 'G3', 'C4', 'E4', 'G4', 'D5'], 6.0, cutoff=2200, attack=0.02), b(78), 0.42)
-add(bass('C1', 3.0), b(78), 0.7)
-for k, nt in enumerate(['G4', 'C5', 'E5']): add(bell(nt, dur=3.5), b(79 + 0.5 * k), 0.3, (k - 1) * 0.4)
+# opening: engraving ticks over the pad, lift into the first slam
+for s_ in range(8): add(tick(4200 + 200 * s_), s_ * BEAT / 4, 0.12 + 0.03 * s_, 0.6 if s_ % 2 else -0.6)
+riser(0.2, 1.0, 'A2', 0.22)
+# accents that sit ON the groove (nothing stops)
+add(impact(0.8), b(2), 0.7)          # 1606
+add(impact(0.6), b(10), 0.45)        # 1867
+add(impact(0.6), b(16), 0.4)         # 2026
+riser(b(18), b(20), 'A2', 0.3)
+add(impact(0.9), b(20), 0.6)         # NVDA
+add(stamp(), b(35.5), 0.7)           # look-alike stamp
+riser(b(38), b(40), 'E2', 0.32)
+add(impact(0.9), b(40), 0.6)         # one registry
+add(stamp(), b(49), 0.8)             # seal
+for k_, nt in enumerate(['C5', 'E5', 'G5']): add(bell(nt, dur=1.4), b(64 + 0.25 * k_), 0.28, (k_ - 1) * 0.5)
+riser(b(75), b(78), 'C3', 0.35)
+add(impact(1.0), b(78), 0.8)         # logo lands
+add(pad(['C3', 'G3', 'C4', 'E4', 'G4', 'D5'], 6.0, cutoff=2200, attack=0.02), b(78), 0.32)
+for k_, nt in enumerate(['G4', 'C5', 'E5']): add(bell(nt, dur=3.5), b(79 + 0.5 * k_), 0.25, (k_ - 1) * 0.4)
+# after the drums stop at 43 s the pad, bass and a soft kick on 1 carry the logo out
+for k_ in range(2): add(kick(0.6), b(86 + 2 * k_), 0.35)
 
 # ---------- master ----------
 def reverb(x, secs=1.6, wet=0.18):
@@ -220,7 +192,7 @@ def reverb(x, secs=1.6, wet=0.18):
     return x * (1 - wet) + fftconvolve(x, ir)[:len(x)] * wet
 L = reverb(L); R = reverb(R)
 mix = np.stack([L, R], 1)
-mix = np.tanh(mix / (np.max(np.abs(mix)) + 1e-9) * 1.4)
+mix = np.tanh(mix / (np.max(np.abs(mix)) + 1e-9) * 1.25)
 fade = np.ones(N); fn = int(1.2 * SR); fade[-fn:] = np.linspace(1, 0, fn) ** 2
 mix *= fade[:, None]
 mix *= 0.89 / np.max(np.abs(mix))
