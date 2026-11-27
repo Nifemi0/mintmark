@@ -322,7 +322,7 @@ function logoScene(c0, c1, t) {
   const gap = (11 / 23) * ws.size;
   const total = S + gap + L.width;
   const iconX = lerp(960, 960 - total / 2 + S / 2, slide), iconY = 500;
-  const breathe = 1 + 0.06 * E.inOutCubic(seg(t, b(79.5), 45));
+  const breathe = 1 + 0.06 * E.inOutCubic(seg(t, b(79.5), b(90)));
   // background guilloche keeps turning, very faint
   rosette(c0, 960, 540, 760, { n: 18, A: 0.05, Bm: 0.02, m: 7, L: 10, prog: E.outExpo(seg(t, b(78), b(80))), rot: t * 0.06, col: C.green, lw: 1.2, alpha: 0.38 });
   rosette(c0, 960, 540, 980, { n: 26, A: 0.03, Bm: 0.0, m: 5, L: 6, prog: E.outExpo(seg(t, b(78.5), b(80.5))), rot: -t * 0.04, col: C.green, lw: 1.1, alpha: 0.26 });

@@ -15,11 +15,11 @@ await page.waitForFunction(() => window.READY === true, null, { timeout: 60000 }
 if (args[0] === '--stills') {
   const dir = args[1]; await mkdir(dir, { recursive: true });
   for (const t of args.slice(2).map(Number)) {
-    await page.evaluate((x) => window.renderFrame(x), t);
+    await page.evaluate((x) => { window.renderFrame(x); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); }, t);
     await page.screenshot({ path: `${dir}/s-${t.toFixed(2)}.png` });
   }
 } else {
-  const [out, s0 = 0, s1 = 45, fps = 60, sub = 1] = [args[0], ...args.slice(1).map(Number)];
+  const [out, s0 = 0, s1 = 54, fps = 60, sub = 1] = [args[0], ...args.slice(1).map(Number)];
   const frames = Math.round((s1 - s0) * fps);
   // with sub>1 we render sub-frames inside a 180-degree shutter and let ffmpeg average them
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps * sub), '-c:v', 'mjpeg', '-i', '-',
@@ -29,7 +29,7 @@ if (args[0] === '--stills') {
   for (let f = 0; f < frames; f++) {
     for (let k = 0; k < sub; k++) {
       const t = s0 + (f + (k / sub) * 0.5) / fps;
-      await page.evaluate((x) => window.renderFrame(x), t);
+      await page.evaluate((x) => { window.renderFrame(x); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); }, t);
       const buf = await page.screenshot({ type: 'jpeg', quality: 96 });
       if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
     }

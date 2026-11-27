@@ -5,7 +5,7 @@ import { act3 } from './act3.js';
 
 const c0 = document.getElementById('c0').getContext('2d');
 const c1 = document.getElementById('c1').getContext('2d');
-export const DURATION = 45;
+export const DURATION = 54;
 
 /* ---------- assets ---------- */
 const names = ['voc', 'voc_full', 'voc_date', 'voc_sig', 'voc_head', 'vocsep', 'edison', 'floor', 'street', 'atlas', 'nvda'];

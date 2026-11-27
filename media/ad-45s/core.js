@@ -1,6 +1,6 @@
 // Shared helpers: easing, text layout, magic-move text, digit roll,
 // guilloche rosettes, painted marker strokes, image drawing.
-export const W = 1920, H = 1080, BPM = 120, BEAT = 60 / BPM;
+export const W = 1920, H = 1080, BPM = 100, BEAT = 60 / BPM;
 export const b = (n) => n * BEAT; // beat -> seconds
 export const C = {
   ink: '#18221c', dark: '#111a18', paper: '#f8f9f7', white: '#ffffff', lime: '#d8f36b', green: '#597960',
